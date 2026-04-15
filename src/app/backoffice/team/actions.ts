@@ -76,7 +76,9 @@ export async function createMemberAction(formData: FormData) {
       "error"
     );
   }
-
+if (!data.user) {
+  throw new Error("User not found");
+}
   const { error: profileError } = await adminClient!.from("profiles").upsert({
     id: data.user.id,
     full_name: fullName,
