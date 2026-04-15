@@ -111,10 +111,11 @@ if ("error" in sectionResult) {
   const nextValue: UpcomingSettings = {
     cinema:
       storageSection === "cinema"
-        ? sectionResult.items.length > 0
-          ? sectionResult.items
-          : fallbackSettings.cinema
+        (sectionResult.items?.length ?? 0) > 0
+      ? (sectionResult.items ?? [])
+        : fallbackSettings.cinema
         : savedSettings.cinema,
+    
     entertainment:
       storageSection === "entertainment"
         ? sectionResult.items.length > 0
