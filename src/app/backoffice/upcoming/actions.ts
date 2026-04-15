@@ -136,7 +136,7 @@ if ("error" in sectionResult) {
 if (error) {
   return buildUpcomingRedirect(
     targetSection,
-    error?.message || "We couldn’t save the upcoming settings yet."
+    error?.message || "We couldn’t save the upcoming settings yet.",
     "error"
   );
 }
