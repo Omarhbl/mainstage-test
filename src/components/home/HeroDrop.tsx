@@ -13,8 +13,38 @@ const TRENDING_CARDS = [
 
 const SHOW_TRENDING_PANEL = false;
 
-export default function HeroDrop() {
+type HeroDropProps = {
+  slides?: Array<{
+    title: string;
+    category: string;
+    href: string;
+    media: string;
+  }>;
+  title?: string;
+  category?: string;
+  href?: string;
+  media?: string;
+};
+
+function isVideoAsset(src?: string) {
+  if (!src) return false;
+  return /\.(mp4|webm|ogg)(\?.*)?$/i.test(src);
+}
+
+export default function HeroDrop({
+  slides,
+  title = "Inside Kanye West's Most Controversial Show Yet in LA",
+  category = "Music",
+  href = "/articles/inside-kanye-wests-most-controversial-show-yet-in-la",
+  media = "/videos/intro.mp4",
+}: HeroDropProps) {
   const [isFeedOpen, setIsFeedOpen] = useState(false);
+  const normalizedSlides =
+    slides && slides.length > 0
+      ? slides.filter((slide) => slide.title && slide.category && slide.href && slide.media)
+      : [{ title, category, href, media }];
+  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
+  const activeSlide = normalizedSlides[activeSlideIndex] ?? normalizedSlides[0];
 
   // Close on Escape key
   useEffect(() => {
@@ -31,20 +61,42 @@ export default function HeroDrop() {
     };
   }, [isFeedOpen]);
 
+  useEffect(() => {
+    if (normalizedSlides.length <= 1) {
+      return;
+    }
+
+    const interval = window.setInterval(() => {
+      setActiveSlideIndex((current) => (current + 1) % normalizedSlides.length);
+    }, 6000);
+
+    return () => window.clearInterval(interval);
+  }, [normalizedSlides.length]);
+
   return (
     <section className="relative flex min-h-[68vh] w-full items-end overflow-hidden border-b border-border-main">
       {/* Background Video */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-x-0 bottom-0 z-10 h-[40%] bg-[linear-gradient(180deg,rgba(0,0,0,0)_0%,rgba(0,0,0,0.24)_28%,rgba(0,0,0,1)_100%)]" />
-        <video 
-          autoPlay 
-          muted 
-          loop 
-          playsInline 
-          className="h-full w-full scale-[1.02] object-cover object-center"
-        >
-          <source src="/videos/intro.mp4" type="video/mp4" />
-        </video>
+        {isVideoAsset(activeSlide.media) ? (
+          <video
+            key={activeSlide.media}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="h-full w-full scale-[1.02] object-cover object-center"
+          >
+            <source src={activeSlide.media} type="video/mp4" />
+          </video>
+        ) : (
+          <img
+            key={activeSlide.media}
+            src={activeSlide.media}
+            alt={activeSlide.title}
+            className="h-full w-full scale-[1.02] object-cover object-center"
+          />
+        )}
         <div className="scanline" />
       </div>
 
@@ -56,12 +108,17 @@ export default function HeroDrop() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <h2 className="max-w-4xl text-[30px] font-body font-bold tracking-[-0.03em] text-white leading-[1.08]">
-              Inside Kanye West&apos;s Most Controversial Show Yet in LA
-            </h2>
-            <p className="mt-1 text-[15px] font-body font-semibold leading-none text-[#CE2127]">
-              Music
-            </p>
+            <Link
+              href={activeSlide.href}
+              className="inline-block cursor-pointer"
+            >
+              <h2 className="max-w-4xl text-[30px] font-body font-bold tracking-[-0.03em] text-white leading-[1.08]">
+                {activeSlide.title}
+              </h2>
+              <p className="mt-1 text-[15px] font-body font-semibold leading-none text-[#CE2127]">
+                {activeSlide.category}
+              </p>
+            </Link>
           </motion.div>
         </div>
 
@@ -115,7 +172,7 @@ export default function HeroDrop() {
             {/* Modal Exit Button - Primary Pinpoint Exit */}
             <button 
               onClick={() => setIsFeedOpen(false)}
-              className="absolute top-6 right-6 z-[10000] w-12 h-12 flex items-center justify-center bg-void/60 backdrop-blur-xl rounded-full text-white/70 hover:text-primary hover:bg-void transition-all border border-white/10 group active:scale-95 shadow-2xl"
+              className="absolute top-6 right-6 z-[10000] flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border border-white/10 bg-void/60 text-white/70 shadow-2xl backdrop-blur-xl transition-all hover:bg-void hover:text-primary group active:scale-95"
               aria-label="Close modal"
             >
               <X size={24} className="group-hover:rotate-90 transition-transform duration-300" />
@@ -137,7 +194,7 @@ export default function HeroDrop() {
               {/* Overlay Logo/UI over the video */}
               <div className="absolute inset-0 z-10 pointer-events-none">
                 <div className="absolute top-12 left-12">
-                   <Link href="/" className="flex flex-col items-start">
+                   <Link href="/" className="flex cursor-pointer flex-col items-start">
                      <span className="text-[8px] font-mono tracking-[0.3em] text-primary mb-[-2px]">THE</span>
                      <h1 className="text-xl md:text-2xl font-display tracking-tighter text-text-primary leading-none">
                        MAINSTAGENT

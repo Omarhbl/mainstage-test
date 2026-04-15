@@ -6,9 +6,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "sync:spotify:morocco": "node scripts/sync-spotify-morocco.mjs",
+    "sync:youtube:morocco": "node scripts/sync-youtube-morocco.mjs",
+    "sync:tmdb:upcoming": "node scripts/sync-tmdb-upcoming.mjs",
+    "sync:browse:upcoming": "node scripts/sync-browse-upcoming.mjs"
   },
   "dependencies": {
+    "@supabase/ssr": "^0.10.2",
+    "@supabase/supabase-js": "^2.103.0",
     "clsx": "^2.1.1",
     "framer-motion": "^12.38.0",
     "gsap": "^3.14.2",

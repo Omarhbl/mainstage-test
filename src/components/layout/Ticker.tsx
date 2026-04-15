@@ -1,32 +1,39 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Link from "next/link";
 import gsap from "gsap";
 
-const news = [
-  "DERNIERE MINUTE: La scène urbaine marocaine accélère encore",
-  "LIVE: Shobee relance la conversation avec un retour plus froid et plus calculé",
-  "CASABLANCA: Les nuits culturelles deviennent le vrai terrain des tendances",
-  "EXCLU: Focus backstage sur la nouvelle génération d'artistes marocains",
-  "HOT TAKE: Le style, la musique et le cinéma fusionnent enfin dans le même feed",
-];
+type TickerItem = {
+  title: string;
+  href: string;
+};
 
-export default function Ticker() {
+export default function Ticker({ items }: { items: TickerItem[] }) {
   const tickerRef = useRef<HTMLDivElement>(null);
+  const news = items.filter((item) => item.title.trim() && item.href.trim());
 
   useEffect(() => {
     const ticker = tickerRef.current;
-    if (!ticker) return;
+    if (!ticker || news.length === 0) return;
 
     const width = ticker.scrollWidth / 2;
 
-    gsap.to(ticker, {
+    const animation = gsap.to(ticker, {
       x: -width,
       duration: 30,
       ease: "none",
       repeat: -1,
     });
-  }, []);
+
+    return () => {
+      animation.kill();
+    };
+  }, [news]);
+
+  if (news.length === 0) {
+    return null;
+  }
 
   return (
     <div className="w-full overflow-hidden border-b border-[#9f171c] bg-[#CE2127] py-2 select-none">
@@ -35,13 +42,14 @@ export default function Ticker() {
         className="flex whitespace-nowrap will-change-transform"
       >
         {[...news, ...news].map((item, i) => (
-          <span 
+          <Link
             key={i} 
-            className="flex items-center px-8 font-header text-[11px] font-bold tracking-[0.24em] text-white uppercase"
+            href={item.href}
+            className="flex items-center px-8 font-header text-[11px] font-bold tracking-[0.24em] text-white uppercase transition-opacity hover:opacity-85"
           >
             <span className="mr-4 h-1.5 w-1.5 rounded-full bg-white" />
-            {item}
-          </span>
+            {item.title}
+          </Link>
         ))}
       </div>
     </div>
