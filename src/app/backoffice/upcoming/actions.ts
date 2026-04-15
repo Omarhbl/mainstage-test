@@ -110,18 +110,18 @@ if ("error" in sectionResult) {
   
   const nextValue: UpcomingSettings = {
     cinema:
-      storageSection === "cinema"
-        (sectionResult.items?.length ?? 0) > 0
+  storageSection === "cinema"
+    ? (sectionResult.items?.length ?? 0) > 0
       ? (sectionResult.items ?? [])
-        : fallbackSettings.cinema
-        : savedSettings.cinema,
+      : fallbackSettings.cinema
+    : savedSettings.cinema,
     
     entertainment:
-      storageSection === "entertainment"
-        ? sectionResult.items.length > 0
-          ? sectionResult.items
-          : fallbackSettings.entertainment
-        : savedSettings.entertainment,
+  storageSection === "entertainment"
+    ? (sectionResult.items?.length ?? 0) > 0
+      ? (sectionResult.items ?? [])
+      : fallbackSettings.entertainment
+    : savedSettings.entertainment,
   };
 
   const { error } = await adminClient!.from("site_settings").upsert(
