@@ -95,10 +95,15 @@ export async function updateUpcomingSettingsAction(formData: FormData) {
     buildUpcomingRedirect(null, "Choose a section before saving upcoming entries.", "error");
   }
 
-  const sectionResult = parseUpcomingItems(formData, storageSection);
-  if ("error" in sectionResult) {
-    buildUpcomingRedirect(targetSection, sectionResult.error, "error");
-  }
+if (!storageSection) {
+  return buildUpcomingRedirect(targetSection, "Missing storage section", "error");
+}
+
+const sectionResult = parseUpcomingItems(formData, storageSection);
+
+if ("error" in sectionResult) {
+  return buildUpcomingRedirect(targetSection, sectionResult.error, "error");
+}
 
   const nextValue: UpcomingSettings = {
     cinema:
