@@ -102,9 +102,12 @@ if (!storageSection) {
 const sectionResult = parseUpcomingItems(formData, storageSection);
 
 if ("error" in sectionResult) {
-  return buildUpcomingRedirect(targetSection, sectionResult.error, "error");
-}
-
+  return buildUpcomingRedirect(
+  targetSection,
+  sectionResult.error || "Could not parse upcoming items",
+  "error"
+);
+  
   const nextValue: UpcomingSettings = {
     cinema:
       storageSection === "cinema"
