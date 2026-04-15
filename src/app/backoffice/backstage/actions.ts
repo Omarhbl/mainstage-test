@@ -488,7 +488,9 @@ export async function createBackstageClientAction(formData: FormData) {
     : await adminClient!.from("site_settings").insert(payload);
 
   if (saveError) {
-    await adminClient!.auth.admin.deleteUser(data.user.id);
+    if (data.user) {
+  await adminClient!.auth.admin.deleteUser(data.user.id);
+}
     buildBackstageRedirect(
       saveError.message || "The client account was created, but the portal record could not be saved.",
       "error",
