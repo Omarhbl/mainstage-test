@@ -450,7 +450,7 @@ export async function createBackstageClientAction(formData: FormData) {
       logoUrl,
       contactName,
       email,
-      authUserId: data.user? .id,
+      authUserId: data.user?.id,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
       portalSettings: await getBackstagePortalSettings(),
