@@ -150,6 +150,6 @@ return buildUpcomingRedirect(
   targetSection,
   "Upcoming strip updated successfully.",
   "success"
-);
-  
+); 
+}
 }
