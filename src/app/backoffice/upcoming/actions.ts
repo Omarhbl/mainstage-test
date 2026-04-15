@@ -132,18 +132,24 @@ if ("error" in sectionResult) {
     { onConflict: "key" }
   );
 
-  if (error) {
-    buildUpcomingRedirect(
-      targetSection,
-      error.message || "We couldn’t save the upcoming settings yet.",
-      "error"
-    );
-  }
+if (error) {
+  return buildUpcomingRedirect(
+    targetSection,
+    error.message || "We couldn’t save the upcoming settings yet.",
+    "error"
+  );
+}
 
-  revalidatePath("/backoffice/upcoming");
-  revalidatePath("/backoffice/upcoming/cinema");
-  revalidatePath("/backoffice/upcoming/events");
-  revalidatePath("/cinema");
-  revalidatePath("/events");
-  buildUpcomingRedirect(targetSection, "Upcoming strip updated successfully.", "success");
+revalidatePath("/backoffice/upcoming");
+revalidatePath("/backoffice/upcoming/cinema");
+revalidatePath("/backoffice/upcoming/events");
+revalidatePath("/cinema");
+revalidatePath("/events");
+
+return buildUpcomingRedirect(
+  targetSection,
+  "Upcoming strip updated successfully.",
+  "success"
+);
+  
 }
