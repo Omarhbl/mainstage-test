@@ -8,9 +8,7 @@ import {
 } from "@/lib/articles";
 
 export function usePublicArticles() {
-  const [articles, setArticles] = useState<ArticleRecord[]>(
-    Object.values(fallbackArticlesBySlug)
-  );
+  const [articles, setArticles] = useState<ArticleRecord[]>([]);
 
   useEffect(() => {
     let isMounted = true;
