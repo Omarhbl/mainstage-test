@@ -3,7 +3,7 @@
   "playlistName": "Top 50 - Morocco",
   "market": "MA",
   "source": "spotify-embed-scrape",
-  "scrapedAt": "2026-04-16T07:20:27.413Z",
+  "scrapedAt": "2026-04-16T13:09:36.797Z",
   "tracks": [
     {
       "rank": "#1",
@@ -45,7 +45,7 @@
       "rank": "#5",
       "title": "KALIMAT",
       "artist": "Manal",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02e1d80af2df4612061f48ffd0",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02e1d80af2df4612061f48ffd0",
       "plays": 33427,
       "chartChange": "-1",
       "totalStreams": "1,304,753"
@@ -63,7 +63,7 @@
       "rank": "#7",
       "title": "Bali maak",
       "artist": "Amine Farsi, Stormy",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e024c07f36c4eeee45eb76a141c",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e024c07f36c4eeee45eb76a141c",
       "plays": 28429,
       "chartChange": "+1",
       "totalStreams": "6,928,005"
@@ -72,7 +72,7 @@
       "rank": "#8",
       "title": "TJENENY",
       "artist": "Inkonnu, Draganov",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02feb59f075c205a9c6c644ebe",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02feb59f075c205a9c6c644ebe",
       "plays": 27884,
       "chartChange": "-1",
       "totalStreams": "787,336"
@@ -81,7 +81,7 @@
       "rank": "#9",
       "title": "TAF TAF",
       "artist": "OldyGotTheSound, Anys, Shaw",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e029006e6553b481d4b5dd91f9a",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e029006e6553b481d4b5dd91f9a",
       "plays": 27453,
       "chartChange": "=",
       "totalStreams": "11,236,190"
@@ -90,7 +90,7 @@
       "rank": "#10",
       "title": "Soprano",
       "artist": "Bo9al, Shaw",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e029575b430f7027f33d034e9f8",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e029575b430f7027f33d034e9f8",
       "plays": 25486,
       "chartChange": "+1",
       "totalStreams": "167,108"
@@ -117,7 +117,7 @@
       "rank": "#13",
       "title": "NGHAMER",
       "artist": "Bayadis, Manal, Shaw",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02c18c0c91a685f892fd66bed5",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02c18c0c91a685f892fd66bed5",
       "plays": 22449,
       "chartChange": "+1",
       "totalStreams": "4,569,017"
@@ -171,7 +171,7 @@
       "rank": "#19",
       "title": "Raindance (feat. Tems)",
       "artist": "Dave, Tems",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02fecaa7826bb0cbe139a8cb83",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02fecaa7826bb0cbe139a8cb83",
       "plays": 18679,
       "chartChange": "+5",
       "totalStreams": "2,253,673"
@@ -198,7 +198,7 @@
       "rank": "#22",
       "title": "Machi M3ana",
       "artist": "Shobee",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e022c6f48d5cc763bde74429c91",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e022c6f48d5cc763bde74429c91",
       "plays": 18400,
       "chartChange": "-1",
       "totalStreams": "419,358"
@@ -225,7 +225,7 @@
       "rank": "#25",
       "title": "Uber Driver",
       "artist": "ONZY",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02edbc0aaea47aa5c8dad338cd",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02edbc0aaea47aa5c8dad338cd",
       "plays": null,
       "chartChange": "=",
       "totalStreams": null
@@ -315,7 +315,7 @@
       "rank": "#35",
       "title": "BOOMX3",
       "artist": "ElGrandeToto",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0236673b09fa34b996655c9c33",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0236673b09fa34b996655c9c33",
       "plays": 13371,
       "chartChange": "+4",
       "totalStreams": "2,892,571"
@@ -324,7 +324,7 @@
       "rank": "#36",
       "title": "MOOD",
       "artist": "Inkonnu",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02feb59f075c205a9c6c644ebe",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02feb59f075c205a9c6c644ebe",
       "plays": 13336,
       "chartChange": "-1",
       "totalStreams": "568,452"
@@ -333,7 +333,7 @@
       "rank": "#37",
       "title": "XYLAZINE",
       "artist": "7ari, Ramoon",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0241fd5259df4c1b10a69c7bed",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0241fd5259df4c1b10a69c7bed",
       "plays": 13294,
       "chartChange": "-10",
       "totalStreams": "113,890"
@@ -342,7 +342,7 @@
       "rank": "#38",
       "title": "Tsswirtek",
       "artist": "Draganov",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026c4d86597c81e7c35b3e2906",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026c4d86597c81e7c35b3e2906",
       "plays": 13223,
       "chartChange": "+9",
       "totalStreams": "3,176,539"
@@ -369,7 +369,7 @@
       "rank": "#41",
       "title": "NAKIRA",
       "artist": "7ari, Ramoon",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0241fd5259df4c1b10a69c7bed",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0241fd5259df4c1b10a69c7bed",
       "plays": 12900,
       "chartChange": "-10",
       "totalStreams": "102,446"
@@ -378,7 +378,7 @@
       "rank": "#42",
       "title": "TABOUT",
       "artist": "KALIL",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0262d26d8936756ce1462d6b55",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0262d26d8936756ce1462d6b55",
       "plays": 12620,
       "chartChange": "+4",
       "totalStreams": "5,305,378"
@@ -387,7 +387,7 @@
       "rank": "#43",
       "title": "INSOMNIA HOTEL",
       "artist": "Najm, ElGrandeToto",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e020b567d0a96884db97964309c",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e020b567d0a96884db97964309c",
       "plays": 12550,
       "chartChange": "+1",
       "totalStreams": "1,821,428"
