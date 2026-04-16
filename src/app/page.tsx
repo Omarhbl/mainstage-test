@@ -23,10 +23,10 @@ export default async function Home() {
     {
       "@context": "https://schema.org",
       "@type": "WebPage",
-      name: "The Mainstagent",
+      name: "Mainstage",
       url: toAbsoluteUrl("/"),
       description: buildSeoDescription(
-        "The digital stage for Moroccan Gen Z. Discover the latest in music, cinema, culture, sport, events, and people."
+        "A platform built for culture, entertainment, and the people shaping what's next."
       ),
     },
     latestArticleList,
