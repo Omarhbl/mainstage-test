@@ -21,11 +21,13 @@ export async function GET() {
       scopes: ["https://www.googleapis.com/auth/analytics.readonly"],
     });
 
-    const analyticsData = google.analyticsdata("v1beta");
     const authClient = await auth.getClient();
 
+    google.options({ auth: authClient });
+
+    const analyticsData = google.analyticsdata("v1beta");
+
     const response = await analyticsData.properties.runRealtimeReport({
-      auth: authClient,
       property: `properties/${propertyId}`,
       requestBody: {
         metrics: [{ name: "activeUsers" }],
