@@ -121,10 +121,11 @@ export default function EditorialGrid({
       : publicArticles.articlesMap;
 const sortedCards = publicArticles.sortedCards;
   
-const trendingItems = sortedCards.length
-  ? sortedCards
-  : [];
-          .map((article) => ({
+          const trendingItems = (
+            sortedCards.length
+            ? sortedCards
+            : []
+            ).map((article) => ({
             slug: article.slug,
             title: article.title,
             summary: article.summary,
@@ -133,7 +134,6 @@ const trendingItems = sortedCards.length
             image: article.image,
             imageClassName: article.imageClassName,
           }))
-      : []
   ).slice(0, 3);
 
   const mustRead =
