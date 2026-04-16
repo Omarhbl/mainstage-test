@@ -56,6 +56,7 @@ export async function generateMetadata({
   }
 
   const canonicalPath = `/articles/${article.slug}`;
+  const canonicalUrl = toAbsoluteUrl(canonicalPath);
   const description = buildSeoDescription(
     article.summary,
     article.intro,
@@ -79,10 +80,10 @@ export async function generateMetadata({
     },
     keywords: tags,
     openGraph: {
+      type: "article",
+      url: canonicalUrl,
       title: article.title,
       description,
-      url: canonicalPath,
-      type: "article",
       siteName: SITE_NAME,
       images: [
         {
@@ -121,7 +122,9 @@ export default async function ArticlePage({
 
   const allArticles = await getPublicArticles();
 
-  const normalizedFrom = from?.toLowerCase() === "entertainment" ? "events" : from?.toLowerCase();
+  const normalizedFrom =
+    from?.toLowerCase() === "entertainment" ? "events" : from?.toLowerCase();
+
   const activeCategory =
     normalizedFrom &&
     CATEGORY_BACK_LINKS[normalizedFrom] &&
@@ -132,52 +135,70 @@ export default async function ArticlePage({
   const similarCategory =
     activeCategory === "trending" ? article.category.toLowerCase() : activeCategory;
 
-  const similarArticles = allArticles.filter(
-    (candidate) =>
-      candidate.slug !== article.slug &&
-      hasArticleCategory(candidate, similarCategory)
-  ).slice(0, 3);
+  const similarArticles = allArticles
+    .filter(
+      (candidate) =>
+        candidate.slug !== article.slug &&
+        hasArticleCategory(candidate, similarCategory)
+    )
+    .slice(0, 3);
+
   const bodyParagraphs = Array.isArray(article.body)
-    ? article.body.filter((paragraph) => typeof paragraph === "string" && paragraph.trim().length > 0)
+    ? article.body.filter(
+        (paragraph) =>
+          typeof paragraph === "string" && paragraph.trim().length > 0
+      )
     : [];
+
   const bodyHtml = article.bodyHtml?.trim();
   const heroMediaType = article.heroMedia?.type === "video" ? "video" : "image";
-  const heroMediaSrc =
-    article.heroMedia?.src?.trim() || article.image || "";
+  const heroMediaSrc = article.heroMedia?.src?.trim() || article.image || "";
   const canonicalUrl = toAbsoluteUrl(`/articles/${article.slug}`);
   const socialImageUrl = article.image
     ? toAbsoluteUrl(article.image)
     : getDefaultOgImage();
   const publishedTime = parseArticleDateToIso(article.date);
+  const modifiedTime = parseArticleDateToIso(article.updatedAt ?? article.date);
   const articleDescription = buildSeoDescription(
     article.summary,
     article.intro,
     bodyParagraphs[0]
   );
+
   const backLink =
     CATEGORY_BACK_LINKS[activeCategory] ?? {
       href: "/trending",
       label: "Back to Trending",
     };
+
+  const keywordList = buildKeywordList([
+    article.category,
+    ...(article.categories ?? []),
+    ...(article.tags ?? []),
+  ]);
+
+  const articleBodyText = bodyParagraphs.join("\n\n");
+
   const structuredData = [
     {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": canonicalUrl,
+      },
       headline: article.title,
       description: articleDescription,
       image: [socialImageUrl],
       datePublished: publishedTime,
-      dateModified: publishedTime,
-      mainEntityOfPage: canonicalUrl,
+      dateModified: modifiedTime,
+      url: canonicalUrl,
       articleSection: article.category,
-      keywords: buildKeywordList([
-        article.category,
-        ...(article.categories ?? []),
-        ...(article.tags ?? []),
-      ]).join(", "),
+      keywords: keywordList.join(", "),
+      isAccessibleForFree: true,
       author: {
-        "@type": "Organization",
-        name: SITE_NAME,
+        "@type": "Person",
+        name: "Omar Harboul",
       },
       publisher: {
         "@type": "Organization",
@@ -187,6 +208,11 @@ export default async function ArticlePage({
           url: toAbsoluteUrl("/mainstage-logo.png"),
         },
       },
+      ...(articleBodyText
+        ? {
+            articleBody: articleBodyText,
+          }
+        : {}),
     },
     buildBreadcrumbSchema([
       {
@@ -209,11 +235,13 @@ export default async function ArticlePage({
       <main className="flex-1">
         <section className="mx-auto max-w-[1180px] px-4 py-12 md:px-8 md:py-16">
           <JsonLd data={structuredData} />
+
           <h1 className="mx-auto max-w-[760px] text-center text-[26px] font-body font-bold leading-[1.2] tracking-[-0.03em] text-[#171717]">
             {article.title}
           </h1>
+
           <p className="mx-auto mt-3 max-w-[760px] text-center text-[14px] font-body font-normal text-[rgba(0,0,0,0.62)]">
-            {formatArticleDate(article.date)}
+            By Omar Harboul • {formatArticleDate(article.date)}
           </p>
 
           <div className="mx-auto mt-10 max-w-[860px] overflow-hidden rounded-[9px] bg-[#ddd7cf]">
