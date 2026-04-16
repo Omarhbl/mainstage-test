@@ -3,6 +3,7 @@ import { Heebo } from "next/font/google";
 import "./globals.css";
 import AppChrome from "@/components/layout/AppChrome";
 import JsonLd from "@/components/seo/JsonLd";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import {
   buildKeywordList,
   buildOrganizationSchema,
@@ -88,6 +89,7 @@ export default async function RootLayout({
         <JsonLd data={rootStructuredData} />
         <div className="noise-overlay" />
         <AppChrome tickerItems={homepageSettings.tickerItems}>{children}</AppChrome>
+          <GoogleAnalytics gaId="G-5REKDL0CNK" />
       </body>
     </html>
   );
