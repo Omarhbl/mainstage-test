@@ -25,15 +25,30 @@ function revalidateFeedSurfaces() {
 }
 
 export async function GET(request: Request) {
-  if (!isAuthorized(request)) {
+  try {
+    if (!isAuthorized(request)) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    const result = await refreshFeedsIfNeeded();
+    revalidateFeedSurfaces();
+
+    return NextResponse.json({
+      ok: true,
+      result,
+    });
+  } catch (error) {
+    console.error("CRON ERROR:", error);
+
     return NextResponse.json(
       {
-        success: false,
-        message: "Unauthorized cron request.",
+        ok: false,
+        error: error instanceof Error ? error.message : String(error),
       },
-      { status: 401 }
+      { status: 500 }
     );
   }
+}
 
   try {
     const result = await refreshFeedsIfNeeded();
