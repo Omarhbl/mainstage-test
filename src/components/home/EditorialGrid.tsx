@@ -187,8 +187,8 @@ export default function EditorialGrid({
                     alt={item.title}
                     className={`h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] ${item.imageClassName ?? ""}`}
                     style={getArticleImageStyle({
-                    imagePositionX: item.imagePositionX,
-                    imagePositionY: item.imagePositionY,
+                    imagePositionX: "imagePositionX" in item ? item.imagePositionX : undefined,
+                    imagePositionY: "imagePositionY" in item ? item.imagePositionY : undefined,
                     })}
                   />
                 </div>
