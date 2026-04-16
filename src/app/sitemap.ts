@@ -36,7 +36,7 @@ const STATIC_ROUTES: Array<{
   { path: "/cookies-privacy", changeFrequency: "yearly", priority: 0.25 },
 ];
 
-function getValidLastModified(dateValue: string | null | undefined, fallback: Date) {
+function getValidLastModified(dateValue: string | null | undefined, fallback: Date): Date {
   if (!dateValue) {
     return fallback;
   }
@@ -61,28 +61,27 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: route.priority,
   }));
 
+  const articleEntries: MetadataRoute.Sitemap = [];
   const seenArticleSlugs = new Set<string>();
 
-  const articleEntries: MetadataRoute.Sitemap = articles
-    .map((article) => {
-      const slug = typeof article.slug === "string" ? article.slug.trim() : "";
+  for (const article of articles) {
+    const slug = typeof article.slug === "string" ? article.slug.trim() : "";
 
-      if (!slug || seenArticleSlugs.has(slug)) {
-        return null;
-      }
+    if (!slug || seenArticleSlugs.has(slug)) {
+      continue;
+    }
 
-      seenArticleSlugs.add(slug);
+    seenArticleSlugs.add(slug);
 
-      const parsedDate = parseArticleDateToIso(article.date);
+    const parsedDate = parseArticleDateToIso(article.date);
 
-      return {
-        url: toAbsoluteUrl(`/articles/${slug}`),
-        lastModified: getValidLastModified(parsedDate, now),
-        changeFrequency: "weekly" as const,
-        priority: 0.82,
-      };
-    })
-    .filter((entry): entry is MetadataRoute.Sitemap[number] => entry !== null);
+    articleEntries.push({
+      url: toAbsoluteUrl(`/articles/${slug}`),
+      lastModified: getValidLastModified(parsedDate, now),
+      changeFrequency: "weekly",
+      priority: 0.82,
+    });
+  }
 
   return [...staticEntries, ...articleEntries];
 }
