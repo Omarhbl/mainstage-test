@@ -6,12 +6,14 @@ export async function GET() {
     const clientEmail = process.env.GA_CLIENT_EMAIL;
     const privateKeyRaw = process.env.GA_PRIVATE_KEY;
     const privateKey = privateKeyRaw?.replace(/\\n/g, "\n");
+    
 
     if (!propertyId || !clientEmail || !privateKey) {
       return Response.json(
         {
           error: "Missing Google Analytics environment variables.",
           debug: {
+            testEnv: process.env.TEST_ENV || null,
             hasPropertyId: Boolean(propertyId),
             hasClientEmail: Boolean(clientEmail),
             hasPrivateKeyRaw: Boolean(privateKeyRaw),
