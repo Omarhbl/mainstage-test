@@ -1,5 +1,5 @@
 "use client";
-
+import { Suspense } from "react";
 import { usePathname } from "next/navigation";
 import FeedAutoRefreshHeartbeat from "@/components/layout/FeedAutoRefreshHeartbeat";
 import Navbar from "@/components/layout/Navbar";
@@ -30,11 +30,15 @@ export default function AppChrome({
 
   return (
     <>
-      <FeedAutoRefreshHeartbeat />
-      <Ticker items={tickerItems} />
+    <FeedAutoRefreshHeartbeat />
+    <Ticker items={tickerItems} />
+
+    <Suspense fallback={null}>
       <Navbar />
-      <main className="relative z-10 flex-grow">{children}</main>
-      <MobileNav />
+    </Suspense>
+
+    <main className="relative z-10 flex-grow">{children}</main>
+    <MobileNav />
     </>
   );
 }
