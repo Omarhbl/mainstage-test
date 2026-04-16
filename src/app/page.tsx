@@ -43,6 +43,7 @@ export default async function Home() {
         media={homepageSettings.heroMedia}
       />
       <EditorialGrid
+        key={homepageSettings.mustReadSlug}
         mustReadSlug={homepageSettings.mustReadSlug}
         bannerImage={homepageSettings.bannerImage}
         bannerHref={homepageSettings.bannerHref}
