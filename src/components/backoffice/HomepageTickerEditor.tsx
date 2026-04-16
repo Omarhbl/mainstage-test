@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import type { PublicArticleCard } from "@/lib/articles";
+import type { ArticleCard } from "@/lib/articles";
 type HomepageTickerEditorProps = {
   articleOptions: ArticleCard[];
    initialSlugs: string[];
