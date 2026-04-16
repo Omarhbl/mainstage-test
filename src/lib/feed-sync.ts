@@ -1,7 +1,5 @@
-import { execFile } from "node:child_process";
 import { promises as fs } from "node:fs";
 import path from "node:path";
-import { promisify } from "node:util";
 import {
   FEED_AUTO_REFRESH_INTERVAL_MS,
   FEED_STALE_AFTER_MS,
@@ -9,26 +7,8 @@ import {
 import { SPOTIFY_MOROCCO_SYNCED_AT } from "@/lib/spotify";
 import { YOUTUBE_MOROCCO_SYNCED_AT } from "@/lib/youtube";
 
-const execFileAsync = promisify(execFile);
-
-const PROJECT_ROOT = process.cwd();
 const LOCK_FILE_PATH = path.join("/tmp", "mainstage-feed-refresh.lock");
 const LOCK_MAX_AGE_MS = 15 * 60 * 1000;
-
-type SyncScriptName = "sync:youtube:morocco" | "sync:spotify:morocco";
-
-const SCRIPT_PATHS: Record<SyncScriptName, string> = {
-  "sync:youtube:morocco": path.join(
-    PROJECT_ROOT,
-    "scripts",
-    "sync-youtube-morocco.mjs"
-  ),
-  "sync:spotify:morocco": path.join(
-    PROJECT_ROOT,
-    "scripts",
-    "sync-spotify-morocco.mjs"
-  ),
-};
 
 function isStale(syncedAtValue: string) {
   const parsed = new Date(syncedAtValue);
@@ -38,47 +18,6 @@ function isStale(syncedAtValue: string) {
   }
 
   return Date.now() - parsed.getTime() > FEED_STALE_AFTER_MS;
-}
-
-async function runSyncScript(scriptName: SyncScriptName) {
-  const scriptPath = SCRIPT_PATHS[scriptName];
-
-  try {
-    await fs.access(scriptPath);
-  } catch {
-    throw new Error(`Sync script not found: ${scriptPath}`);
-  }
-
-  try {
-    const result = await execFileAsync(process.execPath, [scriptPath], {
-      cwd: PROJECT_ROOT,
-      env: process.env,
-      maxBuffer: 1024 * 1024 * 10,
-    });
-
-    if (result.stderr?.trim()) {
-      console.warn(`[${scriptName}] stderr:`, result.stderr);
-    }
-
-    return result;
-  } catch (error) {
-    const err = error as NodeJS.ErrnoException & {
-      stdout?: string;
-      stderr?: string;
-    };
-
-    const details = [
-      `Failed to run ${scriptName}`,
-      err.message ? `message: ${err.message}` : null,
-      err.code ? `code: ${err.code}` : null,
-      err.stdout?.trim() ? `stdout: ${err.stdout.trim()}` : null,
-      err.stderr?.trim() ? `stderr: ${err.stderr.trim()}` : null,
-    ]
-      .filter(Boolean)
-      .join(" | ");
-
-    throw new Error(details);
-  }
 }
 
 async function acquireRefreshLock() {
@@ -118,6 +57,8 @@ export async function refreshFeedsIfNeeded(options?: { force?: boolean }) {
       skipped: ["youtube", "spotify"],
       autoRefreshIntervalMs: FEED_AUTO_REFRESH_INTERVAL_MS,
       alreadyRunning: false,
+      runtimeMode: "vercel-read-only",
+      note: "No refresh needed.",
     };
   }
 
@@ -129,32 +70,36 @@ export async function refreshFeedsIfNeeded(options?: { force?: boolean }) {
       skipped: [] as string[],
       autoRefreshIntervalMs: FEED_AUTO_REFRESH_INTERVAL_MS,
       alreadyRunning: true,
+      runtimeMode: "vercel-read-only",
+      note: "Refresh already running.",
     };
   }
 
-  const refreshed: string[] = [];
-  const skipped: string[] = [];
-
   try {
+    const refreshed: string[] = [];
+    const skipped: string[] = [];
+
     if (shouldRefreshYoutube) {
-      await runSyncScript("sync:youtube:morocco");
       refreshed.push("youtube");
     } else {
       skipped.push("youtube");
     }
 
     if (shouldRefreshSpotify) {
-      await runSyncScript("sync:spotify:morocco");
       refreshed.push("spotify");
     } else {
       skipped.push("spotify");
     }
 
     return {
-      refreshed,
+      refreshed: [],
       skipped,
       autoRefreshIntervalMs: FEED_AUTO_REFRESH_INTERVAL_MS,
       alreadyRunning: false,
+      runtimeMode: "vercel-read-only",
+      note:
+        "Cron ran, but persistent feed refresh is disabled on Vercel because this project uses static JSON imports and a read-only runtime filesystem.",
+      pendingRefreshes: refreshed,
     };
   } finally {
     await releaseRefreshLock();
