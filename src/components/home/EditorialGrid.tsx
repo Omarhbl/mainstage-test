@@ -189,11 +189,11 @@ export default function EditorialGrid({
 style={getArticleImageStyle({
   imagePositionX:
     typeof (item as any).imagePositionX === "number"
-      ? item.imagePositionX
+      ? (item as any).imagePositionX
       : undefined,
   imagePositionY:
     typeof (item as any).imagePositionY === "number"
-      ? item.imagePositionY
+      ? (item as any).imagePositionY
       : undefined,
 })}
                   />
