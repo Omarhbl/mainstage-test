@@ -120,21 +120,17 @@ export default function EditorialGrid({
         >
       : publicArticles.articlesMap;
 const sortedCards = publicArticles.sortedCards;
-  
-          const trendingItems = (
-            sortedCards.length
-            ? sortedCards
-            : []
-            ).map((article) => ({
-            slug: article.slug,
-            title: article.title,
-            summary: article.summary,
-            category: article.category,
-            categories: article.categories,
-            image: article.image,
-            imageClassName: article.imageClassName,
-          }))
-  ).slice(0, 3);
+const trendingItems = (sortedCards.length ? sortedCards : [])
+  .map((article) => ({
+    slug: article.slug,
+    title: article.title,
+    summary: article.summary,
+    category: article.category,
+    categories: article.categories,
+    image: article.image,
+    imageClassName: article.imageClassName,
+  }))
+  .slice(0, 3);
 
   const mustRead =
     articlesMap[mustReadSlug ?? HOMEPAGE_MUST_READ_SLUG] ??
