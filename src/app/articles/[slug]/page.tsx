@@ -199,7 +199,6 @@ export default async function ArticlePage({
       articleSection: article.category,
       keywords: keywordList.join(", "),
       isAccessibleForFree: true,
-      },
       publisher: {
         "@type": "Organization",
         name: SITE_NAME,
