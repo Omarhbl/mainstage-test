@@ -10,7 +10,10 @@ import {
   hasArticleCategory,
   normalizeYouTubeEmbedUrl,
 } from "@/lib/articles";
-import { getPublicArticleBySlug, getPublicArticles } from "@/lib/public-articles";
+import {
+  getPublicArticleBySlug,
+  getPublicArticles,
+} from "@/lib/public-articles";
 import {
   buildBreadcrumbSchema,
   buildKeywordList,
@@ -158,7 +161,7 @@ export default async function ArticlePage({
     ? toAbsoluteUrl(article.image)
     : getDefaultOgImage();
   const publishedTime = parseArticleDateToIso(article.date);
-  const modifiedTime = parseArticleDateToIso(article.updatedAt ?? article.date);
+  const modifiedTime = parseArticleDateToIso(article.date);
   const articleDescription = buildSeoDescription(
     article.summary,
     article.intro,
@@ -338,7 +341,8 @@ export default async function ArticlePage({
                     {similar.summary}
                   </p>
                   <p className="mt-2 text-[8px] font-body font-semibold text-[#CE2127]">
-                    {similarCategory.charAt(0).toUpperCase() + similarCategory.slice(1)}
+                    {similarCategory.charAt(0).toUpperCase() +
+                      similarCategory.slice(1)}
                   </p>
                 </article>
               ))}
