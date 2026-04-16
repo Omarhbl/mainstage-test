@@ -19,7 +19,7 @@ type HomepageSection =
 type HomepageSectionEditorProps = {
   section: HomepageSection;
   homepageSettings: HomepageSettings;
-  articleOptions: BackofficePublicRow[];
+  articleOptions: ArticleCard[];
   spotifySyncedAt: string;
   youtubeSyncedAt: string;
 };
