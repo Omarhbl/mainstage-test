@@ -199,9 +199,6 @@ export default async function ArticlePage({
       articleSection: article.category,
       keywords: keywordList.join(", "),
       isAccessibleForFree: true,
-      author: {
-        "@type": "Person",
-        name: "Omar Harboul",
       },
       publisher: {
         "@type": "Organization",
@@ -244,7 +241,7 @@ export default async function ArticlePage({
           </h1>
 
           <p className="mx-auto mt-3 max-w-[760px] text-center text-[14px] font-body font-normal text-[rgba(0,0,0,0.62)]">
-            By Omar Harboul • {formatArticleDate(article.date)}
+            {formatArticleDate(article.date)}
           </p>
 
           <div className="mx-auto mt-10 max-w-[860px] overflow-hidden rounded-[9px] bg-[#ddd7cf]">
