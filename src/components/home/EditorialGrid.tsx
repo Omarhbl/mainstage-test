@@ -119,14 +119,11 @@ export default function EditorialGrid({
           ArticleRecord
         >
       : publicArticles.articlesMap;
-  const sortedCards =
-    initialArticles?.length && publicArticles.sortedCards.length === 0
-      ? []
-      : publicArticles.sortedCards;
-  const trendingItems = (sortedCards.length
-    ? sortedCards
-    : initialArticles
-      ? initialArticles
+const sortedCards = publicArticles.sortedCards;
+  
+const trendingItems = sortedCards.length
+  ? sortedCards
+  : [];
           .map((article) => ({
             slug: article.slug,
             title: article.title,
