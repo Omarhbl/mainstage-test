@@ -186,10 +186,16 @@ export default function EditorialGrid({
                     src={item.image}
                     alt={item.title}
                     className={`h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] ${item.imageClassName ?? ""}`}
-                    style={getArticleImageStyle({
-                    imagePositionX: "imagePositionX" in item ? item.imagePositionX : undefined,
-                    imagePositionY: "imagePositionY" in item ? item.imagePositionY : undefined,
-                    })}
+style={getArticleImageStyle({
+  imagePositionX:
+    typeof (item as any).imagePositionX === "number"
+      ? item.imagePositionX
+      : undefined,
+  imagePositionY:
+    typeof (item as any).imagePositionY === "number"
+      ? item.imagePositionY
+      : undefined,
+})}
                   />
                 </div>
 
