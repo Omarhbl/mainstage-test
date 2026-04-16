@@ -8,9 +8,9 @@ import { cn } from "@/lib/utils";
 const NAV_ITEMS = [
   { name: "Home", href: "/", icon: Home },
   { name: "Music", href: "/music", icon: Music },
-  { name: "Gossip", href: "/gossip", icon: Flame, isSpecial: true },
-  { name: "Artists", href: "/artists", icon: Users },
-  { name: "Profile", href: "/profile", icon: PlusCircle },
+  { name: "trending", href: "/trending", icon: Flame, isSpecial: true },
+  { name: "Events", href: "/events", icon: Users },
+  { name: "backstage", href: "/backstage", icon: PlusCircle },
 ];
 
 export default function MobileNav() {
