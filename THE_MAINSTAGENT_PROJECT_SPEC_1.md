@@ -5,9 +5,13 @@
 
 ## 0. Vision Statement
 
-**The Mainstagent** is not a blog. It is not a fan site. It is a *living, breathing cultural pulse* — the digital stage where Moroccan Gen Z discovers, debates, and defines what's hot in music, film, fashion, and celebrity culture. Think the attitude of Pitchfork, the visual flair of i-D Magazine, and the scroll-speed of TikTok — but built for a Casablanca kid who streams from Spotify at 2 AM and still knows every lyric from Saad Lamjarred.
+**Mainstage** is a platform built for culture, entertainment, and the people shaping what's next.
 
-The site will be in **French** as primary language (with Arabic RTL support and English for international content), targeting 16–28 year-olds across Morocco's urban centers.
+We cover the stories, sounds, screens, and moments that move today's generation, from music and cinema to pop culture, live events, and the personalities driving the conversation.
+
+At Mainstage, we believe culture deserves sharp storytelling, strong editorial taste, and a platform that understands both what is happening now and what is coming next. Our goal is to spotlight the artists, creators, trends, and cultural shifts that deserve attention, with content that feels relevant, fresh, and connected to real audiences.
+
+Whether it is breaking news, must-read features, industry insights, or emerging voices, Mainstage exists to keep readers plugged into what matters. We are here to inform, inspire, and amplify the energy of entertainment in all its forms.
 
 ---
 
@@ -17,9 +21,9 @@ The site will be in **French** as primary language (with Arabic RTL support and 
 
 | Element | Value |
 |---|---|
-| **Name** | The Mainstagent |
+| **Name** | Mainstage |
 | **Tagline** | *For the Culture. For the Industry.* |
-| **Sub-tagline** | Your backstage pass to everything that matters. |
+| **Sub-tagline** | A platform built for culture, entertainment, and the people shaping what's next. |
 | **Domain (suggested)** | `themainstagent.com` |
 
 ### 1.2 Brand Personality
