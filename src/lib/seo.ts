@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { formatArticleDate } from "@/lib/articles";
 
-export const SITE_NAME = "The Mainstagent";
-export const SITE_TITLE = "The Mainstagent | Backstage pass to Moroccan Culture";
+export const SITE_NAME = "Mainstagent";
+export const SITE_TITLE = "Mainstage | For the Culture. For the Industry";
 export const SITE_DESCRIPTION =
-  "The digital stage for Moroccan Gen Z. Discover the latest in music, cinema, culture, sport, events, and people.";
+  "Mainstage is a platform built for culture, entertainment, and the people shaping what's next.";
 export const SITE_LOCALE = "en_US";
 export const DEFAULT_OG_IMAGE_PATH = "/mainstage-logo.png";
 
