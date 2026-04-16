@@ -311,7 +311,9 @@ style={getArticleImageStyle({
             </h2>
 
             <a
-              href="#"
+              href="https://www.instagram.com/themainstagent/"
+                target="_blank"
+               rel="noreferrer"
               className="inline-flex cursor-pointer items-center gap-2 text-[16px] font-body font-semibold text-[#CE2127] transition-opacity hover:opacity-75"
             >
               Discover more
