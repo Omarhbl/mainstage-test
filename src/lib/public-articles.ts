@@ -14,6 +14,7 @@ import {
   getArticleTags,
 } from "@/lib/supabase/server";
 
+export
 type BackofficePublicRow = {
   slug: string;
   title: string;
