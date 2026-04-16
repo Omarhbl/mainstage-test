@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import type { PublicArticleCard } from "@/lib/articles";
 type HomepageTickerEditorProps = {
   articleOptions: ArticleCard[];
+   initialSlugs: string[];
 };
 
 type HomepageTickerEditorProps = {
