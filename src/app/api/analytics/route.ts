@@ -13,19 +13,16 @@ export async function GET() {
       );
     }
 
-    const auth = new google.auth.GoogleAuth({
-      credentials: {
-        client_email: clientEmail,
-        private_key: privateKey,
-      },
+    const auth = new google.auth.JWT({
+      email: clientEmail,
+      key: privateKey,
       scopes: ["https://www.googleapis.com/auth/analytics.readonly"],
     });
 
-    const authClient = await auth.getClient();
-
-    google.options({ auth: authClient });
-
-    const analyticsData = google.analyticsdata("v1beta");
+    const analyticsData = google.analyticsdata({
+      version: "v1beta",
+      auth,
+    });
 
     const response = await analyticsData.properties.runRealtimeReport({
       property: `properties/${propertyId}`,
