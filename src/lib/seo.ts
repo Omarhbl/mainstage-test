@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { formatArticleDate } from "@/lib/articles";
 
-export const SITE_NAME = "Mainstagent";
+export const SITE_NAME = "Mainstage";
 export const SITE_TITLE = "Mainstage | For the Culture. For the Industry";
 export const SITE_DESCRIPTION =
   "Mainstage is a platform built for culture, entertainment, and the people shaping what's next.";
