@@ -6,12 +6,13 @@ export const runtime = "nodejs";
 
 function isAuthorized(request: Request) {
   const secret = process.env.CRON_SECRET;
+  const authHeader = request.headers.get("authorization");
 
   if (!secret) {
+    console.error("CRON_SECRET is not set");
     return false;
   }
 
-  const authHeader = request.headers.get("authorization");
   return authHeader === `Bearer ${secret}`;
 }
 
@@ -38,7 +39,7 @@ export async function GET(request: Request) {
 
     return NextResponse.json({
       success: true,
-      mode: "cron",
+      mode: "cron-job-org",
       ...result,
     });
   } catch (error) {
@@ -47,10 +48,7 @@ export async function GET(request: Request) {
     return NextResponse.json(
       {
         success: false,
-        message:
-          error instanceof Error
-            ? error.message
-            : "Scheduled feed refresh failed.",
+        error: error instanceof Error ? error.message : "Unknown error",
       },
       { status: 500 }
     );
