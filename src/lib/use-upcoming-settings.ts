@@ -13,7 +13,10 @@ const fallbackSettings: UpcomingSettings = {
 };
 
 export function useUpcomingSettings() {
-  const [settings, setSettings] = useState<UpcomingSettings>(fallbackSettings);
+  const [settings, setSettings] = useState<UpcomingSettings>({
+    cinema: [],
+    events: [],
+  });
 
   useEffect(() => {
     let isMounted = true;
