@@ -7,11 +7,6 @@ type HomepageTickerEditorProps = {
    initialSlugs: string[];
 };
 
-type HomepageTickerEditorProps = {
-  articleOptions: ArticleCard[];
-  initialSlugs: string[];
-};
-
 export default function HomepageTickerEditor({
   articleOptions,
   initialSlugs,
