@@ -186,7 +186,10 @@ export default function EditorialGrid({
                     src={item.image}
                     alt={item.title}
                     className={`h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] ${item.imageClassName ?? ""}`}
-                    style={getArticleImageStyle(item)}
+                    style={getArticleImageStyle({
+                    imagePositionX: item.imagePositionX,
+                    imagePositionY: item.imagePositionY,
+                    })}
                   />
                 </div>
 
