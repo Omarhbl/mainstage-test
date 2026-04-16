@@ -5,7 +5,7 @@ import {
   refreshYoutubeFeedAction,
   updateHomepageSettingsAction,
 } from "@/app/backoffice/homepage/actions";
-import type { BackofficePublicRow } from "@/lib/public-articles";
+import type { ArticleCard } from "@/lib/public-articles";
 import type { HomepageSettings } from "@/lib/supabase/server";
 
 type HomepageSection =
