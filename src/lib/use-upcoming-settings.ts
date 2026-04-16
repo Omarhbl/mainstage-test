@@ -15,7 +15,7 @@ const fallbackSettings: UpcomingSettings = {
 export function useUpcomingSettings() {
   const [settings, setSettings] = useState<UpcomingSettings>({
     cinema: [],
-    events: [],
+    entertainment: [],
   });
 
   useEffect(() => {
