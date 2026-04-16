@@ -2,16 +2,18 @@ import type { MetadataRoute } from "next";
 import { getPublicArticles } from "@/lib/public-articles";
 import { parseArticleDateToIso, toAbsoluteUrl } from "@/lib/seo";
 
+type ChangeFrequency =
+  | "always"
+  | "hourly"
+  | "daily"
+  | "weekly"
+  | "monthly"
+  | "yearly"
+  | "never";
+
 const STATIC_ROUTES: Array<{
   path: string;
-  changeFrequency:
-    | "always"
-    | "hourly"
-    | "daily"
-    | "weekly"
-    | "monthly"
-    | "yearly"
-    | "never";
+  changeFrequency: ChangeFrequency;
   priority: number;
 }> = [
   { path: "/", changeFrequency: "daily", priority: 1 },
@@ -34,6 +36,20 @@ const STATIC_ROUTES: Array<{
   { path: "/cookies-privacy", changeFrequency: "yearly", priority: 0.25 },
 ];
 
+function getValidLastModified(dateValue: string | null | undefined, fallback: Date) {
+  if (!dateValue) {
+    return fallback;
+  }
+
+  const parsed = new Date(dateValue);
+
+  if (Number.isNaN(parsed.getTime())) {
+    return fallback;
+  }
+
+  return parsed;
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
   const articles = await getPublicArticles();
@@ -45,12 +61,28 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: route.priority,
   }));
 
-  const articleEntries: MetadataRoute.Sitemap = articles.map((article) => ({
-    url: toAbsoluteUrl(`/articles/${article.slug}`),
-    lastModified: parseArticleDateToIso(article.date) ?? now.toISOString(),
-    changeFrequency: "weekly",
-    priority: 0.82,
-  }));
+  const seenArticleSlugs = new Set<string>();
+
+  const articleEntries: MetadataRoute.Sitemap = articles
+    .map((article) => {
+      const slug = typeof article.slug === "string" ? article.slug.trim() : "";
+
+      if (!slug || seenArticleSlugs.has(slug)) {
+        return null;
+      }
+
+      seenArticleSlugs.add(slug);
+
+      const parsedDate = parseArticleDateToIso(article.date);
+
+      return {
+        url: toAbsoluteUrl(`/articles/${slug}`),
+        lastModified: getValidLastModified(parsedDate, now),
+        changeFrequency: "weekly" as const,
+        priority: 0.82,
+      };
+    })
+    .filter((entry): entry is MetadataRoute.Sitemap[number] => entry !== null);
 
   return [...staticEntries, ...articleEntries];
 }
