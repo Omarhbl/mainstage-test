@@ -1,5 +1,5 @@
 "use client";
-
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import SiteFooter from "@/components/layout/SiteFooter";
@@ -12,6 +12,7 @@ const RELEASE_CARD_WIDTH = 218;
 const RELEASE_CARD_GAP = 14;
 
 export default function CinemaPage() {
+  const pathname = usePathname();
   const { sortedCards, articlesMap } = usePublicArticles();
   const upcomingSettings = useUpcomingSettings();
   const cinemaArticles = sortedCards.filter((article) =>
@@ -22,7 +23,7 @@ export default function CinemaPage() {
   const loopedReleases = [...releases, ...releases, ...releases];
 
   return (
-    <div className="flex min-h-screen flex-col bg-white">
+    <div key={pathname} className="flex min-h-screen flex-col bg-white">
       <main className="flex-1">
         <section className="mx-auto max-w-[1116px] px-4 py-16 md:px-6 md:py-18">
           <div>
