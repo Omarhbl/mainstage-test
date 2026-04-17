@@ -3,13 +3,13 @@
   "playlistName": "Top 50 - Morocco",
   "market": "MA",
   "source": "spotify-embed-scrape",
-  "scrapedAt": "2026-04-17T07:21:12.289Z",
+  "scrapedAt": "2026-04-17T12:58:47.623Z",
   "tracks": [
     {
       "rank": "#1",
       "title": "WARDA",
       "artist": "Inkonnu, Manal",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02feb59f075c205a9c6c644ebe",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02feb59f075c205a9c6c644ebe",
       "plays": 41665,
       "chartChange": "=",
       "totalStreams": "1,534,320"
@@ -18,7 +18,7 @@
       "rank": "#2",
       "title": "KATANA",
       "artist": "Manal, Stormy",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02c3e82fb909ad7c6930ba8a6a",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02c3e82fb909ad7c6930ba8a6a",
       "plays": 37363,
       "chartChange": "=",
       "totalStreams": "255,261"
@@ -27,7 +27,7 @@
       "rank": "#3",
       "title": "CHANEL",
       "artist": "Stormy",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02d8ea3ee364a1b3e0cb4ad2ec",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02d8ea3ee364a1b3e0cb4ad2ec",
       "plays": 35508,
       "chartChange": "=",
       "totalStreams": "252,259"
@@ -36,7 +36,7 @@
       "rank": "#4",
       "title": "Nsak?",
       "artist": "ONZY",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02edbc0aaea47aa5c8dad338cd",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02edbc0aaea47aa5c8dad338cd",
       "plays": 34529,
       "chartChange": "=",
       "totalStreams": "248,537"
@@ -54,7 +54,7 @@
       "rank": "#6",
       "title": "MOON",
       "artist": "Stormy",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02e040ca47b2f8046349ce4f49",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02e040ca47b2f8046349ce4f49",
       "plays": 30078,
       "chartChange": "=",
       "totalStreams": "16,611,258"
@@ -108,7 +108,7 @@
       "rank": "#12",
       "title": "NGHAMER",
       "artist": "Bayadis, Manal, Shaw",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02c18c0c91a685f892fd66bed5",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02c18c0c91a685f892fd66bed5",
       "plays": 23190,
       "chartChange": "+1",
       "totalStreams": "4,592,207"
@@ -234,7 +234,7 @@
       "rank": "#26",
       "title": "Mizane",
       "artist": "Stormy, Inkonnu",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e020eded0fba13dbf99ff76043d",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e020eded0fba13dbf99ff76043d",
       "plays": 16040,
       "chartChange": "+2",
       "totalStreams": "15,480,503"
@@ -261,7 +261,7 @@
       "rank": "#29",
       "title": "BON COURAGE",
       "artist": "Draganov",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02aaf9cd2016ca18ed9b111d42",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02aaf9cd2016ca18ed9b111d42",
       "plays": 15747,
       "chartChange": "-2",
       "totalStreams": "7,407,055"
@@ -279,7 +279,7 @@
       "rank": "#31",
       "title": "3DABI",
       "artist": "Draganov",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02dbf520cd47d9ba489fd97f63",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02dbf520cd47d9ba489fd97f63",
       "plays": 14870,
       "chartChange": "-1",
       "totalStreams": "22,460,596"
@@ -324,7 +324,7 @@
       "rank": "#36",
       "title": "Tach",
       "artist": "Draganov",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02c3bd820082293036380883e1",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02c3bd820082293036380883e1",
       "plays": 13905,
       "chartChange": "-2",
       "totalStreams": "7,012,234"
@@ -369,7 +369,7 @@
       "rank": "#41",
       "title": "MOOD",
       "artist": "Inkonnu",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02feb59f075c205a9c6c644ebe",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02feb59f075c205a9c6c644ebe",
       "plays": 12712,
       "chartChange": "-5",
       "totalStreams": "581,164"
@@ -387,7 +387,7 @@
       "rank": "#43",
       "title": "TABOUT",
       "artist": "KALIL",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0262d26d8936756ce1462d6b55",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0262d26d8936756ce1462d6b55",
       "plays": 12260,
       "chartChange": "-1",
       "totalStreams": "5,317,638"
@@ -405,7 +405,7 @@
       "rank": "#45",
       "title": "Bohème",
       "artist": "ONZY, 7ari",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02edbc0aaea47aa5c8dad338cd",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02edbc0aaea47aa5c8dad338cd",
       "plays": null,
       "chartChange": "=",
       "totalStreams": null
@@ -414,7 +414,7 @@
       "rank": "#46",
       "title": "Ma Jolie",
       "artist": "LFERDA",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02c9b9784c65851d2dc61d18a1",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02c9b9784c65851d2dc61d18a1",
       "plays": 11652,
       "chartChange": "=",
       "totalStreams": "9,819,219"
@@ -423,7 +423,7 @@
       "rank": "#47",
       "title": "Babydoll",
       "artist": "Dominic Fike",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e027b1b6f41c1645af9757d5616",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e027b1b6f41c1645af9757d5616",
       "plays": 11411,
       "chartChange": "+2",
       "totalStreams": "504,864"
@@ -432,7 +432,7 @@
       "rank": "#48",
       "title": "MINUIT D'APRÈS",
       "artist": "TIF",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02672c8e21a8f80b0df7dd3c8e",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02672c8e21a8f80b0df7dd3c8e",
       "plays": 11230,
       "chartChange": "+3",
       "totalStreams": "69,350"
@@ -441,7 +441,7 @@
       "rank": "#49",
       "title": "Souvenir",
       "artist": "7ari, Ramoon",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02345cf9fe481114c7138b81a2",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02345cf9fe481114c7138b81a2",
       "plays": 11224,
       "chartChange": "-4",
       "totalStreams": "5,047,293"
