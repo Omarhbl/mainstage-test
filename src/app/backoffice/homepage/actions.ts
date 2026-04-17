@@ -1,10 +1,8 @@
 "use server";
 
+import path from "node:path";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { execFile } from "node:child_process";
-import path from "node:path";
-import { promisify } from "node:util";
 import { isRedirectError } from "next/dist/client/components/redirect-error";
 import { requireBackofficeAccess } from "@/lib/supabase/backoffice";
 import {
@@ -12,9 +10,6 @@ import {
   getHomepageSettings,
 } from "@/lib/supabase/server";
 import { getPublicArticles } from "@/lib/public-articles";
-
-const execFileAsync = promisify(execFile);
-const PROJECT_ROOT = "/Users/user/Desktop/MAINSTAGE/MEDIASWEBSITE";
 const HOMEPAGE_MEDIA_BUCKET = "media-assets";
 
 function getBackofficeRedirectTarget(value?: string | null) {
@@ -264,15 +259,45 @@ export async function updateHomepageSettingsAction(formData: FormData) {
   buildBackofficeRedirect(redirectTarget, successMessage, "success");
 }
 
-async function runSyncScript(scriptName: "sync:youtube:morocco" | "sync:spotify:morocco") {
-  const npmCommand = process.platform === "win32" ? "npm.cmd" : "npm";
+async function triggerRemoteFeedRefresh(service: "youtube" | "spotify") {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  const cronSecret = process.env.CRON_SECRET?.trim();
 
-  const { stdout, stderr } = await execFileAsync(npmCommand, ["run", scriptName], {
-    cwd: PROJECT_ROOT,
-    env: process.env,
+  if (!siteUrl) {
+    throw new Error("NEXT_PUBLIC_SITE_URL is missing on the live environment.");
+  }
+
+  if (!cronSecret) {
+    throw new Error("CRON_SECRET is missing on the live environment.");
+  }
+
+  const endpoint = new URL("/api/feeds/cron", siteUrl);
+  endpoint.searchParams.set("force", "1");
+  endpoint.searchParams.set("service", service);
+
+  const response = await fetch(endpoint.toString(), {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${cronSecret}`,
+    },
+    cache: "no-store",
   });
 
-  return { stdout, stderr };
+  const payload = (await response.json().catch(() => null)) as
+    | {
+        success?: boolean;
+        error?: string;
+        note?: string;
+      }
+    | null;
+
+  if (!response.ok || !payload?.success) {
+    throw new Error(
+      payload?.error || `The ${service} refresh endpoint did not complete successfully.`
+    );
+  }
+
+  return payload;
 }
 
 export async function refreshYoutubeFeedAction(formData?: FormData) {
@@ -280,12 +305,16 @@ export async function refreshYoutubeFeedAction(formData?: FormData) {
   const target = String(formData?.get("redirect_target") ?? "homepage");
 
   try {
-    await runSyncScript("sync:youtube:morocco");
+    await triggerRemoteFeedRefresh("youtube");
     revalidatePath("/");
     revalidatePath("/music");
     revalidatePath("/backoffice/feeds");
     revalidatePath("/backoffice/homepage");
-    buildBackofficeRedirect(target, "YouTube Morocco feed refreshed successfully.", "success");
+    buildBackofficeRedirect(
+      target,
+      "YouTube Morocco refresh was triggered successfully.",
+      "success"
+    );
   } catch (error) {
     if (isRedirectError(error)) {
       throw error;
@@ -304,13 +333,17 @@ export async function refreshSpotifyFeedAction(formData?: FormData) {
   const target = String(formData?.get("redirect_target") ?? "homepage");
 
   try {
-    await runSyncScript("sync:spotify:morocco");
+    await triggerRemoteFeedRefresh("spotify");
     revalidatePath("/");
     revalidatePath("/music");
     revalidatePath("/music/top-50");
     revalidatePath("/backoffice/feeds");
     revalidatePath("/backoffice/homepage");
-    buildBackofficeRedirect(target, "Spotify Morocco feed refreshed successfully.", "success");
+    buildBackofficeRedirect(
+      target,
+      "Spotify Morocco refresh was triggered successfully.",
+      "success"
+    );
   } catch (error) {
     if (isRedirectError(error)) {
       throw error;

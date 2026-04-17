@@ -34,12 +34,23 @@ export async function GET(request: Request) {
       );
     }
 
-    const result = await refreshFeedsIfNeeded();
+    const { searchParams } = new URL(request.url);
+    const force = ["1", "true", "yes"].includes(
+      searchParams.get("force")?.toLowerCase() ?? ""
+    );
+    const serviceParam = searchParams.get("service")?.toLowerCase();
+    const service =
+      serviceParam === "youtube" || serviceParam === "spotify"
+        ? serviceParam
+        : "all";
+
+    const result = await refreshFeedsIfNeeded({ force, service });
     revalidateFeedSurfaces();
 
     return NextResponse.json({
       success: true,
       mode: "cron-job-org",
+      service,
       ...result,
     });
   } catch (error) {

@@ -46,10 +46,18 @@ async function releaseRefreshLock() {
   await fs.unlink(LOCK_FILE_PATH).catch(() => {});
 }
 
-export async function refreshFeedsIfNeeded(options?: { force?: boolean }) {
+export async function refreshFeedsIfNeeded(options?: {
+  force?: boolean;
+  service?: "youtube" | "spotify" | "all";
+}) {
   const force = options?.force ?? false;
-  const shouldRefreshYoutube = force || isStale(YOUTUBE_MOROCCO_SYNCED_AT);
-  const shouldRefreshSpotify = force || isStale(SPOTIFY_MOROCCO_SYNCED_AT);
+  const service = options?.service ?? "all";
+  const shouldCheckYoutube = service === "all" || service === "youtube";
+  const shouldCheckSpotify = service === "all" || service === "spotify";
+  const shouldRefreshYoutube =
+    shouldCheckYoutube && (force || isStale(YOUTUBE_MOROCCO_SYNCED_AT));
+  const shouldRefreshSpotify =
+    shouldCheckSpotify && (force || isStale(SPOTIFY_MOROCCO_SYNCED_AT));
 
   if (!shouldRefreshYoutube && !shouldRefreshSpotify) {
     return {
