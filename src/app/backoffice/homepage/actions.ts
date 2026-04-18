@@ -5,6 +5,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { isRedirectError } from "next/dist/client/components/redirect-error";
 import { requireBackofficeAccess } from "@/lib/supabase/backoffice";
+import { refreshFeedsIfNeeded } from "@/lib/feed-sync";
 import {
   createSupabaseAdminClient,
   getHomepageSettings,
@@ -259,45 +260,20 @@ export async function updateHomepageSettingsAction(formData: FormData) {
   buildBackofficeRedirect(redirectTarget, successMessage, "success");
 }
 
-async function triggerRemoteFeedRefresh(service: "youtube" | "spotify") {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
-  const cronSecret = process.env.CRON_SECRET?.trim();
+function revalidateFeedSurfaces() {
+  revalidatePath("/");
+  revalidatePath("/music");
+  revalidatePath("/music/top-50");
+  revalidatePath("/backoffice");
+  revalidatePath("/backoffice/feeds");
+  revalidatePath("/backoffice/homepage");
+}
 
-  if (!siteUrl) {
-    throw new Error("NEXT_PUBLIC_SITE_URL is missing on the live environment.");
-  }
-
-  if (!cronSecret) {
-    throw new Error("CRON_SECRET is missing on the live environment.");
-  }
-
-  const endpoint = new URL("/api/feeds/cron", siteUrl);
-  endpoint.searchParams.set("force", "1");
-  endpoint.searchParams.set("service", service);
-
-  const response = await fetch(endpoint.toString(), {
-    method: "GET",
-    headers: {
-      Authorization: `Bearer ${cronSecret}`,
-    },
-    cache: "no-store",
+async function triggerFeedRefresh(service: "youtube" | "spotify") {
+  return refreshFeedsIfNeeded({
+    force: true,
+    service,
   });
-
-  const payload = (await response.json().catch(() => null)) as
-    | {
-        success?: boolean;
-        error?: string;
-        note?: string;
-      }
-    | null;
-
-  if (!response.ok || !payload?.success) {
-    throw new Error(
-      payload?.error || `The ${service} refresh endpoint did not complete successfully.`
-    );
-  }
-
-  return payload;
 }
 
 export async function refreshYoutubeFeedAction(formData?: FormData) {
@@ -305,14 +281,13 @@ export async function refreshYoutubeFeedAction(formData?: FormData) {
   const target = String(formData?.get("redirect_target") ?? "homepage");
 
   try {
-    await triggerRemoteFeedRefresh("youtube");
-    revalidatePath("/");
-    revalidatePath("/music");
-    revalidatePath("/backoffice/feeds");
-    revalidatePath("/backoffice/homepage");
+    const result = await triggerFeedRefresh("youtube");
+    revalidateFeedSurfaces();
     buildBackofficeRedirect(
       target,
-      "YouTube Morocco refresh was triggered successfully.",
+      result.note
+        ? `YouTube Morocco refresh completed. ${result.note}`
+        : "YouTube Morocco refresh completed successfully.",
       "success"
     );
   } catch (error) {
@@ -333,15 +308,13 @@ export async function refreshSpotifyFeedAction(formData?: FormData) {
   const target = String(formData?.get("redirect_target") ?? "homepage");
 
   try {
-    await triggerRemoteFeedRefresh("spotify");
-    revalidatePath("/");
-    revalidatePath("/music");
-    revalidatePath("/music/top-50");
-    revalidatePath("/backoffice/feeds");
-    revalidatePath("/backoffice/homepage");
+    const result = await triggerFeedRefresh("spotify");
+    revalidateFeedSurfaces();
     buildBackofficeRedirect(
       target,
-      "Spotify Morocco refresh was triggered successfully.",
+      result.note
+        ? `Spotify Morocco refresh completed. ${result.note}`
+        : "Spotify Morocco refresh completed successfully.",
       "success"
     );
   } catch (error) {
