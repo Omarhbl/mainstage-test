@@ -3,9 +3,7 @@ import BackofficeHeader from "@/components/backoffice/BackofficeHeader";
 import HomepageSectionEditor from "@/components/backoffice/HomepageSectionEditor";
 import { requireBackofficeAccess } from "@/lib/supabase/backoffice";
 import { getSortedPublicArticleCards } from "@/lib/public-articles";
-import { getHomepageSettings } from "@/lib/supabase/server";
-import { SPOTIFY_MOROCCO_SYNCED_AT } from "@/lib/spotify";
-import { YOUTUBE_MOROCCO_SYNCED_AT } from "@/lib/youtube";
+import { getFeedSettings, getHomepageSettings } from "@/lib/supabase/server";
 
 const HOMEPAGE_SECTIONS = {
   hero: {
@@ -54,15 +52,16 @@ export default async function BackofficeHomepageSectionPage({
   const sectionKey = section as HomepageSectionKey;
   const config = HOMEPAGE_SECTIONS[sectionKey];
   const homepageSettings = await getHomepageSettings();
+  const feedSettings = await getFeedSettings();
   const articleOptions = await getSortedPublicArticleCards();
   const spotifySyncedAt = new Intl.DateTimeFormat("en-GB", {
     dateStyle: "short",
     timeStyle: "short",
-  }).format(new Date(SPOTIFY_MOROCCO_SYNCED_AT));
+  }).format(new Date(feedSettings.spotify.scrapedAt));
   const youtubeSyncedAt = new Intl.DateTimeFormat("en-GB", {
     dateStyle: "short",
     timeStyle: "short",
-  }).format(new Date(YOUTUBE_MOROCCO_SYNCED_AT));
+  }).format(new Date(feedSettings.youtube.syncedAt));
 
   return (
     <div className="space-y-8">

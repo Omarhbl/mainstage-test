@@ -5,12 +5,12 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { isRedirectError } from "next/dist/client/components/redirect-error";
 import { requireBackofficeAccess } from "@/lib/supabase/backoffice";
-import { refreshFeedsIfNeeded } from "@/lib/feed-sync";
 import {
   createSupabaseAdminClient,
   getHomepageSettings,
 } from "@/lib/supabase/server";
 import { getPublicArticles } from "@/lib/public-articles";
+import { getSiteUrl } from "@/lib/seo";
 const HOMEPAGE_MEDIA_BUCKET = "media-assets";
 
 function getBackofficeRedirectTarget(value?: string | null) {
@@ -269,11 +269,43 @@ function revalidateFeedSurfaces() {
   revalidatePath("/backoffice/homepage");
 }
 
+function getInternalFeedRefreshUrl(service: "youtube" | "spotify") {
+  const baseUrl =
+    process.env.NODE_ENV === "production"
+      ? getSiteUrl()
+      : "http://127.0.0.1:3000";
+
+  return `${baseUrl}/api/feeds/cron?service=${service}&force=true`;
+}
+
 async function triggerFeedRefresh(service: "youtube" | "spotify") {
-  return refreshFeedsIfNeeded({
-    force: true,
-    service,
+  const secret = process.env.CRON_SECRET;
+  const cronUrl = getInternalFeedRefreshUrl(service);
+
+  if (!secret) {
+    throw new Error("CRON_SECRET is missing in the environment configuration.");
+  }
+
+  const response = await fetch(cronUrl, {
+    method: "GET",
+    headers: {
+      authorization: `Bearer ${secret}`,
+      accept: "application/json",
+    },
+    cache: "no-store",
   });
+
+  const payload = await response.json().catch(() => null);
+
+  if (!response.ok || !payload?.success) {
+    throw new Error(
+      typeof payload?.error === "string" && payload.error.trim()
+        ? payload.error
+        : `We couldn’t refresh the ${service} feed right now.`
+    );
+  }
+
+  return payload;
 }
 
 export async function refreshYoutubeFeedAction(formData?: FormData) {

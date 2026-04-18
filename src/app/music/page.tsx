@@ -2,9 +2,11 @@ import SpotifyChart from "@/components/music/SpotifyChart";
 import MusicNews from "@/components/music/MusicNews";
 import SiteFooter from "@/components/layout/SiteFooter";
 import { getPublicArticles } from "@/lib/public-articles";
+import { getFeedSettings } from "@/lib/supabase/server";
 
 export default async function MusicPage() {
   const publicArticles = await getPublicArticles();
+  const feedSettings = await getFeedSettings();
 
   return (
     <div className="flex min-h-screen flex-col bg-white">
@@ -37,7 +39,7 @@ export default async function MusicPage() {
 
             <aside className="w-full lg:pt-0">
               <div className="lg:sticky lg:top-24">
-                <SpotifyChart />
+                <SpotifyChart tracks={feedSettings.spotify.tracks.slice(0, 10)} />
               </div>
             </aside>
           </div>

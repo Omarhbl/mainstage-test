@@ -1,13 +1,14 @@
-"use client";
-
 import FullSpotifyChart from "@/components/music/FullSpotifyChart";
 import SiteFooter from "@/components/layout/SiteFooter";
+import { getFeedSettings } from "@/lib/supabase/server";
 
-export default function Top50Page() {
+export default async function Top50Page() {
+  const feedSettings = await getFeedSettings();
+
   return (
     <main className="min-h-screen bg-void selection:bg-primary selection:text-white">
       <div className="container mx-auto px-4 pb-20 pt-24 md:px-8">
-        <FullSpotifyChart />
+        <FullSpotifyChart tracks={feedSettings.spotify.tracks} />
       </div>
 
       <SiteFooter />

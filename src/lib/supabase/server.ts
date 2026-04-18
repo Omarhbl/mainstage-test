@@ -23,6 +23,11 @@ import {
   FALLBACK_SITE_SETTINGS,
   type SiteSettings,
 } from "@/lib/site-settings";
+import {
+  FALLBACK_FEED_SETTINGS,
+  sanitizeFeedSettings,
+  type FeedSettings,
+} from "@/lib/feed-data";
 
 export type DashboardEditorialNote = {
   title: string;
@@ -978,6 +983,26 @@ export async function getUpcomingSettings(): Promise<UpcomingSettings> {
           )
       : fallbackUpcomingSettings.entertainment,
   };
+}
+
+export async function getFeedSettings(): Promise<FeedSettings> {
+  const adminClient = createSupabaseAdminClient();
+
+  if (!adminClient) {
+    return FALLBACK_FEED_SETTINGS;
+  }
+
+  const { data, error } = await adminClient
+    .from("site_settings")
+    .select("value")
+    .eq("key", "feed_settings")
+    .maybeSingle();
+
+  if (error || !data?.value) {
+    return FALLBACK_FEED_SETTINGS;
+  }
+
+  return sanitizeFeedSettings(data.value);
 }
 
 function sanitizePartnerCampaign(

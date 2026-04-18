@@ -1,25 +1,10 @@
-import spotifyMorocco from "@/data/spotify-morocco.json";
+import {
+  FALLBACK_SPOTIFY_FEED as spotifyData,
+  type SpotifyChartEntry,
+  type SpotifyPlaylistData,
+} from "@/lib/feed-data";
 
-export type SpotifyChartEntry = {
-  rank: string;
-  title: string;
-  artist: string;
-  image: string;
-  plays?: number | null;
-  chartChange?: string;
-  totalStreams?: string | null;
-};
-
-export type SpotifyPlaylistData = {
-  playlistId: string;
-  playlistName: string;
-  market: string;
-  source: string;
-  scrapedAt: string;
-  tracks: SpotifyChartEntry[];
-};
-
-const spotifyData = spotifyMorocco as SpotifyPlaylistData;
+export type { SpotifyChartEntry, SpotifyPlaylistData };
 
 export const SPOTIFY_MOROCCO_PLAYLIST_ID = spotifyData.playlistId;
 export const SPOTIFY_MOROCCO_URL = `https://open.spotify.com/playlist/${spotifyData.playlistId}`;

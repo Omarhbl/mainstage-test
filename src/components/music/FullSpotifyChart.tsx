@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, ArrowLeft, ChevronDown, ChevronUp, Minus } from "lucide-react";
 import Link from "next/link";
-import { SPOTIFY_MOROCCO_TRACKS, SPOTIFY_MOROCCO_URL } from "@/lib/spotify";
+import type { SpotifyChartEntry } from "@/lib/feed-data";
 
 function formatPlays(value?: number | null) {
   if (typeof value !== "number") {
@@ -32,10 +32,14 @@ function ChartMovement({ value }: { value?: string }) {
   );
 }
 
-export default function FullSpotifyChart() {
+export default function FullSpotifyChart({
+  tracks,
+}: {
+  tracks: SpotifyChartEntry[];
+}) {
   const [search, setSearch] = useState("");
 
-  const filteredData = SPOTIFY_MOROCCO_TRACKS.filter(
+  const filteredData = tracks.filter(
     (item) =>
       item.title.toLowerCase().includes(search.toLowerCase()) ||
       item.artist.toLowerCase().includes(search.toLowerCase())

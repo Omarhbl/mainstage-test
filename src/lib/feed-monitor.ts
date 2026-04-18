@@ -1,5 +1,4 @@
-import { SPOTIFY_MOROCCO_SYNCED_AT, SPOTIFY_MOROCCO_TRACKS } from "@/lib/spotify";
-import { YOUTUBE_MOROCCO_SYNCED_AT, YOUTUBE_MOROCCO_VIDEOS } from "@/lib/youtube";
+import { getFeedSettings } from "@/lib/supabase/server";
 
 export const FEED_AUTO_REFRESH_INTERVAL_MS = 60 * 60 * 1000;
 export const FEED_STALE_AFTER_MS = 65 * 60 * 1000;
@@ -76,19 +75,22 @@ export function getFeedHealth(
   };
 }
 
-export function getSpotifyFeedHealth() {
+export async function getSpotifyFeedHealth() {
+  const feedSettings = await getFeedSettings();
+
   return getFeedHealth(
-    SPOTIFY_MOROCCO_SYNCED_AT,
-    SPOTIFY_MOROCCO_TRACKS.length,
+    feedSettings.spotify.scrapedAt,
+    feedSettings.spotify.tracks.length,
     "Spotify"
   );
 }
 
-export function getYoutubeFeedHealth() {
+export async function getYoutubeFeedHealth() {
+  const feedSettings = await getFeedSettings();
+
   return getFeedHealth(
-    YOUTUBE_MOROCCO_SYNCED_AT,
-    YOUTUBE_MOROCCO_VIDEOS.length,
+    feedSettings.youtube.syncedAt,
+    feedSettings.youtube.videos.length,
     "YouTube"
   );
 }
-

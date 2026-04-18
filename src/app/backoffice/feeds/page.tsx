@@ -10,9 +10,7 @@ import {
   getYoutubeFeedHealth,
 } from "@/lib/feed-monitor";
 import { requireBackofficeAccess } from "@/lib/supabase/backoffice";
-import { SPOTIFY_TOP_TEN } from "@/lib/spotify";
-import { YOUTUBE_MOROCCO_VIDEOS } from "@/lib/youtube";
-import { getUpcomingSettings } from "@/lib/supabase/server";
+import { getFeedSettings, getUpcomingSettings } from "@/lib/supabase/server";
 
 export default async function BackofficeFeedsPage({
   searchParams,
@@ -22,11 +20,12 @@ export default async function BackofficeFeedsPage({
   await requireBackofficeAccess(["admin", "editor"]);
   const { notice, type } = await searchParams;
   const upcomingSettings = await getUpcomingSettings();
-  const spotifyHealth = getSpotifyFeedHealth();
-  const youtubeHealth = getYoutubeFeedHealth();
+  const feedSettings = await getFeedSettings();
+  const spotifyHealth = await getSpotifyFeedHealth();
+  const youtubeHealth = await getYoutubeFeedHealth();
 
-  const topSpotifyTrack = SPOTIFY_TOP_TEN[0];
-  const topYoutubeVideo = YOUTUBE_MOROCCO_VIDEOS[0];
+  const topSpotifyTrack = feedSettings.spotify.tracks.slice(0, 10)[0];
+  const topYoutubeVideo = feedSettings.youtube.videos[0];
 
   return (
     <div className="space-y-8">

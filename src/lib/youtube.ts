@@ -1,24 +1,10 @@
-import youtubeMorocco from "@/data/youtube-morocco.json";
+import {
+  FALLBACK_YOUTUBE_FEED as youtubeData,
+  type YouTubeMoroccoFeed,
+  type YouTubeVideoEntry,
+} from "@/lib/feed-data";
 
-export type YouTubeVideoEntry = {
-  id: string;
-  title: string;
-  channel: string;
-  publishedAt: string;
-  description: string;
-  image: string;
-  url: string;
-};
-
-export type YouTubeMoroccoFeed = {
-  region: string;
-  categoryId: string;
-  source: string;
-  syncedAt: string;
-  videos: YouTubeVideoEntry[];
-};
-
-const youtubeData = youtubeMorocco as YouTubeMoroccoFeed;
+export type { YouTubeMoroccoFeed, YouTubeVideoEntry };
 
 export function formatYouTubeDate(isoDate?: string) {
   if (!isoDate) return "";

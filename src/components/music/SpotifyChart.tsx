@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { ChevronDown, ChevronUp, Minus, ArrowRight } from "lucide-react";
-import { SPOTIFY_TOP_TEN } from "@/lib/spotify";
+import type { SpotifyChartEntry } from "@/lib/feed-data";
 
 function formatPlays(value?: number | null) {
   if (typeof value !== "number") {
@@ -38,7 +38,11 @@ function ChartMovement({ value }: { value?: string }) {
   );
 }
 
-export default function SpotifyChart() {
+export default function SpotifyChart({
+  tracks,
+}: {
+  tracks: SpotifyChartEntry[];
+}) {
   return (
     <div>
       <div className="mb-8 flex items-center justify-between gap-4">
@@ -66,7 +70,7 @@ export default function SpotifyChart() {
         </div>
 
         <div>
-          {SPOTIFY_TOP_TEN.map((item, index) => (
+          {tracks.map((item, index) => (
             <div
               key={item.rank}
               className={`grid grid-cols-[108px_minmax(0,1fr)_104px] items-center px-5 py-[11px] ${

@@ -19,8 +19,8 @@ export default async function BackofficeDashboardPage() {
     : null;
   const totalArticles = articleCountResponse?.count ?? 0;
   const editorialNote = await getDashboardEditorialNote();
-  const spotifyHealth = getSpotifyFeedHealth();
-  const youtubeHealth = getYoutubeFeedHealth();
+  const spotifyHealth = await getSpotifyFeedHealth();
+  const youtubeHealth = await getYoutubeFeedHealth();
 
   return (
     <div className="space-y-8">

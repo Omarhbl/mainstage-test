@@ -7,11 +7,12 @@ import {
   buildSeoDescription,
   toAbsoluteUrl,
 } from "@/lib/seo";
-import { getHomepageSettings } from "@/lib/supabase/server";
+import { getFeedSettings, getHomepageSettings } from "@/lib/supabase/server";
 import { getPublicArticles } from "@/lib/public-articles";
 
 export default async function Home() {
   const homepageSettings = await getHomepageSettings();
+  const feedSettings = await getFeedSettings();
   const publicArticles = await getPublicArticles();
   const latestArticleList = buildItemListSchema(
     publicArticles.slice(0, 10).map((article) => ({
@@ -48,6 +49,8 @@ export default async function Home() {
         bannerImage={homepageSettings.bannerImage}
         bannerHref={homepageSettings.bannerHref}
         socialItems={homepageSettings.socialItems}
+        spotifyTopTen={feedSettings.spotify.tracks.slice(0, 10)}
+        youtubeTopVideos={feedSettings.youtube.videos.slice(0, 4)}
         initialArticles={publicArticles}
       />
       <SiteFooter />

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Play, ChevronDown, ChevronUp, Minus } from "lucide-react";
+import type { SpotifyChartEntry, YouTubeVideoEntry } from "@/lib/feed-data";
 import {
   formatArticleDate,
   getDisplayCategoryLabel,
@@ -11,8 +12,7 @@ import {
   ArticleRecord,
 } from "@/lib/articles";
 import { usePublicArticles } from "@/lib/use-public-articles";
-import { SPOTIFY_TOP_TEN } from "@/lib/spotify";
-import { formatYouTubeDate, YOUTUBE_MOROCCO_TOP_VIDEOS } from "@/lib/youtube";
+import { formatYouTubeDate } from "@/lib/youtube";
 
 function formatPlays(value?: number | null) {
   if (typeof value !== "number") {
@@ -32,6 +32,15 @@ function getShortVideoDescription(value?: string) {
   }
 
   return `${cleaned.slice(0, 117).trimEnd()}...`;
+}
+
+function getNumericProperty(record: unknown, key: string) {
+  if (!record || typeof record !== "object") {
+    return undefined;
+  }
+
+  const value = (record as Record<string, unknown>)[key];
+  return typeof value === "number" ? value : undefined;
 }
 
 function ChartMovement({ value }: { value?: string }) {
@@ -101,6 +110,8 @@ type EditorialGridProps = {
     image: string;
     href: string;
   }>;
+  spotifyTopTen: SpotifyChartEntry[];
+  youtubeTopVideos: YouTubeVideoEntry[];
   initialArticles?: ArticleRecord[];
 };
 
@@ -109,6 +120,8 @@ export default function EditorialGrid({
   bannerImage,
   bannerHref,
   socialItems,
+  spotifyTopTen,
+  youtubeTopVideos,
   initialArticles,
 }: EditorialGridProps) {
   const publicArticles = usePublicArticles();
@@ -181,13 +194,9 @@ const trendingItems = (sortedCards.length ? sortedCards : [])
                     className={`h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] ${item.imageClassName ?? ""}`}
 style={getArticleImageStyle({
   imagePositionX:
-    typeof (item as any).imagePositionX === "number"
-      ? (item as any).imagePositionX
-      : undefined,
+    getNumericProperty(item, "imagePositionX"),
   imagePositionY:
-    typeof (item as any).imagePositionY === "number"
-      ? (item as any).imagePositionY
-      : undefined,
+    getNumericProperty(item, "imagePositionY"),
 })}
                   />
                 </div>
@@ -367,7 +376,7 @@ style={getArticleImageStyle({
             </div>
 
             <div className="space-y-6">
-              {YOUTUBE_MOROCCO_TOP_VIDEOS.map((item) => (
+              {youtubeTopVideos.map((item) => (
                 <article
                   key={item.id}
                   className="grid grid-cols-1 gap-4 sm:grid-cols-[220px_minmax(0,1fr)] sm:gap-5 lg:grid-cols-[268px_320px]"
@@ -440,7 +449,7 @@ style={getArticleImageStyle({
               </div>
 
               <div>
-                {SPOTIFY_TOP_TEN.map((item, index) => (
+                {spotifyTopTen.map((item, index) => (
                   <div
                     key={item.rank}
                     className={`grid grid-cols-[82px_minmax(0,1fr)_84px] items-center px-4 py-3 sm:grid-cols-[112px_minmax(0,1fr)_110px] sm:px-5 ${
