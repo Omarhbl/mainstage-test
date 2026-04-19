@@ -8,7 +8,7 @@ import type { BackstagePortalSettings } from "@/lib/backstage-portal";
 
 const NAV_ITEMS = [
   { suffix: "", label: "Overview" },
-  { suffix: "/campaigns", label: "Campaigns" },
+  { suffix: "/campaigns", label: "Projects" },
   { suffix: "/approvals", label: "Approvals" },
   { suffix: "/files", label: "Deliverables" },
   { suffix: "/reports", label: "Reports" },
@@ -20,12 +20,16 @@ export default function PartnerPortalShell({
   subtitle,
   shellSettings,
   basePath = "/backstage/portal",
+  statusLabel = "Live",
+  pendingLabel = "2 approvals",
   children,
 }: {
   title: string;
   subtitle: string;
   shellSettings: BackstagePortalSettings["shell"];
   basePath?: string;
+  statusLabel?: string;
+  pendingLabel?: string;
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
@@ -114,8 +118,8 @@ export default function PartnerPortalShell({
               </div>
 
               <div className="grid gap-3 sm:grid-cols-2 xl:min-w-[320px]">
-                <PortalMiniCard label="Status" value="Live" />
-                <PortalMiniCard label="Pending" value="2 approvals" />
+                <PortalMiniCard label="Status" value={statusLabel} />
+                <PortalMiniCard label="Pending" value={pendingLabel} />
               </div>
             </div>
 

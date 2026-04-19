@@ -10,7 +10,7 @@ const CLIENT_SECTIONS = [
   { title: "Login", href: "login", description: "Adjust the wording for this client’s login screen." },
   { title: "Portal shell", href: "shell", description: "Update the portal framing, labels, and contact block." },
   { title: "Overview", href: "overview", description: "Manage the overview page headline and summary." },
-  { title: "Campaigns", href: "campaigns", description: "Edit the campaigns this client sees inside the portal." },
+  { title: "Projects", href: "campaigns", description: "Edit the projects, budgets, and financial items this client sees inside the portal." },
   { title: "Approvals", href: "approvals", description: "Manage approval queue items for this client." },
   { title: "Deliverables", href: "files", description: "Control downloadable assets and deliverables." },
   { title: "Reports", href: "reports", description: "Edit reports and invoice tracking for this client." },

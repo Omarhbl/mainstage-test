@@ -1,9 +1,11 @@
 import Link from "next/link";
 import type {
   PartnerApproval,
+  PartnerBudgetEntry,
   PartnerCampaign,
   PartnerFile,
   PartnerMessage,
+  PartnerProject,
   PartnerReport,
 } from "@/lib/backstage-portal";
 
@@ -80,6 +82,48 @@ export function ApprovalRow({
       <p className="mt-3 text-[13px] font-body font-medium text-black/48">
         Due {dueDate}
       </p>
+    </div>
+  );
+}
+
+export function BudgetRow({
+  label,
+  type,
+  amount,
+  status,
+  submittedBy,
+  updatedAt,
+}: PartnerBudgetEntry) {
+  const tone =
+    status === "Approved"
+      ? "text-[#2f7a3a] bg-[#eef8f0]"
+      : status === "Needs changes"
+        ? "text-[#9f1b20] bg-[#fff1f2]"
+        : "text-[#8a5b00] bg-[#fff6e6]";
+
+  return (
+    <div className="rounded-[18px] border border-black/8 bg-[#fbfaf8] p-4 shadow-[0_8px_24px_rgba(0,0,0,0.03)]">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+        <div>
+          <p className="text-[18px] font-body font-bold tracking-[-0.03em] text-[#181818]">
+            {label}
+          </p>
+          <p className="mt-1 text-[13px] font-body font-medium text-black/48">
+            {type} • Submitted by {submittedBy}
+          </p>
+        </div>
+        <span
+          className={`inline-flex rounded-full px-3 py-1 text-[12px] font-body font-semibold uppercase tracking-[0.12em] ${tone}`}
+        >
+          {status}
+        </span>
+      </div>
+      <div className="mt-3 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+        <p className="text-[16px] font-body font-semibold text-[#CE2127]">{amount}</p>
+        <p className="text-[13px] font-body font-medium text-black/48">
+          Updated {updatedAt}
+        </p>
+      </div>
     </div>
   );
 }
@@ -218,5 +262,56 @@ export function CampaignCard({
         ) : null}
       </div>
     </div>
+  );
+}
+
+export function ProjectCard({
+  project,
+  pendingCount = 0,
+  portalBasePath = "/backstage/portal",
+}: {
+  project: PartnerProject;
+  pendingCount?: number;
+  portalBasePath?: string;
+}) {
+  const href = `${portalBasePath}/projects/${project.id}`;
+
+  return (
+    <Link
+      href={href}
+      className="group block rounded-[24px] border border-black/8 bg-white p-6 shadow-[0_18px_46px_rgba(0,0,0,0.05)] transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-[0_22px_52px_rgba(0,0,0,0.08)]"
+    >
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+        <div>
+          <p className="text-[12px] font-body font-semibold uppercase tracking-[0.14em] text-[#CE2127]">
+            Assigned to {project.poc}
+          </p>
+          <h3 className="mt-2 text-[28px] font-body font-bold tracking-[-0.04em] text-[#181818]">
+            {project.name}
+          </h3>
+        </div>
+        <span className="inline-flex rounded-full bg-[#fbf1f1] px-3 py-1 text-[12px] font-body font-semibold uppercase tracking-[0.12em] text-[#CE2127]">
+          {project.status}
+        </span>
+      </div>
+
+      <p className="mt-4 text-[15px] font-body leading-[1.85] text-black/64">
+        {project.summary}
+      </p>
+
+      <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+        <MetricCard label="Progress" value={`${project.progress}%`} />
+        <MetricCard label="Start" value={project.startDate} />
+        <MetricCard label="End" value={project.endDate} />
+        <MetricCard label="Pending" value={`${pendingCount}`} />
+      </div>
+
+      <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <p className="text-[14px] font-body text-black/52">{project.scope}</p>
+        <span className="inline-flex items-center text-[14px] font-body font-semibold text-[#CE2127] transition-transform group-hover:translate-x-1">
+          Open project
+        </span>
+      </div>
+    </Link>
   );
 }

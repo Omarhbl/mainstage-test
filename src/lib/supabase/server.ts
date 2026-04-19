@@ -13,10 +13,12 @@ import {
   type BackstageClientAccount,
   type BackstagePortalSettings,
   type PartnerApproval,
+  type PartnerBudgetEntry,
   type PartnerCampaign,
   type PartnerFile,
   type PartnerLogEntry,
   type PartnerMessage,
+  type PartnerProject,
   type PartnerReport,
 } from "@/lib/backstage-portal";
 import {
@@ -1057,6 +1059,106 @@ function sanitizePartnerCampaign(
   };
 }
 
+function sanitizePartnerProject(
+  item: unknown,
+  fallback: PartnerProject,
+  index: number
+): PartnerProject {
+  if (!item || typeof item !== "object") {
+    return fallback;
+  }
+
+  const value = item as Partial<PartnerProject>;
+
+  return {
+    id:
+      typeof value.id === "string" && value.id.trim()
+        ? value.id.trim()
+        : `project-${index + 1}`,
+    name:
+      typeof value.name === "string" && value.name.trim()
+        ? value.name.trim()
+        : fallback.name,
+    status:
+      value.status === "Live" ||
+      value.status === "Review" ||
+      value.status === "Scheduled" ||
+      value.status === "Completed"
+        ? value.status
+        : fallback.status,
+    progress: clampImagePosition(value.progress, fallback.progress),
+    startDate:
+      typeof value.startDate === "string" && value.startDate.trim()
+        ? value.startDate.trim()
+        : fallback.startDate,
+    endDate:
+      typeof value.endDate === "string" && value.endDate.trim()
+        ? value.endDate.trim()
+        : fallback.endDate,
+    poc:
+      typeof value.poc === "string" && value.poc.trim()
+        ? value.poc.trim()
+        : fallback.poc,
+    summary:
+      typeof value.summary === "string" && value.summary.trim()
+        ? value.summary.trim()
+        : fallback.summary,
+    scope:
+      typeof value.scope === "string" && value.scope.trim()
+        ? value.scope.trim()
+        : fallback.scope,
+  };
+}
+
+function sanitizePartnerBudgetEntry(
+  item: unknown,
+  fallback: PartnerBudgetEntry,
+  index: number
+): PartnerBudgetEntry {
+  if (!item || typeof item !== "object") {
+    return fallback;
+  }
+
+  const value = item as Partial<PartnerBudgetEntry>;
+
+  return {
+    id:
+      typeof value.id === "string" && value.id.trim()
+        ? value.id.trim()
+        : `budget-${index + 1}`,
+    projectId:
+      typeof value.projectId === "string" && value.projectId.trim()
+        ? value.projectId.trim()
+        : fallback.projectId,
+    label:
+      typeof value.label === "string" && value.label.trim()
+        ? value.label.trim()
+        : fallback.label,
+    type:
+      value.type === "Budget" || value.type === "Quotation" || value.type === "Invoice"
+        ? value.type
+        : fallback.type,
+    amount:
+      typeof value.amount === "string" && value.amount.trim()
+        ? value.amount.trim()
+        : fallback.amount,
+    status:
+      value.status === "Pending review" ||
+      value.status === "Approved" ||
+      value.status === "Needs changes"
+        ? value.status
+        : fallback.status,
+    submittedBy:
+      typeof value.submittedBy === "string" && value.submittedBy.trim()
+        ? value.submittedBy.trim()
+        : fallback.submittedBy,
+    updatedAt:
+      typeof value.updatedAt === "string" && value.updatedAt.trim()
+        ? value.updatedAt.trim()
+        : fallback.updatedAt,
+  };
+}
+
 function sanitizePartnerApproval(
   item: unknown,
   fallback: PartnerApproval,
@@ -1073,6 +1175,10 @@ function sanitizePartnerApproval(
       typeof value.id === "string" && value.id.trim()
         ? value.id.trim()
         : `approval-${index + 1}`,
+    projectId:
+      typeof value.projectId === "string" && value.projectId.trim()
+        ? value.projectId.trim()
+        : fallback.projectId,
     title:
       typeof value.title === "string" && value.title.trim()
         ? value.title.trim()
@@ -1114,6 +1220,10 @@ function sanitizePartnerFile(
       typeof value.id === "string" && value.id.trim()
         ? value.id.trim()
         : `file-${index + 1}`,
+    projectId:
+      typeof value.projectId === "string" && value.projectId.trim()
+        ? value.projectId.trim()
+        : fallback.projectId,
     name:
       typeof value.name === "string" && value.name.trim()
         ? value.name.trim()
@@ -1154,6 +1264,10 @@ function sanitizePartnerReport(
       typeof value.id === "string" && value.id.trim()
         ? value.id.trim()
         : `${prefix}-${index + 1}`,
+    projectId:
+      typeof value.projectId === "string" && value.projectId.trim()
+        ? value.projectId.trim()
+        : fallback.projectId,
     title:
       typeof value.title === "string" && value.title.trim()
         ? value.title.trim()
@@ -1189,6 +1303,10 @@ function sanitizePartnerMessage(
       typeof value.id === "string" && value.id.trim()
         ? value.id.trim()
         : `message-${index + 1}`,
+    projectId:
+      typeof value.projectId === "string" && value.projectId.trim()
+        ? value.projectId.trim()
+        : fallback.projectId,
     author:
       typeof value.author === "string" && value.author.trim()
         ? value.author.trim()
@@ -1224,6 +1342,10 @@ function sanitizePartnerLog(
       typeof value.id === "string" && value.id.trim()
         ? value.id.trim()
         : `log-${index + 1}`,
+    projectId:
+      typeof value.projectId === "string" && value.projectId.trim()
+        ? value.projectId.trim()
+        : fallback.projectId,
     date:
       typeof value.date === "string" && value.date.trim()
         ? value.date.trim()
@@ -1435,6 +1557,18 @@ function sanitizeBackstageClientAccount(
                   ? value.portalSettings.campaignsPage.subtitle.trim()
                   : FALLBACK_BACKSTAGE_PORTAL_SETTINGS.campaignsPage.subtitle,
             },
+            projectsPage: {
+              title:
+                typeof value.portalSettings.projectsPage?.title === "string" &&
+                value.portalSettings.projectsPage.title.trim()
+                  ? value.portalSettings.projectsPage.title.trim()
+                  : FALLBACK_BACKSTAGE_PORTAL_SETTINGS.projectsPage.title,
+              subtitle:
+                typeof value.portalSettings.projectsPage?.subtitle === "string" &&
+                value.portalSettings.projectsPage.subtitle.trim()
+                  ? value.portalSettings.projectsPage.subtitle.trim()
+                  : FALLBACK_BACKSTAGE_PORTAL_SETTINGS.projectsPage.subtitle,
+            },
             approvalsPage: {
               title:
                 typeof value.portalSettings.approvalsPage?.title === "string" &&
@@ -1496,6 +1630,33 @@ function sanitizeBackstageClientAccount(
                   )
                   .filter(Boolean)
               : FALLBACK_BACKSTAGE_PORTAL_SETTINGS.campaigns,
+            projects: Array.isArray(value.portalSettings.projects)
+              ? value.portalSettings.projects
+                  .map((project, projectIndex) =>
+                    sanitizePartnerProject(
+                      project,
+                      FALLBACK_BACKSTAGE_PORTAL_SETTINGS.projects[
+                        projectIndex % FALLBACK_BACKSTAGE_PORTAL_SETTINGS.projects.length
+                      ],
+                      projectIndex
+                    )
+                  )
+                  .filter(Boolean)
+              : FALLBACK_BACKSTAGE_PORTAL_SETTINGS.projects,
+            budgetEntries: Array.isArray(value.portalSettings.budgetEntries)
+              ? value.portalSettings.budgetEntries
+                  .map((entry, entryIndex) =>
+                    sanitizePartnerBudgetEntry(
+                      entry,
+                      FALLBACK_BACKSTAGE_PORTAL_SETTINGS.budgetEntries[
+                        entryIndex %
+                          FALLBACK_BACKSTAGE_PORTAL_SETTINGS.budgetEntries.length
+                      ],
+                      entryIndex
+                    )
+                  )
+                  .filter(Boolean)
+              : FALLBACK_BACKSTAGE_PORTAL_SETTINGS.budgetEntries,
             approvals: Array.isArray(value.portalSettings.approvals)
               ? value.portalSettings.approvals
                   .map((approval, approvalIndex) =>
@@ -1765,6 +1926,17 @@ export async function getBackstagePortalSettings(
           ? value.campaignsPage.subtitle.trim()
           : fallback.campaignsPage.subtitle,
     },
+    projectsPage: {
+      title:
+        typeof value.projectsPage?.title === "string" && value.projectsPage.title.trim()
+          ? value.projectsPage.title.trim()
+          : fallback.projectsPage.title,
+      subtitle:
+        typeof value.projectsPage?.subtitle === "string" &&
+        value.projectsPage.subtitle.trim()
+          ? value.projectsPage.subtitle.trim()
+          : fallback.projectsPage.subtitle,
+    },
     approvalsPage: {
       title:
         typeof value.approvalsPage?.title === "string" &&
@@ -1818,6 +1990,20 @@ export async function getBackstagePortalSettings(
           )
         )
       : fallback.campaigns,
+    projects: Array.isArray(value.projects)
+      ? value.projects.map((item, index) =>
+          sanitizePartnerProject(item, fallback.projects[index] ?? fallback.projects[0], index)
+        )
+      : fallback.projects,
+    budgetEntries: Array.isArray(value.budgetEntries)
+      ? value.budgetEntries.map((item, index) =>
+          sanitizePartnerBudgetEntry(
+            item,
+            fallback.budgetEntries[index] ?? fallback.budgetEntries[0],
+            index
+          )
+        )
+      : fallback.budgetEntries,
     approvals: Array.isArray(value.approvals)
       ? value.approvals.map((item, index) =>
           sanitizePartnerApproval(

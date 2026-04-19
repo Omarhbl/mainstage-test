@@ -1,4 +1,5 @@
 import { updateBackstagePortalSettingsAction } from "@/app/backoffice/backstage/actions";
+import BackstageProjectsEditor from "@/components/backoffice/BackstageProjectsEditor";
 import type { BackstagePortalSettings } from "@/lib/backstage-portal";
 
 type BackstageSection =
@@ -218,53 +219,12 @@ export default function BackstageSectionEditor({
 
   if (section === "campaigns") {
     return (
-      <form action={updateBackstagePortalSettingsAction}>
-        <Card eyebrow="Campaigns" title="Edit client campaign cards">
-          <input type="hidden" name="section" value="campaigns" />
-          <input type="hidden" name="redirect_target" value={redirectTarget} />
-          <input type="hidden" name="client_slug" value={clientSlug ?? ""} />
-          {clientContext}
-          <div className="mt-5 space-y-4">
-            <Field label="Page title" name="campaigns_page_title" defaultValue={settings.campaignsPage.title} />
-            <Field label="Page subtitle" name="campaigns_page_subtitle" defaultValue={settings.campaignsPage.subtitle} textarea />
-          </div>
-          <div className="mt-6 space-y-5">
-            {Array.from({ length: 4 }, (_, index) => {
-              const item = settings.campaigns[index];
-              return (
-                <div key={`campaign-${index + 1}`} className="rounded-[16px] border border-black/8 bg-[#faf8f6] p-4">
-                  <p className="text-[13px] font-body font-semibold uppercase tracking-[0.14em] text-black/50">
-                    Campaign {index + 1}
-                  </p>
-                  <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
-                    <Field label="Name" name={`campaign_name_${index + 1}`} defaultValue={item?.name ?? ""} />
-                    <Field label="Brand" name={`campaign_brand_${index + 1}`} defaultValue={item?.brand ?? ""} />
-                    <label className="block">
-                      <span className="text-[13px] font-body font-medium text-black/60">Status</span>
-                      <select name={`campaign_status_${index + 1}`} defaultValue={item?.status ?? "Live"} className="mt-2 h-[50px] w-full rounded-[12px] border border-black/10 bg-white px-4 outline-none focus:border-[#CE2127]">
-                        <option value="Live">Live</option>
-                        <option value="Review">Review</option>
-                        <option value="Scheduled">Scheduled</option>
-                      </select>
-                    </label>
-                    <Field label="Progress %" name={`campaign_progress_${index + 1}`} defaultValue={String(item?.progress ?? 0)} />
-                    <Field label="Start date" name={`campaign_start_date_${index + 1}`} defaultValue={item?.startDate ?? ""} />
-                    <Field label="End date" name={`campaign_end_date_${index + 1}`} defaultValue={item?.endDate ?? ""} />
-                    <Field label="Budget" name={`campaign_budget_${index + 1}`} defaultValue={item?.budget ?? ""} />
-                    <Field label="Lead" name={`campaign_lead_${index + 1}`} defaultValue={item?.lead ?? ""} />
-                    <div className="md:col-span-2">
-                      <Field label="Objective" name={`campaign_objective_${index + 1}`} defaultValue={item?.objective ?? ""} textarea />
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-          <button type="submit" className="mt-5 inline-flex h-[48px] items-center justify-center rounded-[12px] bg-[#CE2127] px-5 text-[14px] font-body font-semibold text-white">
-            Save campaigns
-          </button>
-        </Card>
-      </form>
+      <BackstageProjectsEditor
+        settings={settings}
+        redirectTarget={redirectTarget}
+        clientSlug={clientSlug}
+        clientContext={clientContext}
+      />
     );
   }
 

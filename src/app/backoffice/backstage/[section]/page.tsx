@@ -22,8 +22,8 @@ const BACKSTAGE_SECTIONS = {
     subtitle: "Manage the top-level overview page content and intro wording.",
   },
   campaigns: {
-    title: "Campaigns",
-    subtitle: "Edit the campaign cards and the campaigns page text shown to clients.",
+    title: "Projects",
+    subtitle: "Manage the client projects, budget lines, and project page text shown in the portal.",
   },
   approvals: {
     title: "Approvals",

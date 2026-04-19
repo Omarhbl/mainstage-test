@@ -35,12 +35,12 @@ export default async function BackofficeBackstagePage() {
         />
         <SectionCard
           title="Overview"
-          description="Manage the overview page headline and the main campaign summary."
+          description="Manage the overview page headline and the main project summary."
           href="/backoffice/backstage/overview"
         />
         <SectionCard
-          title="Campaigns"
-          description="Edit the campaign cards shown to partners inside the portal."
+          title="Projects"
+          description="Edit the projects, budgets, and financial entries shown to partners inside the portal."
           href="/backoffice/backstage/campaigns"
         />
         <SectionCard

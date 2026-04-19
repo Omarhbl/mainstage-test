@@ -11,8 +11,32 @@ export type PartnerCampaign = {
   objective: string;
 };
 
+export type PartnerProject = {
+  id: string;
+  name: string;
+  status: "Live" | "Review" | "Scheduled" | "Completed";
+  progress: number;
+  startDate: string;
+  endDate: string;
+  poc: string;
+  summary: string;
+  scope: string;
+};
+
+export type PartnerBudgetEntry = {
+  id: string;
+  projectId: string;
+  label: string;
+  type: "Budget" | "Quotation" | "Invoice";
+  amount: string;
+  status: "Pending review" | "Approved" | "Needs changes";
+  submittedBy: string;
+  updatedAt: string;
+};
+
 export type PartnerApproval = {
   id: string;
+  projectId?: string;
   title: string;
   type: string;
   dueDate: string;
@@ -22,6 +46,7 @@ export type PartnerApproval = {
 
 export type PartnerFile = {
   id: string;
+  projectId?: string;
   name: string;
   category: string;
   updatedAt: string;
@@ -31,6 +56,7 @@ export type PartnerFile = {
 
 export type PartnerReport = {
   id: string;
+  projectId?: string;
   title: string;
   period: string;
   summary: string;
@@ -39,6 +65,7 @@ export type PartnerReport = {
 
 export type PartnerMessage = {
   id: string;
+  projectId?: string;
   author: string;
   role: string;
   date: string;
@@ -47,6 +74,7 @@ export type PartnerMessage = {
 
 export type PartnerLogEntry = {
   id: string;
+  projectId?: string;
   date: string;
   item: string;
   note: string;
@@ -89,6 +117,10 @@ export type BackstagePortalSettings = {
     title: string;
     subtitle: string;
   };
+  projectsPage: {
+    title: string;
+    subtitle: string;
+  };
   approvalsPage: {
     title: string;
     subtitle: string;
@@ -106,6 +138,8 @@ export type BackstagePortalSettings = {
     subtitle: string;
   };
   campaigns: PartnerCampaign[];
+  projects: PartnerProject[];
+  budgetEntries: PartnerBudgetEntry[];
   approvals: PartnerApproval[];
   files: PartnerFile[];
   reports: PartnerReport[];
@@ -172,6 +206,11 @@ export const FALLBACK_BACKSTAGE_PORTAL_SETTINGS: BackstagePortalSettings = {
     subtitle:
       "Review each live or upcoming partnership, track timing, and keep visibility on what is moving right now.",
   },
+  projectsPage: {
+    title: "Projects",
+    subtitle:
+      "Open each project to follow progress, documents, approvals, budgets, and ongoing discussion in one shared space.",
+  },
   approvalsPage: {
     title: "Approvals",
     subtitle:
@@ -220,9 +259,70 @@ export const FALLBACK_BACKSTAGE_PORTAL_SETTINGS: BackstagePortalSettings = {
         "Validate creative and lock the final editorial rollout before launch.",
     },
   ],
+  projects: [
+    {
+      id: "project-launch",
+      name: "Product Launch",
+      status: "Live",
+      progress: 78,
+      startDate: "08/04/2026",
+      endDate: "24/04/2026",
+      poc: "Nabila Harboul",
+      summary:
+        "Drive visibility across homepage, article placements, and social highlights.",
+      scope:
+        "Homepage placements, sponsored editorial, social deliverables, approvals, and reporting.",
+    },
+    {
+      id: "project-test",
+      name: "Campaign Test",
+      status: "Review",
+      progress: 42,
+      startDate: "18/04/2026",
+      endDate: "02/05/2026",
+      poc: "Omar Harboul",
+      summary:
+        "Validate creative and lock the final rollout before launch.",
+      scope:
+        "Creative review, quotation approval, timeline validation, and launch preparation.",
+    },
+  ],
+  budgetEntries: [
+    {
+      id: "budget-1",
+      projectId: "project-launch",
+      label: "Main campaign budget",
+      type: "Budget",
+      amount: "92,000 MAD",
+      status: "Approved",
+      submittedBy: "Client team",
+      updatedAt: "14/04/2026",
+    },
+    {
+      id: "budget-2",
+      projectId: "project-launch",
+      label: "Homepage hero quotation",
+      type: "Quotation",
+      amount: "38,000 MAD",
+      status: "Pending review",
+      submittedBy: "Mainstage",
+      updatedAt: "15/04/2026",
+    },
+    {
+      id: "budget-3",
+      projectId: "project-test",
+      label: "Test phase invoice",
+      type: "Invoice",
+      amount: "12,500 MAD",
+      status: "Needs changes",
+      submittedBy: "Mainstage",
+      updatedAt: "16/04/2026",
+    },
+  ],
   approvals: [
     {
       id: "apr-1",
+      projectId: "project-launch",
       title: "Homepage hero visual",
       type: "Creative",
       dueDate: "15/04/2026",
@@ -231,6 +331,7 @@ export const FALLBACK_BACKSTAGE_PORTAL_SETTINGS: BackstagePortalSettings = {
     },
     {
       id: "apr-2",
+      projectId: "project-launch",
       title: "Sponsored article copy",
       type: "Editorial",
       dueDate: "16/04/2026",
@@ -239,6 +340,7 @@ export const FALLBACK_BACKSTAGE_PORTAL_SETTINGS: BackstagePortalSettings = {
     },
     {
       id: "apr-3",
+      projectId: "project-test",
       title: "Instagram story pack",
       type: "Social",
       dueDate: "13/04/2026",
@@ -249,6 +351,7 @@ export const FALLBACK_BACKSTAGE_PORTAL_SETTINGS: BackstagePortalSettings = {
   files: [
     {
       id: "file-1",
+      projectId: "project-launch",
       name: "Campaign master deck",
       category: "Presentation",
       updatedAt: "14/04/2026",
@@ -257,6 +360,7 @@ export const FALLBACK_BACKSTAGE_PORTAL_SETTINGS: BackstagePortalSettings = {
     },
     {
       id: "file-2",
+      projectId: "project-launch",
       name: "Homepage hero export",
       category: "Creative",
       updatedAt: "14/04/2026",
@@ -265,6 +369,7 @@ export const FALLBACK_BACKSTAGE_PORTAL_SETTINGS: BackstagePortalSettings = {
     },
     {
       id: "file-3",
+      projectId: "project-test",
       name: "Social assets pack",
       category: "Social",
       updatedAt: "12/04/2026",
@@ -273,6 +378,7 @@ export const FALLBACK_BACKSTAGE_PORTAL_SETTINGS: BackstagePortalSettings = {
     },
     {
       id: "file-4",
+      projectId: "project-launch",
       name: "Performance snapshot",
       category: "Reporting",
       updatedAt: "11/04/2026",
@@ -283,6 +389,7 @@ export const FALLBACK_BACKSTAGE_PORTAL_SETTINGS: BackstagePortalSettings = {
   reports: [
     {
       id: "rep-1",
+      projectId: "project-launch",
       title: "Weekly campaign report",
       period: "08/04/2026 - 14/04/2026",
       summary:
@@ -291,6 +398,7 @@ export const FALLBACK_BACKSTAGE_PORTAL_SETTINGS: BackstagePortalSettings = {
     },
     {
       id: "rep-2",
+      projectId: "project-test",
       title: "Content performance review",
       period: "Week 2",
       summary:
@@ -301,6 +409,7 @@ export const FALLBACK_BACKSTAGE_PORTAL_SETTINGS: BackstagePortalSettings = {
   invoices: [
     {
       id: "inv-1",
+      projectId: "project-launch",
       title: "Invoice #MS-0426-01",
       period: "Issued 12/04/2026",
       summary:
@@ -309,6 +418,7 @@ export const FALLBACK_BACKSTAGE_PORTAL_SETTINGS: BackstagePortalSettings = {
     },
     {
       id: "inv-2",
+      projectId: "project-test",
       title: "Invoice #MS-0426-02",
       period: "Issued 14/04/2026",
       summary:
@@ -319,6 +429,7 @@ export const FALLBACK_BACKSTAGE_PORTAL_SETTINGS: BackstagePortalSettings = {
   messages: [
     {
       id: "msg-1",
+      projectId: "project-launch",
       author: "Mainstage Team",
       role: "Campaign lead",
       date: "14/04/2026",
@@ -327,6 +438,7 @@ export const FALLBACK_BACKSTAGE_PORTAL_SETTINGS: BackstagePortalSettings = {
     },
     {
       id: "msg-2",
+      projectId: "project-launch",
       author: "Partner Team",
       role: "Brand manager",
       date: "13/04/2026",
@@ -335,6 +447,7 @@ export const FALLBACK_BACKSTAGE_PORTAL_SETTINGS: BackstagePortalSettings = {
     },
     {
       id: "msg-3",
+      projectId: "project-test",
       author: "Mainstage Team",
       role: "Editorial",
       date: "12/04/2026",
@@ -345,18 +458,21 @@ export const FALLBACK_BACKSTAGE_PORTAL_SETTINGS: BackstagePortalSettings = {
   activityLog: [
     {
       id: "log-1",
+      projectId: "project-launch",
       date: "14/04/2026",
       item: "Banner delivered",
       note: "Homepage banner received and staged for publication.",
     },
     {
       id: "log-2",
+      projectId: "project-test",
       date: "13/04/2026",
       item: "Creative feedback",
       note: "Partner team approved 3 out of 4 social story slides.",
     },
     {
       id: "log-3",
+      projectId: "project-test",
       date: "12/04/2026",
       item: "Article uploaded",
       note: "Sponsored feature draft added for partner review.",

@@ -37,6 +37,7 @@ export async function sendClientPortalMessageAction(formData: FormData) {
 
   const subject = String(formData.get("subject") ?? "").trim();
   const messageBody = String(formData.get("message") ?? "").trim();
+  const projectId = String(formData.get("project_id") ?? "").trim();
 
   if (!subject || !messageBody) {
     buildClientPortalRedirect(
@@ -72,6 +73,7 @@ export async function sendClientPortalMessageAction(formData: FormData) {
         messages: [
           {
             id: `message-${Date.now()}`,
+            projectId: projectId || undefined,
             author: access.fullName || client.contactName || client.companyName,
             role: "Client message",
             date: formattedDate,
@@ -82,9 +84,12 @@ export async function sendClientPortalMessageAction(formData: FormData) {
         activityLog: [
           {
             id: `log-${Date.now()}`,
+            projectId: projectId || undefined,
             date: formattedDate,
             item: `Client message: ${subject}`,
-            note: "A new message was sent from the client portal.",
+            note: projectId
+              ? "A new project-specific message was sent from the client portal."
+              : "A new message was sent from the client portal.",
           },
           ...client.portalSettings.activityLog,
         ],
@@ -110,6 +115,9 @@ export async function sendClientPortalMessageAction(formData: FormData) {
 
   revalidatePath(`/backstage/portal/${access.client.slug}`);
   revalidatePath(`/backstage/portal/${access.client.slug}/messages`);
+  if (projectId) {
+    revalidatePath(`/backstage/portal/${access.client.slug}/projects/${projectId}`);
+  }
   revalidatePath("/backoffice/backstage/clients");
   buildClientPortalRedirect(access.client.slug, "Your message was sent.", "success");
 }

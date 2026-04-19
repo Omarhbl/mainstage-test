@@ -52,6 +52,14 @@ export async function updateBackstagePortalSettingsAction(formData: FormData) {
     0,
     Number.parseInt(String(formData.get("message_count") ?? "0"), 10) || 0
   );
+  const projectCount = Math.max(
+    0,
+    Number.parseInt(String(formData.get("project_count") ?? "0"), 10) || 0
+  );
+  const budgetCount = Math.max(
+    0,
+    Number.parseInt(String(formData.get("budget_count") ?? "0"), 10) || 0
+  );
   const activityCount = Math.max(
     0,
     Number.parseInt(String(formData.get("activity_count") ?? "0"), 10) || 0
@@ -112,10 +120,17 @@ export async function updateBackstagePortalSettingsAction(formData: FormData) {
     campaignsPage:
       section === "campaigns"
         ? {
-            title: String(formData.get("campaigns_page_title") ?? "").trim(),
-            subtitle: String(formData.get("campaigns_page_subtitle") ?? "").trim(),
+            title: String(formData.get("projects_page_title") ?? "").trim(),
+            subtitle: String(formData.get("projects_page_subtitle") ?? "").trim(),
           }
         : baseSettings.campaignsPage,
+    projectsPage:
+      section === "campaigns"
+        ? {
+            title: String(formData.get("projects_page_title") ?? "").trim(),
+            subtitle: String(formData.get("projects_page_subtitle") ?? "").trim(),
+          }
+        : baseSettings.projectsPage,
     approvalsPage:
       section === "approvals"
         ? {
@@ -146,25 +161,111 @@ export async function updateBackstagePortalSettingsAction(formData: FormData) {
         : baseSettings.messagesPage,
     campaigns:
       section === "campaigns"
-        ? Array.from({ length: 4 }, (_, index) => ({
-            id: `cmp-${index + 1}`,
-            name: String(formData.get(`campaign_name_${index + 1}`) ?? "").trim(),
-            brand: String(formData.get(`campaign_brand_${index + 1}`) ?? "").trim(),
-            status: String(formData.get(`campaign_status_${index + 1}`) ?? "").trim() as
+        ? Array.from({ length: projectCount }, (_, index) => {
+            const position = index + 1;
+            const deleted =
+              String(formData.get(`project_delete_${position}`) ?? "").trim() === "1";
+            const name = String(formData.get(`project_name_${position}`) ?? "").trim();
+            const rawStatus = String(formData.get(`project_status_${position}`) ?? "").trim() as
               | "Live"
               | "Review"
-              | "Scheduled",
-            startDate: String(formData.get(`campaign_start_date_${index + 1}`) ?? "").trim(),
-            endDate: String(formData.get(`campaign_end_date_${index + 1}`) ?? "").trim(),
-            progress: Number.parseInt(
-              String(formData.get(`campaign_progress_${index + 1}`) ?? "0"),
-              10
-            ) || 0,
-            budget: String(formData.get(`campaign_budget_${index + 1}`) ?? "").trim(),
-            lead: String(formData.get(`campaign_lead_${index + 1}`) ?? "").trim(),
-            objective: String(formData.get(`campaign_objective_${index + 1}`) ?? "").trim(),
-          })).filter((item) => item.name && item.brand)
+              | "Scheduled"
+              | "Completed";
+            const status =
+              rawStatus === "Completed" ? "Scheduled" : rawStatus || "Live";
+            const lead = String(formData.get(`project_poc_${position}`) ?? "").trim();
+            const startDate = String(formData.get(`project_start_date_${position}`) ?? "").trim();
+            const endDate = String(formData.get(`project_end_date_${position}`) ?? "").trim();
+            const progress =
+              Number.parseInt(String(formData.get(`project_progress_${position}`) ?? "0"), 10) ||
+              0;
+            const summary = String(formData.get(`project_summary_${position}`) ?? "").trim();
+            const budget = String(formData.get(`project_budget_${position}`) ?? "").trim();
+            const id =
+              String(formData.get(`project_id_${position}`) ?? "").trim() || `project-${position}`;
+
+            return {
+              deleted,
+              item: {
+                id,
+                name,
+                brand: name,
+                status,
+                startDate,
+                endDate,
+                progress,
+                budget,
+                lead,
+                objective: summary,
+              },
+            };
+          })
+            .filter(({ deleted, item }) => !deleted && item.name)
+            .map(({ item }) => item)
         : baseSettings.campaigns,
+    projects:
+      section === "campaigns"
+        ? Array.from({ length: projectCount }, (_, index) => {
+            const position = index + 1;
+            return {
+              deleted:
+                String(formData.get(`project_delete_${position}`) ?? "").trim() === "1",
+              item: {
+                id:
+                  String(formData.get(`project_id_${position}`) ?? "").trim() ||
+                  `project-${position}`,
+                name: String(formData.get(`project_name_${position}`) ?? "").trim(),
+                status: String(formData.get(`project_status_${position}`) ?? "").trim() as
+                  | "Live"
+                  | "Review"
+                  | "Scheduled"
+                  | "Completed",
+                progress:
+                  Number.parseInt(
+                    String(formData.get(`project_progress_${position}`) ?? "0"),
+                    10
+                  ) || 0,
+                startDate: String(formData.get(`project_start_date_${position}`) ?? "").trim(),
+                endDate: String(formData.get(`project_end_date_${position}`) ?? "").trim(),
+                poc: String(formData.get(`project_poc_${position}`) ?? "").trim(),
+                summary: String(formData.get(`project_summary_${position}`) ?? "").trim(),
+                scope: String(formData.get(`project_scope_${position}`) ?? "").trim(),
+              },
+            };
+          })
+            .filter(({ deleted, item }) => !deleted && item.name)
+            .map(({ item }) => item)
+        : baseSettings.projects,
+    budgetEntries:
+      section === "campaigns"
+        ? Array.from({ length: budgetCount }, (_, index) => {
+            const position = index + 1;
+            return {
+              deleted:
+                String(formData.get(`budget_delete_${position}`) ?? "").trim() === "1",
+              item: {
+                id:
+                  String(formData.get(`budget_id_${position}`) ?? "").trim() ||
+                  `budget-${position}`,
+                projectId: String(formData.get(`budget_project_${position}`) ?? "").trim(),
+                label: String(formData.get(`budget_label_${position}`) ?? "").trim(),
+                type: String(formData.get(`budget_type_${position}`) ?? "").trim() as
+                  | "Budget"
+                  | "Quotation"
+                  | "Invoice",
+                amount: String(formData.get(`budget_amount_${position}`) ?? "").trim(),
+                status: String(formData.get(`budget_status_${position}`) ?? "").trim() as
+                  | "Pending review"
+                  | "Approved"
+                  | "Needs changes",
+                submittedBy: String(formData.get(`budget_submitted_by_${position}`) ?? "").trim(),
+                updatedAt: String(formData.get(`budget_updated_at_${position}`) ?? "").trim(),
+              },
+            };
+          })
+            .filter(({ deleted, item }) => !deleted && item.label && item.projectId)
+            .map(({ item }) => item)
+        : baseSettings.budgetEntries,
     approvals:
       section === "approvals"
         ? Array.from({ length: 5 }, (_, index) => ({
@@ -253,6 +354,14 @@ export async function updateBackstagePortalSettingsAction(formData: FormData) {
         : baseSettings.activityLog,
   };
 
+  if (section === "campaigns") {
+    const activeProjectIds = new Set(nextSettings.projects.map((project) => project.id));
+
+    nextSettings.budgetEntries = nextSettings.budgetEntries.filter((entry) =>
+      activeProjectIds.has(entry.projectId)
+    );
+  }
+
   if (clientSlug) {
     const nextClients = currentClients.map((client) =>
       client.slug === clientSlug
@@ -310,10 +419,14 @@ export async function updateBackstagePortalSettingsAction(formData: FormData) {
     revalidatePath("/backstage/login");
     revalidatePath(`/backstage/portal/${clientSlug}`);
     revalidatePath(`/backstage/portal/${clientSlug}/campaigns`);
+    revalidatePath(`/backstage/portal/${clientSlug}/projects`);
     revalidatePath(`/backstage/portal/${clientSlug}/approvals`);
     revalidatePath(`/backstage/portal/${clientSlug}/files`);
     revalidatePath(`/backstage/portal/${clientSlug}/reports`);
     revalidatePath(`/backstage/portal/${clientSlug}/messages`);
+    nextSettings.projects.forEach((project) => {
+      revalidatePath(`/backstage/portal/${clientSlug}/projects/${project.id}`);
+    });
 
     buildBackstageRedirect("Client portal updated successfully.", "success", redirectTarget);
   }
@@ -360,10 +473,14 @@ export async function updateBackstagePortalSettingsAction(formData: FormData) {
   revalidatePath("/backstage/login");
   revalidatePath("/backstage/portal");
   revalidatePath("/backstage/portal/campaigns");
+  revalidatePath("/backstage/portal/projects");
   revalidatePath("/backstage/portal/approvals");
   revalidatePath("/backstage/portal/files");
   revalidatePath("/backstage/portal/reports");
   revalidatePath("/backstage/portal/messages");
+  nextSettings.projects.forEach((project) => {
+    revalidatePath(`/backstage/portal/projects/${project.id}`);
+  });
   revalidatePath("/backoffice/backstage");
   revalidatePath("/backoffice/backstage/gateway");
   revalidatePath("/backoffice/backstage/login");
