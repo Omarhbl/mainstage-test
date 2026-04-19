@@ -3,19 +3,7 @@ import { notFound } from "next/navigation";
 import BackofficeHeader from "@/components/backoffice/BackofficeHeader";
 import SectionCard from "@/components/backoffice/SectionCard";
 import { requireBackofficeAccess } from "@/lib/supabase/backoffice";
-import { getBackstageClientBySlug } from "@/lib/supabase/server";
-
-const CLIENT_SECTIONS = [
-  { title: "Gateway", href: "gateway", description: "Edit this client’s public entry page." },
-  { title: "Login", href: "login", description: "Adjust the wording for this client’s login screen." },
-  { title: "Portal shell", href: "shell", description: "Update the portal framing, labels, and contact block." },
-  { title: "Overview", href: "overview", description: "Manage the overview page headline and summary." },
-  { title: "Projects", href: "campaigns", description: "Edit the projects, budgets, and financial items this client sees inside the portal." },
-  { title: "Approvals", href: "approvals", description: "Manage approval queue items for this client." },
-  { title: "Deliverables", href: "files", description: "Control downloadable assets and deliverables." },
-  { title: "Reports", href: "reports", description: "Edit reports and invoice tracking for this client." },
-  { title: "Messages", href: "messages", description: "Manage notes, messages, and follow-up history." },
-] as const;
+import { getBackstageClientBySlug, getBackstagePortalSettings } from "@/lib/supabase/server";
 
 export default async function BackofficeBackstageClientPage({
   params,
@@ -25,8 +13,9 @@ export default async function BackofficeBackstageClientPage({
   await requireBackofficeAccess(["admin"]);
   const { slug } = await params;
   const client = await getBackstageClientBySlug(slug);
+  const settings = client ? await getBackstagePortalSettings(client.slug) : null;
 
-  if (!client) {
+  if (!client || !settings) {
     notFound();
   }
 
@@ -41,7 +30,7 @@ export default async function BackofficeBackstageClientPage({
     <div className="space-y-8">
       <BackofficeHeader
         title={`${client.companyName} portal`}
-        subtitle={`Manage ${client.companyName}'s client experience, credentials, and portal content from this one place.`}
+        subtitle={`Manage ${client.companyName}'s portal by project. Start with the overview, then open each project card to update what the client sees.`}
       />
 
       <div className="rounded-[20px] border border-black/8 bg-white p-6 shadow-[0_12px_30px_rgba(0,0,0,0.05)]">
@@ -94,16 +83,111 @@ export default async function BackofficeBackstageClientPage({
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-5 xl:grid-cols-2">
-        {CLIENT_SECTIONS.map((section) => (
+      <section className="space-y-5">
+        <div>
+          <p className="text-[12px] font-body font-semibold uppercase tracking-[0.16em] text-[#CE2127]">
+            Portal structure
+          </p>
+          <h2 className="mt-2 text-[28px] font-body font-bold tracking-[-0.04em] text-[#181818]">
+            Start with the portal overview
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 gap-5 xl:grid-cols-2">
           <SectionCard
-            key={section.href}
-            title={section.title}
-            description={section.description}
-            href={`/backoffice/backstage/${section.href}?client=${client.slug}`}
+            title="Overview"
+            description="Edit the top-level page title, summary, and overall presentation for this client portal."
+            href={`/backoffice/backstage/overview?client=${client.slug}`}
           />
-        ))}
-      </div>
+          <SectionCard
+            title="Projects page"
+            description="Control the project list intro and manage all project cards, budgets, quotations, and invoices for this client."
+            href={`/backoffice/backstage/campaigns?client=${client.slug}`}
+          />
+        </div>
+      </section>
+
+      <section className="space-y-5">
+        <div>
+          <p className="text-[12px] font-body font-semibold uppercase tracking-[0.16em] text-[#CE2127]">
+            Projects
+          </p>
+          <h2 className="mt-2 text-[28px] font-body font-bold tracking-[-0.04em] text-[#181818]">
+            One card per project
+          </h2>
+          <p className="mt-2 max-w-[780px] text-[15px] font-body leading-[1.8] text-black/62">
+            These cards reflect the projects currently configured for {client.companyName}. Open
+            the projects editor to update scope, progress, budgets, approvals, files, reports, and
+            client-facing messages for each one.
+          </p>
+        </div>
+
+        {settings.projects.length ? (
+          <div className="grid grid-cols-1 gap-5 xl:grid-cols-2">
+            {settings.projects.map((project) => {
+              const pendingItems = settings.approvals.filter(
+                (approval) =>
+                  approval.projectId === project.id && approval.status !== "Approved"
+              ).length;
+
+              return (
+                <Link
+                  key={project.id}
+                  href={`/backoffice/backstage/campaigns?client=${client.slug}&focus_project=${project.id}`}
+                  className="group rounded-[20px] border border-black/8 bg-white p-6 shadow-[0_12px_30px_rgba(0,0,0,0.05)] transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_rgba(0,0,0,0.08)]"
+                >
+                  <p className="text-[12px] font-body font-semibold uppercase tracking-[0.16em] text-[#CE2127]">
+                    {project.status}
+                  </p>
+                  <h3 className="mt-2 text-[26px] font-body font-bold tracking-[-0.04em] text-[#181818]">
+                    {project.name}
+                  </h3>
+                  <p className="mt-3 text-[15px] font-body leading-[1.8] text-black/62">
+                    {project.summary}
+                  </p>
+
+                  <div className="mt-5 grid grid-cols-2 gap-3">
+                    <div className="rounded-[16px] border border-black/8 bg-[#faf8f6] px-4 py-3">
+                      <p className="text-[12px] font-body font-semibold uppercase tracking-[0.12em] text-black/42">
+                        Progress
+                      </p>
+                      <p className="mt-2 text-[22px] font-body font-bold tracking-[-0.04em] text-[#181818]">
+                        {project.progress}%
+                      </p>
+                    </div>
+                    <div className="rounded-[16px] border border-black/8 bg-[#faf8f6] px-4 py-3">
+                      <p className="text-[12px] font-body font-semibold uppercase tracking-[0.12em] text-black/42">
+                        Pending
+                      </p>
+                      <p className="mt-2 text-[22px] font-body font-bold tracking-[-0.04em] text-[#181818]">
+                        {pendingItems}
+                      </p>
+                    </div>
+                  </div>
+
+                  <p className="mt-4 text-[14px] font-body text-black/52">
+                    {project.startDate} → {project.endDate}
+                  </p>
+                  <span className="mt-4 inline-flex items-center text-[14px] font-body font-semibold text-[#CE2127] transition-transform group-hover:translate-x-1">
+                    Open project editor
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
+        ) : (
+          <div className="rounded-[20px] border border-black/8 bg-white p-6 text-[15px] font-body leading-[1.8] text-black/62 shadow-[0_12px_30px_rgba(0,0,0,0.05)]">
+            No project is configured yet for this client. Use the{" "}
+            <Link
+              href={`/backoffice/backstage/campaigns?client=${client.slug}`}
+              className="font-semibold text-[#CE2127]"
+            >
+              Projects page
+            </Link>{" "}
+            to add the first one.
+          </div>
+        )}
+      </section>
     </div>
   );
 }

@@ -90,11 +90,13 @@ export default function BackstageSectionEditor({
   settings,
   clientSlug,
   clientName,
+  focusProjectId,
 }: {
   section: BackstageSection;
   settings: BackstagePortalSettings;
   clientSlug?: string;
   clientName?: string;
+  focusProjectId?: string;
 }) {
   const redirectTarget = clientSlug
     ? `${sectionTarget(section)}?client=${encodeURIComponent(clientSlug)}`
@@ -224,6 +226,7 @@ export default function BackstageSectionEditor({
         redirectTarget={redirectTarget}
         clientSlug={clientSlug}
         clientContext={clientContext}
+        focusProjectId={focusProjectId}
       />
     );
   }

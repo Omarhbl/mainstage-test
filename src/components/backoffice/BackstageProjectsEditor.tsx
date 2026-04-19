@@ -117,11 +117,13 @@ export default function BackstageProjectsEditor({
   redirectTarget,
   clientSlug,
   clientContext,
+  focusProjectId,
 }: {
   settings: BackstagePortalSettings;
   redirectTarget: string;
   clientSlug?: string;
   clientContext?: React.ReactNode;
+  focusProjectId?: string;
 }) {
   const [pageTitle, setPageTitle] = useState(settings.projectsPage.title);
   const [pageSubtitle, setPageSubtitle] = useState(settings.projectsPage.subtitle);
@@ -231,7 +233,11 @@ export default function BackstageProjectsEditor({
             {projects.map((item, index) => (
               <div
                 key={`project-card-${item.id}-${index}`}
-                className="rounded-[16px] border border-black/8 bg-[#faf8f6] p-4"
+                className={`rounded-[16px] border p-4 ${
+                  focusProjectId && focusProjectId === item.id
+                    ? "border-[#CE2127]/35 bg-[#fff7f7] shadow-[0_0_0_1px_rgba(206,33,39,0.06)]"
+                    : "border-black/8 bg-[#faf8f6]"
+                }`}
               >
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <p className="text-[13px] font-body font-semibold uppercase tracking-[0.14em] text-black/50">

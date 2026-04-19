@@ -50,11 +50,16 @@ export default async function BackofficeBackstageSectionPage({
   searchParams,
 }: {
   params: Promise<{ section: string }>;
-  searchParams: Promise<{ notice?: string; type?: string; client?: string }>;
+  searchParams: Promise<{
+    notice?: string;
+    type?: string;
+    client?: string;
+    focus_project?: string;
+  }>;
 }) {
   await requireBackofficeAccess(["admin"]);
   const { section } = await params;
-  const { notice, type, client } = await searchParams;
+  const { notice, type, client, focus_project } = await searchParams;
 
   if (!(section in BACKSTAGE_SECTIONS)) {
     notFound();
@@ -99,6 +104,7 @@ export default async function BackofficeBackstageSectionPage({
         settings={settings}
         clientSlug={clientRecord?.slug}
         clientName={clientRecord?.companyName}
+        focusProjectId={typeof focus_project === "string" ? focus_project : undefined}
       />
     </div>
   );
