@@ -3,13 +3,13 @@
   "playlistName": "Top 50 - Morocco",
   "market": "MA",
   "source": "spotify-embed-scrape",
-  "scrapedAt": "2026-04-27T08:06:53.315Z",
+  "scrapedAt": "2026-04-27T13:20:00.076Z",
   "tracks": [
     {
       "rank": "#1",
       "title": "Zone De Confort",
       "artist": "Figoshin",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0210c0176ba4322f4b40696a12",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0210c0176ba4322f4b40696a12",
       "plays": 82411,
       "chartChange": "=",
       "totalStreams": "174,920"
@@ -36,7 +36,7 @@
       "rank": "#4",
       "title": "CHANEL",
       "artist": "Stormy",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02d8ea3ee364a1b3e0cb4ad2ec",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02d8ea3ee364a1b3e0cb4ad2ec",
       "plays": 34210,
       "chartChange": "+1",
       "totalStreams": "623,194"
@@ -45,7 +45,7 @@
       "rank": "#5",
       "title": "KATANA",
       "artist": "Manal, Stormy",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02c3e82fb909ad7c6930ba8a6a",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02c3e82fb909ad7c6930ba8a6a",
       "plays": 33508,
       "chartChange": "-1",
       "totalStreams": "629,851"
@@ -54,7 +54,7 @@
       "rank": "#6",
       "title": "MOON",
       "artist": "Stormy",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02e040ca47b2f8046349ce4f49",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02e040ca47b2f8046349ce4f49",
       "plays": 32101,
       "chartChange": "+1",
       "totalStreams": "16,920,644"
@@ -99,7 +99,7 @@
       "rank": "#11",
       "title": "TAF TAF",
       "artist": "OldyGotTheSound, Anys, Shaw",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e029006e6553b481d4b5dd91f9a",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e029006e6553b481d4b5dd91f9a",
       "plays": 29067,
       "chartChange": "-2",
       "totalStreams": "11,560,393"
@@ -144,7 +144,7 @@
       "rank": "#16",
       "title": "Dorororo",
       "artist": "Gustavo 51",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0233321c8a4cdfe1e4fb735e45",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0233321c8a4cdfe1e4fb735e45",
       "plays": 22364,
       "chartChange": "=",
       "totalStreams": "3,894,281"
@@ -189,7 +189,7 @@
       "rank": "#21",
       "title": "Action",
       "artist": "Bo9al, Dollypran",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e029575b430f7027f33d034e9f8",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e029575b430f7027f33d034e9f8",
       "plays": null,
       "chartChange": "=",
       "totalStreams": null
@@ -207,7 +207,7 @@
       "rank": "#23",
       "title": "CHABBA",
       "artist": "Snor",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0246c66e28367c72f871687375",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0246c66e28367c72f871687375",
       "plays": 17999,
       "chartChange": "=",
       "totalStreams": "36,278"
@@ -225,7 +225,7 @@
       "rank": "#25",
       "title": "Pavarotti",
       "artist": "Draganov",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02a9a768062ff806f84deb9899",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02a9a768062ff806f84deb9899",
       "plays": 17619,
       "chartChange": "-1",
       "totalStreams": "184,135"
@@ -252,7 +252,7 @@
       "rank": "#28",
       "title": "3DABI",
       "artist": "Draganov",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02dbf520cd47d9ba489fd97f63",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02dbf520cd47d9ba489fd97f63",
       "plays": 17291,
       "chartChange": "+9",
       "totalStreams": "22,620,479"
@@ -288,7 +288,7 @@
       "rank": "#32",
       "title": "Si tu savais",
       "artist": "Anys, Stormy",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0275928cc9b433bbad1e7fa92f",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0275928cc9b433bbad1e7fa92f",
       "plays": 16286,
       "chartChange": "+4",
       "totalStreams": "14,729,597"
@@ -351,7 +351,7 @@
       "rank": "#39",
       "title": "SO HIGH",
       "artist": "Stormy",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02e040ca47b2f8046349ce4f49",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02e040ca47b2f8046349ce4f49",
       "plays": 15004,
       "chartChange": "+5",
       "totalStreams": "9,089,913"
@@ -387,7 +387,7 @@
       "rank": "#43",
       "title": "BABOUR LOU7",
       "artist": "Shaw, Hassa1, NAYRA",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02faafc42915f7daa7597a706c",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02faafc42915f7daa7597a706c",
       "plays": 14384,
       "chartChange": "+8",
       "totalStreams": "6,019,368"
@@ -405,7 +405,7 @@
       "rank": "#45",
       "title": "BOOMX3",
       "artist": "ElGrandeToto",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0236673b09fa34b996655c9c33",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0236673b09fa34b996655c9c33",
       "plays": 14200,
       "chartChange": "+2",
       "totalStreams": "3,044,036"
@@ -423,7 +423,7 @@
       "rank": "#47",
       "title": "KOULCHI HOUN",
       "artist": "Inkonnu",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02feb59f075c205a9c6c644ebe",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02feb59f075c205a9c6c644ebe",
       "plays": 14160,
       "chartChange": "-8",
       "totalStreams": "744,638"
@@ -432,7 +432,7 @@
       "rank": "#48",
       "title": "AJALI",
       "artist": "Snor, Wegz",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0246c66e28367c72f871687375",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0246c66e28367c72f871687375",
       "plays": 14038,
       "chartChange": "-19",
       "totalStreams": "30,957"
@@ -450,7 +450,7 @@
       "rank": "#50",
       "title": "GHALAT",
       "artist": "Snor, 7liwa",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0246c66e28367c72f871687375",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0246c66e28367c72f871687375",
       "plays": 13770,
       "chartChange": "-24",
       "totalStreams": "31,448"
