@@ -3,7 +3,7 @@
   "playlistName": "Top 50 - Morocco",
   "market": "MA",
   "source": "spotify-embed-scrape",
-  "scrapedAt": "2026-04-28T02:03:44.360Z",
+  "scrapedAt": "2026-04-28T08:09:09.304Z",
   "tracks": [
     {
       "rank": "#1",
@@ -36,7 +36,7 @@
       "rank": "#4",
       "title": "AKHI",
       "artist": "Shaw",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02af9f73acb5a281bb3b66ce4d",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02af9f73acb5a281bb3b66ce4d",
       "plays": null,
       "chartChange": "=",
       "totalStreams": null
@@ -108,7 +108,7 @@
       "rank": "#12",
       "title": "Bali maak",
       "artist": "Amine Farsi, Stormy",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e024c07f36c4eeee45eb76a141c",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e024c07f36c4eeee45eb76a141c",
       "plays": 28008,
       "chartChange": "=",
       "totalStreams": "7,273,144"
@@ -126,7 +126,7 @@
       "rank": "#14",
       "title": "ÉVIDEMMENT",
       "artist": "Snor, Najm",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0246c66e28367c72f871687375",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0246c66e28367c72f871687375",
       "plays": null,
       "chartChange": "=",
       "totalStreams": null
@@ -198,7 +198,7 @@
       "rank": "#22",
       "title": "DFN",
       "artist": "Inkonnu",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02feb59f075c205a9c6c644ebe",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02feb59f075c205a9c6c644ebe",
       "plays": 19120,
       "chartChange": "-2",
       "totalStreams": "931,772"
@@ -243,7 +243,7 @@
       "rank": "#27",
       "title": "MIRACLE",
       "artist": "Snor",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0246c66e28367c72f871687375",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0246c66e28367c72f871687375",
       "plays": 17561,
       "chartChange": "+2",
       "totalStreams": "53,761"
@@ -279,7 +279,7 @@
       "rank": "#31",
       "title": "Beauty And A Beat",
       "artist": "Justin Bieber, Nicki Minaj",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02f1d02a6cec967f8b6b78f76e",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02f1d02a6cec967f8b6b78f76e",
       "plays": 16297,
       "chartChange": "-4",
       "totalStreams": "213,314"
@@ -306,7 +306,7 @@
       "rank": "#34",
       "title": "AJALI",
       "artist": "Snor, Wegz",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0246c66e28367c72f871687375",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0246c66e28367c72f871687375",
       "plays": 15534,
       "chartChange": "+14",
       "totalStreams": "46,491"
@@ -351,7 +351,7 @@
       "rank": "#39",
       "title": "SO HIGH",
       "artist": "Stormy",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02e040ca47b2f8046349ce4f49",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02e040ca47b2f8046349ce4f49",
       "plays": 14905,
       "chartChange": "=",
       "totalStreams": "9,104,818"
@@ -387,7 +387,7 @@
       "rank": "#43",
       "title": "TABOUT",
       "artist": "KALIL",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0262d26d8936756ce1462d6b55",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0262d26d8936756ce1462d6b55",
       "plays": 13982,
       "chartChange": "+3",
       "totalStreams": "5,456,800"
@@ -396,7 +396,7 @@
       "rank": "#44",
       "title": "Soprano",
       "artist": "Bo9al, Shaw",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e029575b430f7027f33d034e9f8",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e029575b430f7027f33d034e9f8",
       "plays": 13964,
       "chartChange": "-13",
       "totalStreams": "402,954"
@@ -405,7 +405,7 @@
       "rank": "#45",
       "title": "BABOUR LOU7",
       "artist": "Shaw, Hassa1, NAYRA",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02faafc42915f7daa7597a706c",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02faafc42915f7daa7597a706c",
       "plays": 13643,
       "chartChange": "-2",
       "totalStreams": "6,033,011"
@@ -414,7 +414,7 @@
       "rank": "#46",
       "title": "DIPLOMATICO",
       "artist": "ElGrandeToto",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02de8a2f2e2387c20b54264917",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02de8a2f2e2387c20b54264917",
       "plays": 13519,
       "chartChange": "-4",
       "totalStreams": "15,576,355"
@@ -441,7 +441,7 @@
       "rank": "#49",
       "title": "Sahran lil",
       "artist": "Cheb Momo, Djalil Palermo",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0288619eb2e403d871b69df35b",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0288619eb2e403d871b69df35b",
       "plays": 12665,
       "chartChange": "=",
       "totalStreams": "2,384,491"
@@ -450,7 +450,7 @@
       "rank": "#50",
       "title": "Babydoll",
       "artist": "Dominic Fike",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e027b1b6f41c1645af9757d5616",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e027b1b6f41c1645af9757d5616",
       "plays": 12656,
       "chartChange": "+2",
       "totalStreams": "644,226"
