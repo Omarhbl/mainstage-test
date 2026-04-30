@@ -159,10 +159,6 @@ export default function SiteFooter({
               >
                 JOIN THE GUESTLIST
               </Link>
-              <p className="mt-4 max-w-[496px] text-[15px] font-body leading-[1.6] text-white/70">
-                Enter your email here for direct access, or open the dedicated
-                guestlist page for the full experience.
-              </p>
               <form
                 onSubmit={handleGuestlistSubmit}
                 className="mt-4 max-w-[496px]"
@@ -208,12 +204,6 @@ export default function SiteFooter({
                   </p>
                 ) : null}
               </form>
-              <Link
-                href="/guestlist"
-                className="mt-4 inline-flex text-[14px] font-body font-bold uppercase tracking-[0.01em] text-[#CE2127] transition-colors hover:text-white"
-              >
-                Open the guestlist page
-              </Link>
             </div>
           </div>
 
