@@ -21,6 +21,7 @@ export default function AppChrome({
   const pathname = usePathname();
   const isBackofficeRoute =
     pathname === "/login" ||
+    pathname === "/guestlist" ||
     pathname.startsWith("/backoffice") ||
     pathname.startsWith("/backstage");
 

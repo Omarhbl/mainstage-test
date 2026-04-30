@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import type { FormEvent } from "react";
 
@@ -128,7 +129,11 @@ export default function GuestlistLanding() {
       </div>
 
       <div className="relative z-20 mx-auto flex min-h-screen w-full max-w-[560px] flex-col items-center px-4 pb-6 pt-[22vh] text-center sm:px-4 sm:pt-[16vh] md:max-w-[980px] md:justify-center md:gap-6 md:px-6 md:pb-16 md:pt-0">
-        <h1 className="m-0 flex items-center justify-center gap-2 whitespace-nowrap">
+        <Link
+          href="/"
+          className="m-0 flex items-center justify-center gap-2 whitespace-nowrap transition-opacity hover:opacity-85"
+          aria-label="Back to Mainstage website"
+        >
           <img
             src="/mainstage-logo.png"
             alt="MAINSTAGE"
@@ -137,7 +142,7 @@ export default function GuestlistLanding() {
           <span className="text-[clamp(1.15rem,5.5vw,1.5rem)] font-bold leading-none tracking-[-0.01em] md:text-[clamp(28px,3.2vw,40px)] md:font-semibold md:tracking-[-0.02em]">
             takes the scene
           </span>
-        </h1>
+        </Link>
 
         <p className="mt-4 max-w-[94%] text-[clamp(0.95rem,4.2vw,1.1rem)] italic leading-[1.45] text-white/70 md:mt-5 md:max-w-[600px] md:text-[15px] md:leading-[1.6]">
           Whether you&apos;re on the guest list, backstage, or know the owners,
