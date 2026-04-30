@@ -1,7 +1,7 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
-import type { FormEvent } from "react";
 import {
   FALLBACK_SITE_SETTINGS,
   type SiteSettings,
@@ -17,11 +17,6 @@ export default function SiteFooter({
   const [resolvedSettings, setResolvedSettings] = useState<SiteSettings>(
     siteSettings ?? FALLBACK_SITE_SETTINGS
   );
-  const [guestlistEmail, setGuestlistEmail] = useState("");
-  const [guestlistState, setGuestlistState] = useState<
-    "idle" | "loading" | "success" | "error"
-  >("idle");
-  const [guestlistMessage, setGuestlistMessage] = useState("");
 
   useEffect(() => {
     let isActive = true;
@@ -52,53 +47,6 @@ export default function SiteFooter({
       isActive = false;
     };
   }, []);
-
-  async function handleGuestlistSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-
-    const email = guestlistEmail.trim().toLowerCase();
-
-    if (!email) {
-      setGuestlistState("error");
-      setGuestlistMessage("Please enter your email first.");
-      return;
-    }
-
-    setGuestlistState("loading");
-    setGuestlistMessage("");
-
-    try {
-      const response = await fetch("/api/guestlist", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email }),
-      });
-
-      const payload = (await response.json()) as {
-        success?: boolean;
-        message?: string;
-      };
-
-      if (!response.ok || !payload.success) {
-        setGuestlistState("error");
-        setGuestlistMessage(
-          payload.message || "We couldn’t save your email yet. Please try again."
-        );
-        return;
-      }
-
-      setGuestlistState("success");
-      setGuestlistMessage(
-        payload.message || "Access granted. You’re on the guestlist."
-      );
-      setGuestlistEmail("");
-    } catch {
-      setGuestlistState("error");
-      setGuestlistMessage("We couldn’t save your email yet. Please try again.");
-    }
-  }
 
   return (
     <footer className="mt-auto bg-[#161616] text-white">
@@ -152,52 +100,22 @@ export default function SiteFooter({
             </div>
 
             <div className="mt-10">
-              <p className="text-[16px] font-body font-bold uppercase text-white">
-                JOIN THE GUESTLIST
-              </p>
-              <form
-                onSubmit={handleGuestlistSubmit}
-                className="mt-4 max-w-[496px]"
+              <Link
+                href="/guestlist"
+                className="inline-block text-[16px] font-body font-bold uppercase text-white transition-colors hover:text-[#CE2127]"
               >
-                <div className="flex flex-col overflow-hidden border border-[#CE2127] sm:flex-row">
-                  <input
-                    type="email"
-                    value={guestlistEmail}
-                    onChange={(event) => {
-                      setGuestlistEmail(event.target.value);
-
-                      if (guestlistState !== "idle") {
-                        setGuestlistState("idle");
-                        setGuestlistMessage("");
-                      }
-                    }}
-                    placeholder="Enter your email ...."
-                    className="h-[58px] flex-1 bg-[#3a3a3a] px-4 text-[16px] font-body text-white placeholder:text-white/55 focus:outline-none"
-                    aria-label="Join the guestlist with your email"
-                    disabled={guestlistState === "loading"}
-                  />
-                  <button
-                    type="submit"
-                    className="h-[58px] cursor-pointer bg-[#CE2127] px-8 text-[14px] font-body font-bold uppercase tracking-[0.01em] text-white transition-opacity hover:opacity-90 disabled:cursor-wait disabled:opacity-75"
-                    disabled={guestlistState === "loading"}
-                  >
-                    {guestlistState === "loading" ? "GRANTING ACCESS..." : "GET YOUR ACCESS"}
-                  </button>
-                </div>
-
-                {guestlistMessage ? (
-                  <p
-                    className={
-                      guestlistState === "success"
-                        ? "mt-3 text-[14px] font-body font-semibold text-[#8bffad]"
-                        : "mt-3 text-[14px] font-body font-semibold text-[#ffb3b6]"
-                    }
-                    role="status"
-                  >
-                    {guestlistMessage}
-                  </p>
-                ) : null}
-              </form>
+                JOIN THE GUESTLIST
+              </Link>
+              <p className="mt-4 max-w-[496px] text-[15px] font-body leading-[1.6] text-white/70">
+                Sign up from the dedicated guestlist page and get direct access
+                to what is moving behind the scenes.
+              </p>
+              <Link
+                href="/guestlist"
+                className="mt-4 inline-flex h-[58px] items-center justify-center bg-[#CE2127] px-8 text-[14px] font-body font-bold uppercase tracking-[0.01em] text-white transition-opacity hover:opacity-90"
+              >
+                Get your access
+              </Link>
             </div>
           </div>
 
