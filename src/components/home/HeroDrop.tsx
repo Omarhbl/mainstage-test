@@ -77,49 +77,68 @@ export default function HeroDrop({
     <section className="relative flex min-h-[68vh] w-full items-end overflow-hidden border-b border-border-main">
       {/* Background Video */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-x-0 bottom-0 z-10 h-[40%] bg-[linear-gradient(180deg,rgba(0,0,0,0)_0%,rgba(0,0,0,0.24)_28%,rgba(0,0,0,1)_100%)]" />
-        {isVideoAsset(activeSlide.media) ? (
-          <video
-            key={activeSlide.media}
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="h-full w-full scale-[1.02] object-cover object-center"
+        <AnimatePresence initial={false} mode="sync">
+          <motion.div
+            key={`${activeSlide.media}-${activeSlideIndex}`}
+            initial={{ x: "100%", opacity: 0.9 }}
+            animate={{ x: "0%", opacity: 1 }}
+            exit={{ x: "-100%", opacity: 0.9 }}
+            transition={{
+              x: { duration: 1.15, ease: [0.22, 1, 0.36, 1] },
+              opacity: { duration: 0.9, ease: "easeOut" },
+            }}
+            className="absolute inset-0"
           >
-            <source src={activeSlide.media} type="video/mp4" />
-          </video>
-        ) : (
-          <img
-            key={activeSlide.media}
-            src={activeSlide.media}
-            alt={activeSlide.title}
-            className="h-full w-full scale-[1.02] object-cover object-center"
-          />
-        )}
+            {isVideoAsset(activeSlide.media) ? (
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="h-full w-full scale-[1.02] object-cover object-center"
+              >
+                <source src={activeSlide.media} type="video/mp4" />
+              </video>
+            ) : (
+              <img
+                src={activeSlide.media}
+                alt={activeSlide.title}
+                className="h-full w-full scale-[1.02] object-cover object-center"
+              />
+            )}
+          </motion.div>
+        </AnimatePresence>
+        <div className="absolute inset-x-0 bottom-0 z-10 h-[40%] bg-[linear-gradient(180deg,rgba(0,0,0,0)_0%,rgba(0,0,0,0.24)_28%,rgba(0,0,0,1)_100%)]" />
         <div className="scanline" />
       </div>
 
       {/* Content */}
       <div className="container relative z-20 grid gap-10 px-4 py-12 md:px-8">
         <div className="max-w-4xl">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <Link
-              href={activeSlide.href}
-              className="inline-block cursor-pointer"
+          <AnimatePresence initial={false} mode="wait">
+            <motion.div
+              key={`${activeSlide.title}-${activeSlideIndex}`}
+              initial={{ opacity: 0, x: 48 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -48 }}
+              transition={{
+                duration: 0.85,
+                ease: [0.22, 1, 0.36, 1],
+              }}
             >
-              <h2 className="max-w-4xl text-[30px] font-body font-bold tracking-[-0.03em] text-white leading-[1.08]">
-                {activeSlide.title}
-              </h2>
-              <p className="mt-1 text-[15px] font-body font-semibold leading-none text-[#CE2127]">
-                {activeSlide.category}
-              </p>
-            </Link>
-          </motion.div>
+              <Link
+                href={activeSlide.href}
+                className="inline-block cursor-pointer"
+              >
+                <h2 className="max-w-4xl text-[30px] font-body font-bold tracking-[-0.03em] text-white leading-[1.08]">
+                  {activeSlide.title}
+                </h2>
+                <p className="mt-1 text-[15px] font-body font-semibold leading-none text-[#CE2127]">
+                  {activeSlide.category}
+                </p>
+              </Link>
+            </motion.div>
+          </AnimatePresence>
         </div>
 
         {SHOW_TRENDING_PANEL && (
