@@ -3,7 +3,7 @@
   "playlistName": "Top 50 - Morocco",
   "market": "MA",
   "source": "spotify-embed-scrape",
-  "scrapedAt": "2026-05-08T07:17:35.042Z",
+  "scrapedAt": "2026-05-08T13:10:40.138Z",
   "tracks": [
     {
       "rank": "#1",
@@ -36,7 +36,7 @@
       "rank": "#4",
       "title": "Twehachtek Grave",
       "artist": "Cheba Souad, Hichem Smati",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02d5f8cd0974ad3c7610133589",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02d5f8cd0974ad3c7610133589",
       "plays": 28028,
       "chartChange": "=",
       "totalStreams": "239,115"
@@ -54,7 +54,7 @@
       "rank": "#6",
       "title": "CHANEL",
       "artist": "Stormy",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02d8ea3ee364a1b3e0cb4ad2ec",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02d8ea3ee364a1b3e0cb4ad2ec",
       "plays": 27947,
       "chartChange": "=",
       "totalStreams": "967,224"
@@ -126,7 +126,7 @@
       "rank": "#14",
       "title": "NGHAMER",
       "artist": "Bayadis, Manal, Shaw",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02c18c0c91a685f892fd66bed5",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02c18c0c91a685f892fd66bed5",
       "plays": 19727,
       "chartChange": "+1",
       "totalStreams": "5,053,585"
@@ -135,7 +135,7 @@
       "rank": "#15",
       "title": "WALLAHI",
       "artist": "Shaw",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02faafc42915f7daa7597a706c",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02faafc42915f7daa7597a706c",
       "plays": 19512,
       "chartChange": "-1",
       "totalStreams": "10,946,587"
@@ -144,7 +144,7 @@
       "rank": "#16",
       "title": "Nsak?",
       "artist": "ONZY",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02edbc0aaea47aa5c8dad338cd",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02edbc0aaea47aa5c8dad338cd",
       "plays": 19348,
       "chartChange": "-3",
       "totalStreams": "846,311"
@@ -189,7 +189,7 @@
       "rank": "#21",
       "title": "Ghalta",
       "artist": "Draganov",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02a9a768062ff806f84deb9899",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02a9a768062ff806f84deb9899",
       "plays": 17123,
       "chartChange": "-4",
       "totalStreams": "454,558"
@@ -198,7 +198,7 @@
       "rank": "#22",
       "title": "Action",
       "artist": "Bo9al, Dollypran",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e029575b430f7027f33d034e9f8",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e029575b430f7027f33d034e9f8",
       "plays": 16995,
       "chartChange": "-2",
       "totalStreams": "1,067,547"
@@ -207,7 +207,7 @@
       "rank": "#23",
       "title": "Lalla w Mali",
       "artist": "Figoshin",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02725f197d4b18317ec957e779",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02725f197d4b18317ec957e779",
       "plays": 15854,
       "chartChange": "+7",
       "totalStreams": "12,113,314"
@@ -297,7 +297,7 @@
       "rank": "#33",
       "title": "Ma Jolie",
       "artist": "LFERDA",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02c9b9784c65851d2dc61d18a1",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02c9b9784c65851d2dc61d18a1",
       "plays": 14003,
       "chartChange": "-1",
       "totalStreams": "10,078,176"
@@ -324,7 +324,7 @@
       "rank": "#36",
       "title": "Pavarotti",
       "artist": "Draganov",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02a9a768062ff806f84deb9899",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02a9a768062ff806f84deb9899",
       "plays": 13111,
       "chartChange": "=",
       "totalStreams": "357,944"
@@ -387,7 +387,7 @@
       "rank": "#43",
       "title": "DIPLOMATICO",
       "artist": "ElGrandeToto",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02de8a2f2e2387c20b54264917",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02de8a2f2e2387c20b54264917",
       "plays": 11983,
       "chartChange": "-9",
       "totalStreams": "15,714,783"
@@ -450,7 +450,7 @@
       "rank": "#50",
       "title": "BOUHALI",
       "artist": "ElGrandeToto",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02de8a2f2e2387c20b54264917",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02de8a2f2e2387c20b54264917",
       "plays": 10880,
       "chartChange": "+7",
       "totalStreams": "14,277,033"
