@@ -26,6 +26,22 @@ import {
 
 export const dynamic = "force-dynamic";
 
+function getEmbeddedYouTubeVideoId(value?: string | null) {
+  const normalized = normalizeYouTubeEmbedUrl(value);
+
+  if (!normalized) {
+    return "";
+  }
+
+  try {
+    const url = new URL(normalized);
+    const segments = url.pathname.split("/").filter(Boolean);
+    return segments[segments.length - 1] ?? "";
+  } catch {
+    return "";
+  }
+}
+
 const CATEGORY_BACK_LINKS: Record<string, { href: string; label: string }> = {
   trending: { href: "/trending", label: "Back to Trending" },
   music: { href: "/music", label: "Back to Music" },
@@ -156,6 +172,14 @@ export default async function ArticlePage({
   const bodyHtml = article.bodyHtml?.trim();
   const heroMediaType = article.heroMedia?.type === "video" ? "video" : "image";
   const heroMediaSrc = article.heroMedia?.src?.trim() || article.image || "";
+  const bottomMediaEmbedUrl =
+    article.bottomMedia?.type === "youtube"
+      ? normalizeYouTubeEmbedUrl(article.bottomMedia.src)
+      : "";
+  const bottomMediaVideoId = getEmbeddedYouTubeVideoId(article.bottomMedia?.src);
+  const bottomMediaThumbnail = bottomMediaVideoId
+    ? `https://i.ytimg.com/vi/${bottomMediaVideoId}/hqdefault.jpg`
+    : "";
   const canonicalUrl = toAbsoluteUrl(`/articles/${article.slug}`);
   const socialImageUrl = article.image
     ? toAbsoluteUrl(article.image)
@@ -288,27 +312,55 @@ export default async function ArticlePage({
           </article>
 
           {article.bottomMedia ? (
-            <div className="mx-auto mt-12 max-w-[860px] overflow-hidden rounded-[9px] bg-[#ddd7cf]">
+            <div className="mx-auto mt-8 max-w-[860px] overflow-hidden rounded-[9px] bg-[#ddd7cf] sm:mt-12">
               {article.bottomMedia.type === "youtube" ? (
-                <iframe
-                  className="aspect-video w-full"
-                  src={normalizeYouTubeEmbedUrl(article.bottomMedia.src)}
-                  title={article.bottomMedia.title ?? article.title}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                />
+                <>
+                  {bottomMediaEmbedUrl ? (
+                    <div className="hidden sm:block">
+                      <iframe
+                        className="aspect-video w-full"
+                        src={bottomMediaEmbedUrl}
+                        title={article.bottomMedia.title ?? article.title}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        allowFullScreen
+                      />
+                    </div>
+                  ) : null}
+
+                  <a
+                    href={article.bottomMedia.src}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group relative block sm:hidden"
+                    aria-label={`Watch ${article.bottomMedia.title ?? article.title} on YouTube`}
+                  >
+                    {bottomMediaThumbnail ? (
+                      <img
+                        src={bottomMediaThumbnail}
+                        alt={article.bottomMedia.title ?? article.title}
+                        className="aspect-video w-full object-cover"
+                      />
+                    ) : (
+                      <div className="aspect-video w-full bg-[#ece6df]" />
+                    )}
+                    <div className="absolute inset-0 bg-black/18 transition-colors duration-300 group-hover:bg-black/28" />
+                    <div className="absolute left-1/2 top-1/2 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/92 shadow-[0_12px_28px_rgba(0,0,0,0.2)]">
+                      <div className="ml-1 h-0 w-0 border-y-[10px] border-y-transparent border-l-[16px] border-l-[#111]" />
+                    </div>
+                  </a>
+                </>
               ) : (
                 <ArticleMedia
                   src={article.bottomMedia.src}
                   alt={article.bottomMedia.title ?? article.title}
-                  heightClassName="h-[320px]"
+                  heightClassName="h-[220px] sm:h-[320px]"
                 />
               )}
             </div>
           ) : null}
 
-          <div className="mx-auto mt-12 max-w-[860px]">
+          <div className="mx-auto mt-8 max-w-[860px] sm:mt-12">
             <h2 className="text-[22px] font-body font-bold tracking-[-0.03em] text-[#181818]">
               Similar articles
             </h2>
