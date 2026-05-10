@@ -3,7 +3,7 @@
   "playlistName": "Top 50 - Morocco",
   "market": "MA",
   "source": "spotify-embed-scrape",
-  "scrapedAt": "2026-05-10T07:58:24.464Z",
+  "scrapedAt": "2026-05-10T12:57:22.499Z",
   "tracks": [
     {
       "rank": "#1",
@@ -63,7 +63,7 @@
       "rank": "#7",
       "title": "WARDA",
       "artist": "Inkonnu, Manal",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02d960080283cdaf1ee337e8bd",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02d960080283cdaf1ee337e8bd",
       "plays": null,
       "chartChange": "=",
       "totalStreams": null
@@ -90,7 +90,7 @@
       "rank": "#10",
       "title": "CHANEL",
       "artist": "Stormy",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02d8ea3ee364a1b3e0cb4ad2ec",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02d8ea3ee364a1b3e0cb4ad2ec",
       "plays": 24372,
       "chartChange": "-2",
       "totalStreams": "1,016,738"
@@ -108,7 +108,7 @@
       "rank": "#12",
       "title": "KALIMAT",
       "artist": "Manal",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02e1d80af2df4612061f48ffd0",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02e1d80af2df4612061f48ffd0",
       "plays": 21269,
       "chartChange": "-1",
       "totalStreams": "1,979,507"
@@ -117,7 +117,7 @@
       "rank": "#13",
       "title": "DAZOU LYAM",
       "artist": "Shaw",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02af9f73acb5a281bb3b66ce4d",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02af9f73acb5a281bb3b66ce4d",
       "plays": 21148,
       "chartChange": "-1",
       "totalStreams": "6,305,517"
@@ -126,7 +126,7 @@
       "rank": "#14",
       "title": "Dorororo",
       "artist": "Gustavo 51",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0233321c8a4cdfe1e4fb735e45",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0233321c8a4cdfe1e4fb735e45",
       "plays": 20740,
       "chartChange": "-4",
       "totalStreams": "4,171,300"
@@ -144,7 +144,7 @@
       "rank": "#16",
       "title": "WALLAHI",
       "artist": "Shaw",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02faafc42915f7daa7597a706c",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02faafc42915f7daa7597a706c",
       "plays": 19297,
       "chartChange": "-3",
       "totalStreams": "10,986,484"
@@ -189,7 +189,7 @@
       "rank": "#21",
       "title": "3DABI",
       "artist": "Draganov",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02dbf520cd47d9ba489fd97f63",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02dbf520cd47d9ba489fd97f63",
       "plays": 18069,
       "chartChange": "-4",
       "totalStreams": "22,852,799"
@@ -198,7 +198,7 @@
       "rank": "#22",
       "title": "Ghalta",
       "artist": "Draganov",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02a9a768062ff806f84deb9899",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02a9a768062ff806f84deb9899",
       "plays": 17862,
       "chartChange": "-2",
       "totalStreams": "490,037"
@@ -243,7 +243,7 @@
       "rank": "#27",
       "title": "GUTI",
       "artist": "Najm",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e021ba0568dc621c11b0573f418",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e021ba0568dc621c11b0573f418",
       "plays": null,
       "chartChange": "=",
       "totalStreams": null
@@ -270,7 +270,7 @@
       "rank": "#30",
       "title": "20",
       "artist": "Najm",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e021ba0568dc621c11b0573f418",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e021ba0568dc621c11b0573f418",
       "plays": null,
       "chartChange": "=",
       "totalStreams": null
@@ -279,7 +279,7 @@
       "rank": "#31",
       "title": "Tsswirtek",
       "artist": "Draganov",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026c4d86597c81e7c35b3e2906",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026c4d86597c81e7c35b3e2906",
       "plays": 14905,
       "chartChange": "-5",
       "totalStreams": "3,522,077"
@@ -288,7 +288,7 @@
       "rank": "#32",
       "title": "RIRI&ROCKY",
       "artist": "Najm, Manal",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026d130ae788f3c2a7294355c1",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026d130ae788f3c2a7294355c1",
       "plays": 14889,
       "chartChange": "-7",
       "totalStreams": "5,788,241"
@@ -351,7 +351,7 @@
       "rank": "#39",
       "title": "AZAZEL",
       "artist": "Najm",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e021ba0568dc621c11b0573f418",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e021ba0568dc621c11b0573f418",
       "plays": null,
       "chartChange": "=",
       "totalStreams": null
@@ -378,7 +378,7 @@
       "rank": "#42",
       "title": "INSOMNIA HOTEL",
       "artist": "Najm, ElGrandeToto",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e020b567d0a96884db97964309c",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e020b567d0a96884db97964309c",
       "plays": 13636,
       "chartChange": "-1",
       "totalStreams": "2,095,288"
@@ -387,7 +387,7 @@
       "rank": "#43",
       "title": "NAR",
       "artist": "Najm",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e021ba0568dc621c11b0573f418",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e021ba0568dc621c11b0573f418",
       "plays": null,
       "chartChange": "=",
       "totalStreams": null
@@ -423,7 +423,7 @@
       "rank": "#47",
       "title": "Ma Jolie",
       "artist": "LFERDA",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02c9b9784c65851d2dc61d18a1",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02c9b9784c65851d2dc61d18a1",
       "plays": 13200,
       "chartChange": "-15",
       "totalStreams": "10,105,922"
@@ -432,7 +432,7 @@
       "rank": "#48",
       "title": "SOFITEL",
       "artist": "ElGrandeToto",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02a365cd05c33fcb6fac2cfe9e",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02a365cd05c33fcb6fac2cfe9e",
       "plays": 13010,
       "chartChange": "-17",
       "totalStreams": "361,271"
@@ -441,7 +441,7 @@
       "rank": "#49",
       "title": "Pavarotti",
       "artist": "Draganov",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02a9a768062ff806f84deb9899",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02a9a768062ff806f84deb9899",
       "plays": 12568,
       "chartChange": "-12",
       "totalStreams": "383,759"
@@ -450,7 +450,7 @@
       "rank": "#50",
       "title": "BOOMX3",
       "artist": "ElGrandeToto",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0236673b09fa34b996655c9c33",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0236673b09fa34b996655c9c33",
       "plays": 12440,
       "chartChange": "-7",
       "totalStreams": "3,217,540"
