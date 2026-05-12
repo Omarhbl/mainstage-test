@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import ArticleMedia from "@/components/article/ArticleMedia";
 import ArticleRichContent from "@/components/article/ArticleRichContent";
 import SiteFooter from "@/components/layout/SiteFooter";
@@ -133,6 +133,11 @@ export default async function ArticlePage({
 }) {
   const { slug } = await params;
   const { from } = await searchParams;
+
+  if (from) {
+    redirect(`/articles/${slug}`);
+  }
+
   const article = await getPublicArticleBySlug(slug);
 
   if (!article) {
@@ -141,18 +146,12 @@ export default async function ArticlePage({
 
   const allArticles = await getPublicArticles();
 
-  const normalizedFrom =
-    from?.toLowerCase() === "entertainment" ? "events" : from?.toLowerCase();
-
   const activeCategory =
-    normalizedFrom &&
-    CATEGORY_BACK_LINKS[normalizedFrom] &&
-    (normalizedFrom === "trending" || hasArticleCategory(article, normalizedFrom))
-      ? normalizedFrom
+    article.category.toLowerCase() === "entertainment"
+      ? "events"
       : article.category.toLowerCase();
 
-  const similarCategory =
-    activeCategory === "trending" ? article.category.toLowerCase() : activeCategory;
+  const similarCategory = activeCategory;
 
   const similarArticles = allArticles
     .filter(
@@ -369,7 +368,7 @@ export default async function ArticlePage({
               {similarArticles.map((similar) => (
                 <article key={similar.slug} className="max-w-[300px]">
                   <Link
-                    href={`/articles/${similar.slug}?from=${activeCategory}`}
+                    href={`/articles/${similar.slug}`}
                     className="group block transition-transform duration-300 hover:-translate-y-1"
                   >
                     <div className="h-[164px] overflow-hidden rounded-[8px] bg-[#e4ddd5] shadow-[0_0_0_1px_rgba(0,0,0,0.04)] transition-shadow duration-300 group-hover:shadow-[0_16px_32px_rgba(0,0,0,0.1)]">

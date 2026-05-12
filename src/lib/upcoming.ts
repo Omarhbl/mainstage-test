@@ -45,7 +45,7 @@ export const FALLBACK_ENTERTAINMENT_UPCOMING: UpcomingItem[] = [
     releaseDate: "31/05/2026",
     image:
       "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1772233608684-qhd0uaeyhte.png",
-    href: "/articles/casablanca-en-scene-a-night-of-laughter?from=events",
+    href: "/articles/casablanca-en-scene-a-night-of-laughter",
   },
   {
     id: "event-kylie-timothee",
@@ -53,14 +53,14 @@ export const FALLBACK_ENTERTAINMENT_UPCOMING: UpcomingItem[] = [
     releaseDate: "10/04/2026",
     image:
       "https://media.vanityfair.fr/photos/686cd42910c1b9b46bdfe1da/16:9/w_2560,c_limit/Kylie%2520Jenner-2215009958.jpg",
-    href: "/articles/kylie-jenner-timothee-chalamet-and-the-era-of-strategic-relationships?from=events",
+    href: "/articles/kylie-jenner-timothee-chalamet-and-the-era-of-strategic-relationships",
   },
   {
     id: "event-travis-unsane",
     title: "Travis Scott - UNSANE",
     releaseDate: "10/04/2026",
     image: "/culture/travis.jpg",
-    href: "/articles/travis-scott-didnt-announce-his-next-album-he-wore-it?from=events",
+    href: "/articles/travis-scott-didnt-announce-his-next-album-he-wore-it",
   },
   {
     id: "event-kanye-sofi",
@@ -68,6 +68,6 @@ export const FALLBACK_ENTERTAINMENT_UPCOMING: UpcomingItem[] = [
     releaseDate: "11/04/2026",
     image:
       "https://www.rollingstone.com/wp-content/uploads/2026/04/kanye-at-sofi.jpg?w=1581&h=1054&crop=1",
-    href: "/articles/inside-kanye-wests-most-controversial-show-yet-in-la?from=events",
+    href: "/articles/inside-kanye-wests-most-controversial-show-yet-in-la",
   },
 ];

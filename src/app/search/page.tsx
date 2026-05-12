@@ -43,7 +43,7 @@ export default async function SearchPage({
               {results.map((article) => (
                 <article key={article.slug} className="max-w-[321px]">
                   <Link
-                    href={`/articles/${article.slug}?from=${article.category.toLowerCase()}`}
+                    href={`/articles/${article.slug}`}
                     className="block"
                   >
                     <div className="h-[191px] w-full overflow-hidden rounded-[8px] bg-[#e7e1db]">

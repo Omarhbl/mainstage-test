@@ -184,7 +184,7 @@ const trendingItems = (sortedCards.length ? sortedCards : [])
               className="group"
             >
               <Link
-                href={`/articles/${item.slug}?from=trending`}
+                href={`/articles/${item.slug}`}
                 className="block cursor-pointer transition-transform duration-300 hover:-translate-y-1"
               >
                 <div className="h-[300px] w-full overflow-hidden rounded-[9px] bg-[#ece7e2] shadow-[0_0_0_1px_rgba(0,0,0,0.04)] transition-shadow duration-300 group-hover:shadow-[0_18px_40px_rgba(0,0,0,0.12)] sm:h-[340px] md:h-[397px] md:max-w-[321px]">
@@ -225,7 +225,7 @@ style={getArticleImageStyle({
 
             {mustRead ? (
               <Link
-                href={`/articles/${mustRead.slug}?from=${mustRead.category.toLowerCase()}`}
+                href={`/articles/${mustRead.slug}`}
                 className="inline-flex cursor-pointer items-center gap-2 text-[16px] font-body font-semibold text-[#CE2127] transition-opacity hover:opacity-75"
               >
                 Discover more
@@ -243,7 +243,7 @@ style={getArticleImageStyle({
             className="grid grid-cols-1 gap-8 lg:grid-cols-[561px_minmax(0,1fr)] lg:items-start"
           >
             <Link
-              href={`/articles/${mustRead.slug}?from=${mustRead.category.toLowerCase()}`}
+              href={`/articles/${mustRead.slug}`}
               className="group block cursor-pointer transition-transform duration-300 hover:-translate-y-1"
             >
               <div className="h-[240px] w-full overflow-hidden rounded-[9px] bg-[#ece7e2] shadow-[0_0_0_1px_rgba(0,0,0,0.04)] transition-shadow duration-300 group-hover:shadow-[0_18px_40px_rgba(0,0,0,0.12)] sm:h-[300px] lg:h-[332px] lg:max-w-[561px]">
@@ -262,7 +262,7 @@ style={getArticleImageStyle({
                 {formatArticleDate(mustRead.date)}
               </p>
               <Link
-                href={`/articles/${mustRead.slug}?from=${mustRead.category.toLowerCase()}`}
+                href={`/articles/${mustRead.slug}`}
                 className="block cursor-pointer"
               >
                 <h3 className="mt-4 w-full text-[25px] font-body font-bold leading-[1.35] tracking-[-0.02em] text-[#181818] transition-colors duration-300 hover:text-[#CE2127] lg:max-w-[561px]">

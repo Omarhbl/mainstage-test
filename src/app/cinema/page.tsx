@@ -94,7 +94,7 @@ export default function CinemaPage() {
               {cinemaArticles.map((article) => (
                 <article key={article.slug} className="max-w-[321px]">
                   <Link
-                    href={`/articles/${article.slug}?from=cinema`}
+                    href={`/articles/${article.slug}`}
                     className="group block transition-transform duration-300 hover:-translate-y-1"
                   >
                     <div className="h-[191px] w-full overflow-hidden rounded-[8px] bg-[#e7e1db] shadow-[0_0_0_1px_rgba(0,0,0,0.04)] transition-shadow duration-300 group-hover:shadow-[0_16px_32px_rgba(0,0,0,0.1)]">

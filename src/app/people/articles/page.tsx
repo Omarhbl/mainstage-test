@@ -38,7 +38,7 @@ export default async function PeopleArticlesPage() {
           <div className="mt-14 grid grid-cols-1 gap-x-[28px] gap-y-12 sm:grid-cols-2 xl:grid-cols-3">
             {peopleArticles.map((article) => (
               <article key={article.slug} className="max-w-[321px]">
-                <Link href={`/articles/${article.slug}?from=people`} className="block">
+                <Link href={`/articles/${article.slug}`} className="block">
                   <div className="h-[191px] w-full overflow-hidden rounded-[8px] bg-[#e7e1db]">
                     <img
                       src={article.image}

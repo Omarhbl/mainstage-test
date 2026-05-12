@@ -35,7 +35,7 @@ export default function TrendingPage() {
           {featureStory ? (
           <div className="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-[563px_minmax(0,1fr)] lg:items-start">
             <Link
-              href={`/articles/${featureStory.slug}?from=trending`}
+              href={`/articles/${featureStory.slug}`}
               className="group block transition-transform duration-300 hover:-translate-y-1"
             >
               <div className="h-[314px] w-full max-w-[563px] overflow-hidden rounded-[9px] bg-[#e7e1db] shadow-[0_0_0_1px_rgba(0,0,0,0.04)] transition-shadow duration-300 group-hover:shadow-[0_18px_40px_rgba(0,0,0,0.12)]">
@@ -52,7 +52,7 @@ export default function TrendingPage() {
               <p className="text-[11px] font-body font-normal text-[rgba(0,0,0,0.65)]">
                 {formatArticleDate(featureStory.date)}
               </p>
-              <Link href={`/articles/${featureStory.slug}?from=trending`} className="block">
+              <Link href={`/articles/${featureStory.slug}`} className="block">
                 <h2 className="mt-2 text-[34px] font-body font-bold leading-[1.12] tracking-[-0.04em] text-[#161616] transition-colors duration-300 hover:text-[#CE2127]">
                   {featureStory.title}
                 </h2>
@@ -71,7 +71,7 @@ export default function TrendingPage() {
             {visibleItems.map((item, index) => (
               <article key={`${item.slug}-${index}`} className="max-w-[321px]">
                 <Link
-                  href={`/articles/${item.slug}?from=trending`}
+                  href={`/articles/${item.slug}`}
                   className="group block transition-transform duration-300 hover:-translate-y-1"
                 >
                   <div className="h-[191px] w-full overflow-hidden rounded-[8px] bg-[#e7e1db] shadow-[0_0_0_1px_rgba(0,0,0,0.04)] transition-shadow duration-300 group-hover:shadow-[0_16px_32px_rgba(0,0,0,0.1)]">

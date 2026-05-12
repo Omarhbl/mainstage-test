@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Search, Menu, X, User } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
@@ -20,7 +20,6 @@ const NAV_LINKS = [
 export default function Navbar() {
   const router = useRouter();
   const pathname = usePathname();
-  const searchParams = useSearchParams();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -52,14 +51,6 @@ export default function Navbar() {
 
     if (href !== "/" && pathname.startsWith(`${href}/`)) {
       return true;
-    }
-
-    if (pathname.startsWith("/articles/")) {
-      const from = searchParams.get("from")?.toLowerCase();
-      if (from && href === `/${from}`) {
-        return true;
-      }
-
     }
 
     return false;

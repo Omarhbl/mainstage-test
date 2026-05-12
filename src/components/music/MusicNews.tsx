@@ -47,7 +47,7 @@ export default function MusicNews({ initialArticles }: { initialArticles?: Artic
         return (
           <Link
             key={article.slug}
-            href={`/articles/${article.slug}?from=music`}
+            href={`/articles/${article.slug}`}
             className="group grid cursor-pointer items-start gap-7 transition-transform duration-300 hover:-translate-y-1 md:grid-cols-[minmax(0,1.02fr)_minmax(0,0.98fr)]"
           >
             <div className="overflow-hidden rounded-[10px] shadow-[0_0_0_1px_rgba(0,0,0,0.04)] transition-shadow duration-300 group-hover:shadow-[0_16px_32px_rgba(0,0,0,0.1)]">
