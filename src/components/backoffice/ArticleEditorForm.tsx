@@ -6,6 +6,7 @@ import {
   type BackofficeArticle,
 } from "@/lib/backoffice-articles";
 import ArticleBodyEditor from "@/components/backoffice/ArticleBodyEditor";
+import FormSubmitButton from "@/components/backoffice/FormSubmitButton";
 
 type ArticleEditorFormProps = {
   action: (formData: FormData) => void | Promise<void>;
@@ -351,12 +352,9 @@ export default function ArticleEditorForm({
             Save your article here. We can connect this directly to the live site
             publishing flow next.
           </p>
-          <button
-            type="submit"
-            className="mt-5 inline-flex h-[48px] w-full items-center justify-center rounded-[12px] bg-[#CE2127] px-5 text-[14px] font-body font-semibold text-white transition-opacity hover:opacity-90"
-          >
-            {submitLabel}
-          </button>
+          <div className="mt-5">
+            <FormSubmitButton label={submitLabel} pendingLabel="Saving changes..." />
+          </div>
         </div>
       </div>
     </form>
