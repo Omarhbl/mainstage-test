@@ -271,7 +271,7 @@ function FooterNavLink({ href, label }: { href: string; label: string }) {
       href={href}
       className={
         isBackstageLink
-          ? "block cursor-pointer text-[18px] font-body font-normal text-[#CE2127] transition-opacity hover:opacity-80"
+          ? "block cursor-pointer text-[18px] font-body font-bold text-[#CE2127] transition-opacity hover:opacity-80"
           : "block cursor-pointer text-[18px] font-body font-normal text-white/95 transition-colors hover:text-[#CE2127]"
       }
     >
