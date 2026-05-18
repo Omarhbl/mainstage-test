@@ -264,10 +264,16 @@ function SocialIcon({
 }
 
 function FooterNavLink({ href, label }: { href: string; label: string }) {
+  const isBackstageLink = label.toLowerCase() === "backstage";
+
   return (
     <a
       href={href}
-      className="block cursor-pointer text-[18px] font-body font-normal text-white/95 transition-colors hover:text-[#CE2127]"
+      className={
+        isBackstageLink
+          ? "block cursor-pointer text-[18px] font-body font-normal text-[#CE2127] transition-opacity hover:opacity-80"
+          : "block cursor-pointer text-[18px] font-body font-normal text-white/95 transition-colors hover:text-[#CE2127]"
+      }
     >
       {label}
     </a>
