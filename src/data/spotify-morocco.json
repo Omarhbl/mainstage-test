@@ -3,7 +3,7 @@
   "playlistName": "Top 50 - Morocco",
   "market": "MA",
   "source": "spotify-embed-scrape",
-  "scrapedAt": "2026-05-22T02:32:32.877Z",
+  "scrapedAt": "2026-05-22T08:50:10.526Z",
   "tracks": [
     {
       "rank": "#1",
@@ -36,7 +36,7 @@
       "rank": "#4",
       "title": "MOON",
       "artist": "Stormy",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02e040ca47b2f8046349ce4f49",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02e040ca47b2f8046349ce4f49",
       "plays": 32446,
       "chartChange": "=",
       "totalStreams": "17,711,345"
@@ -90,7 +90,7 @@
       "rank": "#10",
       "title": "SKI",
       "artist": "Stormy",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e020b2d1d03bbef4ba1bf6597b9",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e020b2d1d03bbef4ba1bf6597b9",
       "plays": null,
       "chartChange": "=",
       "totalStreams": null
@@ -126,7 +126,7 @@
       "rank": "#14",
       "title": "Twehachtek Grave",
       "artist": "Cheba Souad, Hichem Smati",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02d5f8cd0974ad3c7610133589",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02d5f8cd0974ad3c7610133589",
       "plays": 20214,
       "chartChange": "=",
       "totalStreams": "558,264"
@@ -171,7 +171,7 @@
       "rank": "#19",
       "title": "NGHAMER",
       "artist": "Bayadis, Manal, Shaw",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02c18c0c91a685f892fd66bed5",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02c18c0c91a685f892fd66bed5",
       "plays": 18091,
       "chartChange": "-1",
       "totalStreams": "5,310,983"
@@ -189,7 +189,7 @@
       "rank": "#21",
       "title": "RIRI&ROCKY",
       "artist": "Najm, Manal",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026d130ae788f3c2a7294355c1",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026d130ae788f3c2a7294355c1",
       "plays": 16798,
       "chartChange": "+2",
       "totalStreams": "5,985,047"
@@ -198,7 +198,7 @@
       "rank": "#22",
       "title": "SO HIGH",
       "artist": "Stormy",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02e040ca47b2f8046349ce4f49",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02e040ca47b2f8046349ce4f49",
       "plays": 16685,
       "chartChange": "-2",
       "totalStreams": "9,469,207"
@@ -234,7 +234,7 @@
       "rank": "#26",
       "title": "SWIM",
       "artist": "BTS",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02dfa17fad7f190c901603270e",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02dfa17fad7f190c901603270e",
       "plays": 15928,
       "chartChange": "-2",
       "totalStreams": "1,062,748"
@@ -243,7 +243,7 @@
       "rank": "#27",
       "title": "3DABI",
       "artist": "Draganov",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02dbf520cd47d9ba489fd97f63",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02dbf520cd47d9ba489fd97f63",
       "plays": 15629,
       "chartChange": "+1",
       "totalStreams": "23,043,134"
@@ -288,7 +288,7 @@
       "rank": "#32",
       "title": "Ghalta",
       "artist": "Draganov",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02a9a768062ff806f84deb9899",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02a9a768062ff806f84deb9899",
       "plays": 14027,
       "chartChange": "+3",
       "totalStreams": "672,953"
@@ -351,7 +351,7 @@
       "rank": "#39",
       "title": "Whisper My Name",
       "artist": "Drake",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e028e76f09489ebfa31ac920f08",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e028e76f09489ebfa31ac920f08",
       "plays": 12831,
       "chartChange": "-7",
       "totalStreams": "114,546"
@@ -360,7 +360,7 @@
       "rank": "#40",
       "title": "National Treasures",
       "artist": "Drake",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e028e76f09489ebfa31ac920f08",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e028e76f09489ebfa31ac920f08",
       "plays": 12818,
       "chartChange": "-7",
       "totalStreams": "105,158"
@@ -369,7 +369,7 @@
       "rank": "#41",
       "title": "Raindance (feat. Tems)",
       "artist": "Dave, Tems",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02fecaa7826bb0cbe139a8cb83",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02fecaa7826bb0cbe139a8cb83",
       "plays": 12762,
       "chartChange": "-1",
       "totalStreams": "2,818,464"
@@ -396,7 +396,7 @@
       "rank": "#44",
       "title": "Ran To Atlanta (feat. Future & Molly Santana)",
       "artist": "Drake, Future, Molly Santana",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e028e76f09489ebfa31ac920f08",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e028e76f09489ebfa31ac920f08",
       "plays": 12194,
       "chartChange": "-7",
       "totalStreams": "113,471"
