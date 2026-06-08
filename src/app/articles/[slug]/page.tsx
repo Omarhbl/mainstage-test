@@ -364,14 +364,14 @@ export default async function ArticlePage({
               Similar articles
             </h2>
 
-            <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-8 md:grid-cols-3">
+            <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-7 md:grid-cols-3 md:gap-y-8">
               {similarArticles.map((similar) => (
-                <article key={similar.slug} className="max-w-[300px]">
+                <article key={similar.slug} className="w-full md:max-w-[300px]">
                   <Link
                     href={`/articles/${similar.slug}`}
                     className="group block transition-transform duration-300 hover:-translate-y-1"
                   >
-                    <div className="h-[164px] overflow-hidden rounded-[8px] bg-[#e4ddd5] shadow-[0_0_0_1px_rgba(0,0,0,0.04)] transition-shadow duration-300 group-hover:shadow-[0_16px_32px_rgba(0,0,0,0.1)]">
+                    <div className="h-[190px] overflow-hidden rounded-[8px] bg-[#e4ddd5] shadow-[0_0_0_1px_rgba(0,0,0,0.04)] transition-shadow duration-300 group-hover:shadow-[0_16px_32px_rgba(0,0,0,0.1)] md:h-[164px]">
                       <ArticleMedia
                         src={similar.image}
                         alt={similar.title}
