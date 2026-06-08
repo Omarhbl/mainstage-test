@@ -92,36 +92,36 @@ export async function updateUpcomingSettingsAction(formData: FormData) {
   };
 
   if (!storageSection) {
-    buildUpcomingRedirect(null, "Choose a section before saving upcoming entries.", "error");
+    return buildUpcomingRedirect(
+      null,
+      "Choose a section before saving upcoming entries.",
+      "error"
+    );
   }
 
-if (!storageSection) {
-  return buildUpcomingRedirect(targetSection, "Missing storage section", "error");
-}
+  const sectionResult = parseUpcomingItems(formData, storageSection);
 
-const sectionResult = parseUpcomingItems(formData, storageSection);
+  if ("error" in sectionResult) {
+    return buildUpcomingRedirect(
+      targetSection,
+      sectionResult.error || "Could not parse upcoming items",
+      "error"
+    );
+  }
 
-if ("error" in sectionResult) {
-  return buildUpcomingRedirect(
-  targetSection,
-  sectionResult.error || "Could not parse upcoming items",
-  "error"
-);
-  
   const nextValue: UpcomingSettings = {
     cinema:
-  storageSection === "cinema"
-    ? (sectionResult.items?.length ?? 0) > 0
-      ? (sectionResult.items ?? [])
-      : fallbackSettings.cinema
-    : savedSettings.cinema,
-    
+      storageSection === "cinema"
+        ? (sectionResult.items?.length ?? 0) > 0
+          ? (sectionResult.items ?? [])
+          : fallbackSettings.cinema
+        : savedSettings.cinema,
     entertainment:
-  storageSection === "entertainment"
-    ? (sectionResult.items?.length ?? 0) > 0
-      ? (sectionResult.items ?? [])
-      : fallbackSettings.entertainment
-    : savedSettings.entertainment,
+      storageSection === "entertainment"
+        ? (sectionResult.items?.length ?? 0) > 0
+          ? (sectionResult.items ?? [])
+          : fallbackSettings.entertainment
+        : savedSettings.entertainment,
   };
 
   const { error } = await adminClient!.from("site_settings").upsert(
@@ -133,24 +133,23 @@ if ("error" in sectionResult) {
     { onConflict: "key" }
   );
 
-if (error) {
+  if (error) {
+    return buildUpcomingRedirect(
+      targetSection,
+      error?.message || "We couldn’t save the upcoming settings yet.",
+      "error"
+    );
+  }
+
+  revalidatePath("/backoffice/upcoming");
+  revalidatePath("/backoffice/upcoming/cinema");
+  revalidatePath("/backoffice/upcoming/events");
+  revalidatePath("/cinema");
+  revalidatePath("/events");
+
   return buildUpcomingRedirect(
     targetSection,
-    error?.message || "We couldn’t save the upcoming settings yet.",
-    "error"
+    "Upcoming strip updated successfully.",
+    "success"
   );
-}
-
-revalidatePath("/backoffice/upcoming");
-revalidatePath("/backoffice/upcoming/cinema");
-revalidatePath("/backoffice/upcoming/events");
-revalidatePath("/cinema");
-revalidatePath("/events");
-
-return buildUpcomingRedirect(
-  targetSection,
-  "Upcoming strip updated successfully.",
-  "success"
-); 
-}
 }
