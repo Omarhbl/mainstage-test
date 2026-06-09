@@ -3,13 +3,13 @@
   "playlistName": "Top 50 - Morocco",
   "market": "MA",
   "source": "spotify-embed-scrape",
-  "scrapedAt": "2026-06-08T20:02:17.899Z",
+  "scrapedAt": "2026-06-09T02:10:51.178Z",
   "tracks": [
     {
       "rank": "#1",
       "title": "SAMEDI (feat. Shaw)",
       "artist": "ElGrandeToto, Shaw",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0298034226c443237700d8b31e",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0298034226c443237700d8b31e",
       "plays": 78220,
       "chartChange": "=",
       "totalStreams": "298,788"
@@ -36,7 +36,7 @@
       "rank": "#4",
       "title": "SKI",
       "artist": "Stormy",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
       "plays": 48698,
       "chartChange": "=",
       "totalStreams": "1,114,500"
@@ -54,7 +54,7 @@
       "rank": "#6",
       "title": "GHALAT",
       "artist": "Najm, ElGrandeToto",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e021ba0568dc621c11b0573f418",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e021ba0568dc621c11b0573f418",
       "plays": 44953,
       "chartChange": "+4",
       "totalStreams": "1,692,884"
@@ -72,7 +72,7 @@
       "rank": "#8",
       "title": "OTAGE",
       "artist": "Stormy",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
       "plays": 43479,
       "chartChange": "-1",
       "totalStreams": "929,026"
@@ -90,7 +90,7 @@
       "rank": "#10",
       "title": "OMAR",
       "artist": "Dizzy DROS",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e024c2185151024dfa9e771a827",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e024c2185151024dfa9e771a827",
       "plays": 40874,
       "chartChange": "-2",
       "totalStreams": "995,308"
@@ -117,7 +117,7 @@
       "rank": "#13",
       "title": "SHEVCHENKO",
       "artist": "ElGrandeToto",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0298034226c443237700d8b31e",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0298034226c443237700d8b31e",
       "plays": 33250,
       "chartChange": "=",
       "totalStreams": "146,743"
@@ -126,7 +126,7 @@
       "rank": "#14",
       "title": "ROCHE MAN (feat. GELLO 4031)",
       "artist": "ElGrandeToto, GELLO 4031",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0298034226c443237700d8b31e",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0298034226c443237700d8b31e",
       "plays": 30956,
       "chartChange": "-2",
       "totalStreams": "164,156"
@@ -153,7 +153,7 @@
       "rank": "#17",
       "title": "SATA 9TTALA",
       "artist": "Stormy, Manal",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
       "plays": 27245,
       "chartChange": "+8",
       "totalStreams": "567,888"
@@ -171,7 +171,7 @@
       "rank": "#19",
       "title": "MOON",
       "artist": "Stormy",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02e040ca47b2f8046349ce4f49",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02e040ca47b2f8046349ce4f49",
       "plays": 26055,
       "chartChange": "+4",
       "totalStreams": "18,212,210"
@@ -180,7 +180,7 @@
       "rank": "#20",
       "title": "ZTAYLA & FUFU",
       "artist": "ElGrandeToto",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0298034226c443237700d8b31e",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0298034226c443237700d8b31e",
       "plays": 25998,
       "chartChange": "-4",
       "totalStreams": "143,208"
@@ -189,7 +189,7 @@
       "rank": "#21",
       "title": "Bali maak",
       "artist": "Amine Farsi, Stormy",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e024c07f36c4eeee45eb76a141c",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e024c07f36c4eeee45eb76a141c",
       "plays": 24865,
       "chartChange": "+8",
       "totalStreams": "8,349,216"
@@ -243,7 +243,7 @@
       "rank": "#27",
       "title": "LASTIQUE",
       "artist": "Ramoon, Madd, 7ari",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02b954b79cd5bc759930df0aa4",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02b954b79cd5bc759930df0aa4",
       "plays": 22508,
       "chartChange": "+1",
       "totalStreams": "415,691"
@@ -252,7 +252,7 @@
       "rank": "#28",
       "title": "NOUVEAU FER (feat. Jolagreen23)",
       "artist": "ElGrandeToto, Jolagreen23",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0298034226c443237700d8b31e",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0298034226c443237700d8b31e",
       "plays": 22308,
       "chartChange": "-1",
       "totalStreams": "109,870"
@@ -279,7 +279,7 @@
       "rank": "#31",
       "title": "Zone De Confort",
       "artist": "Figoshin",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0210c0176ba4322f4b40696a12",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0210c0176ba4322f4b40696a12",
       "plays": 21696,
       "chartChange": "+8",
       "totalStreams": "1,934,091"
@@ -288,7 +288,7 @@
       "rank": "#32",
       "title": "DARBEDA",
       "artist": "Dizzy DROS, ElGrandeToto",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e024c2185151024dfa9e771a827",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e024c2185151024dfa9e771a827",
       "plays": 21365,
       "chartChange": "+3",
       "totalStreams": "685,828"
@@ -342,7 +342,7 @@
       "rank": "#38",
       "title": "TÊTE D'ARABE (feat. Zkr)",
       "artist": "ElGrandeToto, Zkr",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0298034226c443237700d8b31e",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0298034226c443237700d8b31e",
       "plays": 20060,
       "chartChange": "-12",
       "totalStreams": "98,640"
@@ -351,7 +351,7 @@
       "rank": "#39",
       "title": "CHANEL",
       "artist": "Stormy",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
       "plays": null,
       "chartChange": "=",
       "totalStreams": null
@@ -405,7 +405,7 @@
       "rank": "#45",
       "title": "BARCHA",
       "artist": "ElGrandeToto",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0298034226c443237700d8b31e",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0298034226c443237700d8b31e",
       "plays": 17974,
       "chartChange": "-12",
       "totalStreams": "87,815"
@@ -414,7 +414,7 @@
       "rank": "#46",
       "title": "J'SAIS PAS (feat. Timar)",
       "artist": "ElGrandeToto, Timar",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0298034226c443237700d8b31e",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0298034226c443237700d8b31e",
       "plays": 17549,
       "chartChange": "-15",
       "totalStreams": "93,034"
@@ -423,7 +423,7 @@
       "rank": "#47",
       "title": "5 STAR",
       "artist": "Stormy",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
       "plays": 17414,
       "chartChange": "+2",
       "totalStreams": "537,564"
@@ -432,7 +432,7 @@
       "rank": "#48",
       "title": "PEGASUS",
       "artist": "Dizzy DROS",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e024c2185151024dfa9e771a827",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e024c2185151024dfa9e771a827",
       "plays": 17173,
       "chartChange": "-3",
       "totalStreams": "602,553"
@@ -441,7 +441,7 @@
       "rank": "#49",
       "title": "WALLAHI",
       "artist": "Shaw",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02faafc42915f7daa7597a706c",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02faafc42915f7daa7597a706c",
       "plays": 16555,
       "chartChange": "+3",
       "totalStreams": "11,526,504"
@@ -450,7 +450,7 @@
       "rank": "#50",
       "title": "Pilé",
       "artist": "Mauvais djo",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e023100e1ee90b3190b95a08047",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e023100e1ee90b3190b95a08047",
       "plays": 16294,
       "chartChange": "+1",
       "totalStreams": "301,322"
