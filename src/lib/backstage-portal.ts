@@ -14,13 +14,21 @@ export type PartnerCampaign = {
 export type PartnerProject = {
   id: string;
   name: string;
-  status: "Live" | "Review" | "Scheduled" | "Completed";
+  status: "Pending review" | "Live" | "Review" | "Scheduled" | "Completed";
   progress: number;
   startDate: string;
   endDate: string;
   poc: string;
   summary: string;
   scope: string;
+  tasks?: PartnerProjectTask[];
+};
+
+export type PartnerProjectTask = {
+  id: string;
+  title: string;
+  status: "Pending review" | "To do" | "In progress" | "Done";
+  note?: string;
 };
 
 export type PartnerBudgetEntry = {
@@ -231,253 +239,83 @@ export const FALLBACK_BACKSTAGE_PORTAL_SETTINGS: BackstagePortalSettings = {
     subtitle:
       "Follow the full conversation with Mainstage, keep internal notes in view, and review the follow-up history around each campaign.",
   },
-  campaigns: [
-    {
-      id: "cmp-1",
-      name: "Spring Culture Takeover",
-      brand: "Mainstage x Partner",
-      status: "Live",
-      startDate: "08/04/2026",
-      endDate: "24/04/2026",
-      progress: 78,
-      budget: "92,000 MAD",
-      lead: "Nabila Harboul",
-      objective:
-        "Drive visibility across homepage, article placements, and social highlights.",
-    },
-    {
-      id: "cmp-2",
-      name: "Artist Launch Pulse",
-      brand: "Partner Campaign",
-      status: "Review",
-      startDate: "18/04/2026",
-      endDate: "02/05/2026",
-      progress: 42,
-      budget: "48,000 MAD",
-      lead: "Omar Harboul",
-      objective:
-        "Validate creative and lock the final editorial rollout before launch.",
-    },
-  ],
-  projects: [
-    {
-      id: "project-launch",
-      name: "Product Launch",
-      status: "Live",
-      progress: 78,
-      startDate: "08/04/2026",
-      endDate: "24/04/2026",
-      poc: "Nabila Harboul",
-      summary:
-        "Drive visibility across homepage, article placements, and social highlights.",
-      scope:
-        "Homepage placements, sponsored editorial, social deliverables, approvals, and reporting.",
-    },
-    {
-      id: "project-test",
-      name: "Campaign Test",
-      status: "Review",
-      progress: 42,
-      startDate: "18/04/2026",
-      endDate: "02/05/2026",
-      poc: "Omar Harboul",
-      summary:
-        "Validate creative and lock the final rollout before launch.",
-      scope:
-        "Creative review, quotation approval, timeline validation, and launch preparation.",
-    },
-  ],
-  budgetEntries: [
-    {
-      id: "budget-1",
-      projectId: "project-launch",
-      label: "Main campaign budget",
-      type: "Budget",
-      amount: "92,000 MAD",
-      status: "Approved",
-      submittedBy: "Client team",
-      updatedAt: "14/04/2026",
-    },
-    {
-      id: "budget-2",
-      projectId: "project-launch",
-      label: "Homepage hero quotation",
-      type: "Quotation",
-      amount: "38,000 MAD",
-      status: "Pending review",
-      submittedBy: "Mainstage",
-      updatedAt: "15/04/2026",
-    },
-    {
-      id: "budget-3",
-      projectId: "project-test",
-      label: "Test phase invoice",
-      type: "Invoice",
-      amount: "12,500 MAD",
-      status: "Needs changes",
-      submittedBy: "Mainstage",
-      updatedAt: "16/04/2026",
-    },
-  ],
-  approvals: [
-    {
-      id: "apr-1",
-      projectId: "project-launch",
-      title: "Homepage hero visual",
-      type: "Creative",
-      dueDate: "15/04/2026",
-      status: "Waiting",
-      assignee: "Partner team",
-    },
-    {
-      id: "apr-2",
-      projectId: "project-launch",
-      title: "Sponsored article copy",
-      type: "Editorial",
-      dueDate: "16/04/2026",
-      status: "Needs changes",
-      assignee: "Mainstage editorial",
-    },
-    {
-      id: "apr-3",
-      projectId: "project-test",
-      title: "Instagram story pack",
-      type: "Social",
-      dueDate: "13/04/2026",
-      status: "Approved",
-      assignee: "Partner team",
-    },
-  ],
-  files: [
-    {
-      id: "file-1",
-      projectId: "project-launch",
-      name: "Campaign master deck",
-      category: "Presentation",
-      updatedAt: "14/04/2026",
-      format: "PDF",
-      size: "12.4 MB",
-    },
-    {
-      id: "file-2",
-      projectId: "project-launch",
-      name: "Homepage hero export",
-      category: "Creative",
-      updatedAt: "14/04/2026",
-      format: "PNG",
-      size: "3.8 MB",
-    },
-    {
-      id: "file-3",
-      projectId: "project-test",
-      name: "Social assets pack",
-      category: "Social",
-      updatedAt: "12/04/2026",
-      format: "ZIP",
-      size: "48.1 MB",
-    },
-    {
-      id: "file-4",
-      projectId: "project-launch",
-      name: "Performance snapshot",
-      category: "Reporting",
-      updatedAt: "11/04/2026",
-      format: "XLSX",
-      size: "1.1 MB",
-    },
-  ],
-  reports: [
-    {
-      id: "rep-1",
-      projectId: "project-launch",
-      title: "Weekly campaign report",
-      period: "08/04/2026 - 14/04/2026",
-      summary:
-        "Homepage placements generated the strongest visibility lift this week.",
-      metric: "Reach: 182K",
-    },
-    {
-      id: "rep-2",
-      projectId: "project-test",
-      title: "Content performance review",
-      period: "Week 2",
-      summary:
-        "Article engagement held steady, with social highlights outperforming projected taps.",
-      metric: "CTR: 4.8%",
-    },
-  ],
-  invoices: [
-    {
-      id: "inv-1",
-      projectId: "project-launch",
-      title: "Invoice #MS-0426-01",
-      period: "Issued 12/04/2026",
-      summary:
-        "First campaign billing milestone covering homepage placement and creative production.",
-      metric: "Amount: 38,000 MAD",
-    },
-    {
-      id: "inv-2",
-      projectId: "project-test",
-      title: "Invoice #MS-0426-02",
-      period: "Issued 14/04/2026",
-      summary:
-        "Reporting and social delivery batch prepared for partner accounting follow-up.",
-      metric: "Amount: 12,500 MAD",
-    },
-  ],
-  messages: [
-    {
-      id: "msg-1",
-      projectId: "project-launch",
-      author: "Mainstage Team",
-      role: "Campaign lead",
-      date: "14/04/2026",
-      message:
-        "The homepage banner is now live. We are waiting on final approval for the article headline before pushing the next placement.",
-    },
-    {
-      id: "msg-2",
-      projectId: "project-launch",
-      author: "Partner Team",
-      role: "Brand manager",
-      date: "13/04/2026",
-      message:
-        "We reviewed the social pack and approved story slides 1, 2, and 4. Please adjust the CTA copy on slide 3.",
-    },
-    {
-      id: "msg-3",
-      projectId: "project-test",
-      author: "Mainstage Team",
-      role: "Editorial",
-      date: "12/04/2026",
-      message:
-        "The sponsored article draft has been uploaded to the portal. You can review the structure and leave consolidated feedback.",
-    },
-  ],
-  activityLog: [
-    {
-      id: "log-1",
-      projectId: "project-launch",
-      date: "14/04/2026",
-      item: "Banner delivered",
-      note: "Homepage banner received and staged for publication.",
-    },
-    {
-      id: "log-2",
-      projectId: "project-test",
-      date: "13/04/2026",
-      item: "Creative feedback",
-      note: "Partner team approved 3 out of 4 social story slides.",
-    },
-    {
-      id: "log-3",
-      projectId: "project-test",
-      date: "12/04/2026",
-      item: "Article uploaded",
-      note: "Sponsored feature draft added for partner review.",
-    },
-  ],
+  campaigns: [],
+  projects: [],
+  budgetEntries: [],
+  approvals: [],
+  files: [],
+  reports: [],
+  invoices: [],
+  messages: [],
+  activityLog: [],
 };
 
 export const FALLBACK_BACKSTAGE_CLIENTS: BackstageClientAccount[] = [];
+
+export function createBlankBackstagePortalSettings({
+  companyName = "Partner",
+  contactName = "",
+  contactEmail = "contact@themainstagent.com",
+}: {
+  companyName?: string;
+  contactName?: string;
+  contactEmail?: string;
+} = {}): BackstagePortalSettings {
+  const contactLabel = contactName || companyName || "Mainstage team";
+
+  return {
+    ...FALLBACK_BACKSTAGE_PORTAL_SETTINGS,
+    shell: {
+      ...FALLBACK_BACKSTAGE_PORTAL_SETTINGS.shell,
+      title: `${companyName} Backstage`,
+      description:
+        "Create projects, submit budgets and timelines, follow Mainstage validation, and keep every update in one shared workspace.",
+      contactEmail,
+      contactDescription: `${contactLabel} can use this space to follow project approvals, files, budgets, and production updates.`,
+    },
+    overview: {
+      title: `${companyName} project dashboard`,
+      subtitle:
+        "Start by creating a project request. Mainstage will review the timeline, budget, and requested elements before anything is finalized.",
+    },
+    projectsPage: {
+      title: "Projects",
+      subtitle:
+        "Create a new project, then follow its status, budget validation, tasks, files, and conversation from one place.",
+    },
+    campaignsPage: {
+      title: "Projects",
+      subtitle:
+        "Create a new project, then follow its status, budget validation, tasks, files, and conversation from one place.",
+    },
+    approvalsPage: {
+      ...FALLBACK_BACKSTAGE_PORTAL_SETTINGS.approvalsPage,
+      subtitle:
+        "Review what Mainstage still needs to validate and what is already approved for each project.",
+    },
+    filesPage: {
+      ...FALLBACK_BACKSTAGE_PORTAL_SETTINGS.filesPage,
+      subtitle:
+        "Files and deliverables uploaded by Mainstage will appear here once projects start moving.",
+    },
+    reportsPage: {
+      ...FALLBACK_BACKSTAGE_PORTAL_SETTINGS.reportsPage,
+      subtitle:
+        "Invoices, quotations, and reports will appear here after Mainstage validates the project setup.",
+    },
+    messagesPage: {
+      ...FALLBACK_BACKSTAGE_PORTAL_SETTINGS.messagesPage,
+      subtitle:
+        "Use this space to exchange notes with Mainstage and keep the follow-up history in one place.",
+    },
+    campaigns: [],
+    projects: [],
+    budgetEntries: [],
+    approvals: [],
+    files: [],
+    reports: [],
+    invoices: [],
+    messages: [],
+    activityLog: [],
+  };
+}

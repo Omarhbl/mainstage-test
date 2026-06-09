@@ -19,6 +19,7 @@ import {
   type PartnerLogEntry,
   type PartnerMessage,
   type PartnerProject,
+  type PartnerProjectTask,
   type PartnerReport,
 } from "@/lib/backstage-portal";
 import {
@@ -1009,11 +1010,24 @@ export async function getFeedSettings(): Promise<FeedSettings> {
 
 function sanitizePartnerCampaign(
   item: unknown,
-  fallback: PartnerCampaign,
+  fallback: PartnerCampaign | undefined,
   index: number
 ): PartnerCampaign {
+  const safeFallback: PartnerCampaign = fallback ?? {
+    id: `campaign-${index + 1}`,
+    name: "Project request",
+    brand: "Partner",
+    status: "Review",
+    startDate: "To confirm",
+    endDate: "To confirm",
+    progress: 0,
+    budget: "To confirm",
+    lead: "Mainstage team",
+    objective: "Project details are being reviewed.",
+  };
+
   if (!item || typeof item !== "object") {
-    return fallback;
+    return safeFallback;
   }
 
   const value = item as Partial<PartnerCampaign>;
@@ -1026,46 +1040,59 @@ function sanitizePartnerCampaign(
     name:
       typeof value.name === "string" && value.name.trim()
         ? value.name.trim()
-        : fallback.name,
+        : safeFallback.name,
     brand:
       typeof value.brand === "string" && value.brand.trim()
         ? value.brand.trim()
-        : fallback.brand,
+        : safeFallback.brand,
     status:
       value.status === "Live" || value.status === "Review" || value.status === "Scheduled"
         ? value.status
-        : fallback.status,
+        : safeFallback.status,
     startDate:
       typeof value.startDate === "string" && value.startDate.trim()
         ? value.startDate.trim()
-        : fallback.startDate,
+        : safeFallback.startDate,
     endDate:
       typeof value.endDate === "string" && value.endDate.trim()
         ? value.endDate.trim()
-        : fallback.endDate,
-    progress: clampImagePosition(value.progress, fallback.progress),
+        : safeFallback.endDate,
+    progress: clampImagePosition(value.progress, safeFallback.progress),
     budget:
       typeof value.budget === "string" && value.budget.trim()
         ? value.budget.trim()
-        : fallback.budget,
+        : safeFallback.budget,
     lead:
       typeof value.lead === "string" && value.lead.trim()
         ? value.lead.trim()
-        : fallback.lead,
+        : safeFallback.lead,
     objective:
       typeof value.objective === "string" && value.objective.trim()
         ? value.objective.trim()
-        : fallback.objective,
+        : safeFallback.objective,
   };
 }
 
 function sanitizePartnerProject(
   item: unknown,
-  fallback: PartnerProject,
+  fallback: PartnerProject | undefined,
   index: number
 ): PartnerProject {
+  const safeFallback: PartnerProject = fallback ?? {
+    id: `project-${index + 1}`,
+    name: "Project request",
+    status: "Pending review",
+    progress: 0,
+    startDate: "To confirm",
+    endDate: "To confirm",
+    poc: "Mainstage team",
+    summary: "Project details are being reviewed.",
+    scope: "Timeline, budget, deliverables, and tasks to confirm.",
+    tasks: [],
+  };
+
   if (!item || typeof item !== "object") {
-    return fallback;
+    return safeFallback;
   }
 
   const value = item as Partial<PartnerProject>;
@@ -1078,45 +1105,101 @@ function sanitizePartnerProject(
     name:
       typeof value.name === "string" && value.name.trim()
         ? value.name.trim()
-        : fallback.name,
+        : safeFallback.name,
     status:
+      value.status === "Pending review" ||
       value.status === "Live" ||
       value.status === "Review" ||
       value.status === "Scheduled" ||
       value.status === "Completed"
         ? value.status
-        : fallback.status,
-    progress: clampImagePosition(value.progress, fallback.progress),
+        : safeFallback.status,
+    progress: clampImagePosition(value.progress, safeFallback.progress),
     startDate:
       typeof value.startDate === "string" && value.startDate.trim()
         ? value.startDate.trim()
-        : fallback.startDate,
+        : safeFallback.startDate,
     endDate:
       typeof value.endDate === "string" && value.endDate.trim()
         ? value.endDate.trim()
-        : fallback.endDate,
+        : safeFallback.endDate,
     poc:
       typeof value.poc === "string" && value.poc.trim()
         ? value.poc.trim()
-        : fallback.poc,
+        : safeFallback.poc,
     summary:
       typeof value.summary === "string" && value.summary.trim()
         ? value.summary.trim()
-        : fallback.summary,
+        : safeFallback.summary,
     scope:
       typeof value.scope === "string" && value.scope.trim()
         ? value.scope.trim()
-        : fallback.scope,
+        : safeFallback.scope,
+    tasks: Array.isArray(value.tasks)
+      ? value.tasks
+          .map((task, taskIndex): PartnerProjectTask | null => {
+            if (!task || typeof task !== "object") {
+              return null;
+            }
+
+            const taskValue = task as {
+              id?: unknown;
+              title?: unknown;
+              status?: unknown;
+              note?: unknown;
+            };
+            const status: PartnerProjectTask["status"] =
+              taskValue.status === "Pending review" ||
+              taskValue.status === "To do" ||
+              taskValue.status === "In progress" ||
+              taskValue.status === "Done"
+                ? taskValue.status
+                : "Pending review";
+            const title =
+              typeof taskValue.title === "string" && taskValue.title.trim()
+                ? taskValue.title.trim()
+                : "";
+
+            if (!title) {
+              return null;
+            }
+
+            return {
+              id:
+                typeof taskValue.id === "string" && taskValue.id.trim()
+                  ? taskValue.id.trim()
+                  : `task-${index + 1}-${taskIndex + 1}`,
+              title,
+              status,
+              note:
+                typeof taskValue.note === "string" && taskValue.note.trim()
+                  ? taskValue.note.trim()
+                  : undefined,
+            };
+          })
+          .filter((task): task is PartnerProjectTask => Boolean(task))
+      : safeFallback.tasks,
   };
 }
 
 function sanitizePartnerBudgetEntry(
   item: unknown,
-  fallback: PartnerBudgetEntry,
+  fallback: PartnerBudgetEntry | undefined,
   index: number
 ): PartnerBudgetEntry {
+  const safeFallback: PartnerBudgetEntry = fallback ?? {
+    id: `budget-${index + 1}`,
+    projectId: "",
+    label: "Budget request",
+    type: "Budget",
+    amount: "To confirm",
+    status: "Pending review",
+    submittedBy: "Client team",
+    updatedAt: "To confirm",
+  };
+
   if (!item || typeof item !== "object") {
-    return fallback;
+    return safeFallback;
   }
 
   const value = item as Partial<PartnerBudgetEntry>;
@@ -1129,43 +1212,53 @@ function sanitizePartnerBudgetEntry(
     projectId:
       typeof value.projectId === "string" && value.projectId.trim()
         ? value.projectId.trim()
-        : fallback.projectId,
+        : safeFallback.projectId,
     label:
       typeof value.label === "string" && value.label.trim()
         ? value.label.trim()
-        : fallback.label,
+        : safeFallback.label,
     type:
       value.type === "Budget" || value.type === "Quotation" || value.type === "Invoice"
         ? value.type
-        : fallback.type,
+        : safeFallback.type,
     amount:
       typeof value.amount === "string" && value.amount.trim()
         ? value.amount.trim()
-        : fallback.amount,
+        : safeFallback.amount,
     status:
       value.status === "Pending review" ||
       value.status === "Approved" ||
       value.status === "Needs changes"
         ? value.status
-        : fallback.status,
+        : safeFallback.status,
     submittedBy:
       typeof value.submittedBy === "string" && value.submittedBy.trim()
         ? value.submittedBy.trim()
-        : fallback.submittedBy,
+        : safeFallback.submittedBy,
     updatedAt:
       typeof value.updatedAt === "string" && value.updatedAt.trim()
         ? value.updatedAt.trim()
-        : fallback.updatedAt,
+        : safeFallback.updatedAt,
   };
 }
 
 function sanitizePartnerApproval(
   item: unknown,
-  fallback: PartnerApproval,
+  fallback: PartnerApproval | undefined,
   index: number
 ): PartnerApproval {
+  const safeFallback: PartnerApproval = fallback ?? {
+    id: `approval-${index + 1}`,
+    projectId: "",
+    title: "Mainstage validation",
+    type: "Project",
+    dueDate: "To confirm",
+    status: "Waiting",
+    assignee: "Mainstage team",
+  };
+
   if (!item || typeof item !== "object") {
-    return fallback;
+    return safeFallback;
   }
 
   const value = item as Partial<PartnerApproval>;
@@ -1178,39 +1271,49 @@ function sanitizePartnerApproval(
     projectId:
       typeof value.projectId === "string" && value.projectId.trim()
         ? value.projectId.trim()
-        : fallback.projectId,
+        : safeFallback.projectId,
     title:
       typeof value.title === "string" && value.title.trim()
         ? value.title.trim()
-        : fallback.title,
+        : safeFallback.title,
     type:
       typeof value.type === "string" && value.type.trim()
         ? value.type.trim()
-        : fallback.type,
+        : safeFallback.type,
     dueDate:
       typeof value.dueDate === "string" && value.dueDate.trim()
         ? value.dueDate.trim()
-        : fallback.dueDate,
+        : safeFallback.dueDate,
     status:
       value.status === "Waiting" ||
       value.status === "Approved" ||
       value.status === "Needs changes"
         ? value.status
-        : fallback.status,
+        : safeFallback.status,
     assignee:
       typeof value.assignee === "string" && value.assignee.trim()
         ? value.assignee.trim()
-        : fallback.assignee,
+        : safeFallback.assignee,
   };
 }
 
 function sanitizePartnerFile(
   item: unknown,
-  fallback: PartnerFile,
+  fallback: PartnerFile | undefined,
   index: number
 ): PartnerFile {
+  const safeFallback: PartnerFile = fallback ?? {
+    id: `file-${index + 1}`,
+    projectId: "",
+    name: "Project file",
+    category: "Deliverable",
+    updatedAt: "To confirm",
+    format: "File",
+    size: "-",
+  };
+
   if (!item || typeof item !== "object") {
-    return fallback;
+    return safeFallback;
   }
 
   const value = item as Partial<PartnerFile>;
@@ -1223,38 +1326,47 @@ function sanitizePartnerFile(
     projectId:
       typeof value.projectId === "string" && value.projectId.trim()
         ? value.projectId.trim()
-        : fallback.projectId,
+        : safeFallback.projectId,
     name:
       typeof value.name === "string" && value.name.trim()
         ? value.name.trim()
-        : fallback.name,
+        : safeFallback.name,
     category:
       typeof value.category === "string" && value.category.trim()
         ? value.category.trim()
-        : fallback.category,
+        : safeFallback.category,
     updatedAt:
       typeof value.updatedAt === "string" && value.updatedAt.trim()
         ? value.updatedAt.trim()
-        : fallback.updatedAt,
+        : safeFallback.updatedAt,
     format:
       typeof value.format === "string" && value.format.trim()
         ? value.format.trim()
-        : fallback.format,
+        : safeFallback.format,
     size:
       typeof value.size === "string" && value.size.trim()
         ? value.size.trim()
-        : fallback.size,
+        : safeFallback.size,
   };
 }
 
 function sanitizePartnerReport(
   item: unknown,
-  fallback: PartnerReport,
+  fallback: PartnerReport | undefined,
   index: number,
   prefix: string
 ): PartnerReport {
+  const safeFallback: PartnerReport = fallback ?? {
+    id: `${prefix}-${index + 1}`,
+    projectId: "",
+    title: "Project update",
+    period: "To confirm",
+    summary: "No update added yet.",
+    metric: "-",
+  };
+
   if (!item || typeof item !== "object") {
-    return fallback;
+    return safeFallback;
   }
 
   const value = item as Partial<PartnerReport>;
@@ -1267,33 +1379,42 @@ function sanitizePartnerReport(
     projectId:
       typeof value.projectId === "string" && value.projectId.trim()
         ? value.projectId.trim()
-        : fallback.projectId,
+        : safeFallback.projectId,
     title:
       typeof value.title === "string" && value.title.trim()
         ? value.title.trim()
-        : fallback.title,
+        : safeFallback.title,
     period:
       typeof value.period === "string" && value.period.trim()
         ? value.period.trim()
-        : fallback.period,
+        : safeFallback.period,
     summary:
       typeof value.summary === "string" && value.summary.trim()
         ? value.summary.trim()
-        : fallback.summary,
+        : safeFallback.summary,
     metric:
       typeof value.metric === "string" && value.metric.trim()
         ? value.metric.trim()
-        : fallback.metric,
+        : safeFallback.metric,
   };
 }
 
 function sanitizePartnerMessage(
   item: unknown,
-  fallback: PartnerMessage,
+  fallback: PartnerMessage | undefined,
   index: number
 ): PartnerMessage {
+  const safeFallback: PartnerMessage = fallback ?? {
+    id: `message-${index + 1}`,
+    projectId: "",
+    author: "Mainstage Team",
+    role: "Team",
+    date: "To confirm",
+    message: "No message added yet.",
+  };
+
   if (!item || typeof item !== "object") {
-    return fallback;
+    return safeFallback;
   }
 
   const value = item as Partial<PartnerMessage>;
@@ -1306,33 +1427,41 @@ function sanitizePartnerMessage(
     projectId:
       typeof value.projectId === "string" && value.projectId.trim()
         ? value.projectId.trim()
-        : fallback.projectId,
+        : safeFallback.projectId,
     author:
       typeof value.author === "string" && value.author.trim()
         ? value.author.trim()
-        : fallback.author,
+        : safeFallback.author,
     role:
       typeof value.role === "string" && value.role.trim()
         ? value.role.trim()
-        : fallback.role,
+        : safeFallback.role,
     date:
       typeof value.date === "string" && value.date.trim()
         ? value.date.trim()
-        : fallback.date,
+        : safeFallback.date,
     message:
       typeof value.message === "string" && value.message.trim()
         ? value.message.trim()
-        : fallback.message,
+        : safeFallback.message,
   };
 }
 
 function sanitizePartnerLog(
   item: unknown,
-  fallback: PartnerLogEntry,
+  fallback: PartnerLogEntry | undefined,
   index: number
 ): PartnerLogEntry {
+  const safeFallback: PartnerLogEntry = fallback ?? {
+    id: `log-${index + 1}`,
+    projectId: "",
+    date: "To confirm",
+    item: "Project update",
+    note: "No update added yet.",
+  };
+
   if (!item || typeof item !== "object") {
-    return fallback;
+    return safeFallback;
   }
 
   const value = item as Partial<PartnerLogEntry>;
@@ -1345,19 +1474,19 @@ function sanitizePartnerLog(
     projectId:
       typeof value.projectId === "string" && value.projectId.trim()
         ? value.projectId.trim()
-        : fallback.projectId,
+        : safeFallback.projectId,
     date:
       typeof value.date === "string" && value.date.trim()
         ? value.date.trim()
-        : fallback.date,
+        : safeFallback.date,
     item:
       typeof value.item === "string" && value.item.trim()
         ? value.item.trim()
-        : fallback.item,
+        : safeFallback.item,
     note:
       typeof value.note === "string" && value.note.trim()
         ? value.note.trim()
-        : fallback.note,
+        : safeFallback.note,
   };
 }
 

@@ -9,6 +9,7 @@ import {
   ReportRow,
 } from "@/components/backstage/PartnerPortalSections";
 import { sendClientPortalMessageAction } from "@/app/backstage/portal/actions";
+import type { PartnerProject } from "@/lib/backstage-portal";
 import { requireClientPortalAccess } from "@/lib/supabase/client-portal";
 import { getBackstagePortalSettings } from "@/lib/supabase/server";
 
@@ -25,7 +26,7 @@ export default async function BackstageClientProjectPage({
   const backstageSettings = await getBackstagePortalSettings(access.client.slug);
   const basePath = `/backstage/portal/${access.client.slug}`;
 
-  const projects = backstageSettings.projects.length
+  const projects: PartnerProject[] = backstageSettings.projects.length
     ? backstageSettings.projects
     : backstageSettings.campaigns.map((campaign) => ({
         id: campaign.id,
@@ -37,6 +38,7 @@ export default async function BackstageClientProjectPage({
         poc: campaign.lead,
         summary: campaign.objective,
         scope: `${campaign.brand} • ${campaign.budget}`,
+        tasks: [],
       }));
 
   const project = projects.find((item) => item.id === projectId);
@@ -119,6 +121,48 @@ export default async function BackstageClientProjectPage({
                   />
                 </div>
               </div>
+              {project.tasks?.length ? (
+                <div className="mt-5 rounded-[18px] border border-black/8 bg-[#fbfaf8] p-4">
+                  <p className="text-[14px] font-body font-semibold uppercase tracking-[0.12em] text-black/45">
+                    Requested elements
+                  </p>
+                  <div className="mt-4 space-y-3">
+                    {project.tasks.map((task) => {
+                      const tone =
+                        task.status === "Done"
+                          ? "bg-[#eef8f0] text-[#2f7a3a]"
+                          : task.status === "In progress"
+                            ? "bg-[#eef4ff] text-[#2457a6]"
+                            : task.status === "Pending review"
+                              ? "bg-[#fff6e6] text-[#8a5b00]"
+                              : "bg-[#f1f1f1] text-black/55";
+
+                      return (
+                        <div
+                          key={task.id}
+                          className="rounded-[14px] border border-black/8 bg-white px-4 py-3"
+                        >
+                          <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                            <p className="text-[15px] font-body font-semibold text-[#181818]">
+                              {task.title}
+                            </p>
+                            <span
+                              className={`inline-flex w-fit rounded-full px-3 py-1 text-[11px] font-body font-semibold uppercase tracking-[0.12em] ${tone}`}
+                            >
+                              {task.status}
+                            </span>
+                          </div>
+                          {task.note ? (
+                            <p className="mt-2 text-[13px] font-body leading-[1.65] text-black/55">
+                              {task.note}
+                            </p>
+                          ) : null}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              ) : null}
             </section>
 
             <section className="rounded-[24px] border border-black/8 bg-white p-7 shadow-[0_18px_46px_rgba(0,0,0,0.05)]">

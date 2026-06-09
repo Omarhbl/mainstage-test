@@ -275,6 +275,14 @@ export function ProjectCard({
   portalBasePath?: string;
 }) {
   const href = `${portalBasePath}/projects/${project.id}`;
+  const statusTone =
+    project.status === "Live"
+      ? "bg-[#eef8f0] text-[#2f7a3a]"
+      : project.status === "Pending review"
+        ? "bg-[#fff6e6] text-[#8a5b00]"
+        : project.status === "Completed"
+          ? "bg-[#f1f1f1] text-black/55"
+          : "bg-[#fbf1f1] text-[#CE2127]";
 
   return (
     <Link
@@ -290,7 +298,9 @@ export function ProjectCard({
             {project.name}
           </h3>
         </div>
-        <span className="inline-flex rounded-full bg-[#fbf1f1] px-3 py-1 text-[12px] font-body font-semibold uppercase tracking-[0.12em] text-[#CE2127]">
+        <span
+          className={`inline-flex rounded-full px-3 py-1 text-[12px] font-body font-semibold uppercase tracking-[0.12em] ${statusTone}`}
+        >
           {project.status}
         </span>
       </div>

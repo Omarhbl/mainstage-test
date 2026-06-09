@@ -2,6 +2,10 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import {
+  createBlankBackstagePortalSettings,
+  type PartnerProject,
+} from "@/lib/backstage-portal";
 import { requireBackofficeAccess } from "@/lib/supabase/backoffice";
 import {
   createSupabaseAdminClient,
@@ -167,12 +171,12 @@ export async function updateBackstagePortalSettingsAction(formData: FormData) {
               String(formData.get(`project_delete_${position}`) ?? "").trim() === "1";
             const name = String(formData.get(`project_name_${position}`) ?? "").trim();
             const rawStatus = String(formData.get(`project_status_${position}`) ?? "").trim() as
+              | "Pending review"
               | "Live"
               | "Review"
               | "Scheduled"
               | "Completed";
-            const status =
-              rawStatus === "Completed" ? "Scheduled" : rawStatus || "Live";
+            const status = rawStatus === "Completed" ? "Scheduled" : rawStatus || "Live";
             const lead = String(formData.get(`project_poc_${position}`) ?? "").trim();
             const startDate = String(formData.get(`project_start_date_${position}`) ?? "").trim();
             const endDate = String(formData.get(`project_end_date_${position}`) ?? "").trim();
@@ -216,6 +220,7 @@ export async function updateBackstagePortalSettingsAction(formData: FormData) {
                   `project-${position}`,
                 name: String(formData.get(`project_name_${position}`) ?? "").trim(),
                 status: String(formData.get(`project_status_${position}`) ?? "").trim() as
+                  | "Pending review"
                   | "Live"
                   | "Review"
                   | "Scheduled"
@@ -230,11 +235,18 @@ export async function updateBackstagePortalSettingsAction(formData: FormData) {
                 poc: String(formData.get(`project_poc_${position}`) ?? "").trim(),
                 summary: String(formData.get(`project_summary_${position}`) ?? "").trim(),
                 scope: String(formData.get(`project_scope_${position}`) ?? "").trim(),
+                tasks:
+                  baseSettings.projects.find(
+                    (project) =>
+                      project.id ===
+                      (String(formData.get(`project_id_${position}`) ?? "").trim() ||
+                        `project-${position}`)
+                  )?.tasks ?? [],
               },
             };
           })
             .filter(({ deleted, item }) => !deleted && item.name)
-            .map(({ item }) => item)
+            .map(({ item }) => item as PartnerProject)
         : baseSettings.projects,
     budgetEntries:
       section === "campaigns"
@@ -570,7 +582,11 @@ export async function createBackstageClientAction(formData: FormData) {
       authUserId: data.user?.id,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
-      portalSettings: await getBackstagePortalSettings(),
+      portalSettings: createBlankBackstagePortalSettings({
+        companyName,
+        contactName,
+        contactEmail: email,
+      }),
     },
   ];
 

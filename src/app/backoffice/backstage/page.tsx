@@ -1,3 +1,4 @@
+import Link from "next/link";
 import BackofficeHeader from "@/components/backoffice/BackofficeHeader";
 import SectionCard from "@/components/backoffice/SectionCard";
 import { requireBackofficeAccess } from "@/lib/supabase/backoffice";
@@ -78,7 +79,7 @@ export default async function BackofficeBackstagePage() {
         {clients.length ? (
           <div className="grid grid-cols-1 gap-5 xl:grid-cols-2">
             {clients.map((client) => (
-              <a
+              <Link
                 key={client.slug}
                 href={`/backoffice/backstage/clients/${client.slug}`}
                 className="group rounded-[20px] border border-black/8 bg-white p-6 shadow-[0_12px_30px_rgba(0,0,0,0.05)] transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_rgba(0,0,0,0.08)]"
@@ -117,15 +118,15 @@ export default async function BackofficeBackstagePage() {
                     </span>
                   </div>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         ) : (
           <div className="rounded-[20px] border border-black/8 bg-white p-6 text-[15px] font-body leading-[1.8] text-black/62 shadow-[0_12px_30px_rgba(0,0,0,0.05)]">
             No client portal exists yet. Create the first one from the{" "}
-            <a href="/backoffice/backstage/clients" className="font-semibold text-[#CE2127]">
+            <Link href="/backoffice/backstage/clients" className="font-semibold text-[#CE2127]">
               Clients
-            </a>{" "}
+            </Link>{" "}
             section.
           </div>
         )}

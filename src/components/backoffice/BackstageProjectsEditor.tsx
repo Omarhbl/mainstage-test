@@ -7,7 +7,7 @@ import type { BackstagePortalSettings } from "@/lib/backstage-portal";
 type ProjectFormItem = {
   id: string;
   name: string;
-  status: "Live" | "Review" | "Scheduled" | "Completed";
+  status: "Pending review" | "Live" | "Review" | "Scheduled" | "Completed";
   progress: string;
   startDate: string;
   endDate: string;
@@ -279,6 +279,7 @@ export default function BackstageProjectsEditor({
                       }
                       className="mt-2 h-[50px] w-full rounded-[12px] border border-black/10 bg-white px-4 outline-none focus:border-[#CE2127]"
                     >
+                      <option value="Pending review">Pending review</option>
                       <option value="Live">Live</option>
                       <option value="Review">Review</option>
                       <option value="Scheduled">Scheduled</option>
