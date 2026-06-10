@@ -176,13 +176,13 @@ export default function SiteFooter({
                       }
                     }}
                     placeholder="Enter your email ...."
-                    className="h-[58px] flex-1 bg-[#3a3a3a] px-4 text-[16px] font-body text-white placeholder:text-white/55 focus:outline-none"
+                    className="h-[78px] flex-1 bg-[#3a3a3a] px-6 text-[20px] font-body text-white placeholder:text-white/55 focus:outline-none sm:h-[58px] sm:px-4 sm:text-[16px]"
                     aria-label="Join the guestlist with your email"
                     disabled={guestlistState === "loading"}
                   />
                   <button
                     type="submit"
-                    className="h-[58px] cursor-pointer bg-[#CE2127] px-8 text-[14px] font-body font-bold uppercase tracking-[0.01em] text-white transition-opacity hover:opacity-90 disabled:cursor-wait disabled:opacity-75"
+                    className="h-[72px] cursor-pointer bg-[#CE2127] px-8 text-[16px] font-body font-bold uppercase tracking-[0.01em] text-white transition-opacity hover:opacity-90 disabled:cursor-wait disabled:opacity-75 sm:h-[58px] sm:text-[14px]"
                     disabled={guestlistState === "loading"}
                   >
                     {guestlistState === "loading"
