@@ -163,7 +163,7 @@ export default function SiteFooter({
                 onSubmit={handleGuestlistSubmit}
                 className="mt-4 max-w-[496px]"
               >
-                <div className="flex flex-col overflow-hidden border border-[#CE2127] sm:flex-row">
+                <div className="flex flex-col sm:flex-row sm:overflow-hidden sm:border sm:border-[#CE2127]">
                   <input
                     type="email"
                     value={guestlistEmail}
@@ -176,13 +176,13 @@ export default function SiteFooter({
                       }
                     }}
                     placeholder="Enter your email ...."
-                    className="h-[78px] flex-1 bg-[#3a3a3a] px-6 text-[20px] font-body text-white placeholder:text-white/55 focus:outline-none sm:h-[58px] sm:px-4 sm:text-[16px]"
+                    className="min-h-[118px] w-full flex-1 border border-[#CE2127] bg-[#3a3a3a] px-6 text-[20px] font-body text-white placeholder:text-white/55 focus:outline-none sm:min-h-0 sm:h-[58px] sm:border-0 sm:px-4 sm:text-[16px]"
                     aria-label="Join the guestlist with your email"
                     disabled={guestlistState === "loading"}
                   />
                   <button
                     type="submit"
-                    className="h-[72px] cursor-pointer bg-[#CE2127] px-8 text-[16px] font-body font-bold uppercase tracking-[0.01em] text-white transition-opacity hover:opacity-90 disabled:cursor-wait disabled:opacity-75 sm:h-[58px] sm:text-[14px]"
+                    className="min-h-[86px] cursor-pointer bg-[#CE2127] px-8 text-[16px] font-body font-bold uppercase tracking-[0.01em] text-white transition-opacity hover:opacity-90 disabled:cursor-wait disabled:opacity-75 sm:min-h-0 sm:h-[58px] sm:text-[14px]"
                     disabled={guestlistState === "loading"}
                   >
                     {guestlistState === "loading"
