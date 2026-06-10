@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Search, Menu, X, User } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePathname, useRouter } from "next/navigation";
@@ -20,8 +20,10 @@ const NAV_LINKS = [
 export default function Navbar() {
   const router = useRouter();
   const pathname = usePathname();
+  const navRef = useRef<HTMLElement | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileMenuTop, setMobileMenuTop] = useState(72);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -32,6 +34,39 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+
+    const updateMenuTop = () => {
+      const navBottom = navRef.current?.getBoundingClientRect().bottom ?? 72;
+      setMobileMenuTop(Math.max(0, Math.round(navBottom)));
+    };
+    const scrollY = window.scrollY;
+    const previousBodyOverflow = document.body.style.overflow;
+    const previousBodyPosition = document.body.style.position;
+    const previousBodyTop = document.body.style.top;
+    const previousBodyWidth = document.body.style.width;
+    const previousHtmlOverflow = document.documentElement.style.overflow;
+
+    updateMenuTop();
+    document.body.style.overflow = "hidden";
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = "100%";
+    document.documentElement.style.overflow = "hidden";
+    window.addEventListener("resize", updateMenuTop);
+
+    return () => {
+      window.removeEventListener("resize", updateMenuTop);
+      document.body.style.overflow = previousBodyOverflow;
+      document.body.style.position = previousBodyPosition;
+      document.body.style.top = previousBodyTop;
+      document.body.style.width = previousBodyWidth;
+      document.documentElement.style.overflow = previousHtmlOverflow;
+      window.scrollTo(0, scrollY);
+    };
+  }, [mobileMenuOpen]);
 
   function handleSearchSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -57,9 +92,10 @@ export default function Navbar() {
   }
 
   return (
-    <nav 
+    <nav
+      ref={navRef}
       className={cn(
-        "sticky top-0 z-50 w-full border-b transition-all duration-300",
+        "sticky top-0 z-[80] w-full border-b transition-all duration-300",
         isScrolled 
           ? "border-black/10 bg-[#111111]/94 py-3 backdrop-blur-xl" 
           : "border-transparent bg-[#111111] py-4"
@@ -162,7 +198,10 @@ export default function Navbar() {
           </button>
           <button 
             className="cursor-pointer lg:hidden text-white"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            onClick={() => setMobileMenuOpen((current) => !current)}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-menu-panel"
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -173,10 +212,13 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
+            id="mobile-menu-panel"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 top-[70px] z-40 flex flex-col space-y-8 bg-white/96 p-8 backdrop-blur-2xl lg:hidden"
+            transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
+            style={{ top: mobileMenuTop }}
+            className="fixed inset-x-0 bottom-0 z-[90] flex flex-col overflow-y-auto bg-[#fffdf9] px-8 pb-10 pt-8 shadow-[0_24px_80px_rgba(0,0,0,0.18)] lg:hidden"
           >
             <form onSubmit={handleSearchSubmit} className="flex items-center rounded-full border border-black/10 bg-white px-4 py-3">
               <Search size={18} strokeWidth={1.7} className="text-black/45" />
@@ -197,12 +239,12 @@ export default function Navbar() {
                 key={link.name}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.1 }}
+                transition={{ delay: 0.08 }}
               >
                 <Link 
                   href={link.href}
                   className={cn(
-                    "cursor-pointer text-3xl font-display tracking-tight hover:text-primary",
+                    "block cursor-pointer py-1 text-4xl font-display tracking-[-0.05em] transition-colors hover:text-primary",
                     isActive ? "font-bold text-[#181818]" : "text-text-primary"
                   )}
                   onClick={() => setMobileMenuOpen(false)}
