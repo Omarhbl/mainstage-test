@@ -176,7 +176,7 @@ export default function SiteFooter({
                       }
                     }}
                     placeholder="Enter your email ...."
-                    className="min-h-[118px] w-full flex-1 border border-[#CE2127] bg-[#3a3a3a] px-6 text-[20px] font-body text-white placeholder:text-white/55 focus:outline-none sm:min-h-0 sm:h-[58px] sm:border-0 sm:px-4 sm:text-[16px]"
+                    className="min-h-[86px] w-full flex-1 border border-[#CE2127] bg-[#3a3a3a] px-6 text-[20px] font-body text-white placeholder:text-white/55 focus:outline-none sm:min-h-0 sm:h-[58px] sm:border-0 sm:px-4 sm:text-[16px]"
                     aria-label="Join the guestlist with your email"
                     disabled={guestlistState === "loading"}
                   />
