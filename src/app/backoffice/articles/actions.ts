@@ -118,6 +118,18 @@ async function parseArticlePayload(formData: FormData) {
   const imagePositionY = Number.isFinite(rawImagePositionY)
     ? Math.min(100, Math.max(0, rawImagePositionY))
     : 50;
+  const rawHomepageImagePositionX = Number(
+    formData.get("homepage_image_position_x") ?? imagePositionX
+  );
+  const rawHomepageImagePositionY = Number(
+    formData.get("homepage_image_position_y") ?? imagePositionY
+  );
+  const homepageImagePositionX = Number.isFinite(rawHomepageImagePositionX)
+    ? Math.min(100, Math.max(0, rawHomepageImagePositionX))
+    : imagePositionX;
+  const homepageImagePositionY = Number.isFinite(rawHomepageImagePositionY)
+    ? Math.min(100, Math.max(0, rawHomepageImagePositionY))
+    : imagePositionY;
 
   if (
     !title ||
@@ -210,6 +222,8 @@ async function parseArticlePayload(formData: FormData) {
     updated_at: new Date().toISOString(),
     imagePositionX,
     imagePositionY,
+    homepageImagePositionX,
+    homepageImagePositionY,
   };
 }
 
@@ -287,7 +301,9 @@ async function deleteArticleTags(slug: string) {
 async function saveArticleImageOverride(
   slug: string,
   imagePositionX: number,
-  imagePositionY: number
+  imagePositionY: number,
+  homepageImagePositionX: number,
+  homepageImagePositionY: number
 ) {
   const adminClient = createSupabaseAdminClient();
 
@@ -311,6 +327,8 @@ async function saveArticleImageOverride(
     [slug]: {
       imagePositionX,
       imagePositionY,
+      homepageImagePositionX,
+      homepageImagePositionY,
     },
   };
 
@@ -384,6 +402,8 @@ export async function createArticleAction(formData: FormData) {
     tags,
     imagePositionX,
     imagePositionY,
+    homepageImagePositionX,
+    homepageImagePositionY,
     ...databasePayload
   } = payload;
 
@@ -417,7 +437,9 @@ export async function createArticleAction(formData: FormData) {
   await saveArticleImageOverride(
     payload.slug,
     imagePositionX,
-    imagePositionY
+    imagePositionY,
+    homepageImagePositionX,
+    homepageImagePositionY
   );
   await saveArticleTags(payload.slug, tags);
   await revalidateArticleSurfaces(payload.slug);
@@ -458,6 +480,8 @@ export async function updateArticleAction(formData: FormData) {
     tags,
     imagePositionX,
     imagePositionY,
+    homepageImagePositionX,
+    homepageImagePositionY,
     ...databasePayload
   } = payload;
 
@@ -495,7 +519,9 @@ export async function updateArticleAction(formData: FormData) {
   await saveArticleImageOverride(
     payload.slug,
     imagePositionX,
-    imagePositionY
+    imagePositionY,
+    homepageImagePositionX,
+    homepageImagePositionY
   );
   await saveArticleTags(payload.slug, tags);
   await revalidateArticleSurfaces(payload.slug);

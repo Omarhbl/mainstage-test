@@ -53,6 +53,8 @@ function toArticleRecord(
     image: row.image,
     imagePositionX: override?.imagePositionX,
     imagePositionY: override?.imagePositionY,
+    homepageImagePositionX: override?.homepageImagePositionX,
+    homepageImagePositionY: override?.homepageImagePositionY,
     date: row.date_label,
     imageCaption: row.image_caption ?? undefined,
     intro: row.intro,

@@ -65,6 +65,8 @@ export type HomepageSettings = {
 export type ArticleImageOverride = {
   imagePositionX: number;
   imagePositionY: number;
+  homepageImagePositionX?: number;
+  homepageImagePositionY?: number;
 };
 
 export type ArticleImageOverrides = Record<string, ArticleImageOverride>;
@@ -909,6 +911,14 @@ export async function getArticleImageOverrides(): Promise<ArticleImageOverrides>
           {
             imagePositionX: clampImagePosition(override.imagePositionX),
             imagePositionY: clampImagePosition(override.imagePositionY),
+            homepageImagePositionX:
+              typeof override.homepageImagePositionX === "number"
+                ? clampImagePosition(override.homepageImagePositionX)
+                : undefined,
+            homepageImagePositionY:
+              typeof override.homepageImagePositionY === "number"
+                ? clampImagePosition(override.homepageImagePositionY)
+                : undefined,
           },
         ];
       })

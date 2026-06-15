@@ -15,6 +15,8 @@ type ArticleEditorFormProps = {
   mode: "new" | "edit";
   imagePositionX?: number;
   imagePositionY?: number;
+  homepageImagePositionX?: number;
+  homepageImagePositionY?: number;
 };
 
 export default function ArticleEditorForm({
@@ -24,10 +26,20 @@ export default function ArticleEditorForm({
   mode,
   imagePositionX,
   imagePositionY,
+  homepageImagePositionX,
+  homepageImagePositionY,
 }: ArticleEditorFormProps) {
   const secondaryCategories = article?.secondary_categories ?? [];
   const resolvedImagePositionX = typeof imagePositionX === "number" ? imagePositionX : 50;
   const resolvedImagePositionY = typeof imagePositionY === "number" ? imagePositionY : 50;
+  const resolvedHomepageImagePositionX =
+    typeof homepageImagePositionX === "number"
+      ? homepageImagePositionX
+      : resolvedImagePositionX;
+  const resolvedHomepageImagePositionY =
+    typeof homepageImagePositionY === "number"
+      ? homepageImagePositionY
+      : resolvedImagePositionY;
 
   return (
     <form action={action} className="grid grid-cols-1 gap-6 xl:grid-cols-[minmax(0,1.45fr)_340px]">
@@ -267,6 +279,52 @@ export default function ArticleEditorForm({
                   {resolvedImagePositionY}% from top
                 </div>
               </label>
+              </div>
+            </div>
+            <div className="rounded-[14px] border border-[#CE2127]/15 bg-[#fff7f7] p-4">
+              <div className="mb-3">
+                <h3 className="text-[15px] font-body font-semibold text-[#181818]">
+                  Homepage Trending card framing
+                </h3>
+                <p className="mt-1 text-[13px] font-body leading-[1.6] text-black/55">
+                  Use this only when the image needs a different crop inside the homepage Trending Now cards.
+                </p>
+              </div>
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                <label className="block">
+                  <span className="text-[13px] font-body font-medium text-black/60">
+                    Card horizontal position
+                  </span>
+                  <input
+                    name="homepage_image_position_x"
+                    type="range"
+                    min="0"
+                    max="100"
+                    step="1"
+                    defaultValue={resolvedHomepageImagePositionX}
+                    className="mt-3 block w-full accent-[#CE2127]"
+                  />
+                  <div className="mt-2 text-[12px] font-body text-black/45">
+                    {resolvedHomepageImagePositionX}% from left
+                  </div>
+                </label>
+                <label className="block">
+                  <span className="text-[13px] font-body font-medium text-black/60">
+                    Card vertical position
+                  </span>
+                  <input
+                    name="homepage_image_position_y"
+                    type="range"
+                    min="0"
+                    max="100"
+                    step="1"
+                    defaultValue={resolvedHomepageImagePositionY}
+                    className="mt-3 block w-full accent-[#CE2127]"
+                  />
+                  <div className="mt-2 text-[12px] font-body text-black/45">
+                    {resolvedHomepageImagePositionY}% from top
+                  </div>
+                </label>
               </div>
             </div>
             <label className="block">

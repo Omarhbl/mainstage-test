@@ -8,6 +8,7 @@ import {
   formatArticleDate,
   getDisplayCategoryLabel,
   getArticleImageStyle,
+  getHomepageArticleImageStyle,
   HOMEPAGE_MUST_READ_SLUG,
   ArticleRecord,
 } from "@/lib/articles";
@@ -32,15 +33,6 @@ function getShortVideoDescription(value?: string) {
   }
 
   return `${cleaned.slice(0, 117).trimEnd()}...`;
-}
-
-function getNumericProperty(record: unknown, key: string) {
-  if (!record || typeof record !== "object") {
-    return undefined;
-  }
-
-  const value = (record as Record<string, unknown>)[key];
-  return typeof value === "number" ? value : undefined;
 }
 
 function ChartMovement({ value }: { value?: string }) {
@@ -142,6 +134,10 @@ const trendingItems = (sortedCards.length ? sortedCards : [])
     categories: article.categories,
     image: article.image,
     imageClassName: article.imageClassName,
+    imagePositionX: article.imagePositionX,
+    imagePositionY: article.imagePositionY,
+    homepageImagePositionX: article.homepageImagePositionX,
+    homepageImagePositionY: article.homepageImagePositionY,
   }))
   .slice(0, 3);
 
@@ -192,12 +188,7 @@ const trendingItems = (sortedCards.length ? sortedCards : [])
                     src={item.image}
                     alt={item.title}
                     className={`h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] ${item.imageClassName ?? ""}`}
-style={getArticleImageStyle({
-  imagePositionX:
-    getNumericProperty(item, "imagePositionX"),
-  imagePositionY:
-    getNumericProperty(item, "imagePositionY"),
-})}
+                    style={getHomepageArticleImageStyle(item)}
                   />
                 </div>
 

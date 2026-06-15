@@ -11,6 +11,8 @@ export type ArticleCard = {
   imageClassName?: string;
   imagePositionX?: number;
   imagePositionY?: number;
+  homepageImagePositionX?: number;
+  homepageImagePositionY?: number;
 };
 
 export type ArticleRecord = ArticleCard & {
@@ -43,6 +45,8 @@ export function getArticleCardsFromRecords(records: ArticleRecord[]): ArticleCar
     imageClassName: article.imageClassName,
     imagePositionX: article.imagePositionX,
     imagePositionY: article.imagePositionY,
+    homepageImagePositionX: article.homepageImagePositionX,
+    homepageImagePositionY: article.homepageImagePositionY,
   }));
 }
 
@@ -57,6 +61,30 @@ export function getArticleImageStyle(
   return {
     objectPosition: `${x}% ${y}%`,
   };
+}
+
+export function getHomepageArticleImageStyle(
+  article: Pick<
+    ArticleCard,
+    | "imagePositionX"
+    | "imagePositionY"
+    | "homepageImagePositionX"
+    | "homepageImagePositionY"
+  >
+): CSSProperties | undefined {
+  const x =
+    typeof article.homepageImagePositionX === "number"
+      ? article.homepageImagePositionX
+      : article.imagePositionX;
+  const y =
+    typeof article.homepageImagePositionY === "number"
+      ? article.homepageImagePositionY
+      : article.imagePositionY;
+
+  return getArticleImageStyle({
+    imagePositionX: x,
+    imagePositionY: y,
+  });
 }
 
 export function normalizeYouTubeEmbedUrl(value?: string | null) {
@@ -293,6 +321,8 @@ export function getSortedArticleCardsFromRecords(records: ArticleRecord[]): Arti
         imageClassName: article.imageClassName,
         imagePositionX: article.imagePositionX,
         imagePositionY: article.imagePositionY,
+        homepageImagePositionX: article.homepageImagePositionX,
+        homepageImagePositionY: article.homepageImagePositionY,
       } satisfies ArticleCard,
       weight: getPublicationWeight(article.date),
     }))

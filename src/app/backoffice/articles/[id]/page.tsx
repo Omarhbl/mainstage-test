@@ -48,6 +48,8 @@ export default async function BackofficeArticleDetailPage({
           mode="edit"
           imagePositionX={imageOverride?.imagePositionX}
           imagePositionY={imageOverride?.imagePositionY}
+          homepageImagePositionX={imageOverride?.homepageImagePositionX}
+          homepageImagePositionY={imageOverride?.homepageImagePositionY}
         />
       ) : (
         <div className="rounded-[20px] border border-black/8 bg-white p-6 shadow-[0_12px_30px_rgba(0,0,0,0.05)]">
