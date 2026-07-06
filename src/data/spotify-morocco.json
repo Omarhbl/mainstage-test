@@ -3,13 +3,13 @@
   "playlistName": "Top 50 - Morocco",
   "market": "MA",
   "source": "spotify-embed-scrape",
-  "scrapedAt": "2026-07-05T19:03:32.492Z",
+  "scrapedAt": "2026-07-06T02:13:52.760Z",
   "tracks": [
     {
       "rank": "#1",
       "title": "Dima Maghreb",
       "artist": "Maher Zain, Humood AlKhudher",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02244e0ec3f1e5cdd7ac78d56c",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02244e0ec3f1e5cdd7ac78d56c",
       "plays": null,
       "chartChange": "=",
       "totalStreams": null
@@ -45,7 +45,7 @@
       "rank": "#5",
       "title": "SKI",
       "artist": "Stormy",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
       "plays": 33516,
       "chartChange": "-2",
       "totalStreams": "2,217,972"
@@ -63,7 +63,7 @@
       "rank": "#7",
       "title": "LAMARA",
       "artist": "Dizzy DROS, Inkonnu",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e024c2185151024dfa9e771a827",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e024c2185151024dfa9e771a827",
       "plays": 31857,
       "chartChange": "-2",
       "totalStreams": "2,311,463"
@@ -72,7 +72,7 @@
       "rank": "#8",
       "title": "SATA 9TTALA",
       "artist": "Stormy, Manal",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
       "plays": 31290,
       "chartChange": "-2",
       "totalStreams": "1,449,084"
@@ -81,7 +81,7 @@
       "rank": "#9",
       "title": "Dai Dai",
       "artist": "Shakira, Burna Boy",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0203cadf1b3fe324c1dc710ed4",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0203cadf1b3fe324c1dc710ed4",
       "plays": null,
       "chartChange": "=",
       "totalStreams": null
@@ -108,7 +108,7 @@
       "rank": "#12",
       "title": "CAMEMBERT",
       "artist": "Stormy, TIF",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
       "plays": 25074,
       "chartChange": "-2",
       "totalStreams": "1,500,040"
@@ -126,7 +126,7 @@
       "rank": "#14",
       "title": "SAMEDI (feat. Shaw)",
       "artist": "ElGrandeToto, Shaw",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0298034226c443237700d8b31e",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0298034226c443237700d8b31e",
       "plays": 21923,
       "chartChange": "-2",
       "totalStreams": "1,338,537"
@@ -135,7 +135,7 @@
       "rank": "#15",
       "title": "MOON",
       "artist": "Stormy",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02e040ca47b2f8046349ce4f49",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02e040ca47b2f8046349ce4f49",
       "plays": 21727,
       "chartChange": "-2",
       "totalStreams": "18,916,757"
@@ -153,7 +153,7 @@
       "rank": "#17",
       "title": "AKHI",
       "artist": "Shaw",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02af9f73acb5a281bb3b66ce4d",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02af9f73acb5a281bb3b66ce4d",
       "plays": 20592,
       "chartChange": "-3",
       "totalStreams": "3,769,981"
@@ -207,7 +207,7 @@
       "rank": "#23",
       "title": "OMAR",
       "artist": "Dizzy DROS",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e024c2185151024dfa9e771a827",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e024c2185151024dfa9e771a827",
       "plays": 17864,
       "chartChange": "-6",
       "totalStreams": "1,736,110"
@@ -225,7 +225,7 @@
       "rank": "#25",
       "title": "Maladie",
       "artist": "Mauvais djo",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e020bec8cf6742b5d00f101b0e8",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e020bec8cf6742b5d00f101b0e8",
       "plays": null,
       "chartChange": "=",
       "totalStreams": null
@@ -234,7 +234,7 @@
       "rank": "#26",
       "title": "DAZOU LYAM",
       "artist": "Shaw",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02af9f73acb5a281bb3b66ce4d",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02af9f73acb5a281bb3b66ce4d",
       "plays": 16901,
       "chartChange": "-4",
       "totalStreams": "7,381,731"
@@ -243,7 +243,7 @@
       "rank": "#27",
       "title": "Dorororo",
       "artist": "Gustavo 51",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0233321c8a4cdfe1e4fb735e45",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0233321c8a4cdfe1e4fb735e45",
       "plays": 16580,
       "chartChange": "+1",
       "totalStreams": "5,234,290"
@@ -252,7 +252,7 @@
       "rank": "#28",
       "title": "WARDA",
       "artist": "Inkonnu, Manal",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02d960080283cdaf1ee337e8bd",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02d960080283cdaf1ee337e8bd",
       "plays": 15934,
       "chartChange": "-4",
       "totalStreams": "3,624,944"
@@ -261,7 +261,7 @@
       "rank": "#29",
       "title": "Tach",
       "artist": "Draganov",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02c3bd820082293036380883e1",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02c3bd820082293036380883e1",
       "plays": 15831,
       "chartChange": "+12",
       "totalStreams": "8,140,262"
@@ -279,7 +279,7 @@
       "rank": "#31",
       "title": "WALLAHI",
       "artist": "Shaw",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02faafc42915f7daa7597a706c",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02faafc42915f7daa7597a706c",
       "plays": 15280,
       "chartChange": "-1",
       "totalStreams": "11,956,545"
@@ -288,7 +288,7 @@
       "rank": "#32",
       "title": "Siir Siir",
       "artist": "Nora Fatehi, Vegedream, Sanjoy, FIFA Sound",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02e799e707cd677f087f6f152d",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02e799e707cd677f087f6f152d",
       "plays": null,
       "chartChange": "=",
       "totalStreams": null
@@ -315,7 +315,7 @@
       "rank": "#35",
       "title": "NGHAMER",
       "artist": "Bayadis, Manal, Shaw",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02c18c0c91a685f892fd66bed5",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02c18c0c91a685f892fd66bed5",
       "plays": 14832,
       "chartChange": "-6",
       "totalStreams": "6,030,047"
@@ -369,7 +369,7 @@
       "rank": "#41",
       "title": "Sensa",
       "artist": "Mensa, 3robi, SRNO",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0233b25a3045e967eeb5d38f7a",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0233b25a3045e967eeb5d38f7a",
       "plays": null,
       "chartChange": "=",
       "totalStreams": null
@@ -378,7 +378,7 @@
       "rank": "#42",
       "title": "KALIMAT",
       "artist": "Manal",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02e1d80af2df4612061f48ffd0",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02e1d80af2df4612061f48ffd0",
       "plays": 13847,
       "chartChange": "-4",
       "totalStreams": "2,983,616"
@@ -396,7 +396,7 @@
       "rank": "#44",
       "title": "CHANEL",
       "artist": "Stormy",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
       "plays": null,
       "chartChange": "=",
       "totalStreams": null
@@ -414,7 +414,7 @@
       "rank": "#46",
       "title": "Charm",
       "artist": "Rema",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02963265801aa5c9740ad159b7",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02963265801aa5c9740ad159b7",
       "plays": 12992,
       "chartChange": "-2",
       "totalStreams": "1,350,606"
@@ -423,7 +423,7 @@
       "rank": "#47",
       "title": "Si tu savais",
       "artist": "Anys, Stormy",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0275928cc9b433bbad1e7fa92f",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0275928cc9b433bbad1e7fa92f",
       "plays": 12979,
       "chartChange": "-5",
       "totalStreams": "15,881,704"
@@ -432,7 +432,7 @@
       "rank": "#48",
       "title": "Welcome to Morocco (feat. Asma Lmnawar, Rym, Aminux, Nouaman Belaiachi, Zouhair Bahaoui, Dizzy Dross, FIFA Sound) - Official Song of the FIFA Club World Cup 2022",
       "artist": "RedOne, Douzi, Hatim Ammor, Aminux, Asma Lmnawar, Dizzy Dross, FIFA Sound, Nouaman Belaiachi, RYM, Zouhair Bahaoui",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02f52370bf73f4b7ea1bfa3545",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02f52370bf73f4b7ea1bfa3545",
       "plays": null,
       "chartChange": "=",
       "totalStreams": null
@@ -450,7 +450,7 @@
       "rank": "#50",
       "title": "GAUCHE DROITE (feat. Draganov)",
       "artist": "ElGrandeToto, Draganov",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0298034226c443237700d8b31e",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0298034226c443237700d8b31e",
       "plays": 12280,
       "chartChange": "-7",
       "totalStreams": "789,257"
