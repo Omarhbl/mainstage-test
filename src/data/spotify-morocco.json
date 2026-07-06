@@ -3,13 +3,13 @@
   "playlistName": "Top 50 - Morocco",
   "market": "MA",
   "source": "spotify-embed-scrape",
-  "scrapedAt": "2026-07-06T02:13:52.760Z",
+  "scrapedAt": "2026-07-06T09:57:25.018Z",
   "tracks": [
     {
       "rank": "#1",
       "title": "Dima Maghreb",
       "artist": "Maher Zain, Humood AlKhudher",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02244e0ec3f1e5cdd7ac78d56c",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02244e0ec3f1e5cdd7ac78d56c",
       "plays": null,
       "chartChange": "=",
       "totalStreams": null
@@ -18,7 +18,7 @@
       "rank": "#2",
       "title": "KILOWAT",
       "artist": "Stormy",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
       "plays": 41943,
       "chartChange": "-1",
       "totalStreams": "1,908,596"
@@ -63,7 +63,7 @@
       "rank": "#7",
       "title": "LAMARA",
       "artist": "Dizzy DROS, Inkonnu",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e024c2185151024dfa9e771a827",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e024c2185151024dfa9e771a827",
       "plays": 31857,
       "chartChange": "-2",
       "totalStreams": "2,311,463"
@@ -99,7 +99,7 @@
       "rank": "#11",
       "title": "OTAGE",
       "artist": "Stormy",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
       "plays": 27189,
       "chartChange": "-2",
       "totalStreams": "1,898,621"
@@ -108,7 +108,7 @@
       "rank": "#12",
       "title": "CAMEMBERT",
       "artist": "Stormy, TIF",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
       "plays": 25074,
       "chartChange": "-2",
       "totalStreams": "1,500,040"
@@ -126,7 +126,7 @@
       "rank": "#14",
       "title": "SAMEDI (feat. Shaw)",
       "artist": "ElGrandeToto, Shaw",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0298034226c443237700d8b31e",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0298034226c443237700d8b31e",
       "plays": 21923,
       "chartChange": "-2",
       "totalStreams": "1,338,537"
@@ -162,7 +162,7 @@
       "rank": "#18",
       "title": "Ha Wlidi",
       "artist": "Jaylann",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02bb2d35465e434486545a6e3a",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02bb2d35465e434486545a6e3a",
       "plays": 19913,
       "chartChange": "RE",
       "totalStreams": "2,422,488"
@@ -180,7 +180,7 @@
       "rank": "#20",
       "title": "Kakalika",
       "artist": "DopeNation",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e024d6bd65debb0a33826a55519",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e024d6bd65debb0a33826a55519",
       "plays": null,
       "chartChange": "=",
       "totalStreams": null
@@ -198,7 +198,7 @@
       "rank": "#22",
       "title": "Bali maak",
       "artist": "Amine Farsi, Stormy",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e024c07f36c4eeee45eb76a141c",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e024c07f36c4eeee45eb76a141c",
       "plays": 17900,
       "chartChange": "-3",
       "totalStreams": "8,924,068"
@@ -207,7 +207,7 @@
       "rank": "#23",
       "title": "OMAR",
       "artist": "Dizzy DROS",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e024c2185151024dfa9e771a827",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e024c2185151024dfa9e771a827",
       "plays": 17864,
       "chartChange": "-6",
       "totalStreams": "1,736,110"
@@ -225,7 +225,7 @@
       "rank": "#25",
       "title": "Maladie",
       "artist": "Mauvais djo",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e020bec8cf6742b5d00f101b0e8",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e020bec8cf6742b5d00f101b0e8",
       "plays": null,
       "chartChange": "=",
       "totalStreams": null
@@ -234,7 +234,7 @@
       "rank": "#26",
       "title": "DAZOU LYAM",
       "artist": "Shaw",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02af9f73acb5a281bb3b66ce4d",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02af9f73acb5a281bb3b66ce4d",
       "plays": 16901,
       "chartChange": "-4",
       "totalStreams": "7,381,731"
@@ -243,7 +243,7 @@
       "rank": "#27",
       "title": "Dorororo",
       "artist": "Gustavo 51",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0233321c8a4cdfe1e4fb735e45",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0233321c8a4cdfe1e4fb735e45",
       "plays": 16580,
       "chartChange": "+1",
       "totalStreams": "5,234,290"
@@ -252,7 +252,7 @@
       "rank": "#28",
       "title": "WARDA",
       "artist": "Inkonnu, Manal",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02d960080283cdaf1ee337e8bd",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02d960080283cdaf1ee337e8bd",
       "plays": 15934,
       "chartChange": "-4",
       "totalStreams": "3,624,944"
@@ -261,7 +261,7 @@
       "rank": "#29",
       "title": "Tach",
       "artist": "Draganov",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02c3bd820082293036380883e1",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02c3bd820082293036380883e1",
       "plays": 15831,
       "chartChange": "+12",
       "totalStreams": "8,140,262"
@@ -270,7 +270,7 @@
       "rank": "#30",
       "title": "KATANA",
       "artist": "Manal, Stormy",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02c3e82fb909ad7c6930ba8a6a",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02c3e82fb909ad7c6930ba8a6a",
       "plays": 15280,
       "chartChange": "-9",
       "totalStreams": "2,171,507"
@@ -288,7 +288,7 @@
       "rank": "#32",
       "title": "Siir Siir",
       "artist": "Nora Fatehi, Vegedream, Sanjoy, FIFA Sound",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02e799e707cd677f087f6f152d",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02e799e707cd677f087f6f152d",
       "plays": null,
       "chartChange": "=",
       "totalStreams": null
@@ -324,7 +324,7 @@
       "rank": "#36",
       "title": "Skyline",
       "artist": "3robi, Mensa, Frsh, SRNO",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02bb9cc00b3953ff7390dfc8db",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02bb9cc00b3953ff7390dfc8db",
       "plays": 14780,
       "chartChange": "+4",
       "totalStreams": "539,298"
@@ -360,7 +360,7 @@
       "rank": "#40",
       "title": "RIRI&ROCKY",
       "artist": "Najm, Manal",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026d130ae788f3c2a7294355c1",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026d130ae788f3c2a7294355c1",
       "plays": 14181,
       "chartChange": "-7",
       "totalStreams": "6,640,284"
@@ -369,7 +369,7 @@
       "rank": "#41",
       "title": "Sensa",
       "artist": "Mensa, 3robi, SRNO",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0233b25a3045e967eeb5d38f7a",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0233b25a3045e967eeb5d38f7a",
       "plays": null,
       "chartChange": "=",
       "totalStreams": null
@@ -441,7 +441,7 @@
       "rank": "#49",
       "title": "Maghribi Maghribi",
       "artist": "RedOne",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0271fca454ce5886cec7d0dc35",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0271fca454ce5886cec7d0dc35",
       "plays": null,
       "chartChange": "=",
       "totalStreams": null
@@ -450,7 +450,7 @@
       "rank": "#50",
       "title": "GAUCHE DROITE (feat. Draganov)",
       "artist": "ElGrandeToto, Draganov",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0298034226c443237700d8b31e",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0298034226c443237700d8b31e",
       "plays": 12280,
       "chartChange": "-7",
       "totalStreams": "789,257"
