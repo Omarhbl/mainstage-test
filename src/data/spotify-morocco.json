@@ -3,7 +3,7 @@
   "playlistName": "Top 50 - Morocco",
   "market": "MA",
   "source": "spotify-embed-scrape",
-  "scrapedAt": "2026-07-12T01:51:05.597Z",
+  "scrapedAt": "2026-07-12T08:00:55.440Z",
   "tracks": [
     {
       "rank": "#1",
@@ -27,7 +27,7 @@
       "rank": "#3",
       "title": "GHALAT",
       "artist": "Najm, ElGrandeToto",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e021ba0568dc621c11b0573f418",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e021ba0568dc621c11b0573f418",
       "plays": 38789,
       "chartChange": "=",
       "totalStreams": "2,961,971"
@@ -36,7 +36,7 @@
       "rank": "#4",
       "title": "LAMARA",
       "artist": "Dizzy DROS, Inkonnu",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e024c2185151024dfa9e771a827",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e024c2185151024dfa9e771a827",
       "plays": 34613,
       "chartChange": "+3",
       "totalStreams": "2,511,646"
@@ -63,7 +63,7 @@
       "rank": "#7",
       "title": "SKI",
       "artist": "Stormy",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
       "plays": 32472,
       "chartChange": "-1",
       "totalStreams": "2,419,175"
@@ -72,7 +72,7 @@
       "rank": "#8",
       "title": "OTAGE",
       "artist": "Stormy",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
       "plays": 30500,
       "chartChange": "+1",
       "totalStreams": "2,076,882"
@@ -81,7 +81,7 @@
       "rank": "#9",
       "title": "AGOGO",
       "artist": "7ari",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e020fccb3ba9624325bb23963a8",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e020fccb3ba9624325bb23963a8",
       "plays": 30324,
       "chartChange": "-1",
       "totalStreams": "745,305"
@@ -90,7 +90,7 @@
       "rank": "#10",
       "title": "CAMEMBERT",
       "artist": "Stormy, TIF",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
       "plays": 29271,
       "chartChange": "=",
       "totalStreams": "1,668,623"
@@ -117,7 +117,7 @@
       "rank": "#13",
       "title": "Pilé",
       "artist": "Mauvais djo",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02a4d87285af3e4f6e74bd80ae",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02a4d87285af3e4f6e74bd80ae",
       "plays": null,
       "chartChange": "=",
       "totalStreams": null
@@ -189,7 +189,7 @@
       "rank": "#21",
       "title": "3DABI",
       "artist": "Draganov",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02dbf520cd47d9ba489fd97f63",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02dbf520cd47d9ba489fd97f63",
       "plays": 18480,
       "chartChange": "=",
       "totalStreams": "23,823,717"
@@ -270,7 +270,7 @@
       "rank": "#30",
       "title": "RIRI&ROCKY",
       "artist": "Najm, Manal",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026d130ae788f3c2a7294355c1",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026d130ae788f3c2a7294355c1",
       "plays": 16869,
       "chartChange": "+6",
       "totalStreams": "6,734,606"
@@ -279,7 +279,7 @@
       "rank": "#31",
       "title": "Dai Dai",
       "artist": "Shakira, Burna Boy",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0203cadf1b3fe324c1dc710ed4",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0203cadf1b3fe324c1dc710ed4",
       "plays": 16858,
       "chartChange": "-13",
       "totalStreams": "550,726"
@@ -306,7 +306,7 @@
       "rank": "#34",
       "title": "CANDYSHOP",
       "artist": "Stormy",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
       "plays": 15953,
       "chartChange": "=",
       "totalStreams": "1,210,271"
@@ -324,7 +324,7 @@
       "rank": "#36",
       "title": "Tach",
       "artist": "Draganov",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02c3bd820082293036380883e1",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02c3bd820082293036380883e1",
       "plays": 14856,
       "chartChange": "-5",
       "totalStreams": "8,237,072"
@@ -351,7 +351,7 @@
       "rank": "#39",
       "title": "Doza",
       "artist": "Pause",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02b9bbebefe34ea41892ead952",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02b9bbebefe34ea41892ead952",
       "plays": 14721,
       "chartChange": "-6",
       "totalStreams": "381,221"
@@ -360,7 +360,7 @@
       "rank": "#40",
       "title": "Skyline",
       "artist": "3robi, Mensa, Frsh, SRNO",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02bb9cc00b3953ff7390dfc8db",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02bb9cc00b3953ff7390dfc8db",
       "plays": 14669,
       "chartChange": "+1",
       "totalStreams": "626,122"
@@ -387,7 +387,7 @@
       "rank": "#43",
       "title": "Sensa",
       "artist": "Mensa, 3robi, SRNO",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0233b25a3045e967eeb5d38f7a",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0233b25a3045e967eeb5d38f7a",
       "plays": 13817,
       "chartChange": "-1",
       "totalStreams": "671,740"
@@ -450,7 +450,7 @@
       "rank": "#50",
       "title": "Mizane",
       "artist": "Stormy, Inkonnu",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e020eded0fba13dbf99ff76043d",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e020eded0fba13dbf99ff76043d",
       "plays": 11367,
       "chartChange": "+3",
       "totalStreams": "16,731,655"
