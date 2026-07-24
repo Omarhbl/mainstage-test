@@ -3,88 +3,88 @@
   "playlistName": "Top 50 - Morocco",
   "market": "MA",
   "source": "spotify-embed-scrape",
-  "scrapedAt": "2026-07-24T13:18:52.575Z",
+  "scrapedAt": "2026-07-24T19:13:39.589Z",
   "tracks": [
     {
       "rank": "#1",
       "title": "KILOWAT",
       "artist": "Stormy",
       "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
-      "plays": 52244,
+      "plays": 52370,
       "chartChange": "=",
-      "totalStreams": "2,814,905"
+      "totalStreams": "2,867,275"
     },
     {
       "rank": "#2",
       "title": "PER LA VITA",
       "artist": "Stormy",
       "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
-      "plays": 43749,
+      "plays": 43745,
       "chartChange": "=",
-      "totalStreams": "4,375,619"
+      "totalStreams": "4,419,364"
     },
     {
       "rank": "#3",
       "title": "GHALAT",
       "artist": "Najm, ElGrandeToto",
       "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e021ba0568dc621c11b0573f418",
-      "plays": 42003,
+      "plays": 42971,
       "chartChange": "=",
-      "totalStreams": "3,448,851"
+      "totalStreams": "3,491,822"
     },
     {
       "rank": "#4",
       "title": "SATA 9TTALA",
       "artist": "Stormy, Manal",
       "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
-      "plays": 37900,
+      "plays": 37780,
       "chartChange": "=",
-      "totalStreams": "2,109,450"
+      "totalStreams": "2,147,230"
     },
     {
       "rank": "#5",
-      "title": "LAMARA",
-      "artist": "Dizzy DROS, Inkonnu",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e024c2185151024dfa9e771a827",
-      "plays": 35871,
-      "chartChange": "+1",
-      "totalStreams": "2,947,237"
-    },
-    {
-      "rank": "#6",
       "title": "ZOMBIE",
       "artist": "LAZARO",
       "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e029da9c23bbffd4aef900390fd",
-      "plays": 35842,
+      "plays": 36265,
+      "chartChange": "+1",
+      "totalStreams": "2,318,123"
+    },
+    {
+      "rank": "#6",
+      "title": "LAMARA",
+      "artist": "Dizzy DROS, Inkonnu",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e024c2185151024dfa9e771a827",
+      "plays": 35513,
       "chartChange": "-1",
-      "totalStreams": "2,281,858"
+      "totalStreams": "2,982,750"
     },
     {
       "rank": "#7",
       "title": "SKI",
       "artist": "Stormy",
       "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
-      "plays": 30634,
-      "chartChange": "+1",
-      "totalStreams": "2,801,870"
+      "plays": 30432,
+      "chartChange": "=",
+      "totalStreams": "2,832,302"
     },
     {
       "rank": "#8",
       "title": "OTAGE",
       "artist": "Stormy",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
-      "plays": 30083,
-      "chartChange": "-1",
-      "totalStreams": "2,452,797"
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
+      "plays": 30406,
+      "chartChange": "=",
+      "totalStreams": "2,483,203"
     },
     {
       "rank": "#9",
       "title": "CAMEMBERT",
       "artist": "Stormy, TIF",
       "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
-      "plays": 29638,
-      "chartChange": "+1",
-      "totalStreams": "2,029,101"
+      "plays": 30034,
+      "chartChange": "=",
+      "totalStreams": "2,059,135"
     },
     {
       "rank": "#10",
@@ -100,360 +100,360 @@
       "title": "MOON",
       "artist": "Stormy",
       "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02e040ca47b2f8046349ce4f49",
-      "plays": 28999,
-      "chartChange": "-2",
-      "totalStreams": "19,398,462"
+      "plays": 29360,
+      "chartChange": "=",
+      "totalStreams": "19,427,822"
     },
     {
       "rank": "#12",
-      "title": "AGOGO",
-      "artist": "7ari",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e020fccb3ba9624325bb23963a8",
-      "plays": 27956,
-      "chartChange": "-1",
-      "totalStreams": "1,095,147"
+      "title": "AKHI",
+      "artist": "Shaw",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02af9f73acb5a281bb3b66ce4d",
+      "plays": 27973,
+      "chartChange": "+1",
+      "totalStreams": "4,260,347"
     },
     {
       "rank": "#13",
-      "title": "AKHI",
-      "artist": "Shaw",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02af9f73acb5a281bb3b66ce4d",
-      "plays": 26767,
-      "chartChange": "=",
-      "totalStreams": "4,232,374"
+      "title": "AGOGO",
+      "artist": "7ari",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e020fccb3ba9624325bb23963a8",
+      "plays": 27628,
+      "chartChange": "-1",
+      "totalStreams": "1,122,775"
     },
     {
       "rank": "#14",
       "title": "TAF TAF",
       "artist": "OldyGotTheSound, Anys, Shaw",
       "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e029006e6553b481d4b5dd91f9a",
-      "plays": 24641,
-      "chartChange": "+1",
-      "totalStreams": "13,684,921"
+      "plays": 26006,
+      "chartChange": "=",
+      "totalStreams": "13,710,927"
     },
     {
       "rank": "#15",
       "title": "Bali maak",
       "artist": "Amine Farsi, Stormy",
       "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e024c07f36c4eeee45eb76a141c",
-      "plays": 24163,
-      "chartChange": "+1",
-      "totalStreams": "9,323,869"
+      "plays": 24632,
+      "chartChange": "=",
+      "totalStreams": "9,348,501"
     },
     {
       "rank": "#16",
       "title": "NGHAMER",
       "artist": "Bayadis, Manal, Shaw",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02c18c0c91a685f892fd66bed5",
-      "plays": 23108,
-      "chartChange": "-2",
-      "totalStreams": "6,389,330"
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02c18c0c91a685f892fd66bed5",
+      "plays": 23819,
+      "chartChange": "=",
+      "totalStreams": "6,413,149"
     },
     {
       "rank": "#17",
       "title": "SAMEDI (feat. Shaw)",
       "artist": "ElGrandeToto, Shaw",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0298034226c443237700d8b31e",
-      "plays": 21985,
-      "chartChange": "+3",
-      "totalStreams": "1,742,152"
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0298034226c443237700d8b31e",
+      "plays": 22200,
+      "chartChange": "=",
+      "totalStreams": "1,764,352"
     },
     {
       "rank": "#18",
-      "title": "Dai Dai",
-      "artist": "Shakira, Burna Boy",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0203cadf1b3fe324c1dc710ed4",
-      "plays": 21767,
-      "chartChange": "+1",
-      "totalStreams": "774,562"
+      "title": "3DABI",
+      "artist": "Draganov",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02dbf520cd47d9ba489fd97f63",
+      "plays": 22072,
+      "chartChange": "+3",
+      "totalStreams": "24,085,163"
     },
     {
       "rank": "#19",
-      "title": "Kakalika",
-      "artist": "DopeNation",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e024d6bd65debb0a33826a55519",
-      "plays": 21635,
+      "title": "Dai Dai",
+      "artist": "Shakira, Burna Boy",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0203cadf1b3fe324c1dc710ed4",
+      "plays": 21900,
       "chartChange": "-1",
-      "totalStreams": "450,632"
+      "totalStreams": "796,462"
     },
     {
       "rank": "#20",
       "title": "DAZOU LYAM",
       "artist": "Shaw",
       "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02af9f73acb5a281bb3b66ce4d",
-      "plays": 21302,
-      "chartChange": "+7",
-      "totalStreams": "7,718,640"
+      "plays": 21722,
+      "chartChange": "=",
+      "totalStreams": "7,740,362"
     },
     {
       "rank": "#21",
-      "title": "3DABI",
-      "artist": "Draganov",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02dbf520cd47d9ba489fd97f63",
-      "plays": 21282,
-      "chartChange": "+2",
-      "totalStreams": "24,063,091"
+      "title": "KATANA",
+      "artist": "Manal, Stormy",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02c3e82fb909ad7c6930ba8a6a",
+      "plays": 21262,
+      "chartChange": "+4",
+      "totalStreams": "2,541,132"
     },
     {
       "rank": "#22",
-      "title": "WARDA",
-      "artist": "Inkonnu, Manal",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02d960080283cdaf1ee337e8bd",
-      "plays": 20769,
-      "chartChange": "+4",
-      "totalStreams": "3,973,047"
+      "title": "Kakalika",
+      "artist": "DopeNation",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e024d6bd65debb0a33826a55519",
+      "plays": 21209,
+      "chartChange": "-3",
+      "totalStreams": "471,841"
     },
     {
       "rank": "#23",
-      "title": "Casanegra",
-      "artist": "Mocro Stars, ElGrandeToto, Maes",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02ab805933ae65113aa9ebe390",
-      "plays": 20740,
-      "chartChange": "-6",
-      "totalStreams": "141,912"
+      "title": "WARDA",
+      "artist": "Inkonnu, Manal",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02d960080283cdaf1ee337e8bd",
+      "plays": 20465,
+      "chartChange": "-1",
+      "totalStreams": "3,993,512"
     },
     {
       "rank": "#24",
       "title": "Maladie",
       "artist": "Mauvais djo",
       "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e020bec8cf6742b5d00f101b0e8",
-      "plays": 20407,
-      "chartChange": "-3",
-      "totalStreams": "690,013"
+      "plays": 20414,
+      "chartChange": "=",
+      "totalStreams": "710,427"
     },
     {
       "rank": "#25",
-      "title": "KATANA",
-      "artist": "Manal, Stormy",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02c3e82fb909ad7c6930ba8a6a",
-      "plays": 20294,
-      "chartChange": "-3",
-      "totalStreams": "2,519,870"
+      "title": "Zone De Confort",
+      "artist": "Figoshin",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0210c0176ba4322f4b40696a12",
+      "plays": 19575,
+      "chartChange": "+1",
+      "totalStreams": "2,814,435"
     },
     {
       "rank": "#26",
-      "title": "Zone De Confort",
-      "artist": "Figoshin",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0210c0176ba4322f4b40696a12",
-      "plays": 20126,
-      "chartChange": "-1",
-      "totalStreams": "2,794,860"
+      "title": "Casanegra",
+      "artist": "Mocro Stars, ElGrandeToto, Maes",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02ab805933ae65113aa9ebe390",
+      "plays": 19345,
+      "chartChange": "-3",
+      "totalStreams": "161,257"
     },
     {
       "rank": "#27",
       "title": "WALLAHI",
       "artist": "Shaw",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02faafc42915f7daa7597a706c",
-      "plays": 19086,
-      "chartChange": "+2",
-      "totalStreams": "12,263,694"
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02faafc42915f7daa7597a706c",
+      "plays": 19039,
+      "chartChange": "=",
+      "totalStreams": "12,282,733"
     },
     {
       "rank": "#28",
-      "title": "LALLAMOULATI",
-      "artist": "Dizzy DROS, Nada",
+      "title": "OMAR",
+      "artist": "Dizzy DROS",
       "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e024c2185151024dfa9e771a827",
-      "plays": 18659,
-      "chartChange": "=",
-      "totalStreams": "1,253,691"
+      "plays": 18232,
+      "chartChange": "+4",
+      "totalStreams": "2,072,807"
     },
     {
       "rank": "#29",
       "title": "RIRI&ROCKY",
       "artist": "Najm, Manal",
       "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026d130ae788f3c2a7294355c1",
-      "plays": 18133,
-      "chartChange": "+3",
-      "totalStreams": "6,943,852"
+      "plays": 18095,
+      "chartChange": "=",
+      "totalStreams": "6,961,947"
     },
     {
       "rank": "#30",
-      "title": "Dorororo",
-      "artist": "Gustavo 51",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0233321c8a4cdfe1e4fb735e45",
-      "plays": 18076,
-      "chartChange": "=",
-      "totalStreams": "5,550,622"
+      "title": "LALLAMOULATI",
+      "artist": "Dizzy DROS, Nada",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e024c2185151024dfa9e771a827",
+      "plays": 18080,
+      "chartChange": "-2",
+      "totalStreams": "1,271,771"
     },
     {
       "rank": "#31",
       "title": "Si tu savais",
       "artist": "Anys, Stormy",
       "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0275928cc9b433bbad1e7fa92f",
-      "plays": 17831,
-      "chartChange": "-7",
-      "totalStreams": "16,187,553"
+      "plays": 18053,
+      "chartChange": "=",
+      "totalStreams": "16,205,606"
     },
     {
       "rank": "#32",
-      "title": "OMAR",
-      "artist": "Dizzy DROS",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e024c2185151024dfa9e771a827",
-      "plays": 17134,
-      "chartChange": "-1",
-      "totalStreams": "2,054,575"
+      "title": "Dorororo",
+      "artist": "Gustavo 51",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0233321c8a4cdfe1e4fb735e45",
+      "plays": 17680,
+      "chartChange": "-2",
+      "totalStreams": "5,568,302"
     },
     {
       "rank": "#33",
-      "title": "CANDYSHOP",
-      "artist": "Stormy",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
-      "plays": 16425,
-      "chartChange": "+4",
-      "totalStreams": "1,396,208"
+      "title": "BLUE LOVE",
+      "artist": "ElGrandeToto",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e027db1688433041d6e88fc21c0",
+      "plays": 16887,
+      "chartChange": "+3",
+      "totalStreams": "22,658,302"
     },
     {
       "rank": "#34",
-      "title": "Tach",
-      "artist": "Draganov",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02c3bd820082293036380883e1",
-      "plays": 16412,
-      "chartChange": "=",
-      "totalStreams": "8,433,872"
-    },
-    {
-      "rank": "#35",
       "title": "SO HIGH",
       "artist": "Stormy",
       "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02e040ca47b2f8046349ce4f49",
-      "plays": 16310,
-      "chartChange": "=",
-      "totalStreams": "10,413,026"
+      "plays": 16861,
+      "chartChange": "+1",
+      "totalStreams": "10,429,887"
+    },
+    {
+      "rank": "#35",
+      "title": "Tach",
+      "artist": "Draganov",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02c3bd820082293036380883e1",
+      "plays": 16377,
+      "chartChange": "-1",
+      "totalStreams": "8,450,249"
     },
     {
       "rank": "#36",
-      "title": "BLUE LOVE",
-      "artist": "ElGrandeToto",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e027db1688433041d6e88fc21c0",
-      "plays": 16270,
-      "chartChange": "+5",
-      "totalStreams": "22,641,415"
+      "title": "CANDYSHOP",
+      "artist": "Stormy",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
+      "plays": 16238,
+      "chartChange": "-3",
+      "totalStreams": "1,412,446"
     },
     {
       "rank": "#37",
-      "title": "NINJA (feat. GIMS)",
-      "artist": "ElGrandeToto, GIMS",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0268f587da0243d3fda19610bc",
-      "plays": 15790,
+      "title": "Skyline",
+      "artist": "3robi, Mensa, Frsh, SRNO",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02bb9cc00b3953ff7390dfc8db",
+      "plays": 15764,
       "chartChange": "+1",
-      "totalStreams": "459,969"
+      "totalStreams": "828,085"
     },
     {
       "rank": "#38",
-      "title": "Skyline",
-      "artist": "3robi, Mensa, Frsh, SRNO",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02bb9cc00b3953ff7390dfc8db",
-      "plays": 15782,
-      "chartChange": "+2",
-      "totalStreams": "812,321"
+      "title": "NINJA (feat. GIMS)",
+      "artist": "ElGrandeToto, GIMS",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0268f587da0243d3fda19610bc",
+      "plays": 15522,
+      "chartChange": "-1",
+      "totalStreams": "475,491"
     },
     {
       "rank": "#39",
       "title": "CHANEL",
       "artist": "Stormy",
       "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
-      "plays": 15363,
-      "chartChange": "-6",
-      "totalStreams": "2,604,946"
+      "plays": 15419,
+      "chartChange": "=",
+      "totalStreams": "2,620,365"
     },
     {
       "rank": "#40",
-      "title": "Mizane",
-      "artist": "Stormy, Inkonnu",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e020eded0fba13dbf99ff76043d",
-      "plays": 15303,
-      "chartChange": "+5",
-      "totalStreams": "16,896,603"
-    },
-    {
-      "rank": "#41",
       "title": "Sensa",
       "artist": "Mensa, 3robi, SRNO",
       "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0233b25a3045e967eeb5d38f7a",
-      "plays": 15036,
-      "chartChange": "+2",
-      "totalStreams": "848,461"
+      "plays": 15288,
+      "chartChange": "+1",
+      "totalStreams": "863,749"
+    },
+    {
+      "rank": "#41",
+      "title": "KALIMAT",
+      "artist": "Manal",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02e1d80af2df4612061f48ffd0",
+      "plays": 15175,
+      "chartChange": "+1",
+      "totalStreams": "3,268,436"
     },
     {
       "rank": "#42",
-      "title": "KALIMAT",
-      "artist": "Manal",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02e1d80af2df4612061f48ffd0",
-      "plays": 14963,
-      "chartChange": "-6",
-      "totalStreams": "3,253,261"
+      "title": "Mizane",
+      "artist": "Stormy, Inkonnu",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e020eded0fba13dbf99ff76043d",
+      "plays": 15047,
+      "chartChange": "-2",
+      "totalStreams": "16,911,650"
     },
     {
       "rank": "#43",
       "title": "PASSAT",
       "artist": "ElGrandeToto",
       "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0268f587da0243d3fda19610bc",
-      "plays": 14537,
-      "chartChange": "-4",
-      "totalStreams": "568,671"
+      "plays": 14819,
+      "chartChange": "=",
+      "totalStreams": "583,490"
     },
     {
       "rank": "#44",
-      "title": "RBI M3ANA",
-      "artist": "Stormy",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02e040ca47b2f8046349ce4f49",
-      "plays": 13744,
-      "chartChange": "+4",
-      "totalStreams": "6,135,468"
-    },
-    {
-      "rank": "#45",
-      "title": "Tsswirtek",
-      "artist": "Draganov",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026c4d86597c81e7c35b3e2906",
-      "plays": 13599,
-      "chartChange": "-1",
-      "totalStreams": "4,485,210"
-    },
-    {
-      "rank": "#46",
-      "title": "Jamaican (Bam Bam)",
-      "artist": "HUGEL, SOLTO (FR)",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e029dd0ab1eb8c4342831b502bd",
-      "plays": 13233,
-      "chartChange": "+4",
-      "totalStreams": "1,421,883"
-    },
-    {
-      "rank": "#47",
       "title": "MON PAYS",
       "artist": "ElGrandeToto",
       "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0268f587da0243d3fda19610bc",
-      "plays": 13203,
-      "chartChange": "-5",
-      "totalStreams": "1,097,996"
+      "plays": 13603,
+      "chartChange": "+3",
+      "totalStreams": "1,111,599"
+    },
+    {
+      "rank": "#45",
+      "title": "RBI M3ANA",
+      "artist": "Stormy",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02e040ca47b2f8046349ce4f49",
+      "plays": 13556,
+      "chartChange": "-1",
+      "totalStreams": "6,149,024"
+    },
+    {
+      "rank": "#46",
+      "title": "Tsswirtek",
+      "artist": "Draganov",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026c4d86597c81e7c35b3e2906",
+      "plays": 13152,
+      "chartChange": "-1",
+      "totalStreams": "4,498,362"
+    },
+    {
+      "rank": "#47",
+      "title": "Jamaican (Bam Bam)",
+      "artist": "HUGEL, SOLTO (FR)",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e029dd0ab1eb8c4342831b502bd",
+      "plays": 13143,
+      "chartChange": "-1",
+      "totalStreams": "1,435,026"
     },
     {
       "rank": "#48",
       "title": "Sahran lil",
       "artist": "Cheb Momo, Djalil Palermo",
       "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0288619eb2e403d871b69df35b",
-      "plays": 13124,
-      "chartChange": "-2",
-      "totalStreams": "3,322,843"
+      "plays": 13118,
+      "chartChange": "=",
+      "totalStreams": "3,335,961"
     },
     {
       "rank": "#49",
-      "title": "CVP",
-      "artist": "ElGrandeToto",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0298034226c443237700d8b31e",
-      "plays": 12774,
-      "chartChange": "+2",
-      "totalStreams": "963,399"
-    },
-    {
-      "rank": "#50",
       "title": "STALINE",
       "artist": "ElGrandeToto",
       "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e028c4a05e02897ce7378b821d7",
-      "plays": 12467,
-      "chartChange": "-3",
-      "totalStreams": "14,689,438"
+      "plays": 12852,
+      "chartChange": "+1",
+      "totalStreams": "14,702,290"
+    },
+    {
+      "rank": "#50",
+      "title": "CVP",
+      "artist": "ElGrandeToto",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0298034226c443237700d8b31e",
+      "plays": 12654,
+      "chartChange": "-1",
+      "totalStreams": "976,053"
     }
   ]
 }
