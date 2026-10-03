@@ -3,7 +3,7 @@
   "playlistName": "Top 50 - Morocco",
   "market": "MA",
   "source": "spotify-embed-scrape",
-  "scrapedAt": "2026-10-03T02:59:01.218Z",
+  "scrapedAt": "2026-10-03T10:50:03.181Z",
   "tracks": [
     {
       "rank": "#1",
@@ -36,7 +36,7 @@
       "rank": "#4",
       "title": "PRINCES DE LA VILLE",
       "artist": "Tchubi, Hoba Hoba Spirit",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02b994350f1706b4ae4bc2aa00",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02b994350f1706b4ae4bc2aa00",
       "plays": 37022,
       "chartChange": "=",
       "totalStreams": "509,879"
@@ -45,7 +45,7 @@
       "rank": "#5",
       "title": "GHALAT",
       "artist": "Najm, ElGrandeToto",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e021ba0568dc621c11b0573f418",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e021ba0568dc621c11b0573f418",
       "plays": 32554,
       "chartChange": "=",
       "totalStreams": "6,150,218"
@@ -54,7 +54,7 @@
       "rank": "#6",
       "title": "OTAGE",
       "artist": "Stormy",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
       "plays": 31623,
       "chartChange": "=",
       "totalStreams": "4,652,028"
@@ -117,7 +117,7 @@
       "rank": "#13",
       "title": "LAMARA",
       "artist": "Dizzy DROS, Inkonnu",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e024c2185151024dfa9e771a827",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e024c2185151024dfa9e771a827",
       "plays": 21899,
       "chartChange": "=",
       "totalStreams": "4,867,905"
@@ -126,7 +126,7 @@
       "rank": "#14",
       "title": "MOON",
       "artist": "Stormy",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02e040ca47b2f8046349ce4f49",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02e040ca47b2f8046349ce4f49",
       "plays": 21646,
       "chartChange": "=",
       "totalStreams": "21,274,607"
@@ -162,7 +162,7 @@
       "rank": "#18",
       "title": "ROUTINE",
       "artist": "Stormy, MC PH",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
       "plays": null,
       "chartChange": "=",
       "totalStreams": null
@@ -171,7 +171,7 @@
       "rank": "#19",
       "title": "ZOMBIE",
       "artist": "LAZARO",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e029da9c23bbffd4aef900390fd",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e029da9c23bbffd4aef900390fd",
       "plays": 18665,
       "chartChange": "-1",
       "totalStreams": "4,218,864"
@@ -198,7 +198,7 @@
       "rank": "#22",
       "title": "Alt F4",
       "artist": "Draganov, TIF",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02d1a2df36115067666ad87fbc",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02d1a2df36115067666ad87fbc",
       "plays": 17189,
       "chartChange": "=",
       "totalStreams": "327,760"
@@ -216,7 +216,7 @@
       "rank": "#24",
       "title": "DEMMI MARROKI",
       "artist": "Bayadis, 3robi, Tawsen",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02f14439b1a445d8227e1cfc9d",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02f14439b1a445d8227e1cfc9d",
       "plays": 16823,
       "chartChange": "=",
       "totalStreams": "671,067"
@@ -243,7 +243,7 @@
       "rank": "#27",
       "title": "RWINA",
       "artist": "Abduh, Stormy",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02a8039543ad4fad77fc1dc1a3",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02a8039543ad4fad77fc1dc1a3",
       "plays": 16020,
       "chartChange": "+2",
       "totalStreams": "121,800"
@@ -261,7 +261,7 @@
       "rank": "#29",
       "title": "PASADENA",
       "artist": "ElGrandeToto, SativaMusic",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02c6910bac1dec66c170d72885",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02c6910bac1dec66c170d72885",
       "plays": 15655,
       "chartChange": "-3",
       "totalStreams": "232,882"
@@ -315,7 +315,7 @@
       "rank": "#35",
       "title": "KATANA",
       "artist": "Manal, Stormy",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02c3e82fb909ad7c6930ba8a6a",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02c3e82fb909ad7c6930ba8a6a",
       "plays": 14501,
       "chartChange": "+1",
       "totalStreams": "3,716,175"
@@ -378,7 +378,7 @@
       "rank": "#42",
       "title": "Kelma",
       "artist": "Ramy Sabry",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02e784e3cd98c9b356f70240dd",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02e784e3cd98c9b356f70240dd",
       "plays": 13510,
       "chartChange": "+2",
       "totalStreams": "895,845"
@@ -387,7 +387,7 @@
       "rank": "#43",
       "title": "FORAS",
       "artist": "Manal",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026323582f7fcf674199ba6cbb",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026323582f7fcf674199ba6cbb",
       "plays": 13344,
       "chartChange": "=",
       "totalStreams": "316,168"
@@ -396,7 +396,7 @@
       "rank": "#44",
       "title": "LALLAMOULATI",
       "artist": "Dizzy DROS, Nada",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e024c2185151024dfa9e771a827",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e024c2185151024dfa9e771a827",
       "plays": 13066,
       "chartChange": "-3",
       "totalStreams": "2,331,819"
@@ -405,7 +405,7 @@
       "rank": "#45",
       "title": "3oud Ned",
       "artist": "Figoshin",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0215eb53564f668b530544aa68",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0215eb53564f668b530544aa68",
       "plays": 12475,
       "chartChange": "+1",
       "totalStreams": "7,500,891"
