@@ -3,13 +3,13 @@
   "playlistName": "Top 50 - Morocco",
   "market": "MA",
   "source": "spotify-embed-scrape",
-  "scrapedAt": "2026-10-11T02:59:54.899Z",
+  "scrapedAt": "2026-10-11T11:50:07.528Z",
   "tracks": [
     {
       "rank": "#1",
       "title": "PILLAVE",
       "artist": "Shaw",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e029138c5ff45b368378d7590b2",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e029138c5ff45b368378d7590b2",
       "plays": 57136,
       "chartChange": "=",
       "totalStreams": "3,677,439"
@@ -18,7 +18,7 @@
       "rank": "#2",
       "title": "KILOWAT",
       "artist": "Stormy",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
       "plays": 47083,
       "chartChange": "=",
       "totalStreams": "7,100,372"
@@ -54,7 +54,7 @@
       "rank": "#6",
       "title": "SATA 9TTALA",
       "artist": "Stormy, Manal",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
       "plays": 30047,
       "chartChange": "+1",
       "totalStreams": "4,830,800"
@@ -63,7 +63,7 @@
       "rank": "#7",
       "title": "PER LA VITA",
       "artist": "Stormy",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
       "plays": 28967,
       "chartChange": "-1",
       "totalStreams": "7,234,724"
@@ -81,7 +81,7 @@
       "rank": "#9",
       "title": "CAMEMBERT",
       "artist": "Stormy, TIF",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
       "plays": 27197,
       "chartChange": "=",
       "totalStreams": "4,427,191"
@@ -126,7 +126,7 @@
       "rank": "#14",
       "title": "TAF TAF",
       "artist": "OldyGotTheSound, Anys, Shaw",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e029006e6553b481d4b5dd91f9a",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e029006e6553b481d4b5dd91f9a",
       "plays": 20491,
       "chartChange": "-1",
       "totalStreams": "15,401,673"
@@ -135,7 +135,7 @@
       "rank": "#15",
       "title": "ROUTINE",
       "artist": "Stormy, MC PH",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
       "plays": 20356,
       "chartChange": "-1",
       "totalStreams": "2,059,566"
@@ -144,7 +144,7 @@
       "rank": "#16",
       "title": "AKHI",
       "artist": "Shaw",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02af9f73acb5a281bb3b66ce4d",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02af9f73acb5a281bb3b66ce4d",
       "plays": 20257,
       "chartChange": "-1",
       "totalStreams": "5,991,739"
@@ -171,7 +171,7 @@
       "rank": "#19",
       "title": "7OLM KBIR",
       "artist": "MA3IZ",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e023ca921b69c8a3b40e86bb2b5",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e023ca921b69c8a3b40e86bb2b5",
       "plays": null,
       "chartChange": "=",
       "totalStreams": null
@@ -189,7 +189,7 @@
       "rank": "#21",
       "title": "RWINA",
       "artist": "Abduh, Stormy",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02a8039543ad4fad77fc1dc1a3",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02a8039543ad4fad77fc1dc1a3",
       "plays": 17965,
       "chartChange": "-3",
       "totalStreams": "261,232"
@@ -234,7 +234,7 @@
       "rank": "#26",
       "title": "Zone De Confort",
       "artist": "Figoshin",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0210c0176ba4322f4b40696a12",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0210c0176ba4322f4b40696a12",
       "plays": 16365,
       "chartChange": "=",
       "totalStreams": "4,187,266"
@@ -261,7 +261,7 @@
       "rank": "#29",
       "title": "SKI",
       "artist": "Stormy",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
       "plays": 15520,
       "chartChange": "-1",
       "totalStreams": "4,474,636"
@@ -279,7 +279,7 @@
       "rank": "#31",
       "title": "CANDYSHOP",
       "artist": "Stormy",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
       "plays": 14720,
       "chartChange": "-2",
       "totalStreams": "2,579,657"
@@ -360,7 +360,7 @@
       "rank": "#40",
       "title": "CHIRA",
       "artist": "Nouvo, Inkonnu",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02a17ef7367063179f8cdc52fe",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02a17ef7367063179f8cdc52fe",
       "plays": 12773,
       "chartChange": "+2",
       "totalStreams": "162,550"
@@ -369,7 +369,7 @@
       "rank": "#41",
       "title": "BABOUR LOU7",
       "artist": "Shaw, Hassa1, NAYRA",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02faafc42915f7daa7597a706c",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02faafc42915f7daa7597a706c",
       "plays": 12768,
       "chartChange": "+5",
       "totalStreams": "7,807,392"
@@ -378,7 +378,7 @@
       "rank": "#42",
       "title": "Fi Hwak",
       "artist": "Didine Canon 16, Djalil Palermo",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02451c117b9522e7f4df2953a2",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02451c117b9522e7f4df2953a2",
       "plays": null,
       "chartChange": "=",
       "totalStreams": null
@@ -387,7 +387,7 @@
       "rank": "#43",
       "title": "Alt F4",
       "artist": "Draganov, TIF",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02d1a2df36115067666ad87fbc",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02d1a2df36115067666ad87fbc",
       "plays": 12547,
       "chartChange": "-5",
       "totalStreams": "441,501"
@@ -396,7 +396,7 @@
       "rank": "#44",
       "title": "Kelma",
       "artist": "Ramy Sabry",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02e784e3cd98c9b356f70240dd",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02e784e3cd98c9b356f70240dd",
       "plays": 12391,
       "chartChange": "-4",
       "totalStreams": "1,000,652"
@@ -423,7 +423,7 @@
       "rank": "#47",
       "title": "LALLAMOULATI",
       "artist": "Dizzy DROS, Nada",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e024c2185151024dfa9e771a827",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e024c2185151024dfa9e771a827",
       "plays": 11664,
       "chartChange": "-4",
       "totalStreams": "2,433,598"
@@ -432,7 +432,7 @@
       "rank": "#48",
       "title": "NINJA (feat. GIMS)",
       "artist": "ElGrandeToto, GIMS",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0236faa6572b7261a2d65c7e6e",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0236faa6572b7261a2d65c7e6e",
       "plays": 11292,
       "chartChange": "+2",
       "totalStreams": "1,413,159"
@@ -441,7 +441,7 @@
       "rank": "#49",
       "title": "FORAS",
       "artist": "Manal",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026323582f7fcf674199ba6cbb",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026323582f7fcf674199ba6cbb",
       "plays": 11042,
       "chartChange": "-14",
       "totalStreams": "417,128"
@@ -450,7 +450,7 @@
       "rank": "#50",
       "title": "Zahri",
       "artist": "Marouane, Shaw",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02f3cbbbb5e28500e27a1c9dec",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02f3cbbbb5e28500e27a1c9dec",
       "plays": 10882,
       "chartChange": "-2",
       "totalStreams": "416,124"
