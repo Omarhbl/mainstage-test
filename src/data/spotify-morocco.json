@@ -3,7 +3,7 @@
   "playlistName": "Top 50 - Morocco",
   "market": "MA",
   "source": "spotify-embed-scrape",
-  "scrapedAt": "2026-10-27T02:58:30.042Z",
+  "scrapedAt": "2026-10-27T11:17:24.544Z",
   "tracks": [
     {
       "rank": "#1",
@@ -27,7 +27,7 @@
       "rank": "#3",
       "title": "GHALAT",
       "artist": "Najm, ElGrandeToto",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e021ba0568dc621c11b0573f418",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e021ba0568dc621c11b0573f418",
       "plays": 35225,
       "chartChange": "+1",
       "totalStreams": "6,993,342"
@@ -36,7 +36,7 @@
       "rank": "#4",
       "title": "BAZOOKA",
       "artist": "L'morphine",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e025949635c77231876970c7c7c",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e025949635c77231876970c7c7c",
       "plays": 32843,
       "chartChange": "-1",
       "totalStreams": "140,550"
@@ -45,7 +45,7 @@
       "rank": "#5",
       "title": "SATA 9TTALA",
       "artist": "Stormy, Manal",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
       "plays": 30588,
       "chartChange": "+1",
       "totalStreams": "5,348,396"
@@ -54,7 +54,7 @@
       "rank": "#6",
       "title": "Couci Couca",
       "artist": "Draganov, TIF",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02d1a2df36115067666ad87fbc",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02d1a2df36115067666ad87fbc",
       "plays": 30406,
       "chartChange": "+1",
       "totalStreams": "1,646,818"
@@ -90,7 +90,7 @@
       "rank": "#10",
       "title": "AGOGO",
       "artist": "7ari",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e020fccb3ba9624325bb23963a8",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e020fccb3ba9624325bb23963a8",
       "plays": 25774,
       "chartChange": "=",
       "totalStreams": "3,704,974"
@@ -99,7 +99,7 @@
       "rank": "#11",
       "title": "7OLM KBIR",
       "artist": "MA3IZ",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e023ca921b69c8a3b40e86bb2b5",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e023ca921b69c8a3b40e86bb2b5",
       "plays": 25513,
       "chartChange": "+2",
       "totalStreams": "538,912"
@@ -135,7 +135,7 @@
       "rank": "#15",
       "title": "MOON",
       "artist": "Stormy",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02e040ca47b2f8046349ce4f49",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02e040ca47b2f8046349ce4f49",
       "plays": 24027,
       "chartChange": "-1",
       "totalStreams": "21,865,030"
@@ -144,7 +144,7 @@
       "rank": "#16",
       "title": "COME STAI",
       "artist": "Stormy",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
       "plays": 24001,
       "chartChange": "-4",
       "totalStreams": "3,313,126"
@@ -189,7 +189,7 @@
       "rank": "#21",
       "title": "WA3RA",
       "artist": "Mirv48",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e022a22a06f9fd788002a09ba28",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e022a22a06f9fd788002a09ba28",
       "plays": 19322,
       "chartChange": "+5",
       "totalStreams": "1,672,510"
@@ -198,7 +198,7 @@
       "rank": "#22",
       "title": "ZOMBIE",
       "artist": "LAZARO",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e029da9c23bbffd4aef900390fd",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e029da9c23bbffd4aef900390fd",
       "plays": 19273,
       "chartChange": "+1",
       "totalStreams": "4,676,166"
@@ -207,7 +207,7 @@
       "rank": "#23",
       "title": "AKHI",
       "artist": "Shaw",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02af9f73acb5a281bb3b66ce4d",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02af9f73acb5a281bb3b66ce4d",
       "plays": 19075,
       "chartChange": "+2",
       "totalStreams": "6,335,766"
@@ -216,7 +216,7 @@
       "rank": "#24",
       "title": "WALLAHI",
       "artist": "Shaw",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02faafc42915f7daa7597a706c",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02faafc42915f7daa7597a706c",
       "plays": 17549,
       "chartChange": "+5",
       "totalStreams": "13,909,536"
@@ -234,7 +234,7 @@
       "rank": "#26",
       "title": "ASTRA",
       "artist": "L'morphine",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e025949635c77231876970c7c7c",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e025949635c77231876970c7c7c",
       "plays": 16935,
       "chartChange": "-6",
       "totalStreams": "96,250"
@@ -252,7 +252,7 @@
       "rank": "#28",
       "title": "Zone De Confort",
       "artist": "Figoshin",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0210c0176ba4322f4b40696a12",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0210c0176ba4322f4b40696a12",
       "plays": 16854,
       "chartChange": "=",
       "totalStreams": "4,475,703"
@@ -261,7 +261,7 @@
       "rank": "#29",
       "title": "Sabor",
       "artist": "Gustavo 51, ElGrandeToto",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02403a8aff944292291c43b38b",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02403a8aff944292291c43b38b",
       "plays": 16288,
       "chartChange": "+2",
       "totalStreams": "58,315"
@@ -270,7 +270,7 @@
       "rank": "#30",
       "title": "TEFLON",
       "artist": "L'morphine",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e025949635c77231876970c7c7c",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e025949635c77231876970c7c7c",
       "plays": 16258,
       "chartChange": "-9",
       "totalStreams": "105,060"
@@ -288,7 +288,7 @@
       "rank": "#32",
       "title": "3DABI",
       "artist": "Draganov",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02dbf520cd47d9ba489fd97f63",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02dbf520cd47d9ba489fd97f63",
       "plays": 15081,
       "chartChange": "+7",
       "totalStreams": "25,684,534"
@@ -360,7 +360,7 @@
       "rank": "#40",
       "title": "CHRONO",
       "artist": "L'morphine",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e025949635c77231876970c7c7c",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e025949635c77231876970c7c7c",
       "plays": 13197,
       "chartChange": "-13",
       "totalStreams": "84,785"
@@ -369,7 +369,7 @@
       "rank": "#41",
       "title": "SKI",
       "artist": "Stormy",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
       "plays": 13050,
       "chartChange": "+4",
       "totalStreams": "4,722,660"
@@ -396,7 +396,7 @@
       "rank": "#44",
       "title": "Dorororo",
       "artist": "Gustavo 51",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0233321c8a4cdfe1e4fb735e45",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0233321c8a4cdfe1e4fb735e45",
       "plays": 12962,
       "chartChange": "+5",
       "totalStreams": "7,049,863"
@@ -405,7 +405,7 @@
       "rank": "#45",
       "title": "WARDA",
       "artist": "Inkonnu, Manal",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02d960080283cdaf1ee337e8bd",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02d960080283cdaf1ee337e8bd",
       "plays": 12924,
       "chartChange": "+2",
       "totalStreams": "5,434,230"
