@@ -3,7 +3,7 @@
   "playlistName": "Top 50 - Morocco",
   "market": "MA",
   "source": "spotify-embed-scrape",
-  "scrapedAt": "2026-11-03T22:43:25.034Z",
+  "scrapedAt": "2026-11-04T03:59:15.111Z",
   "tracks": [
     {
       "rank": "#1",
@@ -18,7 +18,7 @@
       "rank": "#2",
       "title": "PILLAVE",
       "artist": "Shaw",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e029138c5ff45b368378d7590b2",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e029138c5ff45b368378d7590b2",
       "plays": 62680,
       "chartChange": "=",
       "totalStreams": "5,078,319"
@@ -72,7 +72,7 @@
       "rank": "#8",
       "title": "ROUTINE",
       "artist": "Stormy, MC PH",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
       "plays": 29348,
       "chartChange": "+3",
       "totalStreams": "2,601,573"
@@ -99,7 +99,7 @@
       "rank": "#11",
       "title": "PRINCES DE LA VILLE",
       "artist": "Tchubi, Hoba Hoba Spirit",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02b994350f1706b4ae4bc2aa00",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02b994350f1706b4ae4bc2aa00",
       "plays": 26615,
       "chartChange": "+5",
       "totalStreams": "1,436,928"
@@ -108,7 +108,7 @@
       "rank": "#12",
       "title": "BAZOOKA",
       "artist": "L'morphine",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e025949635c77231876970c7c7c",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e025949635c77231876970c7c7c",
       "plays": 25951,
       "chartChange": "-5",
       "totalStreams": "352,969"
@@ -126,7 +126,7 @@
       "rank": "#14",
       "title": "9OWA",
       "artist": "Najm",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e024548436b9fe07b8556257311",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e024548436b9fe07b8556257311",
       "plays": 7393,
       "chartChange": "-24",
       "totalStreams": "29,321"
@@ -180,7 +180,7 @@
       "rank": "#20",
       "title": "Bali maak",
       "artist": "Amine Farsi, Stormy",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e024c07f36c4eeee45eb76a141c",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e024c07f36c4eeee45eb76a141c",
       "plays": 24472,
       "chartChange": "+3",
       "totalStreams": "11,455,367"
@@ -189,7 +189,7 @@
       "rank": "#21",
       "title": "LAMARA",
       "artist": "Dizzy DROS, Inkonnu",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e024c2185151024dfa9e771a827",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e024c2185151024dfa9e771a827",
       "plays": 24525,
       "chartChange": "+6",
       "totalStreams": "5,565,053"
@@ -243,7 +243,7 @@
       "rank": "#27",
       "title": "Zone De Confort",
       "artist": "Figoshin",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0210c0176ba4322f4b40696a12",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0210c0176ba4322f4b40696a12",
       "plays": 19303,
       "chartChange": "+3",
       "totalStreams": "4,597,181"
@@ -261,7 +261,7 @@
       "rank": "#29",
       "title": "KATANA",
       "artist": "Manal, Stormy",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02c3e82fb909ad7c6930ba8a6a",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02c3e82fb909ad7c6930ba8a6a",
       "plays": 18205,
       "chartChange": "=",
       "totalStreams": "4,206,176"
@@ -270,7 +270,7 @@
       "rank": "#30",
       "title": "CANDYSHOP",
       "artist": "Stormy",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
       "plays": 16682,
       "chartChange": "+2",
       "totalStreams": "2,937,507"
@@ -279,7 +279,7 @@
       "rank": "#31",
       "title": "ZOMBIE",
       "artist": "LAZARO",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e029da9c23bbffd4aef900390fd",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e029da9c23bbffd4aef900390fd",
       "plays": 21013,
       "chartChange": "-1",
       "totalStreams": "4,807,434"
@@ -297,7 +297,7 @@
       "rank": "#33",
       "title": "RBI M3ANA",
       "artist": "Stormy",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02e040ca47b2f8046349ce4f49",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02e040ca47b2f8046349ce4f49",
       "plays": 12446,
       "chartChange": "-8",
       "totalStreams": "7,298,653"
@@ -342,7 +342,7 @@
       "rank": "#38",
       "title": "3DABI",
       "artist": "Draganov",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02dbf520cd47d9ba489fd97f63",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02dbf520cd47d9ba489fd97f63",
       "plays": 16477,
       "chartChange": "-4",
       "totalStreams": "25,788,957"
@@ -360,7 +360,7 @@
       "rank": "#40",
       "title": "BLUE LOVE",
       "artist": "ElGrandeToto",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e027db1688433041d6e88fc21c0",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e027db1688433041d6e88fc21c0",
       "plays": 15053,
       "chartChange": "-5",
       "totalStreams": "24,040,024"
@@ -369,7 +369,7 @@
       "rank": "#41",
       "title": "LALLAMOULATI",
       "artist": "Dizzy DROS, Nada",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e024c2185151024dfa9e771a827",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e024c2185151024dfa9e771a827",
       "plays": 14245,
       "chartChange": "+9",
       "totalStreams": "2,743,244"
@@ -378,7 +378,7 @@
       "rank": "#42",
       "title": "ALTER EGO",
       "artist": "L'morphine",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e025949635c77231876970c7c7c",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e025949635c77231876970c7c7c",
       "plays": 12488,
       "chartChange": "-3",
       "totalStreams": "255,042"
@@ -396,7 +396,7 @@
       "rank": "#44",
       "title": "STALINE",
       "artist": "ElGrandeToto",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e028c4a05e02897ce7378b821d7",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e028c4a05e02897ce7378b821d7",
       "plays": 14767,
       "chartChange": "+10",
       "totalStreams": "15,923,950"
@@ -432,7 +432,7 @@
       "rank": "#48",
       "title": "Uber Driver",
       "artist": "ONZY",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02f5702fee2a8d920a21b8fe2c",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02f5702fee2a8d920a21b8fe2c",
       "plays": 13311,
       "chartChange": "+1",
       "totalStreams": "2,099,961"
