@@ -62,7 +62,7 @@ export default function ArticleContent({ article }: { article: ArticleRecord }) 
                 src={heroMediaSrc}
                 alt={article.title}
                 className={article.imageClassName ?? ""}
-                fit="natural"
+                heightClassName="h-[430px]"
                 articleImage={article}
               />
             )}

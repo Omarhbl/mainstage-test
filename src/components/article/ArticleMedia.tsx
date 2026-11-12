@@ -8,7 +8,6 @@ type ArticleMediaProps = {
   alt: string;
   className?: string;
   heightClassName?: string;
-  fit?: "cover" | "natural";
   articleImage?: Pick<ArticleCard, "imagePositionX" | "imagePositionY">;
 };
 
@@ -18,7 +17,6 @@ export default function ArticleMedia({
   className = "",
   heightClassName = "h-[430px]",
   articleImage,
-  fit = "cover",
 }: ArticleMediaProps) {
   const [hasError, setHasError] = useState(false);
 
@@ -36,12 +34,8 @@ export default function ArticleMedia({
     <img
       src={src}
       alt={alt}
-      className={
-        fit === "natural"
-          ? "block h-auto w-full"
-          : `${heightClassName} w-full object-cover ${className}`.trim()
-      }
-      style={fit === "cover" && articleImage ? getArticleImageStyle(articleImage) : undefined}
+      className={`${heightClassName} w-full object-cover ${className}`.trim()}
+      style={articleImage ? getArticleImageStyle(articleImage) : undefined}
       onError={() => setHasError(true)}
     />
   );
