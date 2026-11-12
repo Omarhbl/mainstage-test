@@ -1,4 +1,7 @@
+// Browsers use div blocks as well as paragraphs for contenteditable Enter.
+// Keep those blocks intact so sanitization preserves the editor layout.
 const ALLOWED_TAGS = new Set([
+  "div",
   "figure",
   "p",
   "br",
@@ -122,7 +125,7 @@ export function isRichTextHtml(value?: string | null) {
     return false;
   }
 
-  return /<\/?(p|strong|b|em|i|u|ul|ol|li|blockquote|h3|h4|a|img|br)\b/i.test(value);
+  return /<\/?(div|p|strong|b|em|i|u|ul|ol|li|blockquote|h3|h4|a|img|br)\b/i.test(value);
 }
 
 export function paragraphsToHtml(value: string) {

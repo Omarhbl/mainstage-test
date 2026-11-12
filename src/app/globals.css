@@ -110,13 +110,10 @@
   margin-top: 1.5rem;
 }
 
-/* An empty Enter-created paragraph already occupies one line. Avoid adding
-   paragraph margins on both sides of that intentional blank line. */
-.article-editor p:is(:empty, :has(> br:only-child)),
-.article-rich-content p:is(:empty, :has(> br:only-child)),
-.article-editor p:is(:empty, :has(> br:only-child)) + p,
-.article-rich-content p:is(:empty, :has(> br:only-child)) + p {
-  margin-top: 0;
+/* Empty blocks created by Enter must still occupy a line in preview. */
+.article-editor :is(p, div):empty,
+.article-rich-content :is(p, div):empty {
+  min-height: 1lh;
 }
 
 .article-editor h3,
