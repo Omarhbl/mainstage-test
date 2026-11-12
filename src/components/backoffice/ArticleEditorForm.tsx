@@ -6,6 +6,7 @@ import {
   type BackofficeArticle,
 } from "@/lib/backoffice-articles";
 import ArticleBodyEditor from "@/components/backoffice/ArticleBodyEditor";
+import ArticlePreviewButton from "@/components/backoffice/ArticlePreviewButton";
 import FormSubmitButton from "@/components/backoffice/FormSubmitButton";
 
 type ArticleEditorFormProps = {
@@ -407,10 +408,10 @@ export default function ArticleEditorForm({
             Save
           </h2>
           <p className="mt-3 text-[14px] font-body leading-[1.75] text-black/60">
-            Save your article here. We can connect this directly to the live site
-            publishing flow next.
+            Preview your latest edits before saving or publishing your article.
           </p>
-          <div className="mt-5">
+          <div className="mt-5 flex flex-wrap gap-3">
+            <ArticlePreviewButton />
             <FormSubmitButton label={submitLabel} pendingLabel="Saving changes..." />
           </div>
         </div>
