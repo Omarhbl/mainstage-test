@@ -63,7 +63,11 @@ export default function ArticleContent({ article }: { article: ArticleRecord }) 
                 alt={article.title}
                 className={article.imageClassName ?? ""}
                 heightClassName="h-[430px]"
-                articleImage={article}
+                articleImage={
+                  article.slug === "oddity-beyond-the-decks"
+                    ? { ...article, imagePositionY: 0 }
+                    : article
+                }
               />
             )}
           </div>
