@@ -79,7 +79,7 @@ export default function ArticleContent({ article }: { article: ArticleRecord }) 
           ) : null}
 
           <article className="mx-auto mt-10 max-w-[860px]">
-            <p className="text-[15px] font-body font-bold leading-[1.95] text-[rgba(0,0,0,0.78)]">
+            <p className="whitespace-pre-wrap break-words text-[15px] font-body font-bold leading-[1.95] text-[rgba(0,0,0,0.78)]">
               {article.intro}
             </p>
 
