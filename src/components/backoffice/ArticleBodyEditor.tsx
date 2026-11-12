@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { removeEmptyArticleParagraphs } from "@/lib/article-rich-text";
 
 type ArticleBodyEditorProps = {
   initialValue?: string;
@@ -79,7 +80,7 @@ export default function ArticleBodyEditor({
   } | null>(null);
   const selectedFigureRef = useRef<HTMLElement | null>(null);
   const initialHtml = looksLikeHtml(initialValue)
-    ? initialValue
+    ? removeEmptyArticleParagraphs(initialValue)
     : textToHtml(initialValue);
   const [bodyHtml, setBodyHtml] = useState(initialHtml);
   const [uploading, setUploading] = useState(false);
@@ -98,7 +99,7 @@ export default function ArticleBodyEditor({
   }, [initialHtml]);
 
   const syncHtml = () => {
-    setBodyHtml(editorRef.current?.innerHTML ?? "");
+    setBodyHtml(removeEmptyArticleParagraphs(editorRef.current?.innerHTML ?? ""));
   };
 
   const clearSelectedFigure = () => {
