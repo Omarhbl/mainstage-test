@@ -47,7 +47,7 @@ export default function ArticleRichContent({ html }: ArticleRichContentProps) {
   return (
     <div
       ref={containerRef}
-      className="article-rich-content article-body mt-7"
+      className="article-rich-content mt-7 text-[15px] font-body font-normal leading-[2] text-[rgba(0,0,0,0.74)]"
       dangerouslySetInnerHTML={{ __html: html }}
     />
   );

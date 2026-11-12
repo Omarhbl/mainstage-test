@@ -166,6 +166,12 @@ export default function ArticleEditorForm({
           />
         </div>
 
+        <div className="mt-6">
+          <span className="text-[13px] font-body font-medium text-black/60">
+            Body
+          </span>
+          <ArticleBodyEditor initialValue={article?.body ?? ""} />
+        </div>
       </div>
 
       <div className="space-y-6">
@@ -408,18 +414,6 @@ export default function ArticleEditorForm({
             <ArticlePreviewButton />
             <FormSubmitButton label={submitLabel} pendingLabel="Saving changes..." />
           </div>
-        </div>
-      </div>
-
-      <div className="min-w-0 rounded-[20px] border border-black/8 bg-white p-4 shadow-[0_12px_30px_rgba(0,0,0,0.05)] md:p-6 xl:col-span-2">
-        <h2 className="text-[20px] font-body font-bold text-[#181818]">Article body</h2>
-        <p className="mt-2 text-[13px] font-body text-black/55">
-          Uses the published article’s text size, line spacing, and reading width. Open Preview to check the complete page.
-        </p>
-        <ArticleBodyEditor initialValue={article?.body ?? ""} />
-        <div className="mt-5 flex flex-wrap gap-3">
-          <ArticlePreviewButton />
-          <FormSubmitButton label={submitLabel} pendingLabel="Saving changes..." />
         </div>
       </div>
     </form>

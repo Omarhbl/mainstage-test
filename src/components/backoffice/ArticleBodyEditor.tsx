@@ -330,7 +330,7 @@ export default function ArticleBodyEditor({
         onMouseMove={handleMouseMove}
         onMouseUp={stopResize}
         onMouseLeave={stopResize}
-        className="article-editor article-body mt-4 min-h-[320px] bg-white outline-none focus:ring-1 focus:ring-[#CE2127]/30"
+        className="article-editor mt-4 min-h-[320px] rounded-[12px] border border-black/10 bg-white px-4 py-3 outline-none focus:border-[#CE2127]"
       />
 
       <input type="hidden" name="body" value={bodyHtml} />

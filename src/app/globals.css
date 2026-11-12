@@ -105,19 +105,6 @@
   animation: upcoming-marquee var(--upcoming-duration, 22s) linear infinite;
 }
 
-/* One typography definition for editing, preview, and published article bodies. */
-.article-body {
-  width: 100%;
-  max-width: 860px;
-  margin-inline: auto;
-  font-family: var(--font-body);
-  font-size: 15px;
-  font-weight: 400;
-  line-height: 2;
-  color: rgba(0, 0, 0, 0.74);
-  overflow-wrap: break-word;
-}
-
 .article-editor p + p,
 .article-rich-content p + p {
   margin-top: 1.5rem;
