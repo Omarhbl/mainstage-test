@@ -69,19 +69,6 @@ function normalizeAnchorAttributes(tag: string) {
   return tag;
 }
 
-// Contenteditable and pasted documents can leave visually empty paragraphs.
-// Drop those spacers at the save/render boundary, preserving real paragraph breaks.
-export function removeEmptyArticleParagraphs(html: string) {
-  return html.replace(/<p\b[^>]*>([\s\S]*?)<\/p>/gi, (paragraph, content: string) => {
-    const visible = content
-      .replace(/<br\b[^>]*\/?>/gi, "")
-      .replace(/<\/?(?:strong|b|em|i|u|a)\b[^>]*>/gi, "")
-      .replace(/&(?:nbsp|#160|#x0*a0);/gi, " ")
-      .replace(/[\s\u00a0\u200b\ufeff]/g, "");
-    return visible ? paragraph : "";
-  });
-}
-
 export function sanitizeArticleBodyHtml(value: string) {
   const withoutScripts = value
     .replace(/<script[\s\S]*?>[\s\S]*?<\/script>/gi, "")
@@ -91,7 +78,7 @@ export function sanitizeArticleBodyHtml(value: string) {
     .replace(/\son\w+='[^']*'/gi, "")
     .replace(/javascript:/gi, "");
 
-  const sanitized = withoutScripts
+  return withoutScripts
     .replace(/<\/?([a-z0-9-]+)([^>]*)>/gi, (full, tagName, attrs) => {
       const tag = String(tagName).toLowerCase();
 
@@ -128,8 +115,6 @@ export function sanitizeArticleBodyHtml(value: string) {
       return tag === "a" ? normalizeAnchorAttributes(openingTag) : openingTag;
     })
     .trim();
-
-  return removeEmptyArticleParagraphs(sanitized);
 }
 
 export function isRichTextHtml(value?: string | null) {
