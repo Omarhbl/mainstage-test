@@ -28,11 +28,11 @@ export default function CinemaPage() {
     fetch("/api/cinema-feed", { cache: "no-store", signal: controller.signal })
       .then((response) => { if (!response.ok) throw new Error("Cinema feed unavailable"); return response.json(); })
       .then((value: CinemaFeed) => { if (!controller.signal.aborted && Array.isArray(value.movies)) setFeed(value); })
-      .catch(() => { /* The page shows a source link if listings are unavailable. */ })
+      .catch(() => { /* The page shows an unavailable message if listings cannot be loaded. */ })
       .finally(() => { if (!controller.signal.aborted) setLoading(false); });
     return () => controller.abort();
   }, []);
-  const releases = tab === "now" ? feed?.movies ?? [] : upcomingSettings.cinema;
+  const releases = tab === "now" ? feed?.movies ?? [] : feed?.upcoming?.length ? feed.upcoming : upcomingSettings.cinema.filter((movie) => movie.releaseDate >= new Intl.DateTimeFormat("en-CA", { timeZone: "Africa/Casablanca", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date()));
   const releaseLoopWidth = (RELEASE_CARD_WIDTH + RELEASE_CARD_GAP) * releases.length;
   const loopedReleases = [...releases, ...releases, ...releases];
 
@@ -47,12 +47,10 @@ export default function CinemaPage() {
             <div className="mt-4 flex gap-3">
               {(["now", "upcoming"] as const).map((value) => <button key={value} type="button" aria-pressed={tab === value} onClick={() => setTab(value)} className={`rounded-full border px-4 py-2 text-sm font-body font-semibold ${tab === value ? "border-[#CE2127] bg-[#CE2127] text-white" : "border-black/15 text-black/65"}`}>{value === "now" ? "Now showing" : "Upcoming"}</button>)}
             </div>
-            {tab === "now" ? <p className="mt-3 text-xs font-body text-black/55">Megarama listings{feed?.sources.length ? ` · ${feed.sources.join(" · ")}` : " · Casablanca, Rabat & Marrakech"}. Availability varies by cinema. Select a poster for showtimes.</p> : null}
-            {tab === "now" && feed?.syncedAt ? <p className="mt-1 text-[11px] font-body text-black/45">Updated {new Intl.DateTimeFormat("en-GB", { dateStyle: "short", timeStyle: "short", timeZone: "Africa/Casablanca" }).format(new Date(feed.syncedAt))}</p> : null}
           </div>
 
-          {tab === "now" && !releases.length ? <div className="mt-8 rounded-lg bg-[#faf8f6] p-6 text-sm font-body text-black/60" role="status">
-            {loading ? "Loading current cinema listings…" : <>Current listings are temporarily unavailable. <a href="https://casablanca.megarama.ma/" target="_blank" rel="noreferrer" className="text-[#CE2127] underline">Check Megarama showtimes</a>.</>}
+          {!releases.length ? <div className="mt-8 rounded-lg bg-[#faf8f6] p-6 text-sm font-body text-black/60" role="status">
+            {loading ? "Loading cinema listings…" : tab === "now" ? "Current listings are temporarily unavailable." : "Upcoming releases are temporarily unavailable. Please check again shortly."}
           </div> : null}
           <div className="relative left-1/2 mt-8 w-screen -translate-x-1/2 overflow-hidden py-1">
             <div
@@ -68,21 +66,7 @@ export default function CinemaPage() {
               {loopedReleases.map((movie, index) => (
                 <article key={`${movie.id}-${index}`} className="w-[218px] shrink-0">
                   <div className="h-[306px] overflow-hidden rounded-[8px] bg-[#e8e2db]">
-                    {movie.href ? (
-                      <a href={movie.href} target={movie.href.startsWith("https://") ? "_blank" : undefined} rel="noreferrer" className="block h-full w-full">
-                        <img
-                          src={movie.image}
-                          alt={movie.title}
-                          className="h-full w-full object-cover"
-                        />
-                      </a>
-                    ) : (
-                      <img
-                        src={movie.image}
-                        alt={movie.title}
-                        className="h-full w-full object-cover"
-                      />
-                    )}
+                    <img src={movie.image} alt={movie.title} className="h-full w-full object-cover" />
                   </div>
                   <div className="pt-3">
                     <p className="text-[11px] font-body font-semibold text-[rgba(0,0,0,0.48)] uppercase">
