@@ -86,3 +86,45 @@ export function parsePathePage(html: string, now = new Date()) {
   }
   throw new Error("Pathé listings are unavailable.");
 }
+
+// Parse the cinema's own published programme, including its local release dates.
+export function parseColiseePage(html: string, upcoming: boolean, now = new Date()): CinemaMovie[] {
+  const months = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
+  const today = moroccoMinute(now).slice(0, 8);
+  const decode = (text: string) => text.replace(/<[^>]*>/g, "").replace(/&#(\d+);/g, (_, value) => String.fromCodePoint(Number(value))).replace(/&#x([a-f0-9]+);/gi, (_, value) => String.fromCodePoint(parseInt(value, 16))).replace(/&amp;/g, "&").replace(/&rsquo;|&apos;/g, "’").replace(/&quot;/g, '"').replace(/&nbsp;/g, " ").trim();
+  const blocks = html.split(/<div data-elementor-type=["']?loop-item\b/).slice(1);
+  if (!blocks.length) throw new Error("Colisée programme format changed.");
+  return blocks.flatMap((block) => {
+    const heading = block.match(/<h2\b[^>]*>([\s\S]*?)<\/h2>/i)?.[1];
+    const image = block.match(/<img\b[^>]*\s(?:data-pagespeed-lazy-)?src="(https:\/\/www\.lecolisee\.ma\/wp-content\/uploads\/[^"<>]+)"/i)?.[1];
+    const date = decode(block).match(/En salle (?:depuis|à partir de)\s+\S+\s+(\d{1,2})\s+(\S+)\s+(\d{4})/i);
+    const month = date ? months.indexOf(date[2].toLowerCase()) + 1 : 0;
+    if (!heading || !image || !date || !month) return [];
+    const releaseDate = `${date[3]}-${String(month).padStart(2, "0")}-${date[1].padStart(2, "0")}`;
+    const future = releaseDate.replaceAll("-", "") > today;
+    if (future !== upcoming) return [];
+    const title = decode(heading).replace(/\s+-\s+[\u0600-\u06ff].*$/, "");
+    return [{ id: `colisee-${block.match(/e-loop-item-(\d+)/)?.[1] ?? title}`, title, image: decode(image), releaseDate, overview: "", cinemas: ["Colisée"], firstSession: today + "0000", lastSession: moroccoMinute(new Date(now.getTime() + 24 * 60 * 60 * 1000)) }];
+  });
+}
+
+export function parseCinerjiMovies(mediaPayload: unknown, showsPayload: unknown, now = new Date()): { movies: CinemaMovie[]; upcoming: CinemaMovie[] } {
+  if (!Array.isArray(mediaPayload) || !Array.isArray(showsPayload)) throw new Error("Cinerji feed format changed.");
+  const today = moroccoMinute(now).slice(0, 8);
+  const movies: CinemaMovie[] = [], upcoming: CinemaMovie[] = [];
+  for (const media of mediaPayload) {
+    if (!media || media.deleted || !media.active || media.excludefrominternet || media.ispack) continue;
+    const title = String(media.displaytitle || media.title || "").trim();
+    const releaseDate = String(media.releasedate ?? "").slice(0, 10);
+    const image = String(media.posterpath ?? "");
+    let validPoster = false;
+    try { const url = new URL(image); validPoster = url.protocol === "https:" && ["cinemedia.cine.digital", "cinerji.cineoffice.fr"].includes(url.hostname); } catch { /* Skip invalid images. */ }
+    if (!title || !validPoster || !/^\d{4}-\d{2}-\d{2}$/.test(releaseDate)) continue;
+    const future = releaseDate.replaceAll("-", "") > today;
+    const sessions = showsPayload.filter((show) => show && !show.deleted && !show.canceled && !show.draft && show.mediaid?.id === media.id && show.cinemaid === media.cinemaid && Number.isFinite(Date.parse(show.showtime)) && Date.parse(show.showtime) >= now.getTime()).map((show) => moroccoMinute(new Date(show.showtime))).sort();
+    if (!future && !sessions.length) continue;
+    const movie: CinemaMovie = { id: `cinerji-${media.cinemaid}-${media.id}`, title, image, releaseDate, overview: "", cinemas: ["Cinerji"], firstSession: sessions[0] ?? today + "0000", lastSession: sessions.at(-1) ?? moroccoMinute(new Date(now.getTime() + 24 * 60 * 60 * 1000)) };
+    (future ? upcoming : movies).push(movie);
+  }
+  return { movies, upcoming };
+}

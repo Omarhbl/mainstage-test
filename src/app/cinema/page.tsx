@@ -34,7 +34,8 @@ export default function CinemaPage() {
   }, []);
   const releases = tab === "now" ? feed?.movies ?? [] : feed?.upcoming?.length ? feed.upcoming : upcomingSettings.cinema.filter((movie) => movie.releaseDate >= new Intl.DateTimeFormat("en-CA", { timeZone: "Africa/Casablanca", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date()));
   const releaseLoopWidth = (RELEASE_CARD_WIDTH + RELEASE_CARD_GAP) * releases.length;
-  const loopedReleases = [...releases, ...releases, ...releases];
+  const animateReleases = releases.length > 5;
+  const loopedReleases = animateReleases ? [...releases, ...releases, ...releases] : releases;
 
   return (
     <div key={pathname} className="flex min-h-screen flex-col bg-white">
@@ -52,9 +53,9 @@ export default function CinemaPage() {
           {!releases.length ? <div className="mt-8 rounded-lg bg-[#faf8f6] p-6 text-sm font-body text-black/60" role="status">
             {loading ? "Loading cinema listings…" : tab === "now" ? "Current listings are temporarily unavailable." : "Upcoming releases are temporarily unavailable. Please check again shortly."}
           </div> : null}
-          <div className="relative left-1/2 mt-8 w-screen -translate-x-1/2 overflow-hidden py-1">
+          <div className={animateReleases ? "relative left-1/2 mt-8 w-screen -translate-x-1/2 overflow-hidden py-1" : "mt-8 py-1"}>
             <div
-              className="upcoming-marquee-track flex gap-[14px] hover:[animation-play-state:paused]"
+              className={animateReleases ? "upcoming-marquee-track flex gap-[14px] hover:[animation-play-state:paused]" : "flex flex-wrap justify-center gap-x-[14px] gap-y-6"}
               style={
                 {
                   "--upcoming-offset": "-110px",
@@ -75,7 +76,6 @@ export default function CinemaPage() {
                     <h3 className="mt-1 text-[14px] font-body font-semibold leading-[1.35] text-[#181818]">
                       {movie.title}
                     </h3>
-                    {"cinemas" in movie && Array.isArray(movie.cinemas) ? <p className="mt-1 text-[11px] font-body text-black/55">{movie.cinemas.join(" · ")}</p> : null}
                   </div>
                 </article>
               ))}
