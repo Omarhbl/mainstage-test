@@ -313,7 +313,7 @@ export default function SettingsSectionEditor({
                 name="copyright_text"
                 defaultValue={siteSettings.copyrightText}
                 className="mt-2 h-[50px] w-full rounded-[12px] border border-black/10 bg-[#faf8f6] px-4 outline-none focus:border-[#CE2127]"
-                placeholder="© Mainstage - 2026 All right reserved"
+                placeholder="© Mainstage - 2026 All rights reserved"
               />
             </label>
           </div>

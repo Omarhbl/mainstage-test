@@ -235,7 +235,7 @@ export default function SiteFooter({
 
         <div className="mt-7 border-t border-white/28 pt-6">
           <p className="text-[15px] font-body font-normal text-white/90">
-            {resolvedSettings.copyrightText}
+            {resolvedSettings.copyrightText.replace(/\bAll right reserved\b/gi, "All rights reserved")}
           </p>
         </div>
       </div>

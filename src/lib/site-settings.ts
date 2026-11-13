@@ -93,7 +93,7 @@ Whether it is breaking news, must-read features, industry insights, or emerging 
     ],
   },
   footerTagline: "For the Culture. For the Industry.",
-  copyrightText: "© Mainstage - 2026 All right reserved",
+  copyrightText: "© Mainstage - 2026 All rights reserved",
   legalLinks: [
     { label: "TERMS & CONDITIONS", href: "/terms-conditions" },
     { label: "PRIVACY POLICY", href: "/privacy-policy" },
