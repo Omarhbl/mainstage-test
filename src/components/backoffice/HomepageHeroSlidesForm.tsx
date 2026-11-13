@@ -3,12 +3,8 @@
 import { useState } from "react";
 import { updateHomepageSettingsAction } from "@/app/backoffice/homepage/actions";
 
-type HeroSlide = {
-  title: string;
-  category: string;
-  href: string;
-  media: string;
-};
+import HomepageSlideFraming from "@/components/backoffice/HomepageSlideFraming";
+import type { HomepageHeroSlide as HeroSlide } from "@/lib/homepage-slides";
 
 type HomepageHeroSlidesFormProps = {
   initialSlides: HeroSlide[];
@@ -32,7 +28,7 @@ export default function HomepageHeroSlidesForm({
     initialSlides.length > 0 ? initialSlides : [createEmptySlide()]
   );
 
-  function updateSlide(index: number, field: keyof HeroSlide, value: string) {
+  function updateSlide(index: number, field: keyof HeroSlide, value: string | number) {
     setSlides((current) =>
       current.map((slide, currentIndex) =>
         currentIndex === index ? { ...slide, [field]: value } : slide
@@ -165,6 +161,11 @@ export default function HomepageHeroSlidesForm({
                   />
                 </label>
               </div>
+              <HomepageSlideFraming
+                slide={slide}
+                index={index}
+                onChange={(field, value) => updateSlide(index, field, value)}
+              />
             </div>
           ))}
         </div>

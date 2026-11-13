@@ -1,3 +1,4 @@
+import { clampSlidePosition, type HomepageHeroSlide } from "@/lib/homepage-slides";
 import { cookies } from "next/headers";
 import { createServerClient } from "@supabase/ssr";
 import { createClient } from "@supabase/supabase-js";
@@ -39,12 +40,7 @@ export type DashboardEditorialNote = {
 };
 
 export type HomepageSettings = {
-  heroSlides: Array<{
-    title: string;
-    category: string;
-    href: string;
-    media: string;
-  }>;
+  heroSlides: HomepageHeroSlide[];
   heroTitle: string;
   heroCategory: string;
   heroHref: string;
@@ -457,6 +453,10 @@ export async function getHomepageSettings() {
   const parsedHeroSlides = Array.isArray(value.heroSlides)
     ? value.heroSlides
         .map((item, index) => ({
+          positionX: clampSlidePosition(item?.positionX),
+          positionY: clampSlidePosition(item?.positionY),
+          mobilePositionX: clampSlidePosition(item?.mobilePositionX, clampSlidePosition(item?.positionX)),
+          mobilePositionY: clampSlidePosition(item?.mobilePositionY, clampSlidePosition(item?.positionY)),
           title:
             item &&
             typeof item === "object" &&

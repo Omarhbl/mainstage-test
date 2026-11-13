@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { X } from "lucide-react";
+import { getSlideMediaStyle, isSlideVideo, type HomepageHeroSlide } from "@/lib/homepage-slides";
 
 const TRENDING_CARDS = [
   { id: 1, tag: "ALBUM DROP", title: "Inkonnu reframe le chaos avec une esthétique plus glaciale", image: "/Artists/inkonnu.jpg" },
@@ -14,22 +15,12 @@ const TRENDING_CARDS = [
 const SHOW_TRENDING_PANEL = false;
 
 type HeroDropProps = {
-  slides?: Array<{
-    title: string;
-    category: string;
-    href: string;
-    media: string;
-  }>;
+  slides?: HomepageHeroSlide[];
   title?: string;
   category?: string;
   href?: string;
   media?: string;
 };
-
-function isVideoAsset(src?: string) {
-  if (!src) return false;
-  return /\.(mp4|webm|ogg)(\?.*)?$/i.test(src);
-}
 
 export default function HeroDrop({
   slides,
@@ -89,13 +80,14 @@ export default function HeroDrop({
             }}
             className="absolute inset-0"
           >
-            {isVideoAsset(activeSlide.media) ? (
+            {isSlideVideo(activeSlide.media) ? (
               <video
                 autoPlay
                 muted
                 loop
                 playsInline
-                className="h-full w-full scale-[1.02] object-cover object-center"
+                className="h-full w-full scale-[1.02] object-cover [object-position:var(--slide-mobile-position)] md:[object-position:var(--slide-desktop-position)]"
+                style={getSlideMediaStyle(activeSlide)}
               >
                 <source src={activeSlide.media} type="video/mp4" />
               </video>
@@ -103,7 +95,8 @@ export default function HeroDrop({
               <img
                 src={activeSlide.media}
                 alt={activeSlide.title}
-                className="h-full w-full scale-[1.02] object-cover object-center"
+                className="h-full w-full scale-[1.02] object-cover [object-position:var(--slide-mobile-position)] md:[object-position:var(--slide-desktop-position)]"
+                style={getSlideMediaStyle(activeSlide)}
               />
             )}
           </motion.div>

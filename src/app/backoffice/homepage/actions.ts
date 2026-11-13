@@ -1,5 +1,7 @@
 "use server";
 
+import { clampSlidePosition } from "@/lib/homepage-slides";
+
 import path from "node:path";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
@@ -93,6 +95,10 @@ export async function updateHomepageSettingsAction(formData: FormData) {
     category: String(formData.get(`hero_category_${index + 1}`) ?? "").trim(),
     href: String(formData.get(`hero_href_${index + 1}`) ?? "").trim(),
     media: String(formData.get(`hero_media_${index + 1}`) ?? "").trim(),
+    positionX: clampSlidePosition(formData.get(`hero_position_x_${index + 1}`)),
+    positionY: clampSlidePosition(formData.get(`hero_position_y_${index + 1}`)),
+    mobilePositionX: clampSlidePosition(formData.get(`hero_mobile_position_x_${index + 1}`), clampSlidePosition(formData.get(`hero_position_x_${index + 1}`))),
+    mobilePositionY: clampSlidePosition(formData.get(`hero_mobile_position_y_${index + 1}`), clampSlidePosition(formData.get(`hero_position_y_${index + 1}`))),
   })).filter((item) => item.title || item.category || item.href || item.media);
   const tickerSlugs = formData
     .getAll("ticker_slug")
