@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { updateHomepageSettingsAction } from "@/app/backoffice/homepage/actions";
 
 import HomepageSlideFraming from "@/components/backoffice/HomepageSlideFraming";
@@ -11,8 +11,11 @@ type HomepageHeroSlidesFormProps = {
   redirectTarget: string;
 };
 
-function createEmptySlide(): HeroSlide {
+type EditorSlide = HeroSlide & { editorId: string };
+
+function createEmptySlide(editorId: string): EditorSlide {
   return {
+    editorId,
     title: "",
     category: "",
     href: "",
@@ -24,8 +27,11 @@ export default function HomepageHeroSlidesForm({
   initialSlides,
   redirectTarget,
 }: HomepageHeroSlidesFormProps) {
-  const [slides, setSlides] = useState<HeroSlide[]>(
-    initialSlides.length > 0 ? initialSlides : [createEmptySlide()]
+  const nextSlideId = useRef(0);
+  const [slides, setSlides] = useState<EditorSlide[]>(() =>
+    initialSlides.length > 0
+      ? initialSlides.map((slide, index) => ({ ...slide, editorId: `initial-${index}` }))
+      : [createEmptySlide("initial-empty")]
   );
 
   function updateSlide(index: number, field: keyof HeroSlide, value: string | number) {
@@ -37,16 +43,28 @@ export default function HomepageHeroSlidesForm({
   }
 
   function addSlide() {
-    setSlides((current) => [...current, createEmptySlide()]);
+    const slide = createEmptySlide(`added-${nextSlideId.current++}`);
+    setSlides((current) => [...current, slide]);
   }
 
   function removeSlide(index: number) {
+    const emptySlide = createEmptySlide(`added-${nextSlideId.current++}`);
     setSlides((current) => {
       if (current.length === 1) {
-        return [createEmptySlide()];
+        return [emptySlide];
       }
 
       return current.filter((_, currentIndex) => currentIndex !== index);
+    });
+  }
+
+  function moveSlide(index: number, direction: -1 | 1) {
+    setSlides((current) => {
+      const target = index + direction;
+      if (target < 0 || target >= current.length) return current;
+      const reordered = [...current];
+      [reordered[index], reordered[target]] = [reordered[target], reordered[index]];
+      return reordered;
     });
   }
 
@@ -62,7 +80,7 @@ export default function HomepageHeroSlidesForm({
               Update the hero slides
             </h2>
             <p className="mt-2 max-w-[640px] text-[14px] font-body leading-[1.75] text-black/60">
-              Add as many slides as needed. The homepage will rotate through every completed slide automatically.
+              Add and reorder slides below. The homepage rotates through them in this order. Click Save slides to apply your changes.
             </p>
           </div>
 
@@ -82,7 +100,7 @@ export default function HomepageHeroSlidesForm({
         <div className="mt-5 space-y-5">
           {slides.map((slide, index) => (
             <div
-              key={`hero-slide-${index + 1}`}
+              key={slide.editorId}
               className="rounded-[16px] border border-black/8 bg-[#faf8f6] p-5"
             >
               <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
@@ -90,6 +108,25 @@ export default function HomepageHeroSlidesForm({
                   Slide {index + 1}
                 </p>
 
+                <div className="flex flex-wrap items-center gap-2">
+                  <button
+                    type="button"
+                    aria-label={`Move slide ${index + 1} up`}
+                    disabled={index === 0}
+                    onClick={() => moveSlide(index, -1)}
+                    className="inline-flex h-[36px] items-center justify-center rounded-[10px] border border-black/10 px-3 text-[13px] font-body font-medium text-black/68 transition-colors hover:border-[#CE2127] hover:text-[#CE2127] disabled:cursor-not-allowed disabled:opacity-35"
+                  >
+                    ↑ Move up
+                  </button>
+                  <button
+                    type="button"
+                    aria-label={`Move slide ${index + 1} down`}
+                    disabled={index === slides.length - 1}
+                    onClick={() => moveSlide(index, 1)}
+                    className="inline-flex h-[36px] items-center justify-center rounded-[10px] border border-black/10 px-3 text-[13px] font-body font-medium text-black/68 transition-colors hover:border-[#CE2127] hover:text-[#CE2127] disabled:cursor-not-allowed disabled:opacity-35"
+                  >
+                    ↓ Move down
+                  </button>
                 <button
                   type="button"
                   onClick={() => removeSlide(index)}
@@ -97,6 +134,7 @@ export default function HomepageHeroSlidesForm({
                 >
                   Delete slide
                 </button>
+                </div>
               </div>
 
               <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
