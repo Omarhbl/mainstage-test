@@ -1,3 +1,4 @@
+import CinemaFeedPanel from "@/components/backoffice/CinemaFeedPanel";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import BackofficeHeader from "@/components/backoffice/BackofficeHeader";
@@ -65,6 +66,8 @@ export default async function BackofficeUpcomingSectionPage({
           {notice}
         </div>
       ) : null}
+
+      {section === "cinema" ? <CinemaFeedPanel /> : null}
 
       <UpcomingEditorForm
         section={section}

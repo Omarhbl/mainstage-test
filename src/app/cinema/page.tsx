@@ -1,4 +1,6 @@
 "use client";
+import { useEffect, useState } from "react";
+import type { CinemaFeed } from "@/lib/cinema-feed-data";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -18,7 +20,19 @@ export default function CinemaPage() {
   const cinemaArticles = sortedCards.filter((article) =>
     hasArticleCategory(article, "cinema")
   );
-  const releases = upcomingSettings.cinema;
+  const [feed, setFeed] = useState<CinemaFeed | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [tab, setTab] = useState<"now" | "upcoming">("now");
+  useEffect(() => {
+    const controller = new AbortController();
+    fetch("/api/cinema-feed", { cache: "no-store", signal: controller.signal })
+      .then((response) => { if (!response.ok) throw new Error("Cinema feed unavailable"); return response.json(); })
+      .then((value: CinemaFeed) => { if (!controller.signal.aborted && Array.isArray(value.movies)) setFeed(value); })
+      .catch(() => { /* The page shows a source link if listings are unavailable. */ })
+      .finally(() => { if (!controller.signal.aborted) setLoading(false); });
+    return () => controller.abort();
+  }, []);
+  const releases = tab === "now" ? feed?.movies ?? [] : upcomingSettings.cinema;
   const releaseLoopWidth = (RELEASE_CARD_WIDTH + RELEASE_CARD_GAP) * releases.length;
   const loopedReleases = [...releases, ...releases, ...releases];
 
@@ -28,10 +42,18 @@ export default function CinemaPage() {
         <section className="mx-auto max-w-[1116px] px-4 py-16 md:px-6 md:py-18">
           <div>
             <h2 className="text-[25px] font-body font-bold tracking-[-0.03em] text-[#181818]">
-              Upcoming Releases
+              {tab === "now" ? "Now showing in Morocco" : "Upcoming Releases"}
             </h2>
+            <div className="mt-4 flex gap-3">
+              {(["now", "upcoming"] as const).map((value) => <button key={value} type="button" aria-pressed={tab === value} onClick={() => setTab(value)} className={`rounded-full border px-4 py-2 text-sm font-body font-semibold ${tab === value ? "border-[#CE2127] bg-[#CE2127] text-white" : "border-black/15 text-black/65"}`}>{value === "now" ? "Now showing" : "Upcoming"}</button>)}
+            </div>
+            {tab === "now" ? <p className="mt-3 text-xs font-body text-black/55">Megarama listings{feed?.sources.length ? ` · ${feed.sources.join(" · ")}` : " · Casablanca, Rabat & Marrakech"}. Availability varies by cinema. Select a poster for showtimes.</p> : null}
+            {tab === "now" && feed?.syncedAt ? <p className="mt-1 text-[11px] font-body text-black/45">Updated {new Intl.DateTimeFormat("en-GB", { dateStyle: "short", timeStyle: "short", timeZone: "Africa/Casablanca" }).format(new Date(feed.syncedAt))}</p> : null}
           </div>
 
+          {tab === "now" && !releases.length ? <div className="mt-8 rounded-lg bg-[#faf8f6] p-6 text-sm font-body text-black/60" role="status">
+            {loading ? "Loading current cinema listings…" : <>Current listings are temporarily unavailable. <a href="https://casablanca.megarama.ma/" target="_blank" rel="noreferrer" className="text-[#CE2127] underline">Check Megarama showtimes</a>.</>}
+          </div> : null}
           <div className="relative left-1/2 mt-8 w-screen -translate-x-1/2 overflow-hidden py-1">
             <div
               className="upcoming-marquee-track flex gap-[14px] hover:[animation-play-state:paused]"
@@ -39,7 +61,7 @@ export default function CinemaPage() {
                 {
                   "--upcoming-offset": "-110px",
                   "--upcoming-shift": `${releaseLoopWidth}px`,
-                  "--upcoming-duration": "18s",
+                  "--upcoming-duration": `${Math.max(18, releases.length * 3)}s`,
                 } as React.CSSProperties
               }
             >
@@ -47,7 +69,7 @@ export default function CinemaPage() {
                 <article key={`${movie.id}-${index}`} className="w-[218px] shrink-0">
                   <div className="h-[306px] overflow-hidden rounded-[8px] bg-[#e8e2db]">
                     {movie.href ? (
-                      <a href={movie.href} className="block h-full w-full">
+                      <a href={movie.href} target={movie.href.startsWith("https://") ? "_blank" : undefined} rel="noreferrer" className="block h-full w-full">
                         <img
                           src={movie.image}
                           alt={movie.title}
@@ -69,6 +91,7 @@ export default function CinemaPage() {
                     <h3 className="mt-1 text-[14px] font-body font-semibold leading-[1.35] text-[#181818]">
                       {movie.title}
                     </h3>
+                    {"cinemas" in movie && Array.isArray(movie.cinemas) ? <p className="mt-1 text-[11px] font-body text-black/55">{movie.cinemas.join(" · ")}</p> : null}
                   </div>
                 </article>
               ))}
