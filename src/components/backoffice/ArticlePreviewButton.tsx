@@ -44,6 +44,10 @@ export default function ArticlePreviewButton() {
       date: value("date_label"),
       image,
       imageCaption: value("image_caption"),
+      heroImagePositionX: Number(value("hero_image_position_x") || 50),
+      heroImagePositionY: Number(value("hero_image_position_y") || 50),
+      bottomImagePositionX: Number(value("bottom_image_position_x") || 50),
+      bottomImagePositionY: Number(value("bottom_image_position_y") || 50),
       imagePositionX: Number(value("image_position_x") || 50),
       imagePositionY: Number(value("image_position_y") || 50),
       heroMedia: {

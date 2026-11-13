@@ -54,6 +54,7 @@ export default function ArticleContent({ article }: { article: ArticleRecord }) 
                 loop
                 playsInline
                 className="h-[430px] w-full object-cover"
+                style={{ objectPosition: `${article.heroImagePositionX ?? article.imagePositionX ?? 50}% ${article.heroImagePositionY ?? article.imagePositionY ?? 50}%` }}
               >
                 <source src={heroMediaSrc} type="video/mp4" />
               </video>
@@ -63,11 +64,10 @@ export default function ArticleContent({ article }: { article: ArticleRecord }) 
                 alt={article.title}
                 className={article.imageClassName ?? ""}
                 heightClassName="h-[430px]"
-                articleImage={
-                  article.slug === "oddity-beyond-the-decks"
-                    ? { ...article, imagePositionY: 0 }
-                    : article
-                }
+                articleImage={{
+                  imagePositionX: article.heroImagePositionX ?? article.imagePositionX,
+                  imagePositionY: article.heroImagePositionY ?? (article.slug === "oddity-beyond-the-decks" ? 0 : article.imagePositionY),
+                }}
               />
             )}
           </div>
@@ -138,6 +138,7 @@ export default function ArticleContent({ article }: { article: ArticleRecord }) 
                   src={article.bottomMedia.src}
                   alt={article.bottomMedia.title ?? article.title}
                   heightClassName="h-[220px] sm:h-[320px]"
+                  articleImage={{ imagePositionX: article.bottomImagePositionX, imagePositionY: article.bottomImagePositionY }}
                 />
               )}
             </div>

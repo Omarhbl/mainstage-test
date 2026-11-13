@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import SiteFooter from "@/components/layout/SiteFooter";
-import { formatArticleDate, hasArticleCategory } from "@/lib/articles";
+import { formatArticleDate, hasArticleCategory, getArticleImageStyle } from "@/lib/articles";
 import { getPublicArticlesBySlug, getSortedPublicArticleCards } from "@/lib/public-articles";
 
 export const dynamic = "force-dynamic";
@@ -44,6 +44,7 @@ export default async function PeopleArticlesPage() {
                       src={article.image}
                       alt={article.title}
                       className={`h-full w-full object-cover ${article.imageClassName ?? ""}`}
+                      style={getArticleImageStyle(article)}
                     />
                   </div>
 

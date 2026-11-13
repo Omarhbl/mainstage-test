@@ -110,6 +110,10 @@ async function parseArticlePayload(formData: FormData) {
       .filter(Boolean),
     primaryCategory
   );
+  const position = (name: string, fallback: number) => {
+    const raw = Number(formData.get(name) ?? fallback);
+    return Number.isFinite(raw) ? Math.min(100, Math.max(0, raw)) : fallback;
+  };
   const rawImagePositionX = Number(formData.get("image_position_x") ?? 50);
   const rawImagePositionY = Number(formData.get("image_position_y") ?? 50);
   const imagePositionX = Number.isFinite(rawImagePositionX)
@@ -130,6 +134,13 @@ async function parseArticlePayload(formData: FormData) {
   const homepageImagePositionY = Number.isFinite(rawHomepageImagePositionY)
     ? Math.min(100, Math.max(0, rawHomepageImagePositionY))
     : imagePositionY;
+
+  const mediaFraming = {
+    heroImagePositionX: position("hero_image_position_x", imagePositionX),
+    heroImagePositionY: position("hero_image_position_y", slugifyArticleTitle(rawSlug || title) === "oddity-beyond-the-decks" ? 0 : imagePositionY),
+    bottomImagePositionX: position("bottom_image_position_x", 50),
+    bottomImagePositionY: position("bottom_image_position_y", 50),
+  };
 
   if (
     !title ||
@@ -220,6 +231,7 @@ async function parseArticlePayload(formData: FormData) {
     date_label: dateLabel || new Intl.DateTimeFormat("en-GB").format(new Date()),
     status,
     updated_at: new Date().toISOString(),
+    mediaFraming,
     imagePositionX,
     imagePositionY,
     homepageImagePositionX,
@@ -300,6 +312,7 @@ async function deleteArticleTags(slug: string) {
 
 async function saveArticleImageOverride(
   slug: string,
+  mediaFraming: { heroImagePositionX: number; heroImagePositionY: number; bottomImagePositionX: number; bottomImagePositionY: number },
   imagePositionX: number,
   imagePositionY: number,
   homepageImagePositionX: number,
@@ -311,11 +324,13 @@ async function saveArticleImageOverride(
     return;
   }
 
-  const { data } = await adminClient
+  const { data, error: readError } = await adminClient
     .from("site_settings")
     .select("value")
     .eq("key", "article_image_overrides")
     .maybeSingle();
+
+  if (readError) return readError.message;
 
   const currentValue =
     data?.value && typeof data.value === "object" && !Array.isArray(data.value)
@@ -325,6 +340,7 @@ async function saveArticleImageOverride(
   const nextValue = {
     ...currentValue,
     [slug]: {
+      ...mediaFraming,
       imagePositionX,
       imagePositionY,
       homepageImagePositionX,
@@ -332,7 +348,7 @@ async function saveArticleImageOverride(
     },
   };
 
-  await adminClient.from("site_settings").upsert(
+  const { error } = await adminClient.from("site_settings").upsert(
     {
       key: "article_image_overrides",
       value: nextValue,
@@ -340,6 +356,7 @@ async function saveArticleImageOverride(
     },
     { onConflict: "key" }
   );
+  return error?.message;
 }
 
 async function backofficeArticlesHasPublishedByColumn() {
@@ -400,6 +417,7 @@ export async function createArticleAction(formData: FormData) {
 
   const {
     tags,
+    mediaFraming,
     imagePositionX,
     imagePositionY,
     homepageImagePositionX,
@@ -434,14 +452,23 @@ export async function createArticleAction(formData: FormData) {
   }
 
   revalidatePath(`/backoffice/articles/${data.id}`);
-  await saveArticleImageOverride(
+  const framingError = await saveArticleImageOverride(
     payload.slug,
+    mediaFraming,
     imagePositionX,
     imagePositionY,
     homepageImagePositionX,
     homepageImagePositionY
   );
   await saveArticleTags(payload.slug, tags);
+  if (framingError) {
+    await revalidateArticleSurfaces(payload.slug);
+    buildArticlesRedirect(
+      `/backoffice/articles/${data.id}`,
+      `Article saved, but image framing could not be saved: ${framingError}`,
+      "error"
+    );
+  }
   await revalidateArticleSurfaces(payload.slug);
   buildArticlesRedirect(
     `/backoffice/articles/${data.id}`,
@@ -478,6 +505,7 @@ export async function updateArticleAction(formData: FormData) {
 
   const {
     tags,
+    mediaFraming,
     imagePositionX,
     imagePositionY,
     homepageImagePositionX,
@@ -516,14 +544,23 @@ export async function updateArticleAction(formData: FormData) {
   }
 
   revalidatePath(`/backoffice/articles/${id}`);
-  await saveArticleImageOverride(
+  const framingError = await saveArticleImageOverride(
     payload.slug,
+    mediaFraming,
     imagePositionX,
     imagePositionY,
     homepageImagePositionX,
     homepageImagePositionY
   );
   await saveArticleTags(payload.slug, tags);
+  if (framingError) {
+    await revalidateArticleSurfaces(payload.slug);
+    buildArticlesRedirect(
+      `/backoffice/articles/${id}`,
+      `Article saved, but image framing could not be saved: ${framingError}`,
+      "error"
+    );
+  }
   await revalidateArticleSurfaces(payload.slug);
   buildArticlesRedirect(
     `/backoffice/articles/${id}`,

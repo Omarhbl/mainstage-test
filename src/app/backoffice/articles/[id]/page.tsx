@@ -46,6 +46,7 @@ export default async function BackofficeArticleDetailPage({
           article={article}
           submitLabel="Update article"
           mode="edit"
+          mediaFraming={imageOverride}
           imagePositionX={imageOverride?.imagePositionX}
           imagePositionY={imageOverride?.imagePositionY}
           homepageImagePositionX={imageOverride?.homepageImagePositionX}

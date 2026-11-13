@@ -63,6 +63,10 @@ export type HomepageSettings = {
 };
 
 export type ArticleImageOverride = {
+  heroImagePositionX?: number;
+  heroImagePositionY?: number;
+  bottomImagePositionX?: number;
+  bottomImagePositionY?: number;
   imagePositionX: number;
   imagePositionY: number;
   homepageImagePositionX?: number;
@@ -909,6 +913,10 @@ export async function getArticleImageOverrides(): Promise<ArticleImageOverrides>
         return [
           slug,
           {
+            heroImagePositionX: typeof override.heroImagePositionX === "number" ? clampImagePosition(override.heroImagePositionX) : undefined,
+            heroImagePositionY: typeof override.heroImagePositionY === "number" ? clampImagePosition(override.heroImagePositionY) : undefined,
+            bottomImagePositionX: typeof override.bottomImagePositionX === "number" ? clampImagePosition(override.bottomImagePositionX) : undefined,
+            bottomImagePositionY: typeof override.bottomImagePositionY === "number" ? clampImagePosition(override.bottomImagePositionY) : undefined,
             imagePositionX: clampImagePosition(override.imagePositionX),
             imagePositionY: clampImagePosition(override.imagePositionY),
             homepageImagePositionX:

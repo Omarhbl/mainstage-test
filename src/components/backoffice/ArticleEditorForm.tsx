@@ -1,3 +1,5 @@
+import ArticleImageFraming from "@/components/backoffice/ArticleImageFraming";
+import type { ArticleRecord } from "@/lib/articles";
 import {
   BACKOFFICE_ARTICLE_CATEGORIES,
   BACKOFFICE_ARTICLE_STATUSES,
@@ -14,6 +16,7 @@ type ArticleEditorFormProps = {
   article?: BackofficeArticle | null;
   submitLabel: string;
   mode: "new" | "edit";
+  mediaFraming?: Pick<ArticleRecord, "heroImagePositionX" | "heroImagePositionY" | "bottomImagePositionX" | "bottomImagePositionY">;
   imagePositionX?: number;
   imagePositionY?: number;
   homepageImagePositionX?: number;
@@ -25,6 +28,7 @@ export default function ArticleEditorForm({
   article,
   submitLabel,
   mode,
+  mediaFraming,
   imagePositionX,
   imagePositionY,
   homepageImagePositionX,
@@ -211,7 +215,6 @@ export default function ArticleEditorForm({
                 defaultValue={article?.image ?? ""}
                 className="mt-2 h-[48px] w-full rounded-[12px] border border-black/10 bg-[#faf8f6] px-4 outline-none focus:border-[#CE2127]"
                 placeholder="https://..."
-                required
               />
             </label>
             <label className="block">
@@ -236,98 +239,6 @@ export default function ArticleEditorForm({
                 placeholder="Optional caption"
               />
             </label>
-            <div className="rounded-[14px] border border-black/8 bg-[#faf8f6] p-4">
-              <div className="mb-3">
-                <h3 className="text-[15px] font-body font-semibold text-[#181818]">
-                  Image framing
-                </h3>
-                <p className="mt-1 text-[13px] font-body leading-[1.6] text-black/55">
-                  Move the image focus until the subject sits correctly in the frame.
-                </p>
-              </div>
-              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-              <label className="block">
-                <span className="text-[13px] font-body font-medium text-black/60">
-                  Image horizontal position
-                </span>
-                <input
-                  name="image_position_x"
-                  type="range"
-                  min="0"
-                  max="100"
-                  step="1"
-                  defaultValue={resolvedImagePositionX}
-                  className="mt-3 block w-full accent-[#CE2127]"
-                />
-                <div className="mt-2 text-[12px] font-body text-black/45">
-                  {resolvedImagePositionX}% from left
-                </div>
-              </label>
-              <label className="block">
-                <span className="text-[13px] font-body font-medium text-black/60">
-                  Image vertical position
-                </span>
-                <input
-                  name="image_position_y"
-                  type="range"
-                  min="0"
-                  max="100"
-                  step="1"
-                  defaultValue={resolvedImagePositionY}
-                  className="mt-3 block w-full accent-[#CE2127]"
-                />
-                <div className="mt-2 text-[12px] font-body text-black/45">
-                  {resolvedImagePositionY}% from top
-                </div>
-              </label>
-              </div>
-            </div>
-            <div className="rounded-[14px] border border-[#CE2127]/15 bg-[#fff7f7] p-4">
-              <div className="mb-3">
-                <h3 className="text-[15px] font-body font-semibold text-[#181818]">
-                  Homepage Trending card framing
-                </h3>
-                <p className="mt-1 text-[13px] font-body leading-[1.6] text-black/55">
-                  Use this only when the image needs a different crop inside the homepage Trending Now cards.
-                </p>
-              </div>
-              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                <label className="block">
-                  <span className="text-[13px] font-body font-medium text-black/60">
-                    Card horizontal position
-                  </span>
-                  <input
-                    name="homepage_image_position_x"
-                    type="range"
-                    min="0"
-                    max="100"
-                    step="1"
-                    defaultValue={resolvedHomepageImagePositionX}
-                    className="mt-3 block w-full accent-[#CE2127]"
-                  />
-                  <div className="mt-2 text-[12px] font-body text-black/45">
-                    {resolvedHomepageImagePositionX}% from left
-                  </div>
-                </label>
-                <label className="block">
-                  <span className="text-[13px] font-body font-medium text-black/60">
-                    Card vertical position
-                  </span>
-                  <input
-                    name="homepage_image_position_y"
-                    type="range"
-                    min="0"
-                    max="100"
-                    step="1"
-                    defaultValue={resolvedHomepageImagePositionY}
-                    className="mt-3 block w-full accent-[#CE2127]"
-                  />
-                  <div className="mt-2 text-[12px] font-body text-black/45">
-                    {resolvedHomepageImagePositionY}% from top
-                  </div>
-                </label>
-              </div>
-            </div>
             <label className="block">
               <span className="text-[13px] font-body font-medium text-black/60">
                 Hero media type
@@ -350,7 +261,6 @@ export default function ArticleEditorForm({
                 defaultValue={article?.hero_media_src ?? ""}
                 className="mt-2 h-[48px] w-full rounded-[12px] border border-black/10 bg-[#faf8f6] px-4 outline-none focus:border-[#CE2127]"
                 placeholder="https://..."
-                required
               />
             </label>
             <label className="block">
@@ -400,6 +310,14 @@ export default function ArticleEditorForm({
                 className="mt-2 block w-full rounded-[12px] border border-black/10 bg-[#faf8f6] px-4 py-3 text-[14px] font-body text-[#181818] file:mr-4 file:rounded-[10px] file:border-0 file:bg-[#CE2127] file:px-4 file:py-2 file:text-white"
               />
             </label>
+            <ArticleImageFraming
+              initial={{
+                cover: [resolvedImagePositionX, resolvedImagePositionY],
+                homepage: [resolvedHomepageImagePositionX, resolvedHomepageImagePositionY],
+                hero: [mediaFraming?.heroImagePositionX ?? resolvedImagePositionX, mediaFraming?.heroImagePositionY ?? (article?.slug === "oddity-beyond-the-decks" ? 0 : resolvedImagePositionY)],
+                bottom: [mediaFraming?.bottomImagePositionX ?? 50, mediaFraming?.bottomImagePositionY ?? 50],
+              }}
+            />
           </div>
         </div>
 
