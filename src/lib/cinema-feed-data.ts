@@ -77,3 +77,12 @@ export function parsePatheMovies(payload: unknown, now = new Date()): { movies: 
   }
   return { movies, upcoming };
 }
+
+export function parsePathePage(html: string, now = new Date()) {
+  for (const match of html.matchAll(/<script\b[^>]*type="application\/json"[^>]*>([\s\S]*?)<\/script>/g)) {
+    const state = JSON.parse(match[1]) as Record<string, { u?: string; b?: unknown }>;
+    const entry = Object.values(state).find((item) => item?.u === "https://www.pathe.ma/api/shows");
+    if (entry) return parsePatheMovies(entry.b, now);
+  }
+  throw new Error("Pathé listings are unavailable.");
+}
