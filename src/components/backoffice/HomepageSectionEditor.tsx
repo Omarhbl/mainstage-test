@@ -1,3 +1,4 @@
+import InstagramFeedPanel from "@/components/backoffice/InstagramFeedPanel";
 import HomepageTickerEditor from "@/components/backoffice/HomepageTickerEditor";
 import HomepageHeroSlidesForm from "@/components/backoffice/HomepageHeroSlidesForm";
 import {
@@ -164,6 +165,8 @@ export default function HomepageSectionEditor({
 
   if (section === "social") {
     return (
+      <div className="space-y-6">
+      <InstagramFeedPanel />
       <form action={updateHomepageSettingsAction}>
         <div className="rounded-[20px] border border-black/8 bg-white p-6 shadow-[0_12px_30px_rgba(0,0,0,0.05)]">
           <p className="text-[12px] font-body font-semibold uppercase tracking-[0.16em] text-[#CE2127]">
@@ -213,6 +216,7 @@ export default function HomepageSectionEditor({
           </button>
         </div>
       </form>
+      </div>
     );
   }
 

@@ -92,7 +92,6 @@ const SOCIAL_ITEMS = [
 const SOCIAL_CARD_WIDTH = 322;
 const SOCIAL_CARD_GAP = 24;
 const SOCIAL_STEP = SOCIAL_CARD_WIDTH + SOCIAL_CARD_GAP;
-const SOCIAL_LOOP_WIDTH = SOCIAL_STEP * SOCIAL_ITEMS.length;
 
 type EditorialGridProps = {
   mustReadSlug?: string;
@@ -101,6 +100,7 @@ type EditorialGridProps = {
   socialItems?: Array<{
     image: string;
     href: string;
+    alt?: string;
   }>;
   spotifyTopTen: SpotifyChartEntry[];
   youtubeTopVideos: YouTubeVideoEntry[];
@@ -148,7 +148,7 @@ const trendingItems = (sortedCards.length ? sortedCards : [])
   const homepageBannerImage = bannerImage?.trim() || "/home-banner-ad.png";
   const homepageBannerHref = bannerHref?.trim() || "";
   const homepageSocialItems =
-    socialItems?.length === 5
+    socialItems && socialItems.length > 0
       ? socialItems
       : SOCIAL_ITEMS.map((item) => ({ image: item.image, href: "" }));
 
@@ -323,7 +323,7 @@ const trendingItems = (sortedCards.length ? sortedCards : [])
 
           <div className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden py-1">
             <motion.div
-              animate={{ x: [-118, -118 - SOCIAL_LOOP_WIDTH] }}
+              animate={{ x: [-118, -118 - SOCIAL_STEP * homepageSocialItems.length] }}
               transition={{ duration: 22, ease: "linear", repeat: Infinity }}
               className="flex gap-6 px-0"
             >
@@ -341,14 +341,14 @@ const trendingItems = (sortedCards.length ? sortedCards : [])
                     >
                       <img
                         src={item.image}
-                        alt="Mainstage social highlight"
+                        alt={"alt" in item && typeof item.alt === "string" ? item.alt : "Mainstage social highlight"}
                         className="h-full w-full object-cover"
                       />
                     </a>
                   ) : (
                     <img
                       src={item.image}
-                      alt="Mainstage social highlight"
+                      alt={"alt" in item && typeof item.alt === "string" ? item.alt : "Mainstage social highlight"}
                       className="h-full w-full object-cover"
                     />
                   )}

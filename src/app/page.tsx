@@ -1,3 +1,4 @@
+import { getInstagramFeed } from "@/lib/instagram-feed";
 import HeroDrop from "@/components/home/HeroDrop";
 import EditorialGrid from "@/components/home/EditorialGrid";
 import SiteFooter from "@/components/layout/SiteFooter";
@@ -14,6 +15,7 @@ export default async function Home() {
   const homepageSettings = await getHomepageSettings();
   const feedSettings = await getFeedSettings();
   const publicArticles = await getPublicArticles();
+  const instagram = await getInstagramFeed();
   const latestArticleList = buildItemListSchema(
     publicArticles.slice(0, 10).map((article) => ({
       name: article.title,
@@ -48,7 +50,7 @@ export default async function Home() {
         mustReadSlug={homepageSettings.mustReadSlug}
         bannerImage={homepageSettings.bannerImage}
         bannerHref={homepageSettings.bannerHref}
-        socialItems={homepageSettings.socialItems}
+        socialItems={instagram.items.length ? instagram.items : homepageSettings.socialItems}
         spotifyTopTen={feedSettings.spotify.tracks.slice(0, 10)}
         youtubeTopVideos={feedSettings.youtube.videos.slice(0, 4)}
         initialArticles={publicArticles}
