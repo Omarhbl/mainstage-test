@@ -40,3 +40,17 @@ test('editorial removals stay hidden across providers and refreshes', () => {
   const unaffected = [{ ...base, title: 'Soirée Aïssawa avec Yassine ElJamai', releaseDate: '2026-12-04' }, { ...base, href: base.href + 'future', title: 'Peter Pan on Ice', releaseDate: '2027-11-26' }];
   assert.equal(mergeTicketEvents([...removed, ...unaffected]).length, 2);
 });
+
+test('cross-platform spelling variants merge and prefer portrait artwork in either order', () => {
+  const banner = { id: 'ticket-aissawa', title: 'Soirée Aissaouia - Yassine Jamaï', releaseDate: '2026-12-04', image: 'https://cdn.example/banner.jpg', imageFit: 'contain', href: 'https://www.ticket.ma/ticket/concerts/1/aissawa', city: 'Rabat', venue: 'Salle Bahnini', sources: ['ticket'] };
+  const portrait = { ...banner, id: 'guichet-aissawa', title: 'Soirée Aïssawa avec Yassine ElJamai', image: 'https://cdn.example/portrait.jpg', imageFit: undefined, href: 'https://guichet.com/ma-fr/aissawa', sources: ['guichet'] };
+  for (const entries of [[banner, portrait], [portrait, banner]]) {
+    const merged = mergeTicketEvents(entries);
+    assert.equal(merged.length, 1);
+    assert.equal(merged[0].image, portrait.image);
+    assert.equal(merged[0].href, portrait.href);
+    assert.equal(merged[0].imageFit, undefined);
+    assert.deepEqual([...merged[0].sources].sort(), ['guichet', 'ticket']);
+  }
+  assert.equal(mergeTicketEvents([banner, { ...portrait, city: 'Casablanca', venue: 'Other venue' }]).length, 2);
+});

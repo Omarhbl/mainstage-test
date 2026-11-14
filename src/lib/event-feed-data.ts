@@ -173,14 +173,16 @@ export function isExcludedEvent(item: TicketEvent): boolean {
 
 export function mergeTicketEvents(items: TicketEvent[]): TicketEvent[] {
   const result: TicketEvent[] = [];
-  const key = (title: string) => [...new Set(normalize(title.replace(/\s[-–—|]\s(?:events\.ma|iticket(?:\.ma)?|ticket\.ma|webook(?:\.com)?).*$/i, "")).split(" ").filter((word) => !["en", "concert", "a", "de", "the", "le", "la", "les", "par", "at", "live", "et", "and"].includes(word)))];
+  const key = (title: string) => [...new Set(normalize(title.replace(/\s[-–—|]\s(?:events\.ma|iticket(?:\.ma)?|ticket\.ma|webook(?:\.com)?).*$/i, "")).replace(/\b(aissaouia|aissawiya|aisawiya|aissawa)\b/g, "aissawa").replace(/\byassin\b/g, "yassine").replace(/\beljamai\b/g, "jamai").split(" ").filter((word) => !["en", "concert", "a", "de", "the", "le", "la", "les", "par", "at", "live", "et", "and", "avec", "el"].includes(word)))];
+  // Prefer the portrait format, then square, over the Ticket.ma banner format.
+  const imagePreference = (item: TicketEvent) => item.imageFit === "contain" ? 0 : item.image.includes("/event/square_card/") ? 1 : 2;
   for (const item of items) {
     if (isExcludedEvent(item)) continue;
     const words = key(item.title);
     const existing = result.find((entry) => {
       if (entry.href === item.href) return true;
       if (entry.releaseDate !== item.releaseDate) return false;
-      const time = (title: string) => title.match(/\b(\d{1,2})[h:](\d{2})?\b/i)?.slice(1).join(":");
+      const time = (title: string) => { const match = title.match(/\b(\d{1,2})[h:](\d{2})?\b/i); return match ? `${Number(match[1])}:${match[2] ?? "00"}` : ""; };
       if (time(entry.title) && time(item.title) && time(entry.title) !== time(item.title)) return false;
       const samePlace = entry.venue && item.venue && normalize(entry.venue) === normalize(item.venue);
       const sameCity = entry.city && item.city && normalize(entry.city) === normalize(item.city);
@@ -188,7 +190,17 @@ export function mergeTicketEvents(items: TicketEvent[]): TicketEvent[] {
       const other = key(entry.title), shared = words.filter((word) => other.includes(word)).length;
       return normalize(entry.title) === normalize(item.title) || (Math.min(words.length, other.length) >= 3 && shared / Math.min(words.length, other.length) >= 0.8);
     });
-    if (existing) { existing.sources = [...new Set([...existing.sources, ...item.sources])]; continue; }
+    if (existing) {
+      const sources = [...new Set([...existing.sources, ...item.sources])];
+      if (imagePreference(item) > imagePreference(existing)) {
+        const venue = item.venue || existing.venue, city = item.city || existing.city;
+        Object.assign(existing, item, { venue, city });
+        // Object.assign cannot clear an optional property absent on the portrait.
+        existing.imageFit = item.imageFit;
+      }
+      existing.sources = sources;
+      continue;
+    }
     result.push({ ...item, sources: [...item.sources] });
   }
   return result.sort((a, b) => a.releaseDate.localeCompare(b.releaseDate) || a.title.localeCompare(b.title)).slice(0, 50);
