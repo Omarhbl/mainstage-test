@@ -1,8 +1,7 @@
 import "server-only";
 import { createSupabaseAdminClient } from "@/lib/supabase/server";
-import { parseInstagramHighlights, type InstagramHighlight } from "@/lib/instagram-feed-data";
+import { parseInstagramHighlights, instagramRefreshDue, type InstagramHighlight } from "@/lib/instagram-feed-data";
 
-const INTERVAL = 15 * 60 * 1000;
 const MAX_STALE = 24 * 60 * 60 * 1000;
 type Snapshot = { items: InstagramHighlight[]; syncedAt: string | null; checkedAt: string; error: string | null };
 export type InstagramFeed = Snapshot & { configured: boolean };
@@ -22,7 +21,7 @@ export async function getInstagramFeed(force = false): Promise<InstagramFeed> {
   const recent = syncedAt && Date.now() - Date.parse(syncedAt) < MAX_STALE;
   // Validate stored media again before passing it to the public page.
   const items = recent && Array.isArray(saved?.items) ? parseInstagramHighlights({ data: saved.items.filter((item) => item && typeof item === "object").map((item) => ({ media_url: item.image, permalink: item.href, caption: item.alt })) }) : [];
-  if (!force && Date.now() - Date.parse(checkedAt) < INTERVAL) {
+  if (!force && !instagramRefreshDue(checkedAt)) {
     return { ...empty, items, syncedAt, checkedAt, error: typeof saved?.error === "string" ? saved.error : null };
   }
   let next: Snapshot;

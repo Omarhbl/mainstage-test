@@ -1,3 +1,10 @@
+export const INSTAGRAM_REFRESH_INTERVAL = 60 * 60 * 1000;
+
+export function instagramRefreshDue(checkedAt: string, now = Date.now()): boolean {
+  const checked = Date.parse(checkedAt);
+  return !Number.isFinite(checked) || checked > now || Math.floor(checked / INSTAGRAM_REFRESH_INTERVAL) !== Math.floor(now / INSTAGRAM_REFRESH_INTERVAL);
+}
+
 export type InstagramHighlight = { image: string; href: string; alt: string };
 
 function httpsUrl(value: unknown, instagramOnly = false) {

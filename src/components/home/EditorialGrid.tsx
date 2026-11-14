@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { INSTAGRAM_REFRESH_INTERVAL, parseInstagramHighlights, type InstagramHighlight } from "@/lib/instagram-feed-data";
 import { motion } from "framer-motion";
 import { ArrowRight, Play, ChevronDown, ChevronUp, Minus } from "lucide-react";
 import type { SpotifyChartEntry, YouTubeVideoEntry } from "@/lib/feed-data";
@@ -116,6 +118,25 @@ export default function EditorialGrid({
   youtubeTopVideos,
   initialArticles,
 }: EditorialGridProps) {
+  const [liveSocialItems, setLiveSocialItems] = useState<InstagramHighlight[] | null>(null);
+  useEffect(() => {
+    const controller = new AbortController();
+    const refresh = async () => {
+      if (document.visibilityState === "hidden") return;
+      try {
+        const response = await fetch("/api/instagram-highlights", { cache: "no-store", signal: controller.signal });
+        if (!response.ok) return;
+        const payload = await response.json();
+        const items = parseInstagramHighlights({ data: Array.isArray(payload.items) ? payload.items.map((item: InstagramHighlight) => ({ media_url: item.image, permalink: item.href, caption: item.alt })) : [] });
+        if (items.length && !controller.signal.aborted) setLiveSocialItems(items);
+      } catch { /* Keep the last successful highlights or editorial fallback. */ }
+    };
+    void refresh();
+    const timer = window.setInterval(() => void refresh(), INSTAGRAM_REFRESH_INTERVAL);
+    const onVisible = () => { if (document.visibilityState === "visible") void refresh(); };
+    document.addEventListener("visibilitychange", onVisible);
+    return () => { controller.abort(); window.clearInterval(timer); document.removeEventListener("visibilitychange", onVisible); };
+  }, []);
   const publicArticles = usePublicArticles();
   const articlesMap =
     initialArticles?.length && Object.keys(publicArticles.articlesMap).length === 0
@@ -147,10 +168,10 @@ const trendingItems = (sortedCards.length ? sortedCards : [])
 
   const homepageBannerImage = bannerImage?.trim() || "/home-banner-ad.png";
   const homepageBannerHref = bannerHref?.trim() || "";
-  const homepageSocialItems =
+  const homepageSocialItems = liveSocialItems ?? (
     socialItems && socialItems.length > 0
       ? socialItems
-      : SOCIAL_ITEMS.map((item) => ({ image: item.image, href: "" }));
+      : SOCIAL_ITEMS.map((item) => ({ image: item.image, href: "" })));
 
   return (
     <section className="overflow-x-hidden bg-white">

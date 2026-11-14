@@ -1,0 +1,40 @@
+name: Refresh Instagram Highlights
+
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/refresh-instagram.yml']
+
+permissions:
+  contents: read
+
+concurrency:
+  group: refresh-instagram
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.18.0'
+      - name: Check latest Instagram highlights
+        run: |
+          node --input-type=module <<'JS'
+          import { setTimeout } from 'node:timers/promises';
+          for (let attempt = 0; attempt < 12; attempt++) {
+            const response = await fetch('https://www.themainstagent.com/api/instagram-highlights', { cache: 'no-store', signal: AbortSignal.timeout(20000) });
+            // The first run can start before the new endpoint finishes deploying.
+            if (response.status === 404 && attempt < 11) { await setTimeout(20000); continue; }
+            if (!response.ok) throw new Error(`Instagram refresh endpoint returned HTTP ${response.status}. Check the connection in the backoffice.`);
+            const feed = await response.json();
+            if (!feed.configured || feed.refreshFailed || !feed.items?.length) throw new Error('Instagram feed is not healthy. Check the connection in the backoffice.');
+            console.log(`Instagram checked: ${feed.items.length} highlights; latest successful refresh ${feed.syncedAt}.`);
+            break;
+          }
+          JS

@@ -7,7 +7,7 @@ export default async function InstagramFeedPanel() {
   return (
     <div className="rounded-[20px] border border-black/8 bg-white p-6 shadow-[0_12px_30px_rgba(0,0,0,0.05)]">
       <h2 className="text-[22px] font-body font-bold">Automatic Instagram highlights</h2>
-      <p className="mt-2 text-sm leading-relaxed text-black/60">The five newest available posts from your connected account appear on the homepage. Updates are checked every 15 minutes when the site is visited. Images below remain available as a fallback.</p>
+      <p className="mt-2 text-sm leading-relaxed text-black/60">The five newest available posts from your connected account appear on the homepage. New posts are checked automatically every hour. The homepage also refreshes highlights while it is open. Images below remain available as a fallback.</p>
       <p className="mt-3 text-sm font-semibold">{!feed.configured ? "Not connected" : feed.error ? "Connection needs attention" : feed.items.length ? `Connected · ${feed.items.length} posts available` : "Waiting for Instagram posts"}</p>
       {!feed.configured ? <p className="mt-2 text-sm text-black/60">Add INSTAGRAM_ACCESS_TOKEN and INSTAGRAM_USER_ID in Vercel and deploy to connect the feed.</p> : null}
       {feed.error ? <p className="mt-2 text-sm text-[#9f1b20]">{feed.error}</p> : null}
