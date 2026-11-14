@@ -9,11 +9,11 @@ import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
   { name: "Trending", href: "/trending" },
+  { name: "Events", href: "/events" },
   { name: "Music", href: "/music" },
   { name: "Cinema", href: "/cinema" },
   { name: "People", href: "/people" },
   { name: "Sport", href: "/sport" },
-  { name: "Events", href: "/events" },
   { name: "Culture", href: "/culture" },
 ];
 
