@@ -1,3 +1,4 @@
+import EventFeedPanel from "@/components/backoffice/EventFeedPanel";
 import CinemaFeedPanel from "@/components/backoffice/CinemaFeedPanel";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -67,7 +68,7 @@ export default async function BackofficeUpcomingSectionPage({
         </div>
       ) : null}
 
-      {section === "cinema" ? <CinemaFeedPanel /> : null}
+      {section === "cinema" ? <CinemaFeedPanel /> : <EventFeedPanel />}
 
       <UpcomingEditorForm
         section={section}

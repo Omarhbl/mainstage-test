@@ -1,27 +1,33 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import EventHighlights from "@/components/events/EventHighlights";
+import { eventToday, mergeTicketEvents, type EventFeed } from "@/lib/event-feed-data";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import SiteFooter from "@/components/layout/SiteFooter";
-import { formatArticleDate, hasArticleCategory } from "@/lib/articles";
+import { formatArticleDate, hasArticleCategory, getArticleImageStyle } from "@/lib/articles";
 import { usePublicArticles } from "@/lib/use-public-articles";
 import { useUpcomingSettings } from "@/lib/use-upcoming-settings";
 
-const HIGHLIGHT_CARD_WIDTH = 218;
-const HIGHLIGHT_CARD_GAP = 14;
 
 export default function EventsPage() {
   const { sortedCards, articlesMap } = usePublicArticles();
   const upcomingSettings = useUpcomingSettings();
-  const eventHighlights = upcomingSettings.entertainment.filter((item) => item.image);
+  const [feed, setFeed] = useState<EventFeed | null>(null);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const controller = new AbortController();
+    fetch("/api/event-feed", { cache: "no-store", signal: controller.signal })
+      .then((response) => { if (!response.ok) throw new Error("Events unavailable"); return response.json(); })
+      .then((value: EventFeed) => { if (!controller.signal.aborted && Array.isArray(value.items)) setFeed(value); })
+      .catch(() => { /* Keep the editorial fallback available. */ })
+      .finally(() => { if (!controller.signal.aborted) setLoading(false); });
+    return () => controller.abort();
+  }, []);
+  const manual = upcomingSettings.entertainment.filter((item) => item.image && item.releaseDate >= eventToday()).map((item) => ({ ...item, venue: "", city: "", sources: ["editorial"] }));
+  const eventHighlights = mergeTicketEvents([...(feed?.items ?? []), ...manual]);
   const eventArticles = sortedCards.filter((article) => hasArticleCategory(article, "events"));
-  const highlightLoopWidth =
-    (HIGHLIGHT_CARD_WIDTH + HIGHLIGHT_CARD_GAP) * eventHighlights.length;
-  const loopedHighlights = [
-    ...eventHighlights,
-    ...eventHighlights,
-    ...eventHighlights,
-  ];
 
   return (
     <div className="flex min-h-screen flex-col bg-white">
@@ -33,48 +39,7 @@ export default function EventsPage() {
             </h2>
           </div>
 
-          <div className="relative left-1/2 mt-8 w-screen -translate-x-1/2 overflow-hidden py-1">
-            <div
-              className="upcoming-marquee-track flex gap-[14px] hover:[animation-play-state:paused]"
-              style={
-                {
-                  "--upcoming-offset": "-110px",
-                  "--upcoming-shift": `${highlightLoopWidth}px`,
-                  "--upcoming-duration": "22s",
-                } as React.CSSProperties
-              }
-            >
-              {loopedHighlights.map((item, index) => (
-                <article key={`${item.id}-${index}`} className="w-[218px] shrink-0">
-                  <div className="h-[306px] overflow-hidden rounded-[8px] bg-[#e8e2db]">
-                    {item.href ? (
-                      <a href={item.href} className="block h-full w-full">
-                        <img
-                          src={item.image}
-                          alt={item.title}
-                          className="h-full w-full object-cover"
-                        />
-                      </a>
-                    ) : (
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="h-full w-full object-cover"
-                      />
-                    )}
-                  </div>
-                  <div className="pt-3">
-                    <p className="text-[11px] font-body font-semibold text-[rgba(0,0,0,0.48)] uppercase">
-                      {formatArticleDate(item.releaseDate)}
-                    </p>
-                    <h3 className="mt-1 text-[14px] font-body font-semibold leading-[1.35] text-[#181818]">
-                      {item.title}
-                    </h3>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
+          {!eventHighlights.length ? <p role="status" className="mt-8 text-sm text-black/60">{loading ? "Loading upcoming events…" : "Event listings are temporarily unavailable. Please check again shortly."}</p> : <EventHighlights items={eventHighlights} />}
 
           <div className="mt-20">
             <div className="mb-11 flex items-center justify-between gap-6">
@@ -102,6 +67,7 @@ export default function EventsPage() {
                       <img
                         src={article.image}
                         alt={article.title}
+                        style={getArticleImageStyle(article)}
                         className={`h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] ${article.imageClassName ?? ""}`}
                       />
                     </div>
