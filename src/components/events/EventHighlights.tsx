@@ -52,7 +52,7 @@ export default function EventHighlights({ items }: { items: (UpcomingItem & { im
       onPointerLeave={() => { if (!drag.current?.moved) { drag.current = null; track.current?.getAnimations()[0]?.play(); } }}
       onClickCapture={(event) => { if (suppressClick.current) { event.preventDefault(); event.stopPropagation(); suppressClick.current = false; } }}
       onKeyDown={(event) => { if (animate && ["ArrowLeft", "ArrowRight"].includes(event.key)) { event.preventDefault(); seek(Number(track.current?.getAnimations()[0]?.currentTime ?? 0) + (event.key === "ArrowRight" ? 1 : -1) * STEP * duration / shift.current); } }}>
-      {(animate ? [...items, ...items, ...items] : items).map((item, index) => <article key={`${item.id}-${index}`} className={`${item.imageFit === "contain" ? "w-[352px] sm:w-[539px]" : "w-[143px] sm:w-[218px]"} shrink-0`}>
+      {(animate ? [...items, ...items, ...items] : items).map((item, index) => <article key={`${item.id}-${index}`} className={`${item.imageFit === "contain" ? "w-[352px] sm:w-[539px]" : item.image.includes("/event/square_card/") ? "w-[200px] sm:w-[306px]" : "w-[143px] sm:w-[218px]"} shrink-0`}>
         <div className="h-[200px] overflow-hidden rounded-[8px] bg-[#e8e2db] sm:h-[306px]">
           {item.href ? <a href={item.href} target="_blank" rel="noreferrer" className="block h-full w-full"><img draggable={false} src={item.image} alt={item.title} className={`h-full w-full ${item.imageFit === "contain" ? "object-contain" : "object-cover"}`} /></a> : <img draggable={false} src={item.image} alt={item.title} className={`h-full w-full ${item.imageFit === "contain" ? "object-contain" : "object-cover"}`} />}
         </div>
