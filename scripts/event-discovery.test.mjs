@@ -62,3 +62,14 @@ test('snapshot rejects stale and future timestamps and isolates invalid booking 
   assert.equal(validateDiscoveryFeed({ ...feed, sources: [{ ...feed.sources[0], checkedAt: '2026-11-10T12:00:00Z' }] }, now).sources.length, 0);
   assert.equal(validateDiscoveryFeed({ ...feed, sources: [{ ...feed.sources[0], items: [{ ...item, observedAt: '2026-11-10T12:00:00Z' }] }] }, now).sources[0].items.length, 0);
 });
+
+
+test('webook reads an explicit English date and ignores cancellation questions in FAQs', () => {
+  const page = { url: 'https://webook.com/en/MA/rab/sports-event/events/morocco-ethiopia', title: 'Morocco U23 vs Ethiopia U23 Tickets | Rabat | webook.com', raw_content: '# Morocco U23 vs Ethiopia U23\n![Morocco U23 vs Ethiopia U23](https://images.cmscloud.ai/poster.jpg)\nRabat, Morocco\n## About the event\nTuesday, November 17th, 2026 – 3:30 PM\n## FAQs\n### What happens if the match is rescheduled or cancelled?' };
+  const result = discoverEvent(page, now);
+  assert.equal(result.draft, null);
+  assert.equal(result.item.releaseDate, '2026-11-17');
+  assert.equal(result.item.title, 'Morocco U23 vs Ethiopia U23');
+  assert.match(result.item.href, /\/ma\//);
+  assert.equal(discoverEvent({ ...page, raw_content: page.raw_content.replace('## About the event', 'Cancelled\n## About the event') }, now).item, null);
+});

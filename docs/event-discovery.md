@@ -11,7 +11,7 @@
 
 No Vercel environment variable is needed for this importer. GitHub runs it daily
 at 07:37 UTC. GitHub schedules may be delayed. Eight basic searches plus at most
-twenty basic extractions are requested per run; actual billing follows Tavily's
+twenty detail-page extractions plus one webook country-catalogue extraction are requested per run; actual billing follows Tavily's
 plan. This does not create or upgrade a paid account.
 
 ## Publishing rules
@@ -43,3 +43,8 @@ design. Uncertain entries can be verified and entered using existing manual fiel
 
 Run `node --test scripts/event-discovery.test.mjs` and the TypeScript check.
 A successful authenticated Tavily run is required before claiming search is live.
+
+Webook starts from its Morocco catalogue and English month searches. Its main
+event heading supplies the title, full English ordinal dates are supported,
+and the FAQ section is excluded from cancellation checks. The review list is
+no longer displayed in the backoffice; incomplete entries remain unpublished.

@@ -27,10 +27,20 @@ for (const platform of EVENT_SOURCES.filter((source) => source.id !== 'guichet')
   try {
     const domain = ({ iticket: 'iticket.ma', ticket: 'ticket.ma', webook: 'webook.com', eventsma: 'events.ma' })[platform.id];
     const found = new Map();
-    // Eight basic searches and at most twenty extractions per daily run.
+    // Seed webook from its country catalogue; month searches miss English cards.
+    if (platform.id === 'webook') {
+      const catalogue = await tavily('extract', { urls: ['https://webook.com/en/explore/ma'], extract_depth: 'basic', format: 'markdown' });
+      const content = catalogue.results?.[0]?.raw_content ?? '';
+      for (const match of content.matchAll(/(?<!!)\[([^\]]+)\]\(([^\s)]+)(?:\s+"[^"]*")?\)/g)) {
+        let url; try { url = new URL(match[2], 'https://webook.com').href; } catch { continue; }
+        const target = discoverySourceUrl(url);
+        if (target?.source === 'webook') found.set(target.url, { url: target.url, title: match[1] });
+      }
+    }
+    // Eight basic searches, catalogue extraction and up to twenty detail pages.
     for (const month of months) {
       const response = await tavily('search', {
-        query: `site:${domain}${platform.id === 'iticket' ? '/events/' : platform.id === 'ticket' ? '/ticket/' : ''} "${month}" Maroc concerts spectacles billets`,
+        query: platform.id === 'webook' ? `site:webook.com/en/ma/ events Morocco ${new Intl.DateTimeFormat('en-GB', { month: 'long', year: 'numeric' }).format(new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() + months.indexOf(month), 15)))}` : `site:${domain}${platform.id === 'iticket' ? '/events/' : platform.id === 'ticket' ? '/ticket/' : ''} "${month}" Maroc concerts spectacles billets`,
         include_domains: [domain], search_depth: 'basic', max_results: 8,
         include_answer: false, include_raw_content: 'markdown',
       });

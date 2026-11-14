@@ -225,8 +225,9 @@ export function discoverySourceUrl(value: unknown): { source: EventSourceId; url
   const path = url.pathname;
   if (source === "iticket" && !/^\/events\/[^/]+\/[^/]+\/?$/.test(path)) return null;
   if (source === "ticket" && !/^\/ticket\/[^/]+\/[^/]+\/[^/]+\/?$/.test(path)) return null;
-  if (source === "webook" && !/\/ma\/.+\/events\/[^/]+\/?$/.test(path)) return null;
+  if (source === "webook" && !/\/ma\/.+\/events\/[^/]+\/?$/i.test(path)) return null;
   if (source === "eventsma" && (!/^\/[^/]+\/[^/]+\/?$/.test(path) || /chercher-evenements|producteur|organisateur|artistes|categorie|page|contact|termes|privacy/.test(path))) return null;
+  if (source === "webook") url.pathname = url.pathname.replace(/\/ma\//i, "/ma/");
   url.search = ""; url.hash = "";
   return { source, url: url.href };
 }
@@ -237,8 +238,10 @@ export function discoverEvent(input: { url: string; title: string; content?: str
   const target = discoverySourceUrl(input.url);
   if (!target) return { item: null, draft: null };
   const text = String(input.raw_content ?? "").slice(0, 30000);
-  const primary = text.split(/\n#{1,4}\s+(?:autres|related|similar|vous aimerez|événements similaires|other events)/i)[0];
-  const title = String(input.title ?? "").split(/\s+[|–—-]\s+(?:Billets|Tickets|Ticketing|iTicket|Ticket\.ma|webook|Billetterie|Events(?:\.ma)?\b)/i)[0].trim().slice(0, 200);
+  const eventText = target.source === "webook" ? text.split(/^#{1,3}\s+(?:FAQs|80% of people)/im)[0] : text;
+  const primary = eventText.split(/\n#{1,4}\s+(?:autres|related|similar|vous aimerez|événements similaires|other events)/i)[0];
+  const authoritativeTitle = target.source === "webook" ? primary.match(/^#\s+(.+)$/m)?.[1] : undefined;
+  const title = String(authoritativeTitle ?? input.title ?? "").split(/\s+[|–—-]\s+(?:Billets|Tickets|Ticketing|iTicket|Ticket\.ma|webook|Billetterie|Events(?:\.ma)?\b)/i)[0].trim().slice(0, 200);
   const dates = new Set<string>();
   const dateText = primary.replace(/!\[[^\]]*\]\([^)]*\)/g, "").replace(/https?:\/\/\S+/g, "");
   for (const match of dateText.matchAll(/\b(?:\d{4}-\d{2}-\d{2}|\d{2}\/\d{2}\/\d{4})\b/g)) { const date = localDate(match[0]); if (date) dates.add(date); }
@@ -250,6 +253,10 @@ export function discoverEvent(input: { url: string; title: string; content?: str
   const englishMonths = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
   for (const match of normalize(dateText).matchAll(/\b(\d{1,2}) (january|february|march|april|may|june|july|august|september|october|november|december) (20\d{2})\b/g)) {
     const date = localDate(`${match[3]}-${String(englishMonths.indexOf(match[2]) + 1).padStart(2, "0")}-${match[1].padStart(2, "0")}`);
+    if (date) dates.add(date);
+  }
+  for (const match of normalize(dateText).matchAll(/\b(january|february|march|april|may|june|july|august|september|october|november|december) (\d{1,2})(?:st|nd|rd|th)? (20\d{2})\b/g)) {
+    const date = localDate(`${match[3]}-${String(englishMonths.indexOf(match[1]) + 1).padStart(2, "0")}-${match[2].padStart(2, "0")}`);
     if (date) dates.add(date);
   }
   const releaseDate = dates.size === 1 ? [...dates][0] : "";
