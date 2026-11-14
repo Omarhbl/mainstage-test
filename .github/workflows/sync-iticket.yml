@@ -2,12 +2,6 @@ name: Sync iTicket Morocco Events
 
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - '.github/workflows/sync-iticket.yml'
-      - 'scripts/sync-iticket.mjs'
-      - 'src/lib/event-feed-data.ts'
   # Enable after iTicket grants automated access; API and public page currently
   # return HTTP 403 from GitHub-hosted runners (including the initial tests).
   # schedule:
