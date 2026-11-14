@@ -16,6 +16,17 @@ const CITIES = ["Casablanca", "Rabat", "Marrakech", "Agadir", "Fès", "Fes", "Ta
 export function eventToday(now = new Date()) {
   return new Intl.DateTimeFormat("en-CA", { timeZone: "Africa/Casablanca", year: "numeric", month: "2-digit", day: "2-digit" }).format(now);
 }
+export function normalizeGuichetEventUrl(value?: string): string | undefined {
+  if (!value) return value;
+  try {
+    const url = new URL(value);
+    if (url.protocol === "https:" && /^(www\.)?guichet\.com$/.test(url.hostname) && /^\/ma-(fr|en)\/(?!event\/)[^/]+\/[^/]+\/?$/.test(url.pathname)) {
+      url.pathname = url.pathname.replace(/^\/(ma-(?:fr|en))\//, "/$1/event/");
+      return url.href;
+    }
+  } catch { /* Leave unrelated or invalid destinations unchanged. */ }
+  return value;
+}
 export function localDate(value: unknown): string {
   if (typeof value !== "string") return "";
   const french = value.match(/^(\d{2})\/(\d{2})\/(\d{4})/);
@@ -69,7 +80,7 @@ export function parseGuichetEvents(html: string, now = new Date()): TicketEvent[
       if (row.available === false || !String(row.reference ?? "").startsWith("MAEV")) return;
       const city = (row.city as { name?: string }).name ?? "";
       if (!CITIES.some((entry) => normalize(entry) === normalize(city))) return;
-      const item = makeEvent({ id: row.id, title: row.title, image: row.cover, date: row.startAt, href: `https://guichet.com/ma-fr/${row.slug}`, city, venue: (row.place as { name?: string }).name }, "guichet", now);
+      const item = makeEvent({ id: row.id, title: row.title, image: row.cover, date: row.startAt, href: normalizeGuichetEventUrl(`https://guichet.com/ma-fr/${row.slug}`), city, venue: (row.place as { name?: string }).name }, "guichet", now);
       if (item) items.push(item);
     });
   }
@@ -176,7 +187,8 @@ export function mergeTicketEvents(items: TicketEvent[]): TicketEvent[] {
   const key = (title: string) => [...new Set(normalize(title.replace(/\s[-–—|]\s(?:events\.ma|iticket(?:\.ma)?|ticket\.ma|webook(?:\.com)?).*$/i, "")).replace(/\b(aissaouia|aissawiya|aisawiya|aissawa)\b/g, "aissawa").replace(/\byassin\b/g, "yassine").replace(/\beljamai\b/g, "jamai").split(" ").filter((word) => !["en", "concert", "a", "de", "the", "le", "la", "les", "par", "at", "live", "et", "and", "avec", "el"].includes(word)))];
   // Prefer the portrait format, then square, over the Ticket.ma banner format.
   const imagePreference = (item: TicketEvent) => item.imageFit === "contain" ? 0 : item.image.includes("/event/square_card/") ? 1 : 2;
-  for (const item of items) {
+  for (const original of items) {
+    const item = { ...original, href: normalizeGuichetEventUrl(original.href) };
     if (isExcludedEvent(item)) continue;
     const words = key(item.title);
     const existing = result.find((entry) => {

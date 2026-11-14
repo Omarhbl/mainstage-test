@@ -54,3 +54,19 @@ test('cross-platform spelling variants merge and prefer portrait artwork in eith
   }
   assert.equal(mergeTicketEvents([banner, { ...portrait, city: 'Casablanca', venue: 'Other venue' }]).length, 2);
 });
+
+test('Guichet imports and cached links include the required event route once', async () => {
+  const { normalizeGuichetEventUrl, parseGuichetEvents } = await import('../src/lib/event-feed-data.ts');
+  const old = 'https://guichet.com/ma-fr/concerts/hajib-on-tour-concert-a-casablanca-6528';
+  const expected = 'https://guichet.com/ma-fr/event/concerts/hajib-on-tour-concert-a-casablanca-6528';
+  assert.equal(normalizeGuichetEventUrl(old), expected);
+  assert.equal(normalizeGuichetEventUrl(expected), expected);
+  assert.equal(normalizeGuichetEventUrl(old + '?ref=mainstage'), expected + '?ref=mainstage');
+  assert.equal(normalizeGuichetEventUrl(card.href), card.href);
+  const row = { id: 6528, title: 'Hajib On Tour Casablanca', startAt: '2026-11-20', reference: 'MAEV6528', available: true, cover: card.image, city: { name: 'Casablanca' }, place: { name: 'Megarama Casablanca' }, slug: 'concerts/hajib-on-tour-concert-a-casablanca-6528' };
+  const html = `<script>self.__next_f.push(${JSON.stringify([1, '0:' + JSON.stringify(row)])})</script>`;
+  assert.equal(parseGuichetEvents(html, now)[0].href, expected);
+  const cached = { id: 'cached', title: row.title, releaseDate: '2026-11-20', image: card.image, href: old, city: 'Casablanca', venue: 'Megarama Casablanca', sources: ['guichet'] };
+  assert.equal(mergeTicketEvents([cached])[0].href, expected);
+  assert.equal(cached.href, old);
+});
