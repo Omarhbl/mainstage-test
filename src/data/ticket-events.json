@@ -1,0 +1,656 @@
+{
+  "source": "ticket",
+  "syncedAt": "2026-11-14T17:14:38.260Z",
+  "items": [
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/insane-prod/4454/glitched-moan-records-casablanca-2026",
+      "title": "GLITCHED x MOAN RECORDS",
+      "releaseDate": "2026-11-14",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1794244837761-ec6j1b9k7sg.png",
+      "href": "https://www.ticket.ma/ticket/insane-prod/4454/glitched-moan-records-casablanca-2026",
+      "venue": "Misti RoofTop - Casablanca",
+      "city": "Casablanca",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/concerts/4376/hatim-idar-rabat-2026",
+      "title": "HATIM IDAR À RABAT",
+      "releaseDate": "2026-11-14",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1790167315558-quir60c187.png",
+      "href": "https://www.ticket.ma/ticket/concerts/4376/hatim-idar-rabat-2026",
+      "venue": "Salle Bahnini - Rabat",
+      "city": "Rabat",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/conference/4391/learn-and-laugh-casablanca-2026",
+      "title": "Learn And Laugh (by Prestigia Productions)",
+      "releaseDate": "2026-11-14",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1789855714724-1jry7ghl6y4.png",
+      "href": "https://www.ticket.ma/ticket/conference/4391/learn-and-laugh-casablanca-2026",
+      "venue": "Hôtel Le Méridien - Casablanca",
+      "city": "Casablanca",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/concerts/4435/soiree-aissaouia-casablanca-2026",
+      "title": "Soirée Aisawiya 100% Femmes",
+      "releaseDate": "2026-11-15",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1791808837055-40ctm8cngpj.jpg",
+      "href": "https://www.ticket.ma/ticket/concerts/4435/soiree-aissaouia-casablanca-2026",
+      "venue": "Salle de Fête Riad El Asmar - Casablanca",
+      "city": "Casablanca",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/concerts/4464/soiree-exceptionnelle-maxime-casablanca-2026",
+      "title": "Une Soirée exceptionnelle avec le talentueux chanteur Maxime",
+      "releaseDate": "2026-11-15",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1793884210838-krciy97q0e8.jpg",
+      "href": "https://www.ticket.ma/ticket/concerts/4464/soiree-exceptionnelle-maxime-casablanca-2026",
+      "venue": "Villa Privée - Casablanca",
+      "city": "Casablanca",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/spectacles/4451/mounia-ouassif-one-women-show-2026-novembre",
+      "title": "Mounia Ouassif - One women show",
+      "releaseDate": "2026-11-16",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1793271167403-9p729cdcj1a.png",
+      "href": "https://www.ticket.ma/ticket/spectacles/4451/mounia-ouassif-one-women-show-2026-novembre",
+      "venue": "Salle Bahnini - Rabat",
+      "city": "Rabat",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/les-theatrales/3595/adn-casablanca-septembre-2026",
+      "title": "ADN",
+      "releaseDate": "2026-11-19",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1786355945267-2ak040gif92.png",
+      "href": "https://www.ticket.ma/ticket/les-theatrales/3595/adn-casablanca-septembre-2026",
+      "venue": "Studio des arts vivants - Casablanca",
+      "city": "Casablanca",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/opm/4455/beethoven-lindomptable-casa-20-11-20h",
+      "title": "BEETHOVEN L'INDOMPTABLE - CASA 20/11 - 20h",
+      "releaseDate": "2026-11-20",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1793616297386-t9qpp2ql1ma.jpg",
+      "href": "https://www.ticket.ma/ticket/opm/4455/beethoven-lindomptable-casa-20-11-20h",
+      "venue": "Théâtre l'Hermitage - Casablanca",
+      "city": "Casablanca",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/opm/4456/beethoven-lindomptable-casa-21-11-20h",
+      "title": "BEETHOVEN L'INDOMPTABLE - CASA 21/11 - 20h",
+      "releaseDate": "2026-11-21",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1793616417494-pf8k0a7g5j.jpg",
+      "href": "https://www.ticket.ma/ticket/opm/4456/beethoven-lindomptable-casa-21-11-20h",
+      "venue": "Théâtre l'Hermitage - Casablanca",
+      "city": "Casablanca",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/concerts/4393/manal-benchlikha-complexe-mohamed-5-2026",
+      "title": "MANAL BENCHLIKHA — UNE EXPÉRIENCE UNIQUE À CASABLANCA",
+      "releaseDate": "2026-11-21",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1793708494273-1rs28f7pn8t.jpg",
+      "href": "https://www.ticket.ma/ticket/concerts/4393/manal-benchlikha-complexe-mohamed-5-2026",
+      "venue": "Complexe Mohamed V - Casablanca",
+      "city": "Casablanca",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/opm/4457/beethoven-lindomptable-rabat-22-11-17h",
+      "title": "BEETHOVEN L'INDOMPTABLE - RABAT 22/11 - 17h",
+      "releaseDate": "2026-11-22",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1793616599073-4zz0j6kukyi.jpg",
+      "href": "https://www.ticket.ma/ticket/opm/4457/beethoven-lindomptable-rabat-22-11-17h",
+      "venue": "Théâtre National Mohammed V - Rabat",
+      "city": "Rabat",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/spectacles/4459/la-belle-et-la-bete-novembre-2026",
+      "title": "La Belle et la Bête - Casablanca 11H30",
+      "releaseDate": "2026-11-22",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1793707707161-mzbvq1x411.png",
+      "href": "https://www.ticket.ma/ticket/spectacles/4459/la-belle-et-la-bete-novembre-2026",
+      "venue": "Cinéma Mégarama - Casablanca",
+      "city": "Casablanca",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/spectacles/4492/la-belle-et-la-bete-novembre-16h-2026",
+      "title": "La belle et la bête - Casablanca 16h",
+      "releaseDate": "2026-11-22",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1794571642357-ptsnf9h3uc.png",
+      "href": "https://www.ticket.ma/ticket/spectacles/4492/la-belle-et-la-bete-novembre-16h-2026",
+      "venue": "Cinéma Mégarama - Casablanca",
+      "city": "Casablanca",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/peter-pan/4476/peter-pan-on-ice-26-11-19h",
+      "title": "PETER PAN ON ICE - 26/11 - 19h",
+      "releaseDate": "2026-11-26",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1794443046100-184we39btce.png",
+      "href": "https://www.ticket.ma/ticket/peter-pan/4476/peter-pan-on-ice-26-11-19h",
+      "venue": "Patinoire de Rabat - Rabat",
+      "city": "Rabat",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/concerts/4465/soiree-artistique-solidaire-maestro-adnane-matrone-casablanca-2026",
+      "title": "SOIRÉE ARTISTIQUE & SOLIDAIRE – ADNAE MATRONE À CASABLANCA",
+      "releaseDate": "2026-11-26",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1793897963431-t7kc2rfnq2.jpg",
+      "href": "https://www.ticket.ma/ticket/concerts/4465/soiree-artistique-solidaire-maestro-adnane-matrone-casablanca-2026",
+      "venue": "Théâtre l'Hermitage - Casablanca",
+      "city": "Casablanca",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/peter-pan/4477/peter-pan-on-ice-27-11-15h",
+      "title": "PETER PAN ON ICE - 27/11 - 15h",
+      "releaseDate": "2026-11-27",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1794443066132-i5qxb2fnhcg.png",
+      "href": "https://www.ticket.ma/ticket/peter-pan/4477/peter-pan-on-ice-27-11-15h",
+      "venue": "Patinoire de Rabat - Rabat",
+      "city": "Rabat",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/peter-pan/4478/peter-pan-on-ice-27-11-20h",
+      "title": "PETER PAN ON ICE - 27/11 - 20h",
+      "releaseDate": "2026-11-27",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1794443081507-63z8kg5bfci.png",
+      "href": "https://www.ticket.ma/ticket/peter-pan/4478/peter-pan-on-ice-27-11-20h",
+      "venue": "Patinoire de Rabat - Rabat",
+      "city": "Rabat",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/festivals/4382/festival-international-du-caftan-maroc-2026",
+      "title": "FESTIVAL INTERNATIONAL DU CAFTAN MAROC — 11ème ÉDITION",
+      "releaseDate": "2026-11-28",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1789034048750-q7flvljetai.jpg",
+      "href": "https://www.ticket.ma/ticket/festivals/4382/festival-international-du-caftan-maroc-2026",
+      "venue": "Hôtel Hilton Garden Inn - Casablanca Sud",
+      "city": "Casablanca",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/peter-pan/4479/peter-pan-on-ice-28-11-15h",
+      "title": "PETER PAN ON ICE - 28/11 - 15h",
+      "releaseDate": "2026-11-28",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1794443095656-9jjqmy2d5x4.png",
+      "href": "https://www.ticket.ma/ticket/peter-pan/4479/peter-pan-on-ice-28-11-15h",
+      "venue": "Patinoire de Rabat - Rabat",
+      "city": "Rabat",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/peter-pan/4480/peter-pan-on-ice-28-11-20h",
+      "title": "PETER PAN ON ICE - 28/11 - 20h",
+      "releaseDate": "2026-11-28",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1794443109249-va20ac0kba.png",
+      "href": "https://www.ticket.ma/ticket/peter-pan/4480/peter-pan-on-ice-28-11-20h",
+      "venue": "Patinoire de Rabat - Rabat",
+      "city": "Rabat",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/loisirs/4461/formula-1-grand-prix-de-qatar-2026",
+      "title": "FORMULA 1 QATAR AIRWAYS QATAR GRAND PRIX",
+      "releaseDate": "2026-11-29",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1793806994766-7w9nbxdz3g4.png",
+      "href": "https://www.ticket.ma/ticket/loisirs/4461/formula-1-grand-prix-de-qatar-2026",
+      "venue": "Royal Hideaway Casablanca - Casablanca",
+      "city": "Casablanca",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/peter-pan/4481/peter-pan-on-ice-29-11-12h",
+      "title": "PETER PAN ON ICE - 29/11 - 12h",
+      "releaseDate": "2026-11-29",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1794443122256-e9u733cww2g.png",
+      "href": "https://www.ticket.ma/ticket/peter-pan/4481/peter-pan-on-ice-29-11-12h",
+      "venue": "Patinoire de Rabat - Rabat",
+      "city": "Rabat",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/peter-pan/4482/peter-pan-on-ice-29-11-17h",
+      "title": "PETER PAN ON ICE - 29/11 - 17h",
+      "releaseDate": "2026-11-29",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1794443135363-svpsv9s48qs.png",
+      "href": "https://www.ticket.ma/ticket/peter-pan/4482/peter-pan-on-ice-29-11-17h",
+      "venue": "Patinoire de Rabat - Rabat",
+      "city": "Rabat",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/underground/4136/abba-tribute-live-show-casablanca-2026",
+      "title": "ABBA Tribute Live Show – Casablanca",
+      "releaseDate": "2026-12-01",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1794228394106-tpj8wvhlv3q.png",
+      "href": "https://www.ticket.ma/ticket/underground/4136/abba-tribute-live-show-casablanca-2026",
+      "venue": "Théâtre l'Hermitage - Casablanca",
+      "city": "Casablanca",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/underground/4134/abba-tribute%C3%A8live-show-marrakech-2026",
+      "title": "ABBA Tribute Live Show – Marrakech",
+      "releaseDate": "2026-12-01",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1786028366256-hdbfxrzig4w.png",
+      "href": "https://www.ticket.ma/ticket/underground/4134/abba-tribute%C3%A8live-show-marrakech-2026",
+      "venue": "Cinéma Mégarama - Marrakech",
+      "city": "Marrakech",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/underground/4135/abba-tribute-live-show-rabat-2026",
+      "title": "ABBA Tribute Live Show – Rabat",
+      "releaseDate": "2026-12-02",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1777904124862-4otesf6bg2v.png",
+      "href": "https://www.ticket.ma/ticket/underground/4135/abba-tribute-live-show-rabat-2026",
+      "venue": "Théâtre National Mohammed V - Rabat",
+      "city": "Rabat",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/underground/3893/abba-tribute-live-show-a-tanger-2026",
+      "title": "ABBA Tribute Live Show – Tanger",
+      "releaseDate": "2026-12-03",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1785316629844-rzjg7jormr.png",
+      "href": "https://www.ticket.ma/ticket/underground/3893/abba-tribute-live-show-a-tanger-2026",
+      "venue": "Palais des Arts et de la Culture - Tanger",
+      "city": "Tanger",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/les-theatrales/4389/le-diner-de-cons-2026",
+      "title": "Le Dîner de cons",
+      "releaseDate": "2026-12-03",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1789750862218-eoydbi13hbm.png",
+      "href": "https://www.ticket.ma/ticket/les-theatrales/4389/le-diner-de-cons-2026",
+      "venue": "Studio des arts vivants - Casablanca",
+      "city": "Casablanca",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/concerts/4475/valse-sans-frontieres-a-casa-2026",
+      "title": "Valse sans frontières à Casablanca – Quand Vienne rencontre l’Orient",
+      "releaseDate": "2026-12-03",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1794406497009-qxqyolqmcjc.png",
+      "href": "https://www.ticket.ma/ticket/concerts/4475/valse-sans-frontieres-a-casa-2026",
+      "venue": "Église Notre-Dame-de-Lourdes - Casablanca",
+      "city": "Casablanca",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/concerts/4468/soiree-aissaouia-yassine-jamai-4-decembre-2026",
+      "title": "Soirée Aissaouia - Yassine Jamaï",
+      "releaseDate": "2026-12-04",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1794225553052-p2po0qyru4i.png",
+      "href": "https://www.ticket.ma/ticket/concerts/4468/soiree-aissaouia-yassine-jamai-4-decembre-2026",
+      "venue": "Salle Bahnini - Rabat",
+      "city": "Rabat",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/concerts/4441/valse-sans-frontieres-a-rabat-decembre-2026",
+      "title": "Valse sans frontières à Rabat – Quand Vienne rencontre l’Orient",
+      "releaseDate": "2026-12-04",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1792585876440-igi4cqrc4m.jpg",
+      "href": "https://www.ticket.ma/ticket/concerts/4441/valse-sans-frontieres-a-rabat-decembre-2026",
+      "venue": "Cathédrale Saint Pierre - Rabat",
+      "city": "Rabat",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/concerts/4473/moultaqa-andalousiat-meknes-2026",
+      "title": "ملتقى أندلسيات مكناس",
+      "releaseDate": "2026-12-05",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1794664779446-56i7zutyws9.jpg",
+      "href": "https://www.ticket.ma/ticket/concerts/4473/moultaqa-andalousiat-meknes-2026",
+      "venue": "Maison de La Culture Fkih Lamnnouni - Meknes",
+      "city": "Meknès",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/loisirs/4463/formula-1-grand-prix-de-abu-dhabi-2026",
+      "title": "FORMULA 1 ETIHAD AIRWAYS ABU DHABI GRAND PRIX",
+      "releaseDate": "2026-12-06",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1793807128086-dgft20gpah7.png",
+      "href": "https://www.ticket.ma/ticket/loisirs/4463/formula-1-grand-prix-de-abu-dhabi-2026",
+      "venue": "Royal Hideaway Casablanca - Casablanca",
+      "city": "Casablanca",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/les-theatrales/3881/naim-chapitre-3-rabat-2026",
+      "title": "« NAÏM » Chapitre III - Rabat",
+      "releaseDate": "2026-12-10",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1778518446838-r3ykcoa1cml.png",
+      "href": "https://www.ticket.ma/ticket/les-theatrales/3881/naim-chapitre-3-rabat-2026",
+      "venue": "Théâtre National Mohammed V - Rabat",
+      "city": "Rabat",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/concerts/4466/stormy-desperado-casablanca-date-supplementaire-2026",
+      "title": "STORMY - DESPERADO 2ÈME DATE - CASABLANCA",
+      "releaseDate": "2026-12-11",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1794061150646-mzcchdmdkmp.jpg",
+      "href": "https://www.ticket.ma/ticket/concerts/4466/stormy-desperado-casablanca-date-supplementaire-2026",
+      "venue": "Complexe sportif Mohamed V - Casablanca",
+      "city": "Casablanca",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/les-theatrales/3883/naim-chapitre-3-casablanca-2026",
+      "title": "« NAÏM » Chapitre III - Casablanca",
+      "releaseDate": "2026-12-12",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1778518482249-23eny07xdx6.png",
+      "href": "https://www.ticket.ma/ticket/les-theatrales/3883/naim-chapitre-3-casablanca-2026",
+      "venue": "Cinéma Mégarama - Casablanca",
+      "city": "Casablanca",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/conference/4431/agile-en-med-casablanca-2026",
+      "title": "Agile En Med Maroc 2026",
+      "releaseDate": "2026-12-12",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1791474988177-51q82ls8iha.png",
+      "href": "https://www.ticket.ma/ticket/conference/4431/agile-en-med-casablanca-2026",
+      "venue": "Université Mundiapolis, Campus Anfa - Casablanca",
+      "city": "Casablanca",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/tendansia/4447/mystery-le-matre-des-illusions-spectacle-pour-enfants-marrakech-11h",
+      "title": "MYSTERY: Le Maître des Illusions - Spectacle pour enfants à Marrakech 11H",
+      "releaseDate": "2026-12-12",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1793370958440-bt17jrz7cwh.jpg",
+      "href": "https://www.ticket.ma/ticket/tendansia/4447/mystery-le-matre-des-illusions-spectacle-pour-enfants-marrakech-11h",
+      "venue": "Meydene - Marrakech",
+      "city": "Marrakech",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/tendansia/4449/mystery-le-matre-des-illusions-spectacle-pour-enfants-marrakech-15h",
+      "title": "MYSTERY: Le Maître des Illusions - Spectacle pour enfants à Marrakech 15H",
+      "releaseDate": "2026-12-12",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1793371004088-z6zd42ppztj.jpg",
+      "href": "https://www.ticket.ma/ticket/tendansia/4449/mystery-le-matre-des-illusions-spectacle-pour-enfants-marrakech-15h",
+      "venue": "Meydene - Marrakech",
+      "city": "Marrakech",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/concerts/4467/rnboi-rabat-decembre-2026",
+      "title": "ELGRANDETOTO X RNBOI : LIVE À RABAT",
+      "releaseDate": "2026-12-13",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1794675685066-uc44ngauvy.png",
+      "href": "https://www.ticket.ma/ticket/concerts/4467/rnboi-rabat-decembre-2026",
+      "venue": "Sofitel Rabat - Rabat",
+      "city": "Rabat",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/tendansia/4445/mystery-le-maitre-des-illusions-11h30-casablanca-2026",
+      "title": "MYSTERY: Le Maître des Illusions - Spectacle pour enfants à Casablanca 11H30",
+      "releaseDate": "2026-12-13",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1793370836471-4oce3gjlees.jpg",
+      "href": "https://www.ticket.ma/ticket/tendansia/4445/mystery-le-maitre-des-illusions-11h30-casablanca-2026",
+      "venue": "Studio des arts vivants - Casablanca",
+      "city": "Casablanca",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/tendansia/4446/mystery-le-maitre-des-illusions-15h-casa-2026",
+      "title": "MYSTERY: Le Maître des Illusions - Spectacle pour enfants à Casablanca 15H",
+      "releaseDate": "2026-12-13",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1793370869792-e8ki26iqvjf.jpg",
+      "href": "https://www.ticket.ma/ticket/tendansia/4446/mystery-le-maitre-des-illusions-15h-casa-2026",
+      "venue": "Studio des arts vivants - Casablanca",
+      "city": "Casablanca",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/tendansia/4448/mystery-le-maitre-des-illusions-17h30-casablanca-2026",
+      "title": "MYSTERY: Le Maître des Illusions - Spectacle pour enfants à Casablanca 17H30",
+      "releaseDate": "2026-12-13",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1793370908094-uz7al0yx7j.jpg",
+      "href": "https://www.ticket.ma/ticket/tendansia/4448/mystery-le-maitre-des-illusions-17h30-casablanca-2026",
+      "venue": "Studio des arts vivants - Casablanca",
+      "city": "Casablanca",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/concerts/4493/pink-floyd-tribute-2026",
+      "title": "Pink floyd tribute",
+      "releaseDate": "2026-12-19",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1794583134706-6yq1kq1bj39.png",
+      "href": "https://www.ticket.ma/ticket/concerts/4493/pink-floyd-tribute-2026",
+      "venue": "Théâtre abdessamad kenfaoui - Casablanca",
+      "city": "Casablanca",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/concerts/4439/gala-benkirane-100-femmes-decembre-2026",
+      "title": "GALA BENKIRANE - 100% FEMMES",
+      "releaseDate": "2026-12-20",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1792422114772-5u8dp6x4ago.jpg",
+      "href": "https://www.ticket.ma/ticket/concerts/4439/gala-benkirane-100-femmes-decembre-2026",
+      "venue": "Salle de Fête Riad El Asmar - Casablanca",
+      "city": "Casablanca",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/concerts/4474/shine-in-black-chaimaa-rbatia-2026",
+      "title": "SHINE IN BLACK – COCKTAIL DÎNATOIRE",
+      "releaseDate": "2026-12-26",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1794504008080-oyywmuy8yjr.jpg",
+      "href": "https://www.ticket.ma/ticket/concerts/4474/shine-in-black-chaimaa-rbatia-2026",
+      "venue": "Marriott - Rabat",
+      "city": "Rabat",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/concerts/4450/walid-rahmani-noureddine-rajraji-marrakech-2026",
+      "title": "WALID RAHMANI & NOUREDDINE RAJRAJI - Marrakech",
+      "releaseDate": "2026-12-26",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1793210919958-2oo3ro13f3.png",
+      "href": "https://www.ticket.ma/ticket/concerts/4450/walid-rahmani-noureddine-rajraji-marrakech-2026",
+      "venue": "Palais des Festivals et des Congrès - Marrakech",
+      "city": "Marrakech",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/underground/4470/daft-punk-marrakech-2027",
+      "title": "DAFT PUNK TRIBUTE À MARRAKECH",
+      "releaseDate": "2027-01-08",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1794229621485-s2cxvwsq1gf.png",
+      "href": "https://www.ticket.ma/ticket/underground/4470/daft-punk-marrakech-2027",
+      "venue": "Palais des Festivals et des Congrès - Marrakech",
+      "city": "Marrakech",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/underground/4471/daft-punk-tribute-rabat-2027",
+      "title": "DAFT PUNK TRIBUTE À RABAT",
+      "releaseDate": "2027-01-09",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1794323384373-ou9przv1hk.png",
+      "href": "https://www.ticket.ma/ticket/underground/4471/daft-punk-tribute-rabat-2027",
+      "venue": "Théâtre National Mohammed V - Rabat",
+      "city": "Rabat",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    },
+    {
+      "id": "ticket-https://www.ticket.ma/ticket/spectacles/4422/le-grand-cirque-international-de-russie-grand-gala-a-casa-2027",
+      "title": "Le Grand Cirque International de Russie - Casablanca",
+      "releaseDate": "2027-01-09",
+      "image": "https://ticket-assets.s3.us-east-1.amazonaws.com/categories/1790433543741-0nhp2e0bzjur.png",
+      "href": "https://www.ticket.ma/ticket/spectacles/4422/le-grand-cirque-international-de-russie-grand-gala-a-casa-2027",
+      "venue": "Complexe Mohamed V - Casablanca",
+      "city": "Casablanca",
+      "sources": [
+        "ticket"
+      ],
+      "imageFit": "contain"
+    }
+  ]
+}

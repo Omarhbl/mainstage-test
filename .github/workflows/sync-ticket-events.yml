@@ -2,11 +2,8 @@ name: Sync Ticket.ma Morocco Events
 
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - 'scripts/sync-ticket-events.mjs'
-      - '.github/workflows/sync-ticket-events.yml'
+  # Hosted browser tested on 2026-11-14: Ticket.ma returned HTTP 403.
+  # Keep manual-only until automated access is available.
 
 permissions:
   contents: write
