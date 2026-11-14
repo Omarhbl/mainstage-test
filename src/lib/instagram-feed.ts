@@ -21,7 +21,8 @@ export async function getInstagramFeed(force = false): Promise<InstagramFeed> {
   const recent = syncedAt && Date.now() - Date.parse(syncedAt) < MAX_STALE;
   // Validate stored media again before passing it to the public page.
   const items = recent && Array.isArray(saved?.items) ? parseInstagramHighlights({ data: saved.items.filter((item) => item && typeof item === "object").map((item) => ({ media_url: item.image, permalink: item.href, caption: item.alt })) }) : [];
-  if (!force && !instagramRefreshDue(checkedAt)) {
+  const retryFailedRefresh = Boolean(saved?.error) && Date.now() - Date.parse(checkedAt) >= 5 * 60 * 1000;
+  if (!force && !retryFailedRefresh && !instagramRefreshDue(checkedAt)) {
     return { ...empty, items, syncedAt, checkedAt, error: typeof saved?.error === "string" ? saved.error : null };
   }
   let next: Snapshot;
@@ -30,7 +31,7 @@ export async function getInstagramFeed(force = false): Promise<InstagramFeed> {
     const url = new URL(`https://graph.facebook.com/v27.0/${userId}/media`);
     url.searchParams.set("fields", "id,caption,media_type,media_url,thumbnail_url,permalink,timestamp");
     url.searchParams.set("limit", "25");
-    const response = await fetch(url, { headers: { Authorization: `Bearer ${token}` }, cache: "no-store", signal: AbortSignal.timeout(6000) });
+    const response = await fetch(url, { headers: { Authorization: `Bearer ${token}` }, cache: "no-store", signal: AbortSignal.timeout(15000) });
     const payload = await response.json();
     if (!response.ok || payload.error) {
       const code = Number(payload?.error?.code);
