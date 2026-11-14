@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import type { CinemaFeed } from "@/lib/cinema-feed-data";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import SiteFooter from "@/components/layout/SiteFooter";
 import { formatReleaseDate } from "@/lib/upcoming";
 import { formatArticleDate, hasArticleCategory, getArticleImageStyle } from "@/lib/articles";
@@ -43,10 +43,6 @@ export default function CinemaPage() {
     const animation = movieTrack.current?.getAnimations()[0];
     if (animation) animation.currentTime = ((time % duration) + duration) % duration;
   }
-  function stepMovies(direction: number) {
-    const animation = movieTrack.current?.getAnimations()[0];
-    if (animation && releaseLoopWidth) seekMovies(Number(animation.currentTime ?? 0) + direction * (RELEASE_CARD_WIDTH + RELEASE_CARD_GAP) * duration / releaseLoopWidth);
-  }
   function startMovieDrag(event: React.PointerEvent<HTMLDivElement>) {
     if (!animateReleases || (event.pointerType === "mouse" && event.button !== 0)) return;
     const animation = movieTrack.current?.getAnimations()[0];
@@ -73,10 +69,7 @@ export default function CinemaPage() {
             </h2>
             <div className="mt-4 flex items-center gap-3">
               {(["now", "upcoming"] as const).map((value) => <button key={value} type="button" aria-pressed={tab === value} onClick={() => setTab(value)} className={`rounded-full border px-4 py-2 text-sm font-body font-semibold ${tab === value ? "border-[#CE2127] bg-[#CE2127] text-white" : "border-black/15 text-black/65"}`}>{value === "now" ? "Now showing" : "Upcoming"}</button>)}
-              {animateReleases ? <div className="ml-auto flex gap-2">
-                <button type="button" aria-label="Previous movies" onClick={() => stepMovies(-1)} className="rounded-full border border-black/15 p-2 text-black/65 hover:bg-black/5"><ChevronLeft size={20} /></button>
-                <button type="button" aria-label="Next movies" onClick={() => stepMovies(1)} className="rounded-full border border-black/15 p-2 text-black/65 hover:bg-black/5"><ChevronRight size={20} /></button>
-              </div> : null}
+
             </div>
           </div>
 

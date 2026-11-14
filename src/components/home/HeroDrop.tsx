@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { X } from "lucide-react";
@@ -35,7 +35,23 @@ export default function HeroDrop({
       ? slides.filter((slide) => slide.title && slide.category && slide.href && slide.media)
       : [{ title, category, href, media }];
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
+  const [slideDirection, setSlideDirection] = useState(1);
   const activeSlide = normalizedSlides[activeSlideIndex] ?? normalizedSlides[0];
+  const heroBackground = useRef<HTMLDivElement>(null);
+  const swipe = useRef<{ id: number; x: number; y: number; moved: boolean } | null>(null);
+  const suppressClick = useRef(false);
+  function finishSwipe(event: React.PointerEvent<HTMLElement>) {
+    const current = swipe.current;
+    if (!current || current.id !== event.pointerId) return;
+    swipe.current = null;
+    if (heroBackground.current) heroBackground.current.style.transform = "";
+    if (current.moved && Math.abs(event.clientX - current.x) > 50 && event.type !== "pointercancel") {
+      const direction = event.clientX < current.x ? 1 : -1;
+      setSlideDirection(direction);
+      setActiveSlideIndex((index) => (index + direction + normalizedSlides.length) % normalizedSlides.length);
+    }
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) event.currentTarget.releasePointerCapture(event.pointerId);
+  }
 
   // Close on Escape key
   useEffect(() => {
@@ -58,22 +74,58 @@ export default function HeroDrop({
     }
 
     const interval = window.setInterval(() => {
-      setActiveSlideIndex((current) => (current + 1) % normalizedSlides.length);
+      if (!swipe.current) {
+        setSlideDirection(1);
+        setActiveSlideIndex((current) => (current + 1) % normalizedSlides.length);
+      }
     }, 6000);
 
     return () => window.clearInterval(interval);
-  }, [normalizedSlides.length]);
+  }, [normalizedSlides.length, activeSlideIndex]);
 
   return (
-    <section className="relative flex min-h-[68vh] w-full items-end overflow-hidden border-b border-border-main">
+    <section
+      className="relative flex min-h-[68vh] w-full touch-pan-y select-none items-end overflow-hidden border-b border-border-main cursor-grab active:cursor-grabbing"
+      aria-roledescription="carousel" aria-label="Featured stories"
+      onDragStart={(event) => event.preventDefault()}
+      onPointerDown={(event) => {
+        if (normalizedSlides.length < 2 || isFeedOpen || (event.pointerType === "mouse" && event.button !== 0)) return;
+        suppressClick.current = false;
+        swipe.current = { id: event.pointerId, x: event.clientX, y: event.clientY, moved: false };
+      }}
+      onPointerMove={(event) => {
+        const current = swipe.current;
+        if (!current || current.id !== event.pointerId) return;
+        const delta = event.clientX - current.x;
+        if (!current.moved && Math.abs(delta) > 8 && Math.abs(delta) > Math.abs(event.clientY - current.y)) {
+          current.moved = true;
+          suppressClick.current = true;
+          event.currentTarget.setPointerCapture(event.pointerId);
+        }
+        if (current.moved && heroBackground.current) heroBackground.current.style.transform = `translateX(${Math.max(-100, Math.min(100, delta * 0.3))}px)`;
+      }}
+      onPointerUp={finishSwipe} onPointerCancel={finishSwipe} onLostPointerCapture={finishSwipe}
+      onPointerLeave={() => { if (!swipe.current?.moved) swipe.current = null; }}
+      onClickCapture={(event) => { if (suppressClick.current) { event.preventDefault(); event.stopPropagation(); suppressClick.current = false; } }}
+      onKeyDown={(event) => {
+        if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+        event.preventDefault();
+        setSlideDirection(event.key === "ArrowRight" ? 1 : -1);
+        setActiveSlideIndex((index) => (index + (event.key === "ArrowRight" ? 1 : -1) + normalizedSlides.length) % normalizedSlides.length);
+      }}
+    >
       {/* Background Video */}
-      <div className="absolute inset-0 z-0">
-        <AnimatePresence initial={false} mode="sync">
+      <div ref={heroBackground} className="absolute inset-0 z-0">
+        <AnimatePresence initial={false} mode="sync" custom={slideDirection}>
           <motion.div
             key={`${activeSlide.media}-${activeSlideIndex}`}
-            initial={{ x: "100%", opacity: 0.9 }}
-            animate={{ x: "0%", opacity: 1 }}
-            exit={{ x: "-100%", opacity: 0.9 }}
+            custom={slideDirection}
+            variants={{
+              enter: (direction: number) => ({ x: direction > 0 ? "100%" : "-100%", opacity: 0.9 }),
+              center: { x: "0%", opacity: 1 },
+              exit: (direction: number) => ({ x: direction > 0 ? "-100%" : "100%", opacity: 0.9 }),
+            }}
+            initial="enter" animate="center" exit="exit"
             transition={{
               x: { duration: 1.15, ease: [0.22, 1, 0.36, 1] },
               opacity: { duration: 0.9, ease: "easeOut" },
@@ -93,6 +145,7 @@ export default function HeroDrop({
               </video>
             ) : (
               <img
+                draggable={false}
                 src={activeSlide.media}
                 alt={activeSlide.title}
                 className="h-full w-full scale-[1.02] object-cover [object-position:var(--slide-mobile-position)] md:[object-position:var(--slide-desktop-position)]"
