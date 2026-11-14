@@ -169,3 +169,15 @@ export function parseIticketCatalogue(payload: unknown, now = new Date()): Ticke
   });
   return mergeTicketEvents(items);
 }
+
+export function parseIticketSnapshot(payload: unknown, now = new Date()): { items: TicketEvent[]; syncedAt: string } {
+  const feed = payload as { source?: string; syncedAt?: string; items?: TicketEvent[] };
+  const age = now.getTime() - Date.parse(feed?.syncedAt ?? '');
+  if (feed?.source !== 'iticket' || !Array.isArray(feed.items) || !Number.isFinite(age) || age < -300000 || age > 24 * 60 * 60 * 1000) throw new Error('Scheduled iTicket feed is unavailable or stale.');
+  const items = feed.items.flatMap((row) => {
+    const item = makeEvent({ id: row.id, title: row.title, image: row.image, date: row.releaseDate, href: row.href, venue: row.venue, city: row.city }, 'iticket', now);
+    if (!item || !new URL(item.href!).hostname.match(/^(www\.)?iticket\.ma$/)) return [];
+    return [{ ...item, id: row.id }];
+  });
+  return { items: mergeTicketEvents(items), syncedAt: feed.syncedAt! };
+}

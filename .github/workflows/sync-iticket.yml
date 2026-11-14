@@ -1,0 +1,42 @@
+name: Sync iTicket Morocco Events
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/sync-iticket.yml'
+      - 'scripts/sync-iticket.mjs'
+      - 'src/lib/event-feed-data.ts'
+  schedule:
+    - cron: '23 */6 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-iticket
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.18.0'
+      - name: Import public iTicket events
+        run: node scripts/sync-iticket.mjs
+      - name: Publish catalogue
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add src/data/iticket-events.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Update iTicket Morocco event catalogue'
+          git pull --rebase origin main
+          git push origin HEAD:main
