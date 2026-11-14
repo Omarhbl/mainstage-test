@@ -17,7 +17,9 @@ export async function getEventFeed(force = false): Promise<EventFeed> {
     const previous = saved?.sources?.find((entry) => entry.id === source.id);
     const valid = previous?.syncedAt && now.getTime() - Date.parse(previous.syncedAt) < 24 * HOURS;
     const cached = { id: source.id, name: source.name, items: valid && Array.isArray(previous?.items) ? previous.items.filter((event) => event.releaseDate >= today) : [], checkedAt: previous?.checkedAt ?? "", syncedAt: previous?.syncedAt ?? null, error: previous?.error ?? null, method: previous?.method };
-    if (!force && now.getTime() - Date.parse(cached.checkedAt) < (cached.error ? HOURS : 6 * HOURS)) return cached;
+    const discovered = discovery.feed?.sources.find((entry) => entry.id === source.id);
+    const hasNewDiscovery = discovered && !discovered.error && (cached.error || cached.method === "search") && Date.parse(discovered.checkedAt) > Date.parse(cached.syncedAt || "1970-01-01");
+    if (!force && !hasNewDiscovery && now.getTime() - Date.parse(cached.checkedAt) < (cached.error ? HOURS : 6 * HOURS)) return cached;
     changed = true;
     try {
       const url = source.id === "iticket" ? "https://raw.githubusercontent.com/Omarhbl/mainstage-test/main/src/data/iticket-events.json" : source.url;
