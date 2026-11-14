@@ -8,8 +8,8 @@ export const EVENT_SOURCES = [
   { id: "eventsma", name: "Events.ma", url: "https://www.events.ma/chercher-evenements" },
 ] as const;
 export type EventSourceId = (typeof EVENT_SOURCES)[number]["id"];
-export type TicketEvent = UpcomingItem & { venue: string; city: string; sources: string[]; observedAt?: string };
-export type EventSourceState = { id: EventSourceId; name: string; items: TicketEvent[]; checkedAt: string; syncedAt: string | null; error: string | null; method?: "direct" | "search" };
+export type TicketEvent = UpcomingItem & { venue: string; city: string; sources: string[]; observedAt?: string; imageFit?: "contain" };
+export type EventSourceState = { id: EventSourceId; name: string; items: TicketEvent[]; checkedAt: string; syncedAt: string | null; error: string | null; method?: "direct" | "search" | "browser" };
 export type EventFeed = { items: TicketEvent[]; sources: EventSourceState[]; checkedAt: string; error: string | null };
 const normalize = (value: string) => value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
 const CITIES = ["Casablanca", "Rabat", "Marrakech", "Agadir", "Fès", "Fes", "Tanger", "Tangier", "Essaouira", "Meknès", "Kénitra", "Oujda", "Tétouan", "El Jadida", "Bouskoura", "Salé", "Safi", "Dakhla", "Ifrane", "Skhirat", "Béni Mellal", "Khouribga", "Laâyoune", "Mohammedia", "Bouznika", "Berkane", "Ouarzazate", "Nador"];
@@ -114,6 +114,33 @@ export function parseTicketEvents(payload: unknown, now = new Date()): TicketEve
     return item ? [item] : [];
   }));
 }
+
+export type TicketRenderedCard = { title: string; href: string; image: string; dateText: string; venue: string; statusText: string; soldOut: boolean };
+export function parseTicketRenderedCards(cards: TicketRenderedCard[], now = new Date()): TicketEvent[] {
+  const months = ["janvier", "fevrier", "mars", "avril", "mai", "juin", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"];
+  return mergeTicketEvents(cards.flatMap((card) => {
+    if (!card || typeof card.venue !== "string" || typeof card.dateText !== "string") return [];
+    if (card.soldOut || /\b(annule|reporte|sold out|complet)\b/.test(normalize(card.statusText ?? ""))) return [];
+    const target = discoverySourceUrl(card.href);
+    const date = normalize(card.dateText).match(/\b(\d{1,2}) (janvier|fevrier|mars|avril|mai|juin|juillet|aout|septembre|octobre|novembre|decembre) (20\d{2})\b/);
+    const city = CITIES.find((entry) => normalize(card.venue).includes(normalize(entry)));
+    if (target?.source !== "ticket" || !date || !city) return [];
+    const item = makeEvent({ id: target.url, title: card.title, image: card.image, date: `${date[3]}-${String(months.indexOf(date[2]) + 1).padStart(2, "0")}-${date[1].padStart(2, "0")}`, href: target.url, venue: card.venue, city }, "ticket", now);
+    return item ? [{ ...item, imageFit: "contain" as const }] : [];
+  }));
+}
+
+export function parseTicketSnapshot(payload: unknown, now = new Date()): { items: TicketEvent[]; syncedAt: string } {
+  const feed = payload as { source?: string; syncedAt?: string; items?: TicketEvent[] };
+  const age = now.getTime() - Date.parse(feed?.syncedAt ?? "");
+  if (feed?.source !== "ticket" || !Array.isArray(feed.items) || !Number.isFinite(age) || age < -300000 || age > 24 * 60 * 60 * 1000) throw new Error("Scheduled Ticket.ma feed is unavailable or stale.");
+  const items = feed.items.flatMap((row) => {
+    if (!row || discoverySourceUrl(row.href)?.source !== "ticket" || !CITIES.some((city) => normalize(city) === normalize(row.city ?? ""))) return [];
+    const item = makeEvent({ id: row.id, title: row.title, image: row.image, date: row.releaseDate, href: row.href, venue: row.venue, city: row.city }, "ticket", now);
+    return item ? [{ ...item, id: row.id, imageFit: "contain" as const }] : [];
+  });
+  return { items: mergeTicketEvents(items), syncedAt: feed.syncedAt! };
+}
 export function parseStructuredEvents(html: string, source: "webook" | "eventsma", now = new Date()): TicketEvent[] {
   const items: TicketEvent[] = []; let recognized = false;
   for (const match of html.matchAll(/<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/g)) {
@@ -142,6 +169,8 @@ export function mergeTicketEvents(items: TicketEvent[]): TicketEvent[] {
     const existing = result.find((entry) => {
       if (entry.href === item.href) return true;
       if (entry.releaseDate !== item.releaseDate) return false;
+      const time = (title: string) => title.match(/\b(\d{1,2})[h:](\d{2})?\b/i)?.slice(1).join(":");
+      if (time(entry.title) && time(item.title) && time(entry.title) !== time(item.title)) return false;
       const samePlace = entry.venue && item.venue && normalize(entry.venue) === normalize(item.venue);
       const sameCity = entry.city && item.city && normalize(entry.city) === normalize(item.city);
       if (!samePlace && !sameCity) return false;

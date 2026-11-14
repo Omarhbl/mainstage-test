@@ -1,7 +1,7 @@
 import "server-only";
 import { createSupabaseAdminClient } from "@/lib/supabase/server";
 import { getEventDiscovery } from "@/lib/event-discovery";
-import { EVENT_SOURCES, eventToday, mergeTicketEvents, parseGuichetEvents, parseIticketSnapshot, parseStructuredEvents, parseTicketEvents, type EventFeed, type EventSourceState } from "@/lib/event-feed-data";
+import { EVENT_SOURCES, eventToday, mergeTicketEvents, parseGuichetEvents, parseIticketSnapshot, parseStructuredEvents, parseTicketEvents, parseTicketSnapshot, type EventFeed, type EventSourceState } from "@/lib/event-feed-data";
 const HOURS = 60 * 60 * 1000;
 const HEADERS = { "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36", "Accept-Language": "fr-FR,fr;q=0.9" };
 export async function getEventFeed(force = false): Promise<EventFeed> {
@@ -19,9 +19,17 @@ export async function getEventFeed(force = false): Promise<EventFeed> {
     const cached = { id: source.id, name: source.name, items: valid && Array.isArray(previous?.items) ? previous.items.filter((event) => event.releaseDate >= today) : [], checkedAt: previous?.checkedAt ?? "", syncedAt: previous?.syncedAt ?? null, error: previous?.error ?? null, method: previous?.method };
     const discovered = discovery.feed?.sources.find((entry) => entry.id === source.id);
     const hasNewDiscovery = discovered && !discovered.error && (cached.error || cached.method === "search") && Date.parse(discovered.checkedAt) > Date.parse(cached.syncedAt || "1970-01-01");
-    if (!force && !hasNewDiscovery && now.getTime() - Date.parse(cached.checkedAt) < (cached.error ? HOURS : 6 * HOURS)) return cached;
+    if (!force && !(source.id === "ticket" && cached.method !== "browser") && !hasNewDiscovery && now.getTime() - Date.parse(cached.checkedAt) < (cached.error ? HOURS : 6 * HOURS)) return cached;
     changed = true;
     try {
+      if (source.id === "ticket") {
+        try {
+          const snapshotResponse = await fetch("https://raw.githubusercontent.com/Omarhbl/mainstage-test/main/src/data/ticket-events.json", { cache: "no-store", signal: AbortSignal.timeout(8000) });
+          if (!snapshotResponse.ok) throw new Error("Scheduled catalogue unavailable.");
+          const snapshot = parseTicketSnapshot(await snapshotResponse.json(), now);
+          return { id: source.id, name: source.name, items: snapshot.items, checkedAt: now.toISOString(), syncedAt: snapshot.syncedAt, error: null, method: "browser" };
+        } catch { /* Keep the existing API and discovery fallbacks when the scheduled reader is unavailable. */ }
+      }
       const url = source.id === "iticket" ? "https://raw.githubusercontent.com/Omarhbl/mainstage-test/main/src/data/iticket-events.json" : source.url;
       const response = await fetch(url, { headers: { ...HEADERS, ...(source.id === "ticket" ? { "source-request": "website" } : {}) }, cache: "no-store", signal: AbortSignal.timeout(8000) });
       if (!response.ok) throw new Error("Public catalogue unavailable.");

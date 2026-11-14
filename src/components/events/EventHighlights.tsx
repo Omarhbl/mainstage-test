@@ -3,7 +3,7 @@ import { useRef } from "react";
 import type { UpcomingItem } from "@/lib/upcoming";
 import { formatReleaseDate } from "@/lib/upcoming";
 const STEP = 232;
-export default function EventHighlights({ items }: { items: UpcomingItem[] }) {
+export default function EventHighlights({ items }: { items: (UpcomingItem & { imageFit?: "contain" })[] }) {
   const track = useRef<HTMLDivElement>(null);
   const drag = useRef<{ id: number; x: number; y: number; time: number; moved: boolean } | null>(null);
   const suppressClick = useRef(false);
@@ -41,7 +41,7 @@ export default function EventHighlights({ items }: { items: UpcomingItem[] }) {
       onKeyDown={(event) => { if (animate && ["ArrowLeft", "ArrowRight"].includes(event.key)) { event.preventDefault(); seek(Number(track.current?.getAnimations()[0]?.currentTime ?? 0) + (event.key === "ArrowRight" ? 1 : -1) * STEP * duration / shift); } }}>
       {(animate ? [...items, ...items, ...items] : items).map((item, index) => <article key={`${item.id}-${index}`} className="w-[218px] shrink-0">
         <div className="h-[306px] overflow-hidden rounded-[8px] bg-[#e8e2db]">
-          {item.href ? <a href={item.href} target="_blank" rel="noreferrer" className="block h-full w-full"><img draggable={false} src={item.image} alt={item.title} className="h-full w-full object-cover" /></a> : <img draggable={false} src={item.image} alt={item.title} className="h-full w-full object-cover" />}
+          {item.href ? <a href={item.href} target="_blank" rel="noreferrer" className="block h-full w-full"><img draggable={false} src={item.image} alt={item.title} className={`h-full w-full ${item.imageFit === "contain" ? "object-contain" : "object-cover"}`} /></a> : <img draggable={false} src={item.image} alt={item.title} className={`h-full w-full ${item.imageFit === "contain" ? "object-contain" : "object-cover"}`} />}
         </div>
         <div className="pt-3"><p className="text-[11px] font-body font-semibold text-black/48 uppercase">{formatReleaseDate(item.releaseDate)}</p><h3 className="mt-1 text-[14px] font-body font-semibold leading-[1.35] text-[#181818]">{item.title}</h3></div>
       </article>)}
