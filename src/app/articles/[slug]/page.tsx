@@ -3,6 +3,8 @@ import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import ArticleMedia from "@/components/article/ArticleMedia";
 import ArticleContent from "@/components/article/ArticleContent";
+import ArticleAd from "@/components/article/ArticleAd";
+import { getHomepageSettings } from "@/lib/supabase/server";
 import SiteFooter from "@/components/layout/SiteFooter";
 import JsonLd from "@/components/seo/JsonLd";
 import {
@@ -126,7 +128,7 @@ export default async function ArticlePage({
     notFound();
   }
 
-  const allArticles = await getPublicArticles();
+  const [allArticles, homepageSettings] = await Promise.all([getPublicArticles(), getHomepageSettings()]);
 
   const activeCategory =
     article.category.toLowerCase() === "entertainment"
@@ -224,6 +226,8 @@ export default async function ArticlePage({
           <JsonLd data={structuredData} />
 
           <ArticleContent article={article} />
+
+          <ArticleAd settings={homepageSettings.articleAd} />
 
           <div className="mx-auto mt-8 max-w-[860px] sm:mt-12">
             <h2 className="text-[22px] font-body font-bold tracking-[-0.03em] text-[#181818]">

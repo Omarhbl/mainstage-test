@@ -1,6 +1,7 @@
 "use server";
 
 import { clampSlidePosition } from "@/lib/homepage-slides";
+import { normalizeArticleAd, safeAdUrl } from "@/lib/article-ad";
 
 import path from "node:path";
 import { revalidatePath } from "next/cache";
@@ -117,6 +118,18 @@ export async function updateHomepageSettingsAction(formData: FormData) {
       ? await uploadHomepageImage(bannerImageFile, "homepage/banner")
       : "";
   const resolvedBannerImage = uploadedBannerImage || bannerImage;
+  let articleAd;
+  if (section === "banner") {
+    const desktopFile = formData.get("article_ad_desktop_file");
+    const mobileFile = formData.get("article_ad_mobile_file");
+    const desktopImage = desktopFile instanceof File && desktopFile.size > 0 ? await uploadHomepageImage(desktopFile, "ads/article-desktop") : String(formData.get("article_ad_desktop") ?? "").trim();
+    const mobileImage = mobileFile instanceof File && mobileFile.size > 0 ? await uploadHomepageImage(mobileFile, "ads/article-mobile") : String(formData.get("article_ad_mobile") ?? "").trim();
+    const enabled = formData.get("article_ad_enabled") === "on";
+    const href = String(formData.get("article_ad_href") ?? "").trim();
+    if ((desktopImage && !safeAdUrl(desktopImage, true)) || (mobileImage && !safeAdUrl(mobileImage, true)) || (href && !safeAdUrl(href))) buildBackofficeRedirect(redirectTarget, "Use an HTTPS image URL or a local image path, and a valid destination link.", "error");
+    if (enabled && (!desktopImage || !mobileImage)) buildBackofficeRedirect(redirectTarget, "Add both the desktop and mobile artwork before enabling article ads.", "error");
+    articleAd = normalizeArticleAd({ enabled, desktopImage, mobileImage, href });
+  }
 
   if (
     section === "hero" &&
@@ -210,6 +223,7 @@ export async function updateHomepageSettingsAction(formData: FormData) {
       bannerImage:
         section === "banner" ? resolvedBannerImage : currentSettings.bannerImage,
       bannerHref: section === "banner" ? bannerHref : currentSettings.bannerHref,
+      articleAd: section === "banner" ? articleAd! : currentSettings.articleAd,
       socialItems: section === "social" ? socialItems : currentSettings.socialItems,
     },
     updated_at: new Date().toISOString(),
@@ -251,6 +265,10 @@ export async function updateHomepageSettingsAction(formData: FormData) {
 
   revalidatePath("/");
   revalidatePath("/backoffice/homepage");
+  if (section === "banner") {
+    revalidatePath("/articles/[slug]", "page");
+    revalidatePath("/backoffice/homepage/banner");
+  }
   const successMessage =
     section === "hero"
       ? "Homepage slides updated successfully."

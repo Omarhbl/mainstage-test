@@ -1,5 +1,6 @@
 import { clampSlidePosition, type HomepageHeroSlide } from "@/lib/homepage-slides";
 import { cookies } from "next/headers";
+import { EMPTY_ARTICLE_AD, normalizeArticleAd, type ArticleAdSettings } from "@/lib/article-ad";
 import { createServerClient } from "@supabase/ssr";
 import { createClient } from "@supabase/supabase-js";
 import {
@@ -52,6 +53,7 @@ export type HomepageSettings = {
   mustReadSlug: string;
   bannerImage: string;
   bannerHref: string;
+  articleAd: ArticleAdSettings;
   socialItems: Array<{
     image: string;
     href: string;
@@ -136,6 +138,7 @@ const fallbackHomepageSettings: HomepageSettings = {
   mustReadSlug: "inkonnu-split-turns-fragmentation-into-a-language-of-its-own",
   bannerImage: "/home-banner-ad.png",
   bannerHref: "",
+  articleAd: EMPTY_ARTICLE_AD,
   socialItems: [
     { image: "/social/2.png", href: "" },
     { image: "/social/11.png", href: "" },
@@ -543,6 +546,7 @@ export async function getHomepageSettings() {
         : fallbackHomepageSettings.bannerImage,
     bannerHref:
       typeof value.bannerHref === "string" ? value.bannerHref.trim() : "",
+    articleAd: normalizeArticleAd(value.articleAd),
     socialItems: Array.isArray(value.socialItems)
       ? value.socialItems
           .slice(0, 5)

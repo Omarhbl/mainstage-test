@@ -126,7 +126,7 @@ export default function HomepageSectionEditor({
                 className="mt-2 h-[50px] w-full rounded-[12px] border border-black/10 bg-[#faf8f6] px-4 outline-none focus:border-[#CE2127]"
                 placeholder="/home-banner-ad.png or full image URL"
               />
-              <p className="mt-2 text-xs leading-relaxed text-black/50">The complete artwork is shown without cropping, centered at up to 1276 px wide. It scales down on smaller screens while keeping its original proportions. Keep text large enough to read on mobile.</p>
+              <p className="mt-2 text-xs leading-relaxed text-black/50">The complete artwork fills the screen width without cropping or side gaps, keeping its original proportions. Use 2552 × 240 px for a sharper version of the same banner. Keep text large enough to read on mobile.</p>
             </label>
 
             <label className="block">
@@ -153,11 +153,34 @@ export default function HomepageSectionEditor({
               />
             </label>
           </div>
+          <fieldset className="mt-8 space-y-4 border-t border-black/10 pt-6">
+            <legend className="text-[20px] font-body font-bold">Article advertisement</legend>
+            <p className="text-sm text-black/60">Appears after the article and its media, before Similar articles. Upload landscape artwork for desktop and square artwork for mobile.</p>
+            <label className="flex items-center gap-3 text-sm font-medium">
+              <input type="checkbox" name="article_ad_enabled" defaultChecked={homepageSettings.articleAd.enabled} className="h-4 w-4 accent-[#CE2127]" />
+              Show advertisement on articles
+            </label>
+            {([
+              { key: "desktop", title: "Desktop landscape artwork", size: "1200 × 628 px", image: homepageSettings.articleAd.desktopImage },
+              { key: "mobile", title: "Mobile square artwork", size: "1080 × 1080 px", image: homepageSettings.articleAd.mobileImage },
+            ] as const).map((format) => <div key={format.key} className="space-y-2">
+              <label className="block text-sm text-black/60">{format.title} · {format.size}
+                <input name={`article_ad_${format.key}`} defaultValue={format.image} placeholder="Image URL or local image path" className="mt-2 h-[50px] w-full rounded-[12px] border border-black/10 bg-[#faf8f6] px-4 outline-none focus:border-[#CE2127]" />
+              </label>
+              <label className="block text-sm text-black/60">Or upload {format.key} artwork
+                <input name={`article_ad_${format.key}_file`} type="file" accept="image/*" className="mt-2 block w-full rounded-[12px] border border-black/10 bg-[#faf8f6] px-4 py-3 text-sm file:mr-4 file:rounded-lg file:border-0 file:bg-[#CE2127] file:px-4 file:py-2 file:text-white" />
+              </label>
+              {format.image ? <img src={format.image} alt={`${format.title} preview`} className={`mt-3 block h-auto w-full object-contain ${format.key === "mobile" ? "max-w-[220px]" : "max-w-[480px]"}`} /> : null}
+            </div>)}
+            <label className="block text-sm text-black/60">Article advertisement destination
+              <input name="article_ad_href" defaultValue={homepageSettings.articleAd.href} placeholder="https://advertiser.com/campaign" className="mt-2 h-[50px] w-full rounded-[12px] border border-black/10 bg-[#faf8f6] px-4 outline-none focus:border-[#CE2127]" />
+            </label>
+          </fieldset>
           <button
             type="submit"
             className="mt-5 inline-flex h-[48px] items-center justify-center rounded-[12px] bg-[#CE2127] px-5 text-[14px] font-body font-semibold text-white transition-opacity hover:opacity-90"
           >
-            Save banner
+            Save advertisements
           </button>
         </div>
       </form>

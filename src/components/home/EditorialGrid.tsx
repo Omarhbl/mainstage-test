@@ -284,7 +284,7 @@ const trendingItems = (sortedCards.length ? sortedCards : [])
             {homepageBannerHref ? (
               <a
                 href={homepageBannerHref}
-                className="block w-full max-w-[1276px] cursor-pointer"
+                className="block w-full cursor-pointer"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -298,7 +298,7 @@ const trendingItems = (sortedCards.length ? sortedCards : [])
               <img
                 src={homepageBannerImage}
                 alt="Mainstage banner ad"
-                className="block h-auto w-full max-w-[1276px]"
+                className="block h-auto w-full"
               />
             )}
           </div>
