@@ -31,7 +31,7 @@ for (const platform of EVENT_SOURCES.filter((source) => source.id !== 'guichet')
     if (['webook', 'iticket'].includes(platform.id)) {
       const catalogueUrl = platform.id === 'iticket' ? 'https://iticket.ma/events' : 'https://webook.com/en/explore/ma';
       const catalogue = await tavily('extract', { urls: [catalogueUrl], extract_depth: 'basic', format: 'markdown' });
-      const content = catalogue.results?.[0]?.raw_content ?? '';
+      const content = (catalogue.results?.[0]?.raw_content ?? '').replace(/!\[[^\]]*\]\([^)]*\)/g, '');
       for (const match of content.matchAll(/(?<!!)\[([^\]]+)\]\(([^\s)]+)(?:\s+"[^"]*")?\)/g)) {
         let url; try { url = new URL(match[2], catalogueUrl).href; } catch { continue; }
         const target = discoverySourceUrl(url);
