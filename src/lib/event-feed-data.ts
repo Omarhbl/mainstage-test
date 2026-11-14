@@ -240,7 +240,7 @@ export function discoverEvent(input: { url: string; title: string; content?: str
   const text = String(input.raw_content ?? "").slice(0, 30000);
   const eventText = target.source === "webook" ? text.split(/^#{1,3}\s+(?:FAQs|80% of people)/im)[0] : text;
   const primary = eventText.split(/\n#{1,4}\s+(?:autres|related|similar|vous aimerez|événements similaires|other events)/i)[0];
-  const authoritativeTitle = target.source === "webook" ? primary.match(/^#\s+(.+)$/m)?.[1] : undefined;
+  const authoritativeTitle = ["webook", "iticket"].includes(target.source) ? primary.match(/^#\s+(.+)$/m)?.[1] : undefined;
   const title = String(authoritativeTitle ?? input.title ?? "").split(/\s+[|–—-]\s+(?:Billets|Tickets|Ticketing|iTicket|Ticket\.ma|webook|Billetterie|Events(?:\.ma)?\b)/i)[0].trim().slice(0, 200);
   const dates = new Set<string>();
   const dateText = primary.replace(/!\[[^\]]*\]\([^)]*\)/g, "").replace(/https?:\/\/\S+/g, "");
@@ -261,12 +261,24 @@ export function discoverEvent(input: { url: string; title: string; content?: str
   }
   const releaseDate = dates.size === 1 ? [...dates][0] : "";
   if (releaseDate && releaseDate < eventToday(now)) return { item: null, draft: null };
-  if (/\b(annule|reporte|cancelled|canceled|postponed|sold out|complet)\b/.test(normalize(primary))) return { item: null, draft: null };
+  if (/\b(annule|reporte|cancelled|canceled|postponed|sold out|complet|evenement est termine|vente terminee)\b/.test(normalize(primary))) return { item: null, draft: null };
   const city = CITIES.find((entry) => new RegExp(`\\b${normalize(entry)}\\b`).test(normalize(primary))) ?? "";
   const tokens = normalize(title).split(" ").filter((token) => token.length > 2);
   const matchesTitle = (value: string) => tokens.length >= 2 && tokens.filter((token) => normalize(value).split(" ").includes(token)).length / tokens.length >= 0.7;
   const headings = [...primary.matchAll(/^#{1,2}\s+(.+)$/gm)].map((match) => match[1]);
-  const posters = [...primary.matchAll(/!\[([^\]]+)\]\((https:\/\/[^\s)]+)(?:\s+"[^"]*")?\)/g)].filter((match) => matchesTitle(match[1])).map((match) => safeUrl(match[2], undefined, true)).filter(Boolean);
+  const imageMatches = [...primary.matchAll(/!\[([^\]]+)\]\(([^\s)]+)(?:\s+"[^"]*")?\)/g)].filter((match) => matchesTitle(match[1]));
+  const posters = imageMatches.flatMap((match) => {
+    let image = match[2];
+    if (target.source === "iticket") {
+      try { image = new URL(image, target.url).href; } catch { return []; }
+      // iTicket embeds image resizing URLs; retain only its event poster, not the cover band.
+      if (/\/event\/cover_band\//.test(image)) return [];
+      const original = image.match(/\/cdn-cgi\/image\/[^/]+\/(https:\/\/cdn\.iticket\.ma\/.+)$/);
+      if (original) image = original[1];
+    }
+    const safe = safeUrl(image, undefined, true);
+    return safe ? [safe] : [];
+  });
   const uniquePosters = [...new Set(posters)];
   const reasons = [!primary && "Page content unavailable", !headings.some(matchesTitle) && "Event heading needs verification", dates.size !== 1 && "Missing or conflicting event date", !city && "Moroccan location needs verification", uniquePosters.length !== 1 && "Poster needs verification"].filter(Boolean) as string[];
   if (reasons.length) return { item: null, draft: { url: target.url, title, reasons, evidence: (primary || input.content || "").slice(0, 1200) } };

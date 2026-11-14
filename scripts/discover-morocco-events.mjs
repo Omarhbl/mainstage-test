@@ -28,13 +28,14 @@ for (const platform of EVENT_SOURCES.filter((source) => source.id !== 'guichet')
     const domain = ({ iticket: 'iticket.ma', ticket: 'ticket.ma', webook: 'webook.com', eventsma: 'events.ma' })[platform.id];
     const found = new Map();
     // Seed webook from its country catalogue; month searches miss English cards.
-    if (platform.id === 'webook') {
-      const catalogue = await tavily('extract', { urls: ['https://webook.com/en/explore/ma'], extract_depth: 'basic', format: 'markdown' });
+    if (['webook', 'iticket'].includes(platform.id)) {
+      const catalogueUrl = platform.id === 'iticket' ? 'https://iticket.ma/events' : 'https://webook.com/en/explore/ma';
+      const catalogue = await tavily('extract', { urls: [catalogueUrl], extract_depth: 'basic', format: 'markdown' });
       const content = catalogue.results?.[0]?.raw_content ?? '';
       for (const match of content.matchAll(/(?<!!)\[([^\]]+)\]\(([^\s)]+)(?:\s+"[^"]*")?\)/g)) {
-        let url; try { url = new URL(match[2], 'https://webook.com').href; } catch { continue; }
+        let url; try { url = new URL(match[2], catalogueUrl).href; } catch { continue; }
         const target = discoverySourceUrl(url);
-        if (target?.source === 'webook') found.set(target.url, { url: target.url, title: match[1] });
+        if (target?.source === platform.id) found.set(target.url, { url: target.url, title: match[1] });
       }
     }
     // Eight basic searches, catalogue extraction and up to twenty detail pages.

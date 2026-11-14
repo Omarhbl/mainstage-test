@@ -73,3 +73,11 @@ test('webook reads an explicit English date and ignores cancellation questions i
   assert.match(result.item.href, /\/ma\//);
   assert.equal(discoverEvent({ ...page, raw_content: page.raw_content.replace('## About the event', 'Cancelled\n## About the event') }, now).item, null);
 });
+
+test('iTicket selects the event poster from relative resizing URLs and rejects ended pages', () => {
+  const page = { url: 'https://iticket.ma/events/concerts/bo9al-show', title: 'Booking title', raw_content: '![BO9AL SHOW](/cdn-cgi/image/width=1400,height=470/https://cdn.iticket.ma/event/cover_band/banner.jpg)\n![BO9AL SHOW](/cdn-cgi/image/width=2048,height=1536/https://cdn.iticket.ma/event/slide/poster.jpg)\n# BO9AL SHOW\n21 novembre 2026\nVilla Marco, Marrakech' };
+  const result = discoverEvent(page, now);
+  assert.equal(result.draft, null);
+  assert.equal(result.item.image, 'https://cdn.iticket.ma/event/slide/poster.jpg');
+  assert.equal(discoverEvent({ ...page, raw_content: page.raw_content + '\n### L’événement est terminé' }, now).item, null);
+});
