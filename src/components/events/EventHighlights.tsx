@@ -52,9 +52,15 @@ export default function EventHighlights({ items }: { items: (UpcomingItem & { im
       onPointerLeave={() => { if (!drag.current?.moved) { drag.current = null; track.current?.getAnimations()[0]?.play(); } }}
       onClickCapture={(event) => { if (suppressClick.current) { event.preventDefault(); event.stopPropagation(); suppressClick.current = false; } }}
       onKeyDown={(event) => { if (animate && ["ArrowLeft", "ArrowRight"].includes(event.key)) { event.preventDefault(); seek(Number(track.current?.getAnimations()[0]?.currentTime ?? 0) + (event.key === "ArrowRight" ? 1 : -1) * STEP * duration / shift.current); } }}>
-      {(animate ? [...items, ...items, ...items] : items).map((item, index) => <article key={`${item.id}-${index}`} className={`${item.imageFit === "contain" ? "w-[458px] sm:w-[539px]" : item.image.includes("/event/square_card/") ? "w-[260px] sm:w-[306px]" : "w-[185px] sm:w-[218px]"} shrink-0`}>
+      {(animate ? [...items, ...items, ...items] : items).map((item, index) => <article key={`${item.id}-${index}`} className="shrink-0 [--flyer-height:260px] sm:[--flyer-height:306px]" style={{ width: "calc(var(--flyer-height) * var(--flyer-ratio))", "--flyer-ratio": item.imageFit === "contain" ? 1.76 : item.image.includes("/event/square_card/") ? 1 : 218 / 306 } as React.CSSProperties}>
         <div className="h-[260px] overflow-hidden rounded-[8px] bg-[#f1efec] sm:h-[306px]">
-          {item.href ? <a href={item.href} target="_blank" rel="noreferrer" className="block h-full w-full"><img draggable={false} src={item.image} alt={item.title} className="h-full w-full object-contain" /></a> : <img draggable={false} src={item.image} alt={item.title} className="h-full w-full object-contain" />}
+          {item.href ? <a href={item.href} target="_blank" rel="noreferrer" className="block h-full w-full"><img draggable={false} src={item.image} alt={item.title} onLoad={(event) => {
+            const image = event.currentTarget;
+            if (image.naturalWidth && image.naturalHeight) image.closest("article")?.style.setProperty("--flyer-ratio", String(image.naturalWidth / image.naturalHeight));
+          }} className="h-full w-full object-contain" /></a> : <img draggable={false} src={item.image} alt={item.title} onLoad={(event) => {
+            const image = event.currentTarget;
+            if (image.naturalWidth && image.naturalHeight) image.closest("article")?.style.setProperty("--flyer-ratio", String(image.naturalWidth / image.naturalHeight));
+          }} className="h-full w-full object-contain" />}
         </div>
         <div className="pt-3"><p className="text-[11px] font-body font-semibold text-black/48 uppercase">{formatReleaseDate(item.releaseDate)}</p><h3 className="mt-1 text-[14px] font-body font-semibold leading-[1.35] text-[#181818]">{item.title}</h3></div>
       </article>)}
