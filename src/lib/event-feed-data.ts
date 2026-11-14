@@ -16,7 +16,7 @@ const CITIES = ["Casablanca", "Rabat", "Marrakech", "Agadir", "Fès", "Fes", "Ta
 export function eventToday(now = new Date()) {
   return new Intl.DateTimeFormat("en-CA", { timeZone: "Africa/Casablanca", year: "numeric", month: "2-digit", day: "2-digit" }).format(now);
 }
-function localDate(value: unknown): string {
+export function localDate(value: unknown): string {
   if (typeof value !== "string") return "";
   const french = value.match(/^(\d{2})\/(\d{2})\/(\d{4})/);
   const result = french ? `${french[3]}-${french[2]}-${french[1]}` : /^\d{4}-\d{2}-\d{2}/.test(value) ? value.slice(0, 10) : "";

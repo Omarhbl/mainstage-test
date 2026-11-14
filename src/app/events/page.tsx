@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import EventHighlights from "@/components/events/EventHighlights";
-import { eventToday, mergeTicketEvents, type EventFeed } from "@/lib/event-feed-data";
+import { eventToday, localDate, mergeTicketEvents, type EventFeed } from "@/lib/event-feed-data";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import SiteFooter from "@/components/layout/SiteFooter";
@@ -25,7 +25,7 @@ export default function EventsPage() {
       .finally(() => { if (!controller.signal.aborted) setLoading(false); });
     return () => controller.abort();
   }, []);
-  const manual = upcomingSettings.entertainment.filter((item) => item.image && item.releaseDate >= eventToday()).map((item) => ({ ...item, venue: "", city: "", sources: ["editorial"] }));
+  const manual = upcomingSettings.entertainment.map((item) => ({ ...item, releaseDate: localDate(item.releaseDate) })).filter((item) => item.image && item.releaseDate >= eventToday()).map((item) => ({ ...item, venue: "", city: "", sources: ["editorial"] }));
   const eventHighlights = mergeTicketEvents([...(feed?.items ?? []), ...manual]);
   const eventArticles = sortedCards.filter((article) => hasArticleCategory(article, "events"));
 
