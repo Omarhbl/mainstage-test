@@ -13,7 +13,7 @@ export async function getEventFeed(force = false): Promise<EventFeed> {
   const saved = data?.value as EventFeed | undefined;
   const discovery = await getEventDiscovery();
   let changed = false;
-  const sources = await Promise.all(EVENT_SOURCES.map(async (source): Promise<EventSourceState> => {
+  const sourceResults = await Promise.all(EVENT_SOURCES.map(async (source): Promise<EventSourceState> => {
     const previous = saved?.sources?.find((entry) => entry.id === source.id);
     const valid = previous?.syncedAt && now.getTime() - Date.parse(previous.syncedAt) < 24 * HOURS;
     const cached = { id: source.id, name: source.name, items: valid && Array.isArray(previous?.items) ? previous.items.filter((event) => event.releaseDate >= today) : [], checkedAt: previous?.checkedAt ?? "", syncedAt: previous?.syncedAt ?? null, error: previous?.error ?? null, method: previous?.method };
@@ -49,6 +49,7 @@ export async function getEventFeed(force = false): Promise<EventFeed> {
       return { ...cached, checkedAt: now.toISOString(), error: "Automatic access unavailable. You can still add events from this platform manually below." };
     }
   }));
+  const sources = sourceResults.map((source) => ({ ...source, items: mergeTicketEvents(source.items) }));
   const items = mergeTicketEvents(sources.flatMap((source) => source.items));
   const feed: EventFeed = { items, sources, checkedAt: now.toISOString(), error: items.length ? null : "Automatic event listings are temporarily unavailable." };
   if (changed) {

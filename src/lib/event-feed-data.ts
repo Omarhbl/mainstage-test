@@ -161,10 +161,21 @@ export function parseStructuredEvents(html: string, source: "webook" | "eventsma
   if (!recognized) throw new Error("Public catalogue unavailable or format changed.");
   return mergeTicketEvents(items);
 }
+// Editorial exclusions apply to every source, cached result and manual listing.
+// Keep dates scoped to the editions removed by the editorial team.
+export function isExcludedEvent(item: TicketEvent): boolean {
+  const title = normalize(item.title);
+  if (/\bpeter pan (on ice|sur glace)\b/.test(title) && item.releaseDate >= "2026-11-26" && item.releaseDate <= "2026-11-29") return true;
+  if (/\bla belle et la bete\b/.test(title) && item.releaseDate === "2026-11-22" && /casablanca/.test(normalize(`${item.city} ${item.title}`))) return true;
+  if (item.releaseDate === "2026-11-15" && (title === "soiree aisawiya 100 femmes" || title === "une soiree exceptionnelle avec le talentueux chanteur maxime")) return true;
+  return item.releaseDate === "2026-11-26" && /\badna[en]e? matrone\b/.test(title);
+}
+
 export function mergeTicketEvents(items: TicketEvent[]): TicketEvent[] {
   const result: TicketEvent[] = [];
   const key = (title: string) => [...new Set(normalize(title.replace(/\s[-–—|]\s(?:events\.ma|iticket(?:\.ma)?|ticket\.ma|webook(?:\.com)?).*$/i, "")).split(" ").filter((word) => !["en", "concert", "a", "de", "the", "le", "la", "les", "par", "at", "live", "et", "and"].includes(word)))];
   for (const item of items) {
+    if (isExcludedEvent(item)) continue;
     const words = key(item.title);
     const existing = result.find((entry) => {
       if (entry.href === item.href) return true;
