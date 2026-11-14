@@ -280,25 +280,25 @@ const trendingItems = (sortedCards.length ? sortedCards : [])
         </div>
 
         <div className="mt-10">
-          <div className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden bg-black">
+          <div className="relative left-1/2 flex w-screen -translate-x-1/2 justify-center overflow-hidden bg-black">
             {homepageBannerHref ? (
               <a
                 href={homepageBannerHref}
-                className="block cursor-pointer"
+                className="block w-full max-w-[1276px] cursor-pointer"
                 target="_blank"
                 rel="noreferrer"
               >
                 <img
                   src={homepageBannerImage}
                   alt="Mainstage banner ad"
-                  className="h-[120px] w-full object-cover object-top"
+                  className="block h-auto w-full"
                 />
               </a>
             ) : (
               <img
                 src={homepageBannerImage}
                 alt="Mainstage banner ad"
-                className="h-[120px] w-full object-cover object-top"
+                className="block h-auto w-full max-w-[1276px]"
               />
             )}
           </div>

@@ -126,6 +126,7 @@ export default function HomepageSectionEditor({
                 className="mt-2 h-[50px] w-full rounded-[12px] border border-black/10 bg-[#faf8f6] px-4 outline-none focus:border-[#CE2127]"
                 placeholder="/home-banner-ad.png or full image URL"
               />
+              <p className="mt-2 text-xs leading-relaxed text-black/50">The complete artwork is shown without cropping, centered at up to 1276 px wide. It scales down on smaller screens while keeping its original proportions. Keep text large enough to read on mobile.</p>
             </label>
 
             <label className="block">
