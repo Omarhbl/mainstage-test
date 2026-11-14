@@ -1,9 +1,9 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { CinemaFeed } from "@/lib/cinema-feed-data";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import SiteFooter from "@/components/layout/SiteFooter";
 import { formatReleaseDate } from "@/lib/upcoming";
 import { formatArticleDate, hasArticleCategory, getArticleImageStyle } from "@/lib/articles";
@@ -36,6 +36,32 @@ export default function CinemaPage() {
   const releaseLoopWidth = (RELEASE_CARD_WIDTH + RELEASE_CARD_GAP) * releases.length;
   const animateReleases = releases.length > 5;
   const loopedReleases = animateReleases ? [...releases, ...releases, ...releases] : releases;
+  const movieTrack = useRef<HTMLDivElement>(null);
+  const gesture = useRef<{ pointerId: number; x: number; time: number } | null>(null);
+  const duration = Math.max(18, releases.length * 3) * 1000;
+  function seekMovies(time: number) {
+    const animation = movieTrack.current?.getAnimations()[0];
+    if (animation) animation.currentTime = ((time % duration) + duration) % duration;
+  }
+  function stepMovies(direction: number) {
+    const animation = movieTrack.current?.getAnimations()[0];
+    if (animation && releaseLoopWidth) seekMovies(Number(animation.currentTime ?? 0) + direction * (RELEASE_CARD_WIDTH + RELEASE_CARD_GAP) * duration / releaseLoopWidth);
+  }
+  function startMovieDrag(event: React.PointerEvent<HTMLDivElement>) {
+    if (!animateReleases || (event.pointerType === "mouse" && event.button !== 0)) return;
+    const animation = movieTrack.current?.getAnimations()[0];
+    if (!animation) return;
+    animation.pause();
+    gesture.current = { pointerId: event.pointerId, x: event.clientX, time: Number(animation.currentTime ?? 0) };
+    event.currentTarget.setPointerCapture(event.pointerId);
+  }
+  function endMovieDrag(event: React.PointerEvent<HTMLDivElement>) {
+    if (gesture.current?.pointerId !== event.pointerId) return;
+    gesture.current = null;
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) event.currentTarget.releasePointerCapture(event.pointerId);
+    movieTrack.current?.getAnimations()[0]?.play();
+  }
+
 
   return (
     <div key={pathname} className="flex min-h-screen flex-col bg-white">
@@ -45,8 +71,12 @@ export default function CinemaPage() {
             <h2 className="text-[25px] font-body font-bold tracking-[-0.03em] text-[#181818]">
               {tab === "now" ? "Now showing in Morocco" : "Upcoming Releases"}
             </h2>
-            <div className="mt-4 flex gap-3">
+            <div className="mt-4 flex items-center gap-3">
               {(["now", "upcoming"] as const).map((value) => <button key={value} type="button" aria-pressed={tab === value} onClick={() => setTab(value)} className={`rounded-full border px-4 py-2 text-sm font-body font-semibold ${tab === value ? "border-[#CE2127] bg-[#CE2127] text-white" : "border-black/15 text-black/65"}`}>{value === "now" ? "Now showing" : "Upcoming"}</button>)}
+              {animateReleases ? <div className="ml-auto flex gap-2">
+                <button type="button" aria-label="Previous movies" onClick={() => stepMovies(-1)} className="rounded-full border border-black/15 p-2 text-black/65 hover:bg-black/5"><ChevronLeft size={20} /></button>
+                <button type="button" aria-label="Next movies" onClick={() => stepMovies(1)} className="rounded-full border border-black/15 p-2 text-black/65 hover:bg-black/5"><ChevronRight size={20} /></button>
+              </div> : null}
             </div>
           </div>
 
@@ -55,9 +85,18 @@ export default function CinemaPage() {
           </div> : null}
           <div className={animateReleases ? "relative left-1/2 mt-8 w-screen -translate-x-1/2 overflow-hidden py-1" : "mt-8 py-1"}>
             <div
-              className={animateReleases ? "upcoming-marquee-track flex gap-[14px] hover:[animation-play-state:paused]" : "flex flex-wrap justify-center gap-x-[14px] gap-y-6"}
+              ref={movieTrack}
+              onPointerDown={startMovieDrag}
+              onPointerMove={(event) => { const drag = gesture.current; if (drag?.pointerId === event.pointerId && releaseLoopWidth) seekMovies(drag.time + (drag.x - event.clientX) * duration / releaseLoopWidth); }}
+              onPointerUp={endMovieDrag}
+              onPointerCancel={endMovieDrag}
+              onLostPointerCapture={endMovieDrag}
+              onPointerEnter={(event) => { if (event.pointerType === "mouse") movieTrack.current?.getAnimations()[0]?.pause(); }}
+              onPointerLeave={() => { if (!gesture.current) movieTrack.current?.getAnimations()[0]?.play(); }}
+              className={animateReleases ? "upcoming-marquee-track flex cursor-grab select-none gap-[14px] active:cursor-grabbing" : "flex flex-wrap justify-center gap-x-[14px] gap-y-6"}
               style={
                 {
+                  touchAction: animateReleases ? "pan-y" : undefined,
                   "--upcoming-offset": "-110px",
                   "--upcoming-shift": `${releaseLoopWidth}px`,
                   "--upcoming-duration": `${Math.max(18, releases.length * 3)}s`,
@@ -67,7 +106,7 @@ export default function CinemaPage() {
               {loopedReleases.map((movie, index) => (
                 <article key={`${movie.id}-${index}`} className="w-[218px] shrink-0">
                   <div className="h-[306px] overflow-hidden rounded-[8px] bg-[#e8e2db]">
-                    <img src={movie.image} alt={movie.title} className="h-full w-full object-cover" />
+                    <img draggable={false} src={movie.image} alt={movie.title} className="h-full w-full object-cover" />
                   </div>
                   <div className="pt-3">
                     <p className="text-[11px] font-body font-semibold text-[rgba(0,0,0,0.48)] uppercase">
