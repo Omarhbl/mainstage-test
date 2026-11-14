@@ -1,4 +1,5 @@
 import "server-only";
+import bundledDiscovery from "@/data/event-discovery.json";
 import { createSupabaseAdminClient } from "@/lib/supabase/server";
 import { validateDiscoveryFeed, type DiscoveryFeed } from "@/lib/event-feed-data";
 
@@ -9,6 +10,11 @@ export async function getEventDiscovery(force = false): Promise<{ feed: Discover
   const saved = data?.value as { feed?: unknown; checkedAt?: string } | undefined;
   let previous: DiscoveryFeed | null = null;
   try { previous = validateDiscoveryFeed(saved?.feed); } catch { /* No current feed. */ }
+  // A newly deployed import must not wait behind the previous hourly DB cache.
+  try {
+    const bundled = validateDiscoveryFeed(bundledDiscovery);
+    if (!previous || Date.parse(bundled.syncedAt) > Date.parse(previous.syncedAt)) previous = bundled;
+  } catch { /* An old bundled snapshot never replaces current cached data. */ }
   if (!force && previous && Date.now() - Date.parse(saved?.checkedAt ?? "") < 60 * 60 * 1000) return { feed: previous, error: null };
   try {
     const response = await fetch("https://raw.githubusercontent.com/Omarhbl/mainstage-test/main/src/data/event-discovery.json", { cache: "no-store", signal: AbortSignal.timeout(8000) });
