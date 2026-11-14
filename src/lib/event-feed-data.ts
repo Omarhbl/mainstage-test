@@ -9,7 +9,7 @@ export const EVENT_SOURCES = [
 ] as const;
 export type EventSourceId = (typeof EVENT_SOURCES)[number]["id"];
 export type TicketEvent = UpcomingItem & { venue: string; city: string; sources: string[] };
-export type EventSourceState = { id: EventSourceId; name: string; items: TicketEvent[]; checkedAt: string; syncedAt: string | null; error: string | null };
+export type EventSourceState = { id: EventSourceId; name: string; items: TicketEvent[]; checkedAt: string; syncedAt: string | null; error: string | null; method?: "direct" | "search" };
 export type EventFeed = { items: TicketEvent[]; sources: EventSourceState[]; checkedAt: string; error: string | null };
 const normalize = (value: string) => value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
 const CITIES = ["Casablanca", "Rabat", "Marrakech", "Agadir", "Fès", "Fes", "Tanger", "Tangier", "Essaouira", "Meknès", "Kénitra", "Oujda", "Tétouan", "El Jadida", "Bouskoura", "Salé", "Safi", "Dakhla", "Ifrane", "Skhirat", "Béni Mellal", "Khouribga", "Laâyoune", "Mohammedia", "Bouznika", "Berkane", "Ouarzazate", "Nador"];
@@ -180,4 +180,79 @@ export function parseIticketSnapshot(payload: unknown, now = new Date()): { item
     return [{ ...item, id: row.id }];
   });
   return { items: mergeTicketEvents(items), syncedAt: feed.syncedAt! };
+}
+
+export type DiscoveryDraft = { url: string; title: string; reasons: string[]; evidence: string };
+export type DiscoverySource = { id: EventSourceId; checkedAt: string; error: string | null; items: TicketEvent[]; drafts: DiscoveryDraft[] };
+export type DiscoveryFeed = { version: number; syncedAt: string; sources: DiscoverySource[] };
+
+export function discoverySourceUrl(value: unknown): { source: EventSourceId; url: string } | null {
+  const href = safeUrl(value);
+  if (!href) return null;
+  const url = new URL(href);
+  const host = url.hostname.replace(/^www\./, "");
+  const source = ({ "iticket.ma": "iticket", "ticket.ma": "ticket", "webook.com": "webook", "events.ma": "eventsma" } as Record<string, EventSourceId>)[host];
+  if (!source) return null;
+  const path = url.pathname;
+  if (source === "iticket" && !/^\/events\/[^/]+\/[^/]+\/?$/.test(path)) return null;
+  if (source === "ticket" && !/^\/ticket\/[^/]+\/[^/]+\/[^/]+\/?$/.test(path)) return null;
+  if (source === "webook" && !/\/ma\/.+\/events\/[^/]+\/?$/.test(path)) return null;
+  if (source === "eventsma" && (!/^\/[^/]+\/[^/]+\/?$/.test(path) || /chercher-evenements|page|contact|termes|privacy/.test(path))) return null;
+  url.search = ""; url.hash = "";
+  return { source, url: url.href };
+}
+
+// Search snippets alone never publish an event. Require an event-specific page,
+// one explicit full date, a Moroccan city and a poster whose alt text matches.
+export function discoverEvent(input: { url: string; title: string; content?: string; raw_content?: string }, now = new Date()): { item: TicketEvent | null; draft: DiscoveryDraft | null } {
+  const target = discoverySourceUrl(input.url);
+  if (!target) return { item: null, draft: null };
+  const text = String(input.raw_content ?? "").slice(0, 30000);
+  const primary = text.split(/\n#{1,4}\s+(?:autres|related|similar|vous aimerez|événements similaires|other events)/i)[0];
+  const title = String(input.title ?? "").split(/\s+[|–—]\s+(?:Billets|Tickets|iTicket|Ticket\.ma|webook|Billetterie)/i)[0].trim().slice(0, 200);
+  const dates = new Set<string>();
+  const dateText = primary.replace(/!\[[^\]]*\]\([^)]*\)/g, "").replace(/https?:\/\/\S+/g, "");
+  for (const match of dateText.matchAll(/\b(?:\d{4}-\d{2}-\d{2}|\d{2}\/\d{2}\/\d{4})\b/g)) { const date = localDate(match[0]); if (date) dates.add(date); }
+  const months = ["janvier", "fevrier", "mars", "avril", "mai", "juin", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"];
+  for (const match of normalize(dateText).matchAll(/\b(\d{1,2}) (janvier|fevrier|mars|avril|mai|juin|juillet|aout|septembre|octobre|novembre|decembre) (20\d{2})\b/g)) {
+    const date = localDate(`${match[3]}-${String(months.indexOf(match[2]) + 1).padStart(2, "0")}-${match[1].padStart(2, "0")}`);
+    if (date) dates.add(date);
+  }
+  const releaseDate = dates.size === 1 ? [...dates][0] : "";
+  if (releaseDate && releaseDate < eventToday(now)) return { item: null, draft: null };
+  if (/\b(annule|reporte|cancelled|canceled|postponed|sold out|complet)\b/.test(normalize(primary))) return { item: null, draft: null };
+  const city = CITIES.find((entry) => new RegExp(`\\b${normalize(entry)}\\b`).test(normalize(primary))) ?? "";
+  const tokens = normalize(title).split(" ").filter((token) => token.length > 2);
+  const matchesTitle = (value: string) => tokens.length >= 2 && tokens.filter((token) => normalize(value).split(" ").includes(token)).length / tokens.length >= 0.7;
+  const headings = [...primary.matchAll(/^#{1,2}\s+(.+)$/gm)].map((match) => match[1]);
+  const posters = [...primary.matchAll(/!\[([^\]]+)\]\((https:\/\/[^\s)]+)(?:\s+"[^"]*")?\)/g)].filter((match) => matchesTitle(match[1])).map((match) => safeUrl(match[2], undefined, true)).filter(Boolean);
+  const uniquePosters = [...new Set(posters)];
+  const reasons = [!primary && "Page content unavailable", !headings.some(matchesTitle) && "Event heading needs verification", dates.size !== 1 && "Missing or conflicting event date", !city && "Moroccan location needs verification", uniquePosters.length !== 1 && "Poster needs verification"].filter(Boolean) as string[];
+  if (reasons.length) return { item: null, draft: { url: target.url, title, reasons, evidence: (primary || input.content || "").slice(0, 1200) } };
+  const item = makeEvent({ id: target.url, title, image: uniquePosters[0], date: releaseDate, href: target.url, city }, target.source, now);
+  return { item, draft: item ? null : { url: target.url, title, reasons: ["Incomplete event details"], evidence: primary.slice(0, 1200) } };
+}
+
+export function validateDiscoveryFeed(payload: unknown, now = new Date()): DiscoveryFeed {
+  const feed = payload as DiscoveryFeed;
+  const age = now.getTime() - Date.parse(feed?.syncedAt ?? "");
+  if (feed?.version !== 1 || !Array.isArray(feed.sources) || !Number.isFinite(age) || age < -300000 || age > 48 * 60 * 60 * 1000) throw new Error("Discovery feed is missing or stale.");
+  const sources = feed.sources.flatMap((source) => {
+    if (!["iticket", "ticket", "webook", "eventsma"].includes(source?.id)) return [];
+    const sourceAge = now.getTime() - Date.parse(source.checkedAt);
+    if (!Number.isFinite(sourceAge) || sourceAge < -300000 || sourceAge > 48 * 60 * 60 * 1000) return [];
+    const items = (Array.isArray(source.items) ? source.items : []).slice(0, 50).flatMap((row) => {
+      const target = discoverySourceUrl(row?.href);
+      if (!target || target.source !== source.id) return [];
+      const item = makeEvent({ id: target.url, title: row.title, image: row.image, date: row.releaseDate, href: target.url, city: row.city, venue: row.venue }, source.id, now);
+      return item ? [item] : [];
+    });
+    const drafts = (Array.isArray(source.drafts) ? source.drafts : []).slice(0, 30).flatMap((row) => {
+      const target = discoverySourceUrl(row?.url);
+      if (!target || target.source !== source.id || typeof row.title !== "string" || !Array.isArray(row.reasons)) return [];
+      return [{ url: target.url, title: row.title.slice(0, 200), reasons: row.reasons.filter((reason) => typeof reason === "string").slice(0, 6), evidence: String(row.evidence ?? "").slice(0, 1200) }];
+    });
+    return [{ id: source.id, checkedAt: source.checkedAt, error: source.error ? "Search import unavailable for this platform." : null, items: mergeTicketEvents(items), drafts }];
+  });
+  return { version: 1, syncedAt: feed.syncedAt, sources };
 }

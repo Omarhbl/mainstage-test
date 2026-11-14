@@ -3,8 +3,10 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { requireBackofficeAccess } from "@/lib/supabase/backoffice";
 import { getEventFeed } from "@/lib/event-feed";
+import { getEventDiscovery } from "@/lib/event-discovery";
 export async function refreshEventsAction() {
   await requireBackofficeAccess(["admin", "editor"]);
+  await getEventDiscovery(true);
   const feed = await getEventFeed(true);
   revalidatePath("/events");
   revalidatePath("/backoffice/upcoming/events");
