@@ -1,74 +1,161 @@
 {
   "version": 1,
-  "syncedAt": "2026-11-14T22:46:34.143Z",
+  "syncedAt": "2026-11-14T22:49:59.040Z",
   "sources": [
     {
       "id": "iticket",
-      "checkedAt": "2026-11-14T22:46:34.143Z",
+      "checkedAt": "2026-11-14T22:49:59.040Z",
       "error": null,
-      "items": [],
-      "drafts": [
+      "items": [
         {
-          "url": "https://iticket.ma/events/activities/visite-du-site-archeologique-de-chellah",
-          "title": "à partir de 15 MAD\n\n14 novembre 2026\n\n### Visite du Site Archéologique de Chellah\n\nLe Site Archéologique de Chellah – Rabat",
-          "reasons": [
-            "Page content unavailable",
-            "Event heading needs verification",
-            "Missing or conflicting event date",
-            "Moroccan location needs verification",
-            "Poster needs verification"
+          "id": "iticket-https://iticket.ma/events/activities/meydene-experience-le-parcours-immersif",
+          "title": "Meydene Experience - Le Parcours Immersif",
+          "releaseDate": "2026-11-14",
+          "image": "https://cdn.iticket.ma/cdn-cgi/image/width=700,height=700,quality=75,format=webp/event/square_card/m-c6f08da61879b6fd92987fe1bbdfca13.jpg",
+          "href": "https://iticket.ma/events/activities/meydene-experience-le-parcours-immersif",
+          "venue": "",
+          "city": "Marrakech",
+          "sources": [
+            "iticket"
           ],
-          "evidence": ""
+          "observedAt": "2026-11-14T22:49:59.040Z"
         },
         {
-          "url": "https://iticket.ma/events/activities/meydene-experience-le-parcours-immersif",
-          "title": "à partir de 60 MAD\n\n14 novembre 2026\n\n### Meydene Experience - Le Parcours Immersif\n\nMeydene Marrakech",
-          "reasons": [
-            "Page content unavailable",
-            "Event heading needs verification",
-            "Missing or conflicting event date",
-            "Moroccan location needs verification",
-            "Poster needs verification"
+          "id": "iticket-https://iticket.ma/events/activities/visite-du-site-archeologique-de-chellah",
+          "title": "Visite du Site Archéologique de Chellah",
+          "releaseDate": "2026-11-14",
+          "image": "https://cdn.iticket.ma/event/square_card/m-65abb427190e20cc53b13585cb034ac0.png",
+          "href": "https://iticket.ma/events/activities/visite-du-site-archeologique-de-chellah",
+          "venue": "",
+          "city": "Rabat",
+          "sources": [
+            "iticket"
           ],
-          "evidence": ""
+          "observedAt": "2026-11-14T22:49:59.040Z"
         },
         {
-          "url": "https://iticket.ma/events/concerts/bo9al-show-marrakech",
-          "title": "à partir de 150 MAD\n\n16+\n\n21 novembre 2026\n\n### BO9AL SHOW – Marrakech\n\nVilla Marco Marrakech",
-          "reasons": [
-            "Page content unavailable",
-            "Event heading needs verification",
-            "Missing or conflicting event date",
-            "Moroccan location needs verification",
-            "Poster needs verification"
+          "id": "iticket-https://iticket.ma/events/concerts/bo9al-show-marrakech",
+          "title": "BO9AL SHOW – Marrakech",
+          "releaseDate": "2026-11-21",
+          "image": "https://cdn.iticket.ma/cdn-cgi/image/width=700,height=700,quality=75,format=webp/event/square_card/4vNJvAeo1MgMV6CKJIDGlYk2QDc7n2MO.png",
+          "href": "https://iticket.ma/events/concerts/bo9al-show-marrakech",
+          "venue": "",
+          "city": "Marrakech",
+          "sources": [
+            "iticket"
           ],
-          "evidence": ""
+          "observedAt": "2026-11-14T22:49:59.040Z"
         },
         {
-          "url": "https://iticket.ma/events/theatre/peter-pan-on-ice-par-the-international-ice-stars",
+          "id": "iticket-https://iticket.ma/events/theatre/peter-pan-on-ice-par-the-international-ice-stars",
           "title": "Peter Pan on Ice par The International Ice Stars",
-          "reasons": [
-            "Poster needs verification"
+          "releaseDate": "2026-11-26",
+          "image": "https://cdn.iticket.ma/cdn-cgi/image/width=700,height=700,quality=75,format=webp/event/square_card/gBAwYsPgxnfBYhmcwN291YXM1wRALwWX.png",
+          "href": "https://iticket.ma/events/theatre/peter-pan-on-ice-par-the-international-ice-stars",
+          "venue": "",
+          "city": "Rabat",
+          "sources": [
+            "iticket"
           ],
-          "evidence": "Peter Pan on Ice par The International Ice Stars\n\nPeter Pan on Ice par The International Ice Stars\n\n26 – 29 novembre 2026•[Patinoire de Rabat](/venues/patinoire-de-rabat)\n\n7 Séance\n100–300 MAD\n0+\n\nà partir de 100 MAD\n\n# Peter Pan on Ice par The International Ice Stars\n\n26 – 29 novembre 2026·7 Séance\n\n[Patinoire de Rabat](/venues/patinoire-de-rabat)\n\n## Séances\n\n26nov\n\n19:00 - 21:00\n\nà partir de 100 MAD0+\n\n27nov\n\n15:00 - 17:00\n\nà partir de 100 MAD0+\n\n27nov\n\n20:00 - 22:00\n\nà partir de 100 MAD0+\n\n28nov\n\n15:00 - 17:00\n\nà partir de 100 MAD0+\n\n28nov\n\n20:00 - 22:00\n\nà partir de 100 MAD0+\n\n## Description\n\n# PETER PAN ON ICE – THE ICE SHOW\n\nPour la première fois à la Patinoire de Rabat, la glace se transforme en scène de spectacle !\n\nLes International Ice Stars présentent Peter Pan on Ice, un grand spectacle international sur glace destiné à toute la famille.\n\nEnvolez-vous vers le Pays Imaginaire aux côtés de Peter Pan, Wendy, la Fée Clochette et leurs compagnons, et vivez une aventure pleine de magie, d’humour et d’émotion.\n\nSauts spectaculaires, portés acrobatiques, chorégraphies envoûtantes et costumes féeriques : les patineurs des International Ice Stars, artistes de renommée internatio"
+          "observedAt": "2026-11-14T22:49:59.040Z"
         },
         {
-          "url": "https://iticket.ma/events/activities/gala-solidaire-fondation-tamayouz",
-          "title": "à partir de 3000 MAD\n\n18+\n\n27 novembre 2026\n\n### Gala Solidaire Fondation Tamayouz\n\nHotel Tigmiza Marrakech",
-          "reasons": [
-            "Page content unavailable",
-            "Event heading needs verification",
-            "Missing or conflicting event date",
-            "Moroccan location needs verification",
-            "Poster needs verification"
+          "id": "iticket-https://iticket.ma/events/activities/gala-solidaire-fondation-tamayouz",
+          "title": "Gala Solidaire Fondation Tamayouz",
+          "releaseDate": "2026-11-27",
+          "image": "https://cdn.iticket.ma/cdn-cgi/image/width=700,height=700,quality=75,format=webp/event/square_card/m-af6afb272df0787fe896ea4bd4305bc8.png",
+          "href": "https://iticket.ma/events/activities/gala-solidaire-fondation-tamayouz",
+          "venue": "",
+          "city": "Marrakech",
+          "sources": [
+            "iticket"
           ],
-          "evidence": ""
+          "observedAt": "2026-11-14T22:49:59.040Z"
+        },
+        {
+          "id": "iticket-https://iticket.ma/events/concerts/hajib-en-concert-a-rabat",
+          "title": "Hajib en Concert à Rabat",
+          "releaseDate": "2026-12-04",
+          "image": "https://cdn.iticket.ma/cdn-cgi/image/width=700,height=700,quality=75,format=webp/event/square_card/m-e9063fcdc6bba66ac19f3d170895ff72.png",
+          "href": "https://iticket.ma/events/concerts/hajib-en-concert-a-rabat",
+          "venue": "",
+          "city": "Rabat",
+          "sources": [
+            "iticket"
+          ],
+          "observedAt": "2026-11-14T22:49:59.040Z"
+        },
+        {
+          "id": "iticket-https://iticket.ma/events/concerts/soiree-aissawa-avec-yassine-eljamai",
+          "title": "Soirée Aïssawa avec Yassine ElJamai",
+          "releaseDate": "2026-12-04",
+          "image": "https://cdn.iticket.ma/cdn-cgi/image/width=700,height=700,quality=75,format=webp/event/square_card/ywTnq8gYBhxp0g3M8udcpr6qKHv0zchT.png",
+          "href": "https://iticket.ma/events/concerts/soiree-aissawa-avec-yassine-eljamai",
+          "venue": "",
+          "city": "Rabat",
+          "sources": [
+            "iticket"
+          ],
+          "observedAt": "2026-11-14T22:49:59.040Z"
+        },
+        {
+          "id": "iticket-https://iticket.ma/events/concerts/tiakola-en-concert-a-casablanca",
+          "title": "TIAKOLA EN CONCERT A CASABLANCA",
+          "releaseDate": "2026-12-05",
+          "image": "https://cdn.iticket.ma/cdn-cgi/image/width=700,height=700,quality=75,format=webp/event/square_card/m-409d42d941e2d5388c06aeb35d236228.png",
+          "href": "https://iticket.ma/events/concerts/tiakola-en-concert-a-casablanca",
+          "venue": "",
+          "city": "Casablanca",
+          "sources": [
+            "iticket"
+          ],
+          "observedAt": "2026-11-14T22:49:59.040Z"
+        },
+        {
+          "id": "iticket-https://iticket.ma/events/concerts/stormy-desperado-casablanca-11-12",
+          "title": "STORMY - DESPERADO - CASABLANCA",
+          "releaseDate": "2026-12-11",
+          "image": "https://cdn.iticket.ma/cdn-cgi/image/width=700,height=700,quality=75,format=webp/event/square_card/m-890e7b7024edac32a35df904b8c61533.png",
+          "href": "https://iticket.ma/events/concerts/stormy-desperado-casablanca-11-12",
+          "venue": "",
+          "city": "Casablanca",
+          "sources": [
+            "iticket"
+          ],
+          "observedAt": "2026-11-14T22:49:59.040Z"
+        },
+        {
+          "id": "iticket-https://iticket.ma/events/concerts/rnboi-and-elgrandetoto-en-concert-a-rabat",
+          "title": "RNBOI & ELGRANDETOTO – En concert à Rabat",
+          "releaseDate": "2026-12-13",
+          "image": "https://cdn.iticket.ma/cdn-cgi/image/width=700,height=700,quality=75,format=webp/event/square_card/i3J91dV1bh0nvsEda6QvfBIK0MRkTK3q.png",
+          "href": "https://iticket.ma/events/concerts/rnboi-and-elgrandetoto-en-concert-a-rabat",
+          "venue": "",
+          "city": "Rabat",
+          "sources": [
+            "iticket"
+          ],
+          "observedAt": "2026-11-14T22:49:59.040Z"
+        },
+        {
+          "id": "iticket-https://iticket.ma/events/sport/morocco-football-scouting-rabat-dec-2026",
+          "title": "Morocco football scouting Rabat DEC 2026",
+          "releaseDate": "2026-12-14",
+          "image": "https://cdn.iticket.ma/cdn-cgi/image/width=700,height=700,quality=75,format=webp/event/square_card/8A4p4HZsU4UVDskx731DyZoiCctmgE1U.png",
+          "href": "https://iticket.ma/events/sport/morocco-football-scouting-rabat-dec-2026",
+          "venue": "",
+          "city": "Rabat",
+          "sources": [
+            "iticket"
+          ],
+          "observedAt": "2026-11-14T22:49:59.040Z"
         }
-      ]
+      ],
+      "drafts": []
     },
     {
       "id": "ticket",
-      "checkedAt": "2026-11-14T22:46:34.143Z",
+      "checkedAt": "2026-11-14T22:49:59.040Z",
       "error": null,
       "items": [],
       "drafts": [
@@ -133,7 +220,7 @@
     },
     {
       "id": "webook",
-      "checkedAt": "2026-11-14T22:46:34.143Z",
+      "checkedAt": "2026-11-14T22:49:59.040Z",
       "error": null,
       "items": [],
       "drafts": [
@@ -189,7 +276,7 @@
     },
     {
       "id": "eventsma",
-      "checkedAt": "2026-11-14T22:46:34.143Z",
+      "checkedAt": "2026-11-14T22:49:59.040Z",
       "error": null,
       "items": [],
       "drafts": [
