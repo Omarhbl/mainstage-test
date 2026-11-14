@@ -312,3 +312,28 @@ export function validateDiscoveryFeed(payload: unknown, now = new Date()): Disco
   });
   return { version: 1, syncedAt: feed.syncedAt, sources };
 }
+
+
+// Catalogue cards carry their own title, full date, venue and square poster.
+// Read balanced Markdown links because the linked cards contain image links.
+export function parseIticketCatalogueMarkdown(content: string, now = new Date()): TicketEvent[] {
+  const items: TicketEvent[] = [];
+  for (const link of content.matchAll(/\]\(([^\s)]+)(?:\s+"[^"]*")?\)/g)) {
+    let href; try { href = new URL(link[1], "https://iticket.ma").href; } catch { continue; }
+    const target = discoverySourceUrl(href);
+    if (target?.source !== "iticket" || /\/events\/all\//.test(target.url)) continue;
+    let depth = 1, start = link.index! - 1;
+    for (; start >= 0; start--) {
+      if (content[start] === "]") depth++;
+      if (content[start] === "[" && --depth === 0) break;
+    }
+    if (start < 0) continue;
+    const card = content.slice(start + 1, link.index);
+    const title = card.match(/!\[([^\]]+)\]\(/)?.[1];
+    const visible = card.replace(/!\[[^\]]*\]\([^)]*\)/g, "");
+    if (!title || !normalize(visible).includes(normalize(title))) continue;
+    const result = discoverEvent({ url: target.url, title, raw_content: `# ${title}\n${card}` }, now);
+    if (result.item) items.push(result.item);
+  }
+  return mergeTicketEvents(items);
+}

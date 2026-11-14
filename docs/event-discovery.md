@@ -48,3 +48,9 @@ Webook starts from its Morocco catalogue and English month searches. Its main
 event heading supplies the title, full English ordinal dates are supported,
 and the FAQ section is excluded from cancellation checks. The review list is
 no longer displayed in the backoffice; incomplete entries remain unpublished.
+
+iTicket also starts from its current catalogue. A complete linked card can
+publish directly when its title, full date, Moroccan location and matching
+poster are all present together. Nested Markdown image links are parsed without
+executing page scripts. Missing fields still prevent publication. Ended event
+pages are excluded. Catalogue extraction adds one basic request per run.

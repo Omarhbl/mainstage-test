@@ -81,3 +81,15 @@ test('iTicket selects the event poster from relative resizing URLs and rejects e
   assert.equal(result.item.image, 'https://cdn.iticket.ma/event/slide/poster.jpg');
   assert.equal(discoverEvent({ ...page, raw_content: page.raw_content + '\n### L’événement est terminé' }, now).item, null);
 });
+
+test('complete iTicket catalogue cards publish without a detail-page request', async () => {
+  const { parseIticketCatalogueMarkdown } = await import('../src/lib/event-feed-data.ts');
+  const card = '[![BO9AL SHOW – Marrakech](https://cdn.iticket.ma/event/square_card/poster.png)\n\nà partir de 150 MAD\n21 novembre 2026\nBO9AL SHOW – Marrakech\nVilla Marco Marrakech](/events/concerts/bo9al-show-marrakech)';
+  const items = parseIticketCatalogueMarkdown(card, now);
+  assert.equal(items.length, 1);
+  assert.equal(items[0].releaseDate, '2026-11-21');
+  assert.equal(items[0].city, 'Marrakech');
+  assert.equal(parseIticketCatalogueMarkdown(card.replace('21 novembre 2026', '21 novembre'), now).length, 0);
+  assert.equal(parseIticketCatalogueMarkdown(card.replace('21 novembre 2026', '7 novembre 2026'), now).length, 0);
+  assert.equal(parseIticketCatalogueMarkdown(card.replace('https://cdn.iticket.ma/event/square_card/poster.png', 'javascript:bad'), now).length, 0);
+});

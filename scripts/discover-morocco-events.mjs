@@ -1,5 +1,5 @@
 import { readFile, mkdir, writeFile } from 'node:fs/promises';
-import { EVENT_SOURCES, discoverySourceUrl, discoverEvent, mergeTicketEvents, validateDiscoveryFeed } from '../src/lib/event-feed-data.ts';
+import { EVENT_SOURCES, discoverySourceUrl, discoverEvent, mergeTicketEvents, validateDiscoveryFeed, parseIticketCatalogueMarkdown } from '../src/lib/event-feed-data.ts';
 
 const key = process.env.TAVILY_API_KEY;
 if (!key) throw new Error('Save TAVILY_API_KEY in repository Actions secrets before running discovery.');
@@ -27,11 +27,14 @@ for (const platform of EVENT_SOURCES.filter((source) => source.id !== 'guichet')
   try {
     const domain = ({ iticket: 'iticket.ma', ticket: 'ticket.ma', webook: 'webook.com', eventsma: 'events.ma' })[platform.id];
     const found = new Map();
+    let catalogueItems = [];
     // Seed webook from its country catalogue; month searches miss English cards.
     if (['webook', 'iticket'].includes(platform.id)) {
       const catalogueUrl = platform.id === 'iticket' ? 'https://iticket.ma/events' : 'https://webook.com/en/explore/ma';
-      const catalogue = await tavily('extract', { urls: [catalogueUrl], extract_depth: 'basic', format: 'markdown' });
-      const content = (catalogue.results?.[0]?.raw_content ?? '').replace(/!\[[^\]]*\]\([^)]*\)/g, '');
+      const catalogue = await tavily('extract', { urls: [catalogueUrl], extract_depth: 'basic', include_images: true, format: 'markdown' });
+      const rawCatalogue = catalogue.results?.[0]?.raw_content ?? '';
+      if (platform.id === 'iticket') catalogueItems = parseIticketCatalogueMarkdown(rawCatalogue, now);
+      const content = rawCatalogue.replace(/!\[[^\]]*\]\([^)]*\)/g, '');
       for (const match of content.matchAll(/(?<!!)\[([^\]]+)\]\(([^\s)]+)(?:\s+"[^"]*")?\)/g)) {
         let url; try { url = new URL(match[2], catalogueUrl).href; } catch { continue; }
         const target = discoverySourceUrl(url);
@@ -65,7 +68,7 @@ for (const platform of EVENT_SOURCES.filter((source) => source.id !== 'guichet')
         }
       }
     }
-    const items = [], drafts = [], excluded = new Set();
+    const items = catalogueItems.map((item) => ({ ...item, observedAt: now.toISOString() })), drafts = [], excluded = new Set();
     for (const candidate of candidates) {
       const result = discoverEvent(candidate, now);
       if (result.item) items.push({ ...result.item, observedAt: now.toISOString() });
