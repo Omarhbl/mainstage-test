@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { discoverEvent, discoverySourceUrl, validateDiscoveryFeed } from '../src/lib/event-feed-data.ts';
+import { discoverEvent, discoverySourceUrl, validateDiscoveryFeed, mergeTicketEvents } from '../src/lib/event-feed-data.ts';
 
 const now = new Date('2026-11-14T12:00:00Z');
 const event = {
@@ -8,6 +8,14 @@ const event = {
   title: 'Concert Test Casablanca – Billets iTicket',
   raw_content: '# Concert Test Casablanca\n21 novembre 2026\nThéâtre, Casablanca, Maroc\n![Concert Test Casablanca](https://cdn.iticket.ma/poster.jpg)',
 };
+test('cross-platform title variants merge only on matching date and location', () => {
+  const base = { id: 'a', title: 'Maalem Hamid El Kasri & Abdelkebir Merchane – La Grande Soirée Gnawa à Rabat', releaseDate: '2026-11-14', href: 'https://guichet.com/ma-fr/gnawa', image: 'https://cdn.example/poster.jpg', venue: 'Zénith Center', city: 'Rabat', sources: ['guichet'] };
+  const other = { ...base, id: 'b', title: 'Kesri et Merchane LA GRANDE SOIRÉE GNAWA - Events.ma', href: 'https://events.ma/concerts-festivals/gnawa', venue: '', sources: ['eventsma'] };
+  assert.equal(mergeTicketEvents([base, other]).length, 1);
+  assert.deepEqual(mergeTicketEvents([base, other])[0].sources, ['guichet', 'eventsma']);
+  assert.equal(mergeTicketEvents([base, { ...other, city: 'Casablanca' }]).length, 2);
+  assert.equal(mergeTicketEvents([base, { ...other, releaseDate: '2026-11-15' }]).length, 2);
+});
 
 test('complete event publishes with canonical booking link and explicit calendar date', () => {
   const { item, draft } = discoverEvent(event, now);

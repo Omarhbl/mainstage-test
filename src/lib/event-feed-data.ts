@@ -136,7 +136,7 @@ export function parseStructuredEvents(html: string, source: "webook" | "eventsma
 }
 export function mergeTicketEvents(items: TicketEvent[]): TicketEvent[] {
   const result: TicketEvent[] = [];
-  const key = (title: string) => normalize(title).split(" ").filter((word) => !["en", "concert", "a", "de", "the", "le", "la", "les", "par", "at", "live"].includes(word));
+  const key = (title: string) => [...new Set(normalize(title.replace(/\s[-–—|]\s(?:events\.ma|iticket(?:\.ma)?|ticket\.ma|webook(?:\.com)?).*$/i, "")).split(" ").filter((word) => !["en", "concert", "a", "de", "the", "le", "la", "les", "par", "at", "live", "et", "and"].includes(word)))];
   for (const item of items) {
     const words = key(item.title);
     const existing = result.find((entry) => {
@@ -146,7 +146,7 @@ export function mergeTicketEvents(items: TicketEvent[]): TicketEvent[] {
       const sameCity = entry.city && item.city && normalize(entry.city) === normalize(item.city);
       if (!samePlace && !sameCity) return false;
       const other = key(entry.title), shared = words.filter((word) => other.includes(word)).length;
-      return normalize(entry.title) === normalize(item.title) || (Math.min(words.length, other.length) >= 3 && shared / Math.min(words.length, other.length) >= 0.85);
+      return normalize(entry.title) === normalize(item.title) || (Math.min(words.length, other.length) >= 3 && shared / Math.min(words.length, other.length) >= 0.8);
     });
     if (existing) { existing.sources = [...new Set([...existing.sources, ...item.sources])]; continue; }
     result.push({ ...item, sources: [...item.sources] });
