@@ -197,7 +197,7 @@ export function discoverySourceUrl(value: unknown): { source: EventSourceId; url
   if (source === "iticket" && !/^\/events\/[^/]+\/[^/]+\/?$/.test(path)) return null;
   if (source === "ticket" && !/^\/ticket\/[^/]+\/[^/]+\/[^/]+\/?$/.test(path)) return null;
   if (source === "webook" && !/\/ma\/.+\/events\/[^/]+\/?$/.test(path)) return null;
-  if (source === "eventsma" && (!/^\/[^/]+\/[^/]+\/?$/.test(path) || /chercher-evenements|page|contact|termes|privacy/.test(path))) return null;
+  if (source === "eventsma" && (!/^\/[^/]+\/[^/]+\/?$/.test(path) || /chercher-evenements|producteur|organisateur|categorie|page|contact|termes|privacy/.test(path))) return null;
   url.search = ""; url.hash = "";
   return { source, url: url.href };
 }
@@ -209,7 +209,7 @@ export function discoverEvent(input: { url: string; title: string; content?: str
   if (!target) return { item: null, draft: null };
   const text = String(input.raw_content ?? "").slice(0, 30000);
   const primary = text.split(/\n#{1,4}\s+(?:autres|related|similar|vous aimerez|événements similaires|other events)/i)[0];
-  const title = String(input.title ?? "").split(/\s+[|–—]\s+(?:Billets|Tickets|iTicket|Ticket\.ma|webook|Billetterie)/i)[0].trim().slice(0, 200);
+  const title = String(input.title ?? "").split(/\s+[|–—-]\s+(?:Billets|Tickets|iTicket|Ticket\.ma|webook|Billetterie|Events(?:\.ma)?\b)/i)[0].trim().slice(0, 200);
   const dates = new Set<string>();
   const dateText = primary.replace(/!\[[^\]]*\]\([^)]*\)/g, "").replace(/https?:\/\/\S+/g, "");
   for (const match of dateText.matchAll(/\b(?:\d{4}-\d{2}-\d{2}|\d{2}\/\d{2}\/\d{4})\b/g)) { const date = localDate(match[0]); if (date) dates.add(date); }

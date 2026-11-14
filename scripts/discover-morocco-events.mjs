@@ -30,7 +30,7 @@ for (const platform of EVENT_SOURCES.filter((source) => source.id !== 'guichet')
     // Eight basic searches and at most twenty extractions per daily run.
     for (const month of months) {
       const response = await tavily('search', {
-        query: `site:${domain} événements Maroc concerts spectacles ${month}`,
+        query: `site:${domain}${platform.id === 'iticket' ? '/events/' : platform.id === 'ticket' ? '/ticket/' : ''} "${month}" Maroc concerts spectacles billets`,
         include_domains: [domain], search_depth: 'basic', max_results: 8,
         include_answer: false, include_raw_content: 'markdown',
       });

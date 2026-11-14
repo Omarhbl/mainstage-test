@@ -36,8 +36,12 @@ test('missing Moroccan locality and event heading remain in review', () => {
 test('related event dates do not contaminate the primary event', () => {
   assert(discoverEvent({ ...event, raw_content: event.raw_content + '\n## Related events\n22 novembre 2026' }, now).item);
 });
+test('platform SEO suffixes do not prevent a matching title and poster', () => {
+  const result = discoverEvent({ ...event, title: 'Concert Test Casablanca - Billetterie Maroc et Afrique - Events.ma' }, now);
+  assert.equal(result.item?.title, 'Concert Test Casablanca');
+});
 test('only supported canonical event detail URLs qualify', () => {
-  for (const url of ['https://evil.example/events/test', 'javascript:alert(1)', 'https://iticket.ma/', 'https://webook.com/en/explore/ma', 'https://iticket.ma.evil.example/events/a/b']) assert.equal(discoverySourceUrl(url), null);
+  for (const url of ['https://evil.example/events/test', 'javascript:alert(1)', 'https://iticket.ma/', 'https://events.ma/producteur/work-event-998', 'https://webook.com/en/explore/ma', 'https://iticket.ma.evil.example/events/a/b']) assert.equal(discoverySourceUrl(url), null);
   assert.equal(discoverySourceUrl('https://webook.com/en/ma/cas/sports-event/events/marocvsniger-caf27').source, 'webook');
   assert.equal(discoverySourceUrl('https://events.ma/concerts-festivals/test-concert').source, 'eventsma');
 });
