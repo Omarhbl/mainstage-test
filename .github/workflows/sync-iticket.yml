@@ -8,8 +8,10 @@ on:
       - '.github/workflows/sync-iticket.yml'
       - 'scripts/sync-iticket.mjs'
       - 'src/lib/event-feed-data.ts'
-  schedule:
-    - cron: '23 */6 * * *'
+  # Enable after iTicket grants automated access; API and public page currently
+  # return HTTP 403 from GitHub-hosted runners (including the initial tests).
+  # schedule:
+  #   - cron: '23 */6 * * *'
 
 permissions:
   contents: write
