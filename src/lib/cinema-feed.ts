@@ -16,7 +16,7 @@ export async function getCinemaFeed(force = false): Promise<CinemaFeed> {
   const now = new Date();
   const current = moroccoMinute(now);
   const validCache = saved?.syncedAt && Number.isFinite(Date.parse(saved.syncedAt)) && now.getTime() - Date.parse(saved.syncedAt) < STALE_FOR;
-  const cached: CinemaFeed = { ...empty, ...(saved ?? {}), upcoming: validCache && Array.isArray(saved?.upcoming) ? saved.upcoming.filter((movie) => movie.releaseDate.replaceAll("-", "") > current.slice(0, 8)) : [], movies: validCache && Array.isArray(saved?.movies) ? saved.movies.filter((movie) => movie && movie.lastSession >= current) : [] };
+  const cached: CinemaFeed = { ...empty, ...(saved ?? {}), upcoming: validCache && Array.isArray(saved?.upcoming) ? mergeCinemaMovies([saved.upcoming.filter((movie) => movie.releaseDate.replaceAll("-", "") > current.slice(0, 8))]).sort((a, b) => a.releaseDate.localeCompare(b.releaseDate)) : [], movies: validCache && Array.isArray(saved?.movies) ? mergeCinemaMovies([saved.movies.filter((movie) => movie && movie.lastSession >= current)]) : [] };
   const interval = saved?.error ? RETRY_AFTER : FRESH_FOR;
   if (!force && cached.checkedAt && now.getTime() - Date.parse(cached.checkedAt) < interval) return cached;
 

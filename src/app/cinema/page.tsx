@@ -6,7 +6,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import SiteFooter from "@/components/layout/SiteFooter";
 import { formatReleaseDate } from "@/lib/upcoming";
-import { formatArticleDate, hasArticleCategory } from "@/lib/articles";
+import { formatArticleDate, hasArticleCategory, getArticleImageStyle } from "@/lib/articles";
 import { usePublicArticles } from "@/lib/use-public-articles";
 import { useUpcomingSettings } from "@/lib/use-upcoming-settings";
 
@@ -108,6 +108,7 @@ export default function CinemaPage() {
                       <img
                         src={article.image}
                         alt={article.title}
+                        style={getArticleImageStyle(article)}
                         className={`h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] ${article.imageClassName ?? ""}`}
                       />
                   </div>

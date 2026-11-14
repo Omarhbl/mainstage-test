@@ -7,7 +7,7 @@ export const CINEMA_SOURCES = [
 ] as const;
 export type CinemaSource = (typeof CINEMA_SOURCES)[number];
 export type CinemaMovie = UpcomingItem & { cinemas: string[]; firstSession: string; lastSession: string };
-export type CinemaFeed = { movies: CinemaMovie[]; upcoming?: UpcomingItem[]; syncedAt: string | null; checkedAt: string; error: string | null; sources: string[] };
+export type CinemaFeed = { movies: CinemaMovie[]; upcoming?: CinemaMovie[]; syncedAt: string | null; checkedAt: string; error: string | null; sources: string[] };
 
 export function moroccoMinute(now = new Date()) {
   const parts = new Intl.DateTimeFormat("en-GB", { timeZone: "Africa/Casablanca", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", hourCycle: "h23" }).formatToParts(now);
@@ -46,8 +46,10 @@ export function parseCinemaSchedule(payload: unknown, source: CinemaSource, now 
 
 export function mergeCinemaMovies(groups: CinemaMovie[][]): CinemaMovie[] {
   const movies = new Map<string, CinemaMovie>();
+  // Ignore accents, punctuation and an optional French conjunction in feed titles.
+  // Keep all other words and numbers so sequels remain distinct.
+  const titleKey = (title: string) => title.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/\bet\b/g, "").replace(/[^a-z0-9]/g, "");
   for (const movie of groups.flat()) {
-    const titleKey = (title: string) => title.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]/g, "");
     const aliases = movie.title.split("/").map(titleKey).filter(Boolean);
     const existing = movies.get(movie.id) ?? [...movies.values()].find((entry) => entry.title.split("/").map(titleKey).some((alias) => aliases.includes(alias)));
     if (!existing) { movies.set(movie.id, { ...movie, cinemas: [...movie.cinemas] }); continue; }
