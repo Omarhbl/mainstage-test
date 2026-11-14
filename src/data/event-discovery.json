@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "syncedAt": "2026-11-14T01:16:32.116Z",
+  "syncedAt": "2026-11-14T01:21:26.356Z",
   "sources": [
     {
       "id": "iticket",
-      "checkedAt": "2026-11-14T01:16:32.116Z",
+      "checkedAt": "2026-11-14T01:21:26.356Z",
       "error": null,
       "items": [],
       "drafts": [
@@ -37,7 +37,7 @@
     },
     {
       "id": "ticket",
-      "checkedAt": "2026-11-14T01:16:32.116Z",
+      "checkedAt": "2026-11-14T01:21:26.356Z",
       "error": null,
       "items": [],
       "drafts": [
@@ -90,7 +90,7 @@
     },
     {
       "id": "webook",
-      "checkedAt": "2026-11-14T01:16:32.116Z",
+      "checkedAt": "2026-11-14T01:21:26.356Z",
       "error": null,
       "items": [],
       "drafts": [
@@ -134,20 +134,10 @@
     },
     {
       "id": "eventsma",
-      "checkedAt": "2026-11-14T01:16:32.116Z",
+      "checkedAt": "2026-11-14T01:21:26.356Z",
       "error": null,
       "items": [],
       "drafts": [
-        {
-          "url": "https://events.ma/artistes/mimo-lazrak",
-          "title": "Search for events - Find concerts, festivals and more - Ticketing Morocco and Africa",
-          "reasons": [
-            "Event heading needs verification",
-            "Missing or conflicting event date",
-            "Poster needs verification"
-          ],
-          "evidence": "[![Events logo](/assets/imgs/logo/event-logo-black-100.png)](/en)\n\n[FR](/artistes/mimo-lazrak \"Français\")[EN](/en/artistes/mimo-lazrak \"English\")[AR](/ar/artistes/mimo-lazrak \"العربية\")\n\n[Sign in](/en/mon-espace/connexion \"Sign in\")\n\n* ##### Your basket is empty\n\n  Explore our events and let yourself be inspired!   \n   Find tickets for concerts, festivals and sporting events in Morocco and Africa.\n\n\n\n\n# Search for events\n\n1238 event(s) found\n\n[![](https://s3.eu-north-1.amazonaws.com/events.ma/events/10-2026/1545/0902bcdb-ff96-4a04-a6ea-d91c145ead9f-1792509905-yryX.webp)**14**NovSold out\n\nConcerts & Festivals\n\n### Nacim Haddad à Casablanca\n\nMegarama, Casablanca\n\nSaturday 14 November 2026\n\n20:30\n\nfrom**250 MAD**](/en/concerts-festivals/nacim-haddad-14-11-26)[![](https://s3.eu-north-1.amazonaws.com/events.ma/events/10-2026/1525/ba811897-81dd-4483-ae5a-51f424ae6dd5-1791810646-eQFf.webp)**14**Nov\n\nConcerts & Festivals\n\n### DE LA MÉMOIRE À LA CÉLÉBRATION\n\nThétre l'Hermitage, Casablanca\n\nSaturday 14 November 2026\n\n20:00\n\nfrom**300 MAD**](/en/concerts-festivals/de-la-memoire-a-la-celebration)[![](https://s3.eu-north-1.amazonaws.com/events.ma/events/09-2026/1491/20faf52e-96ba-4a65-8554-a58f"
-        },
         {
           "url": "https://events.ma/concerts-festivals/dunia-batma-29-11-26",
           "title": "DUNIA BATMA à Casablanca",
@@ -174,13 +164,19 @@
         },
         {
           "url": "https://events.ma/concerts-festivals/dunia-batma-18-12-26",
-          "title": "Dunia BATMA à Marrakech - Ticketing Morocco and Africa",
+          "title": "Dunia BATMA à Marrakech",
           "reasons": [
-            "Event heading needs verification",
-            "Missing or conflicting event date",
             "Poster needs verification"
           ],
           "evidence": "[![Events logo](/assets/imgs/logo/event-logo-black-100.png)](/en)\n\n[FR](/concerts-festivals/dunia-batma-18-12-26 \"Français\")[EN](/en/concerts-festivals/dunia-batma-18-12-26 \"English\")[AR](/ar/concerts-festivals/dunia-batma-18-12-26 \"العربية\")\n\n[Sign in](/en/mon-espace/connexion \"Sign in\")\n\n* ##### Your basket is empty\n\n  Explore our events and let yourself be inspired!   \n   Find tickets for concerts, festivals and sporting events in Morocco and Africa.\n\n\n\n![](/assets/imgs/headers/header-bg.jpg)\n\nConcerts & Festivals\n\n# Dunia BATMA à Marrakech\n\nFriday 18 December 2026 at 20:30\n\nDoors open at 19:30\n\nMegarama, Cinéma Marrakech, Av. du 7ème Art, 40000, Marrakech\n\n Share \n\n[Facebook](https://www.facebook.com/sharer/sharer.php?u=https://events.ma)  [Twitter](https://twitter.com/share?text=Dunia BATMA  à Marrakech&url=https://events.ma,dunia-batma-18-12-26)  [LinkedIn](https://www.linkedin.com/shareArticle?mini=true&url=https://events.ma)\n\n## Line-up\n\n[![](https://s3.eu-north-1.amazonaws.com/events.ma/artists/10-2026/54/b3bb01c3-181d-4f52-9436-1f1db28e0fce-1793382056-g6ht.webp) dunia-batma](/en/artistes/dunia-batma)\n\n## About\n\nNe manquez pas Dunia Batma en tournée ! L'icône de la chanson"
+        },
+        {
+          "url": "https://events.ma/concerts-festivals/issam-kamal-mazagan-04-12-26",
+          "title": "ISSAM KAMAL & MAZAGAN Live in Oujda",
+          "reasons": [
+            "Poster needs verification"
+          ],
+          "evidence": "[![Events logo](/assets/imgs/logo/event-logo-black-100.png)](/en)\n\n[FR](/concerts-festivals/issam-kamal-mazagan-04-12-26 \"Français\")[EN](/en/concerts-festivals/issam-kamal-mazagan-04-12-26 \"English\")[AR](/ar/concerts-festivals/issam-kamal-mazagan-04-12-26 \"العربية\")\n\n[Sign in](/en/mon-espace/connexion \"Sign in\")\n\n* ##### Your basket is empty\n\n  Explore our events and let yourself be inspired!   \n   Find tickets for concerts, festivals and sporting events in Morocco and Africa.\n\n\n\n![](/assets/imgs/headers/header-bg.jpg)\n\nConcerts & Festivals\n\n# ISSAM KAMAL & MAZAGAN Live in Oujda\n\nFriday 04 December 2026 at 20:30\n\nDoors open at 19:30\n\nThétre Mohammed VI, 3 Rue 8, Awlad-An-Nama, Oujda\n\n Share \n\n[Facebook](https://www.facebook.com/sharer/sharer.php?u=https://events.ma)  [Twitter](https://twitter.com/share?text=ISSAM KAMAL & MAZAGAN Live in Oujda&url=https://events.ma,issam-kamal-mazagan-04-12-26)  [LinkedIn](https://www.linkedin.com/shareArticle?mini=true&url=https://events.ma)\n\n## About\n\nPréparez-vous à vivre l'ultime fusion musicale ! Issam Kamal et Mazagan vous transportent dans l'univers incandescent du Chabi-Groove. Plus qu'un concert, ce show immersif revisite les standards lége"
         }
       ]
     }
