@@ -8,7 +8,7 @@ export const EVENT_SOURCES = [
   { id: "eventsma", name: "Events.ma", url: "https://www.events.ma/chercher-evenements" },
 ] as const;
 export type EventSourceId = (typeof EVENT_SOURCES)[number]["id"];
-export type TicketEvent = UpcomingItem & { venue: string; city: string; sources: string[] };
+export type TicketEvent = UpcomingItem & { venue: string; city: string; sources: string[]; observedAt?: string };
 export type EventSourceState = { id: EventSourceId; name: string; items: TicketEvent[]; checkedAt: string; syncedAt: string | null; error: string | null; method?: "direct" | "search" };
 export type EventFeed = { items: TicketEvent[]; sources: EventSourceState[]; checkedAt: string; error: string | null };
 const normalize = (value: string) => value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
@@ -197,7 +197,7 @@ export function discoverySourceUrl(value: unknown): { source: EventSourceId; url
   if (source === "iticket" && !/^\/events\/[^/]+\/[^/]+\/?$/.test(path)) return null;
   if (source === "ticket" && !/^\/ticket\/[^/]+\/[^/]+\/[^/]+\/?$/.test(path)) return null;
   if (source === "webook" && !/\/ma\/.+\/events\/[^/]+\/?$/.test(path)) return null;
-  if (source === "eventsma" && (!/^\/[^/]+\/[^/]+\/?$/.test(path) || /chercher-evenements|producteur|organisateur|categorie|page|contact|termes|privacy/.test(path))) return null;
+  if (source === "eventsma" && (!/^\/[^/]+\/[^/]+\/?$/.test(path) || /chercher-evenements|producteur|organisateur|artistes|categorie|page|contact|termes|privacy/.test(path))) return null;
   url.search = ""; url.hash = "";
   return { source, url: url.href };
 }
@@ -209,13 +209,18 @@ export function discoverEvent(input: { url: string; title: string; content?: str
   if (!target) return { item: null, draft: null };
   const text = String(input.raw_content ?? "").slice(0, 30000);
   const primary = text.split(/\n#{1,4}\s+(?:autres|related|similar|vous aimerez|événements similaires|other events)/i)[0];
-  const title = String(input.title ?? "").split(/\s+[|–—-]\s+(?:Billets|Tickets|iTicket|Ticket\.ma|webook|Billetterie|Events(?:\.ma)?\b)/i)[0].trim().slice(0, 200);
+  const title = String(input.title ?? "").split(/\s+[|–—-]\s+(?:Billets|Tickets|Ticketing|iTicket|Ticket\.ma|webook|Billetterie|Events(?:\.ma)?\b)/i)[0].trim().slice(0, 200);
   const dates = new Set<string>();
   const dateText = primary.replace(/!\[[^\]]*\]\([^)]*\)/g, "").replace(/https?:\/\/\S+/g, "");
   for (const match of dateText.matchAll(/\b(?:\d{4}-\d{2}-\d{2}|\d{2}\/\d{2}\/\d{4})\b/g)) { const date = localDate(match[0]); if (date) dates.add(date); }
   const months = ["janvier", "fevrier", "mars", "avril", "mai", "juin", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"];
   for (const match of normalize(dateText).matchAll(/\b(\d{1,2}) (janvier|fevrier|mars|avril|mai|juin|juillet|aout|septembre|octobre|novembre|decembre) (20\d{2})\b/g)) {
     const date = localDate(`${match[3]}-${String(months.indexOf(match[2]) + 1).padStart(2, "0")}-${match[1].padStart(2, "0")}`);
+    if (date) dates.add(date);
+  }
+  const englishMonths = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
+  for (const match of normalize(dateText).matchAll(/\b(\d{1,2}) (january|february|march|april|may|june|july|august|september|october|november|december) (20\d{2})\b/g)) {
+    const date = localDate(`${match[3]}-${String(englishMonths.indexOf(match[2]) + 1).padStart(2, "0")}-${match[1].padStart(2, "0")}`);
     if (date) dates.add(date);
   }
   const releaseDate = dates.size === 1 ? [...dates][0] : "";
@@ -244,8 +249,11 @@ export function validateDiscoveryFeed(payload: unknown, now = new Date()): Disco
     const items = (Array.isArray(source.items) ? source.items : []).slice(0, 50).flatMap((row) => {
       const target = discoverySourceUrl(row?.href);
       if (!target || target.source !== source.id) return [];
+      const observedAt = row.observedAt || source.checkedAt;
+      const observedAge = now.getTime() - Date.parse(observedAt);
+      if (!Number.isFinite(observedAge) || observedAge < -300000 || observedAge > 48 * 60 * 60 * 1000) return [];
       const item = makeEvent({ id: target.url, title: row.title, image: row.image, date: row.releaseDate, href: target.url, city: row.city, venue: row.venue }, source.id, now);
-      return item ? [item] : [];
+      return item ? [{ ...item, observedAt }] : [];
     });
     const drafts = (Array.isArray(source.drafts) ? source.drafts : []).slice(0, 30).flatMap((row) => {
       const target = discoverySourceUrl(row?.url);

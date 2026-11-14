@@ -46,16 +46,23 @@ for (const platform of EVENT_SOURCES.filter((source) => source.id !== 'guichet')
       for (const result of extracted.results ?? []) {
         const target = discoverySourceUrl(result.url);
         const entry = target && found.get(target.url);
-        if (entry && result.raw_content) entry.raw_content = result.raw_content;
+        if (entry && result.raw_content) {
+          const existing = discoverEvent(entry, now);
+          const replacement = discoverEvent({ ...entry, raw_content: result.raw_content }, now);
+          // Extraction sometimes drops the event poster. Keep the richer version.
+          if (replacement.item || (!existing.item && (replacement.draft?.reasons.length ?? 0) < (existing.draft?.reasons.length ?? 0))) entry.raw_content = result.raw_content;
+        }
       }
     }
-    const items = [], drafts = [];
+    const items = [], drafts = [], excluded = new Set();
     for (const candidate of candidates) {
       const result = discoverEvent(candidate, now);
-      if (result.item) items.push(result.item);
+      if (result.item) items.push({ ...result.item, observedAt: now.toISOString() });
       if (result.draft) drafts.push(result.draft);
+      if (!result.item && !result.draft) excluded.add(candidate.url);
     }
-    sources.push({ id: platform.id, checkedAt: now.toISOString(), error: null, items: mergeTicketEvents(items), drafts });
+    const retained = previous?.sources.find((source) => source.id === platform.id)?.items.filter((item) => !excluded.has(item.href)) ?? [];
+    sources.push({ id: platform.id, checkedAt: now.toISOString(), error: null, items: mergeTicketEvents([...items, ...retained]), drafts: drafts.filter((draft) => !items.some((item) => item.href === draft.url) && !retained.some((item) => item.href === draft.url)) });
     successful++;
     console.log(`${platform.name}: ${items.length} ready, ${drafts.length} to review.`);
   } catch (error) {

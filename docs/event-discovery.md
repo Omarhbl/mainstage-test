@@ -33,6 +33,8 @@ availability based on this feed.
 Only normalized public event details and short review excerpts are committed.
 Failed platforms retain their last successful results for up to 48 hours, without
 refreshing their original checkedAt. A total search failure preserves the file.
+Previously verified items also survive a temporarily incomplete extraction for
+up to 48 hours using their original observedAt; another search does not reset it.
 Vercel validates the snapshot, caches it in site_settings, and uses it when a
 platform's direct catalogue is unavailable. The public listing keeps its current
 design. Uncertain entries can be verified and entered using existing manual fields.

@@ -52,4 +52,5 @@ test('snapshot rejects stale and future timestamps and isolates invalid booking 
   for (const date of ['2026-11-10T12:00:00Z', '2026-11-20T12:00:00Z']) assert.throws(() => validateDiscoveryFeed({ ...feed, syncedAt: date }, now));
   assert.equal(validateDiscoveryFeed({ ...feed, sources: [{ ...feed.sources[0], items: [{ ...item, href: 'https://evil.example/' }] }] }, now).sources[0].items.length, 0);
   assert.equal(validateDiscoveryFeed({ ...feed, sources: [{ ...feed.sources[0], checkedAt: '2026-11-10T12:00:00Z' }] }, now).sources.length, 0);
+  assert.equal(validateDiscoveryFeed({ ...feed, sources: [{ ...feed.sources[0], items: [{ ...item, observedAt: '2026-11-10T12:00:00Z' }] }] }, now).sources[0].items.length, 0);
 });
