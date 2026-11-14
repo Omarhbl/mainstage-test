@@ -2,7 +2,7 @@ import type { UpcomingItem } from "@/lib/upcoming";
 
 export const EVENT_SOURCES = [
   { id: "guichet", name: "Guichet.com", url: "https://guichet.com/ma-fr" },
-  { id: "iticket", name: "iTicket.ma", url: "https://iticket.ma/" },
+  { id: "iticket", name: "iTicket.ma", url: "https://api.iticket.ma/fr/v6/promotions?client=web" },
   { id: "ticket", name: "Ticket.ma", url: "https://www.ticket.ma/api/list-events?type=last&limit=300&categoryID=0" },
   { id: "webook", name: "webook.com", url: "https://webook.com/en/explore/ma" },
   { id: "eventsma", name: "Events.ma", url: "https://www.events.ma/chercher-evenements" },
@@ -152,4 +152,20 @@ export function mergeTicketEvents(items: TicketEvent[]): TicketEvent[] {
     result.push({ ...item, sources: [...item.sources] });
   }
   return result.sort((a, b) => a.releaseDate.localeCompare(b.releaseDate) || a.title.localeCompare(b.title)).slice(0, 50);
+}
+
+export function parseIticketCatalogue(payload: unknown, now = new Date()): TicketEvent[] {
+  const catalogue = payload as { status?: number; response?: unknown[] };
+  if (catalogue?.status !== 200 || !Array.isArray(catalogue.response)) throw new Error("iTicket catalogue unavailable.");
+  const items: TicketEvent[] = [];
+  walk(catalogue.response, (row) => {
+    if (!row.event_starts_at || row.public_state !== 1 || row.hide_dates || typeof row.slug !== "string" || typeof row.category_slug !== "string") return;
+    const venues = row.venues as { name?: string }[] | undefined;
+    const item = makeEvent({ id: row.id, title: row.name, image: row.square_card_url || row.slide_url, date: row.event_starts_at, href: `https://iticket.ma/events/${row.category_slug}/${row.slug}`, venue: venues?.[0]?.name }, "iticket", now);
+    if (!item) return;
+    const previous = items.find((entry) => entry.id === item.id);
+    if (previous && row.square_card_url) previous.image = item.image;
+    else if (!previous) items.push(item);
+  });
+  return mergeTicketEvents(items);
 }
