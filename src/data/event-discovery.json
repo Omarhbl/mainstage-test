@@ -1,38 +1,12 @@
 {
   "version": 1,
-  "syncedAt": "2026-11-14T22:49:59.040Z",
+  "syncedAt": "2026-11-15T14:56:08.840Z",
   "sources": [
     {
       "id": "iticket",
-      "checkedAt": "2026-11-14T22:49:59.040Z",
+      "checkedAt": "2026-11-15T14:56:08.840Z",
       "error": null,
       "items": [
-        {
-          "id": "iticket-https://iticket.ma/events/activities/meydene-experience-le-parcours-immersif",
-          "title": "Meydene Experience - Le Parcours Immersif",
-          "releaseDate": "2026-11-14",
-          "image": "https://cdn.iticket.ma/cdn-cgi/image/width=700,height=700,quality=75,format=webp/event/square_card/m-c6f08da61879b6fd92987fe1bbdfca13.jpg",
-          "href": "https://iticket.ma/events/activities/meydene-experience-le-parcours-immersif",
-          "venue": "",
-          "city": "Marrakech",
-          "sources": [
-            "iticket"
-          ],
-          "observedAt": "2026-11-14T22:49:59.040Z"
-        },
-        {
-          "id": "iticket-https://iticket.ma/events/activities/visite-du-site-archeologique-de-chellah",
-          "title": "Visite du Site Archéologique de Chellah",
-          "releaseDate": "2026-11-14",
-          "image": "https://cdn.iticket.ma/event/square_card/m-65abb427190e20cc53b13585cb034ac0.png",
-          "href": "https://iticket.ma/events/activities/visite-du-site-archeologique-de-chellah",
-          "venue": "",
-          "city": "Rabat",
-          "sources": [
-            "iticket"
-          ],
-          "observedAt": "2026-11-14T22:49:59.040Z"
-        },
         {
           "id": "iticket-https://iticket.ma/events/concerts/bo9al-show-marrakech",
           "title": "BO9AL SHOW – Marrakech",
@@ -44,20 +18,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-14T22:49:59.040Z"
-        },
-        {
-          "id": "iticket-https://iticket.ma/events/theatre/peter-pan-on-ice-par-the-international-ice-stars",
-          "title": "Peter Pan on Ice par The International Ice Stars",
-          "releaseDate": "2026-11-26",
-          "image": "https://cdn.iticket.ma/cdn-cgi/image/width=700,height=700,quality=75,format=webp/event/square_card/gBAwYsPgxnfBYhmcwN291YXM1wRALwWX.png",
-          "href": "https://iticket.ma/events/theatre/peter-pan-on-ice-par-the-international-ice-stars",
-          "venue": "",
-          "city": "Rabat",
-          "sources": [
-            "iticket"
-          ],
-          "observedAt": "2026-11-14T22:49:59.040Z"
+          "observedAt": "2026-11-15T14:56:08.840Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/activities/gala-solidaire-fondation-tamayouz",
@@ -70,7 +31,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-14T22:49:59.040Z"
+          "observedAt": "2026-11-15T14:56:08.840Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/hajib-en-concert-a-rabat",
@@ -83,7 +44,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-14T22:49:59.040Z"
+          "observedAt": "2026-11-15T14:56:08.840Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/soiree-aissawa-avec-yassine-eljamai",
@@ -96,7 +57,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-14T22:49:59.040Z"
+          "observedAt": "2026-11-15T14:56:08.840Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/tiakola-en-concert-a-casablanca",
@@ -109,7 +70,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-14T22:49:59.040Z"
+          "observedAt": "2026-11-15T14:56:08.840Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/stormy-desperado-casablanca-11-12",
@@ -122,7 +83,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-14T22:49:59.040Z"
+          "observedAt": "2026-11-15T14:56:08.840Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/rnboi-and-elgrandetoto-en-concert-a-rabat",
@@ -135,7 +96,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-14T22:49:59.040Z"
+          "observedAt": "2026-11-15T14:56:08.840Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/sport/morocco-football-scouting-rabat-dec-2026",
@@ -148,20 +109,13 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-14T22:49:59.040Z"
+          "observedAt": "2026-11-15T14:56:08.840Z"
         }
       ],
-      "drafts": []
-    },
-    {
-      "id": "ticket",
-      "checkedAt": "2026-11-14T22:49:59.040Z",
-      "error": null,
-      "items": [],
       "drafts": [
         {
-          "url": "https://www.ticket.ma/ticket/concerts/4258/tif-noah-juillet-2026",
-          "title": "Noah x No party - Casablanca",
+          "url": "https://iticket.ma/events/activities/visite-du-site-archeologique-de-chellah",
+          "title": "à partir de 15 MAD\n\n14 novembre 2026\n\n### Visite du Site Archéologique de Chellah\n\nLe Site Archéologique de Chellah – Rabat",
           "reasons": [
             "Page content unavailable",
             "Event heading needs verification",
@@ -169,8 +123,32 @@
             "Moroccan location needs verification",
             "Poster needs verification"
           ],
-          "evidence": "CONCERTS. HATIM IDAR À RABAT. calendar. Samedi 14 Novembre 2026. map. Salle Bahnini - Rabat. À partir de 100 MAD. CHEB AMROU AU 6ÈME CAFÉ. CONCERTS. CHEB AMROU"
+          "evidence": ""
         },
+        {
+          "url": "https://iticket.ma/events/activities/meydene-experience-le-parcours-immersif",
+          "title": "Meydene Experience - Le Parcours Immersif",
+          "reasons": [
+            "Poster needs verification"
+          ],
+          "evidence": "Meydene Experience - Le Parcours Immersif\n\nMeydene Experience - Le Parcours Immersif\n\n15 – 30 novembre 2026•[Meydene Marrakech](/venues/meydene-marrakech)\n\n192 Séance\n60–130 MAD\n0+\n\nà partir de 60 MAD\n\n# Meydene Experience - Le Parcours Immersif\n\n15 – 30 novembre 2026·192 Séance\n\n[Meydene Marrakech](/venues/meydene-marrakech)\n\n0+\n\n## Séances\n\n15nov\n\n10:00 - 11:00\n\nà partir de 60 MAD0+\n\n15nov\n\n11:00 - 12:00\n\nà partir de 60 MAD0+\n\n15nov\n\n12:00 - 13:00\n\nà partir de 60 MAD0+\n\n15nov\n\n13:00 - 14:00\n\nà partir de 60 MAD0+\n\n15nov\n\n14:00 - 15:00\n\nà partir de 60 MAD0+\n\n## Description\n\n**Le Parcours Immersif – Meydene Marrakech**\n\nLe **Parcours Immersif** est une **expérience unique** pour petits et grands, **marocains comme étrangers**. Ouvert tous les jours, il vous invite à vivre une **aventure sensorielle inédite**, avec la sensation de **voyager à travers Marrakech** et de découvrir, le temps de quelques instants magiques, **les trésors culturels de la ville et de ses régions**.\n\nConçu pour offrir **émotions, émerveillement et découverte**, ce parcours permet à chaque participant de s’immerger dans **l’histoire, l’art et le patrimoine marocain**, à travers une expérience interactive et ca"
+        },
+        {
+          "url": "https://iticket.ma/events/theatre/peter-pan-on-ice-par-the-international-ice-stars",
+          "title": "Peter Pan on Ice par The International Ice Stars",
+          "reasons": [
+            "Poster needs verification"
+          ],
+          "evidence": "Peter Pan on Ice par The International Ice Stars\n\nPeter Pan on Ice par The International Ice Stars\n\n26 – 29 novembre 2026•[Patinoire de Rabat](/venues/patinoire-de-rabat)\n\n7 Séance\n100–300 MAD\n0+\n\nà partir de 100 MAD\n\n# Peter Pan on Ice par The International Ice Stars\n\n26 – 29 novembre 2026·7 Séance\n\n[Patinoire de Rabat](/venues/patinoire-de-rabat)\n\n## Séances\n\n26nov\n\n19:00 - 21:00\n\nà partir de 100 MAD0+\n\n27nov\n\n15:00 - 17:00\n\nà partir de 100 MAD0+\n\n27nov\n\n20:00 - 22:00\n\nà partir de 100 MAD0+\n\n28nov\n\n15:00 - 17:00\n\nà partir de 100 MAD0+\n\n28nov\n\n20:00 - 22:00\n\nà partir de 100 MAD0+\n\n## Description\n\n# PETER PAN ON ICE – THE ICE SHOW\n\nPour la première fois à la Patinoire de Rabat, la glace se transforme en scène de spectacle !\n\nLes International Ice Stars présentent Peter Pan on Ice, un grand spectacle international sur glace destiné à toute la famille.\n\nEnvolez-vous vers le Pays Imaginaire aux côtés de Peter Pan, Wendy, la Fée Clochette et leurs compagnons, et vivez une aventure pleine de magie, d’humour et d’émotion.\n\nSauts spectaculaires, portés acrobatiques, chorégraphies envoûtantes et costumes féeriques : les patineurs des International Ice Stars, artistes de renommée internatio"
+        }
+      ]
+    },
+    {
+      "id": "ticket",
+      "checkedAt": "2026-11-15T14:56:08.840Z",
+      "error": null,
+      "items": [],
+      "drafts": [
         {
           "url": "https://www.ticket.ma/ticket/concerts/3900/mayada-el-hennawy-salah-charkaoui-2026",
           "title": "MAYADA EL HENNAWY — Sous la direction de Salah Charkaoui - Le Carré d'Or,Rte de l'Oasis, Casablanca 20000",
@@ -180,6 +158,17 @@
             "Poster needs verification"
           ],
           "evidence": "![Ticket.ma logo](/ticket-logo.png)\n\nMAYADA EL HENNAWY — Sous la direction de Salah Charkaoui - Le Carré d'Or,Rte de l'Oasis, Casablanca 20000 | Ticket.ma"
+        },
+        {
+          "url": "https://www.ticket.ma/ticket/concerts/4430/grande-soiree-du-melhoun-mohamed-briouel-nabyla-maan-driss-zaarouri-2026",
+          "title": "Grande Soirée du Melhoun – Maître Mohamed Briouel, Nabyla Maan & Driss Zaârouri - Cinéma Megarama",
+          "reasons": [
+            "Event heading needs verification",
+            "Missing or conflicting event date",
+            "Moroccan location needs verification",
+            "Poster needs verification"
+          ],
+          "evidence": "![Ticket.ma logo](/ticket-logo.png)\n\nGrande Soirée du Melhoun – Maître Mohamed Briouel, Nabyla Maan & Driss Zarouri - Cinéma Megarama | Ticket.ma"
         },
         {
           "url": "https://www.ticket.ma/ticket/concerts/4056/le-festival-international-du-caftan-maroc-2026",
@@ -192,17 +181,6 @@
             "Poster needs verification"
           ],
           "evidence": "CONCERTS. STORMY - DESPERADO - CASABLANCA. calendar. Samedi 12 Décembre 2026. map. Complexe sportif Mohamed V - Casablanca. À partir de 250 MAD. RNBOI À RABAT."
-        },
-        {
-          "url": "https://www.ticket.ma/ticket/concerts/4276/saad-lamjarred-juillet-2026",
-          "title": "SAAD LAMJARRED – DE RETOUR AU MAROC",
-          "reasons": [
-            "Event heading needs verification",
-            "Missing or conflicting event date",
-            "Moroccan location needs verification",
-            "Poster needs verification"
-          ],
-          "evidence": "![Ticket.ma logo](/ticket-logo.png)\n\nSAAD LAMJARRED – DE RETOUR AU MAROC - Mazagan Beach & Golf Resort | Ticket.ma"
         },
         {
           "url": "https://www.ticket.ma/ticket/concerts/4394/concert-de-musique-classique-2026",
@@ -220,13 +198,13 @@
     },
     {
       "id": "webook",
-      "checkedAt": "2026-11-14T22:49:59.040Z",
+      "checkedAt": "2026-11-15T14:56:08.840Z",
       "error": null,
       "items": [],
       "drafts": [
         {
-          "url": "https://webook.com/en/ma/rab/sports-event/events/u17-m10-28may",
-          "title": "U-17 AFCON Morocco 2026 Official Tickets",
+          "url": "https://webook.com/ma/cas/sports-event/events/wafcon-26-m26",
+          "title": "WAFCON Morocco 2026 QF2 Official Tickets",
           "reasons": [
             "Page content unavailable",
             "Event heading needs verification",
@@ -234,7 +212,43 @@
             "Moroccan location needs verification",
             "Poster needs verification"
           ],
-          "evidence": "If you are looking for U-17 AFCON Morocco 2026 tickets, semi-final football in Rabat, or a North African football showdown, this is a must-see"
+          "evidence": "Book official tickets for WAFCON Morocco 2026 Quarter-final 2 ... Event · 13 November - 08:00 PM. Morocco vs Niger. Casablanca, Morocco."
+        },
+        {
+          "url": "https://webook.com/ma/sal/sports-event/events/fifa-u17-4november",
+          "title": "FIFA U-17 Women's World Cup Semi-Finals Nov 4, 2026",
+          "reasons": [
+            "Page content unavailable",
+            "Event heading needs verification",
+            "Missing or conflicting event date",
+            "Moroccan location needs verification",
+            "Poster needs verification"
+          ],
+          "evidence": "Morocco 2026 semi-finals on Nov 4 at Complexe. Nov - 5:00 AM From $ 2.05. Venue: Mohammed VI Football Complex – Pitches 2 & 3"
+        },
+        {
+          "url": "https://webook.com/tr/ma/cas/sports-event/events/wafcon-26-m26",
+          "title": "WAFCON Morocco 2026 QF2 Official Tickets",
+          "reasons": [
+            "Page content unavailable",
+            "Event heading needs verification",
+            "Missing or conflicting event date",
+            "Moroccan location needs verification",
+            "Poster needs verification"
+          ],
+          "evidence": "Book official tickets for WAFCON Morocco 2026 Quarter-final 2: 1st Group B vs 2nd Group A on Aug 8, 2026 at Hay Moulay Rachid Stadium, Casablanca."
+        },
+        {
+          "url": "https://webook.com/en/ma/cas/sports-event/events/marocvsniger-caf27",
+          "title": "Morocco vs Niger - AFCON 2027 Qualifier",
+          "reasons": [
+            "Page content unavailable",
+            "Event heading needs verification",
+            "Missing or conflicting event date",
+            "Moroccan location needs verification",
+            "Poster needs verification"
+          ],
+          "evidence": "Morocco vs Niger tickets are available for the AFCON 2027 Qualifier in Casablanca on November 13 at Mohammed V Sports Complex."
         },
         {
           "url": "https://webook.com/en/ma/tan/music-events/events/tanjazz26-festival",
@@ -247,46 +261,23 @@
             "Poster needs verification"
           ],
           "evidence": "TANJAZZ 2026 Friday, September 18 to Sunday, September 20, 2026 • Tangier, Morocco For three days, Tanjazz brings Tangier to life to the rhythm of jazz."
-        },
-        {
-          "url": "https://webook.com/ma/rab/music-events/events/laftercan-1234",
-          "title": "Buy Laftercan - LAMANO concert tickets on ...",
-          "reasons": [
-            "Page content unavailable",
-            "Event heading needs verification",
-            "Missing or conflicting event date",
-            "Moroccan location needs verification",
-            "Poster needs verification"
-          ],
-          "evidence": "LAMANO 20 December - 7:00 PM From $ 30.76 … featuring world-class Afro, R&B, and rap artists, electrifying DJ sets,"
-        },
-        {
-          "url": "https://webook.com/ma/knr/music-events/events/realshow-7liwa-2026",
-          "title": "The Real Show Kenitra Official Tickets | April 11 2026",
-          "reasons": [
-            "Page content unavailable",
-            "Event heading needs verification",
-            "Missing or conflicting event date",
-            "Moroccan location needs verification",
-            "Poster needs verification"
-          ],
-          "evidence": "Get your official tickets for The Real Show in Kenitra on April 11, 2026 at Salle Couverte La Ville Haute. 7liwa & Abduh live – Limited seats, book now!"
         }
       ]
     },
     {
       "id": "eventsma",
-      "checkedAt": "2026-11-14T22:49:59.040Z",
+      "checkedAt": "2026-11-15T14:56:08.840Z",
       "error": null,
       "items": [],
       "drafts": [
         {
-          "url": "https://events.ma/concerts-festivals/la-grande-soiree-gnawa",
-          "title": "LA GRANDE SOIRÉE GNAWA",
+          "url": "https://events.ma/en/concerts-festivals",
+          "title": "Concerts & Festivals",
           "reasons": [
+            "Missing or conflicting event date",
             "Poster needs verification"
           ],
-          "evidence": "[![Logo events](/assets/imgs/logo/event-logo-black-100.png)](/)\n\n[FR](/concerts-festivals/la-grande-soiree-gnawa \"Français\")[EN](/en/concerts-festivals/la-grande-soiree-gnawa \"English\")[AR](/ar/concerts-festivals/la-grande-soiree-gnawa \"العربية\")\n\n[S'identifier](/mon-espace/connexion \"S'identifier\")\n\n* ##### Votre panier est vide\n\n  Explorez nos événements et laissez-vous inspirer!   \n   Trouvez des billets pour des concerts, festivals, et événements sportifs au Maroc et en Afrique.\n\n\n\n![](/assets/imgs/headers/header-bg.jpg)\n\nConcerts & Festivals\n\n# Kesri et Merchane LA GRANDE SOIRÉE GNAWA\n\nSamedi 14 Novembre 2026 à 20h00\n\nOuverture des portes à 19h00\n\nZénith Center, Av. Al Eucalypthus, 10100, Rabat\n\n Partager \n\n[Facebook](https://www.facebook.com/sharer/sharer.php?u=https://events.ma)  [Twitter](https://twitter.com/share?text=Kesri et Merchane LA GRANDE SOIRÉE GNAWA&url=https://events.ma,la-grande-soiree-gnawa)  [LinkedIn](https://www.linkedin.com/shareArticle?mini=true&url=https://events.ma)\n\n## À propos\n\n🚨🚨Rendez-vous le 14 Novembre 2026 pour un spectacle Gnawa fabuleux avec le grand Maalam HAMID EL KASRI.. المعلم حميد القصري 🪘🎶et la voix magique de la légende de Gnawa Abdel"
+          "evidence": "[![Events logo](/assets/imgs/logo/event-logo-black-100.png)](/en)\n\n[FR](/concerts-festivals \"Français\")[EN](/en/concerts-festivals \"English\")[AR](/ar/concerts-festivals \"العربية\")\n\n[Sign in](/en/mon-espace/connexion \"Sign in\")\n\n* ##### Your basket is empty\n\n  Explore our events and let yourself be inspired!   \n   Find tickets for concerts, festivals and sporting events in Morocco and Africa.\n\n\n\n# Concerts & Festivals\n\n791 event(s) found\n\n[![](https://s3.eu-north-1.amazonaws.com/events.ma/events/10-2026/1545/0902bcdb-ff96-4a04-a6ea-d91c145ead9f-1792509905-yryX.webp)**14**NovSold out\n\nConcerts & Festivals\n\n### Nacim Haddad à Casablanca\n\nMegarama, Casablanca\n\nSaturday 14 November 2026\n\n20:30\n\nfrom**250 MAD**](/en/concerts-festivals/nacim-haddad-14-11-26)[![](https://s3.eu-north-1.amazonaws.com/events.ma/events/08-2026/1431/d34cfcef-2ed8-4530-816f-572ce7406b70-1788183160-hfvn.webp)**14**Nov\n\nConcerts & Festivals\n\n### ABDELLAH DAOUDI à RABAT\n\nThétre Al Mansour, Rabat\n\nSaturday 14 November 2026\n\n20:00\n\nfrom**200 MAD**](/en/concerts-festivals/abdellah-daoudi-a-rabat)[![](https://s3.eu-north-1.amazonaws.com/events.ma/events/10-2026/1525/ba811897-81dd-4483-ae5a-51f424ae6dd5-1791810646-eQFf."
         },
         {
           "url": "https://events.ma/concerts-festivals/nass-el-ghiwane-anas-lekhssasi",
