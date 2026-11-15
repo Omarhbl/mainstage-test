@@ -184,7 +184,6 @@ export default async function ArticleEditorForm({
       </div>
 
       <div className="space-y-6">
-        <ArticleSeoAssistant initial={seo} relatedArticles={relatedArticles} />
         <div className="rounded-[20px] border border-black/8 bg-white p-6 shadow-[0_12px_30px_rgba(0,0,0,0.05)]">
           <h2 className="text-[20px] font-body font-bold tracking-[-0.03em] text-[#181818]">
             Publishing
@@ -206,6 +205,8 @@ export default async function ArticleEditorForm({
             </select>
           </label>
         </div>
+
+        <ArticleSeoAssistant initial={seo} relatedArticles={relatedArticles} />
 
         <div className="rounded-[20px] border border-black/8 bg-white p-6 shadow-[0_12px_30px_rgba(0,0,0,0.05)]">
           <h2 className="text-[20px] font-body font-bold tracking-[-0.03em] text-[#181818]">
