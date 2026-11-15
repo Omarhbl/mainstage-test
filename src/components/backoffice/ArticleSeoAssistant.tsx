@@ -28,6 +28,8 @@ export default function ArticleSeoAssistant({ initial, relatedArticles }: { init
     function update() {
       const data = new FormData(form!);
       const value = (name: string) => String(data.get(name) ?? "").trim();
+      setTitle(value("seo_title"));
+      setDescription(value("seo_description"));
       // Read the rich-text editor directly: its hidden field can update after the input event.
       const body = form!.querySelector<HTMLElement>('[contenteditable="true"]')?.innerHTML || value("body");
       setDraft({ title: value("title"), summary: value("summary"), slug: value("slug"), intro: value("intro"), body, category: value("primary_category") });
@@ -88,11 +90,11 @@ export default function ArticleSeoAssistant({ initial, relatedArticles }: { init
     <h2 id="article-seo-heading" className="text-xl font-bold">Search & SEO assistant</h2>
     <p className="mt-2 text-sm leading-relaxed text-black/65">Prepare a clear search appearance. These checks are guidance, not a ranking score or a publishing requirement.</p>
     <label className="mt-5 block text-sm font-medium">SEO title (optional)
-      <input name="seo_title" value={title} onChange={(event) => setTitle(event.target.value)} maxLength={200} placeholder="Uses your article headline" className={fieldClass} />
+      <input name="seo_title" defaultValue={initial.title} maxLength={200} placeholder="Uses your article headline" className={fieldClass} />
     </label>
     <p className="mt-1 text-xs text-black/65">{(title.trim() || draft.title).length} characters before the Mainstage suffix. Around 50–60 is a useful editing guide, not a Google limit.</p>
     <label className="mt-4 block text-sm font-medium">Search description (optional)
-      <textarea name="seo_description" value={description} onChange={(event) => setDescription(event.target.value)} maxLength={500} placeholder="Uses your article summary" rows={4} className={fieldClass} />
+      <textarea name="seo_description" defaultValue={initial.description} maxLength={500} placeholder="Uses your article summary" rows={4} className={fieldClass} />
     </label>
     <p className="mt-1 text-xs text-black/65">{(description.trim() || draft.summary).length} characters. Aim for a concise, accurate summary; Google may choose different text.</p>
     <div className="mt-5 rounded-xl border border-black/10 p-3 break-words" aria-label="Approximate Google search preview">
