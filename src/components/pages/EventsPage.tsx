@@ -1,5 +1,6 @@
 "use client";
 
+import ResponsiveImage from "@/components/media/ResponsiveImage";
 import EventHighlights from "@/components/events/EventHighlights";
 import { eventToday, localDate, mergeTicketEvents, type EventFeed } from "@/lib/event-feed-data";
 import Link from "next/link";
@@ -56,7 +57,7 @@ export default function EventsPage({ initialArticles, initialFeed, initialUpcomi
                     className="group block transition-transform duration-300 hover:-translate-y-1"
                   >
                     <div className="h-[191px] w-full overflow-hidden rounded-[8px] bg-[#e7e1db] shadow-[0_0_0_1px_rgba(0,0,0,0.04)] transition-shadow duration-300 group-hover:shadow-[0_16px_32px_rgba(0,0,0,0.1)]">
-                      <img
+                      <ResponsiveImage
                       loading="lazy"
                       decoding="async"
                         src={article.image}

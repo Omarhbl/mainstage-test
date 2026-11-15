@@ -1,5 +1,6 @@
 "use client";
 
+import ResponsiveImage from "@/components/media/ResponsiveImage";
 import { useState } from "react";
 import { getArticleImageStyle, type ArticleCard } from "@/lib/articles";
 
@@ -33,7 +34,7 @@ export default function ArticleMedia({
   }
 
   return (
-    <img
+    <ResponsiveImage
       loading={priority ? "eager" : "lazy"}
       fetchPriority={priority ? "high" : "auto"}
       decoding="async"

@@ -1,5 +1,6 @@
 "use client";
 
+import ResponsiveImage from "@/components/media/ResponsiveImage";
 import Link from "next/link";
 import type { ArticleRecord } from "@/lib/articles";
 import { useState } from "react";
@@ -45,7 +46,7 @@ export default function PeoplePage({ initialArticles }: { initialArticles: Artic
                   className="group block transition-transform duration-300 hover:-translate-y-1"
                 >
                   <div className="h-[314px] w-full max-w-[563px] overflow-hidden rounded-[9px] bg-[#e7e1db] shadow-[0_0_0_1px_rgba(0,0,0,0.04)] transition-shadow duration-300 group-hover:shadow-[0_18px_40px_rgba(0,0,0,0.12)]">
-                    <img
+                    <ResponsiveImage
                       loading="eager"
                       decoding="async"
                       src={featureStory.image}
@@ -82,7 +83,7 @@ export default function PeoplePage({ initialArticles }: { initialArticles: Artic
                     className="group block transition-transform duration-300 hover:-translate-y-1"
                   >
                     <div className="h-[191px] w-full overflow-hidden rounded-[8px] bg-[#e7e1db] shadow-[0_0_0_1px_rgba(0,0,0,0.04)] transition-shadow duration-300 group-hover:shadow-[0_16px_32px_rgba(0,0,0,0.1)]">
-                      <img
+                      <ResponsiveImage
                       loading="lazy"
                       decoding="async"
                         src={item.image}

@@ -1,5 +1,6 @@
 "use client";
 
+import ResponsiveImage from "@/components/media/ResponsiveImage";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { INSTAGRAM_REFRESH_INTERVAL, parseInstagramHighlights, type InstagramHighlight } from "@/lib/instagram-feed-data";
@@ -205,10 +206,11 @@ const trendingItems = (sortedCards.length ? sortedCards : [])
                 className="block cursor-pointer transition-transform duration-300 hover:-translate-y-1"
               >
                 <div className="h-[300px] w-full overflow-hidden rounded-[9px] bg-[#ece7e2] shadow-[0_0_0_1px_rgba(0,0,0,0.04)] transition-shadow duration-300 group-hover:shadow-[0_18px_40px_rgba(0,0,0,0.12)] sm:h-[340px] md:h-[397px] md:max-w-[321px]">
-                  <img
+                  <ResponsiveImage
                       loading="lazy"
                       decoding="async"
                     src={item.image}
+                        sizes="(max-width: 767px) 90vw, 420px"
                     alt={item.title}
                     className={`h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] ${item.imageClassName ?? ""}`}
                     style={getHomepageArticleImageStyle(item)}
@@ -261,10 +263,11 @@ const trendingItems = (sortedCards.length ? sortedCards : [])
               className="group block cursor-pointer transition-transform duration-300 hover:-translate-y-1"
             >
               <div className="h-[240px] w-full overflow-hidden rounded-[9px] bg-[#ece7e2] shadow-[0_0_0_1px_rgba(0,0,0,0.04)] transition-shadow duration-300 group-hover:shadow-[0_18px_40px_rgba(0,0,0,0.12)] sm:h-[300px] lg:h-[332px] lg:max-w-[561px]">
-                <img
+                <ResponsiveImage
                       loading="lazy"
                       decoding="async"
                   src={mustRead.image}
+                  sizes="(max-width: 767px) 100vw, 600px"
                   alt={mustRead.title}
                   className={`h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] ${mustRead.imageClassName ?? ""}`}
                   style={getArticleImageStyle(mustRead)}
@@ -313,19 +316,23 @@ const trendingItems = (sortedCards.length ? sortedCards : [])
                 target="_blank"
                 rel="noreferrer"
               >
-                <img
+                <ResponsiveImage
                       loading="lazy"
                       decoding="async"
                   src={homepageBannerImage}
+                  sizes="100vw"
+                  maxWidth={1920}
                   alt="Mainstage banner ad"
                   className="block h-auto w-full"
                 />
               </a>
             ) : (
-              <img
+              <ResponsiveImage
                       loading="lazy"
                       decoding="async"
                 src={homepageBannerImage}
+                  sizes="100vw"
+                  maxWidth={1920}
                 alt="Mainstage banner ad"
                 className="block h-auto w-full"
               />
@@ -368,19 +375,21 @@ const trendingItems = (sortedCards.length ? sortedCards : [])
                       rel="noreferrer"
                       className="block h-full w-full cursor-pointer"
                     >
-                      <img
+                      <ResponsiveImage
                       loading="lazy"
                       decoding="async"
                         src={item.image}
+                        sizes="(max-width: 767px) 90vw, 420px"
                         alt={"alt" in item && typeof item.alt === "string" ? item.alt : "Mainstage social highlight"}
                         className="h-full w-full object-cover"
                       />
                     </a>
                   ) : (
-                    <img
+                    <ResponsiveImage
                       loading="lazy"
                       decoding="async"
                       src={item.image}
+                        sizes="(max-width: 767px) 90vw, 420px"
                       alt={"alt" in item && typeof item.alt === "string" ? item.alt : "Mainstage social highlight"}
                       className="h-full w-full object-cover"
                     />
@@ -411,10 +420,11 @@ const trendingItems = (sortedCards.length ? sortedCards : [])
                     rel="noreferrer"
                     className="group relative block h-[200px] w-full cursor-pointer overflow-hidden rounded-[12px] bg-[#e8e2db] transition-transform duration-300 hover:-translate-y-1 sm:h-[145px] sm:w-[220px] lg:w-[268px]"
                   >
-                    <img
+                    <ResponsiveImage
                       loading="lazy"
                       decoding="async"
                       src={item.image}
+                        sizes="(max-width: 767px) 90vw, 420px"
                       alt={item.title}
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                     />
@@ -489,10 +499,11 @@ const trendingItems = (sortedCards.length ? sortedCards : [])
 
                     <div className="flex min-w-0 items-center gap-3 sm:gap-4">
                       <div className="h-[34px] w-[34px] shrink-0 overflow-hidden rounded-[4px] bg-black/20 sm:h-[42px] sm:w-[42px]">
-                        <img
+                        <ResponsiveImage
                       loading="lazy"
                       decoding="async"
                           src={item.image}
+                        sizes="(max-width: 767px) 90vw, 420px"
                           alt={item.title}
                           className="h-full w-full object-cover"
                         />

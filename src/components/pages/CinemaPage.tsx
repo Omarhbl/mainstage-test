@@ -1,4 +1,5 @@
 "use client";
+import ResponsiveImage from "@/components/media/ResponsiveImage";
 import { useRef, useState } from "react";
 import type { CinemaFeed } from "@/lib/cinema-feed-data";
 import { usePathname } from "next/navigation";
@@ -92,7 +93,7 @@ export default function CinemaPage({ initialArticles, initialFeed, initialUpcomi
               {loopedReleases.map((movie, index) => (
                 <article key={`${movie.id}-${index}`} className="w-[218px] shrink-0">
                   <div className="h-[306px] overflow-hidden rounded-[8px] bg-[#e8e2db]">
-                    <img draggable={false} src={movie.image} alt={movie.title} className="h-full w-full object-cover" />
+                    <ResponsiveImage draggable={false} src={movie.image} alt={movie.title} className="h-full w-full object-cover" />
                   </div>
                   <div className="pt-3">
                     <p className="text-[11px] font-body font-semibold text-[rgba(0,0,0,0.48)] uppercase">
@@ -130,7 +131,7 @@ export default function CinemaPage({ initialArticles, initialFeed, initialUpcomi
                     className="group block transition-transform duration-300 hover:-translate-y-1"
                   >
                     <div className="h-[191px] w-full overflow-hidden rounded-[8px] bg-[#e7e1db] shadow-[0_0_0_1px_rgba(0,0,0,0.04)] transition-shadow duration-300 group-hover:shadow-[0_16px_32px_rgba(0,0,0,0.1)]">
-                      <img
+                      <ResponsiveImage
                       loading="lazy"
                       decoding="async"
                         src={article.image}

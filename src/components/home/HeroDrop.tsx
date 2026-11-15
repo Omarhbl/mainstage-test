@@ -1,5 +1,6 @@
 "use client";
 
+import ResponsiveImage from "@/components/media/ResponsiveImage";
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
@@ -34,6 +35,8 @@ export default function HeroDrop({
     slides && slides.length > 0
       ? slides.filter((slide) => slide.title && slide.category && slide.href && slide.media)
       : [{ title, category, href, media }];
+  const [loadedMedia, setLoadedMedia] = useState<string | null>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
   const [slideDirection, setSlideDirection] = useState(1);
   const activeSlide = normalizedSlides[activeSlideIndex] ?? normalizedSlides[0];
@@ -69,22 +72,23 @@ export default function HeroDrop({
   }, [isFeedOpen]);
 
   useEffect(() => {
-    if (normalizedSlides.length <= 1) {
+    if (normalizedSlides.length <= 1 || loadedMedia !== activeSlide.media) {
       return;
     }
 
     const interval = window.setInterval(() => {
-      if (!swipe.current) {
+      if (!swipe.current && document.visibilityState === "visible" && (sectionRef.current?.getBoundingClientRect().bottom ?? 0) > 0) {
         setSlideDirection(1);
         setActiveSlideIndex((current) => (current + 1) % normalizedSlides.length);
       }
     }, 6000);
 
     return () => window.clearInterval(interval);
-  }, [normalizedSlides.length, activeSlideIndex]);
+  }, [normalizedSlides.length, activeSlideIndex, activeSlide.media, loadedMedia]);
 
   return (
     <section
+      ref={sectionRef}
       className="relative flex min-h-[68vh] w-full touch-pan-y select-none items-end overflow-hidden border-b border-border-main cursor-grab active:cursor-grabbing"
       aria-roledescription="carousel" aria-label="Featured stories"
       onDragStart={(event) => event.preventDefault()}
@@ -138,15 +142,19 @@ export default function HeroDrop({
                 muted
                 loop
                 playsInline
+                onLoadedData={() => setLoadedMedia(activeSlide.media)}
                 className="h-full w-full scale-[1.02] object-cover [object-position:var(--slide-mobile-position)] md:[object-position:var(--slide-desktop-position)]"
                 style={getSlideMediaStyle(activeSlide)}
               >
                 <source src={activeSlide.media} type="video/mp4" />
               </video>
             ) : (
-              <img
+              <ResponsiveImage
                 draggable={false}
-                fetchPriority="high"
+                maxWidth={1920}
+                sizes="(max-width: 767px) 160vw, 100vw"
+                onLoad={() => setLoadedMedia(activeSlide.media)}
+                fetchPriority={activeSlideIndex === 0 ? "high" : "auto"}
                 decoding="async"
                 src={activeSlide.media}
                 alt={activeSlide.title}
@@ -207,7 +215,7 @@ export default function HeroDrop({
                     className="group flex items-center gap-4 border border-border-main bg-[#fbf7f1] p-3 transition-colors hover:border-primary/40 hover:bg-white"
                   >
                     <div className="h-16 w-16 shrink-0 overflow-hidden bg-[#ece5dd]">
-                      <img
+                      <ResponsiveImage
                         src={card.image}
                         alt={card.title}
                         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
