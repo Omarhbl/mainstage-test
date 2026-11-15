@@ -1,3 +1,4 @@
+import { buildPageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import SiteFooter from "@/components/layout/SiteFooter";
@@ -8,6 +9,8 @@ import {
 } from "@/lib/public-articles";
 
 export const dynamic = "force-dynamic";
+
+export const metadata = buildPageMetadata({ title: "Event News & Festival Coverage", description: "Read Mainstage event announcements, festival news, and live culture stories from Morocco and beyond.", path: "/events/articles" });
 
 export default async function EventsArticlesPage() {
   const eventArticles = (await getSortedPublicArticleCards()).filter((article) =>
@@ -44,6 +47,8 @@ export default async function EventsArticlesPage() {
                 <Link href={`/articles/${article.slug}`} className="block">
                   <div className="h-[191px] w-full overflow-hidden rounded-[8px] bg-[#e7e1db]">
                     <img
+                      loading="lazy"
+                      decoding="async"
                       src={article.image}
                       alt={article.title}
                       className={`h-full w-full object-cover ${article.imageClassName ?? ""}`}

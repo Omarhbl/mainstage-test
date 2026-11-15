@@ -1,3 +1,4 @@
+import { buildPageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import SiteFooter from "@/components/layout/SiteFooter";
@@ -5,6 +6,8 @@ import { formatArticleDate, hasArticleCategory, getArticleImageStyle } from "@/l
 import { getPublicArticlesBySlug, getSortedPublicArticleCards } from "@/lib/public-articles";
 
 export const dynamic = "force-dynamic";
+
+export const metadata = buildPageMetadata({ title: "People News & Interviews", description: "Browse Mainstage profiles, interviews, and stories about artists, creators, and public figures.", path: "/people/articles" });
 
 export default async function PeopleArticlesPage() {
   const peopleArticles = (await getSortedPublicArticleCards()).filter((article) =>
@@ -41,6 +44,8 @@ export default async function PeopleArticlesPage() {
                 <Link href={`/articles/${article.slug}`} className="block">
                   <div className="h-[191px] w-full overflow-hidden rounded-[8px] bg-[#e7e1db]">
                     <img
+                      loading="lazy"
+                      decoding="async"
                       src={article.image}
                       alt={article.title}
                       className={`h-full w-full object-cover ${article.imageClassName ?? ""}`}

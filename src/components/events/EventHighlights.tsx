@@ -54,10 +54,10 @@ export default function EventHighlights({ items }: { items: (UpcomingItem & { im
       onKeyDown={(event) => { if (animate && ["ArrowLeft", "ArrowRight"].includes(event.key)) { event.preventDefault(); seek(Number(track.current?.getAnimations()[0]?.currentTime ?? 0) + (event.key === "ArrowRight" ? 1 : -1) * STEP * duration / shift.current); } }}>
       {(animate ? [...items, ...items, ...items] : items).map((item, index) => <article key={`${item.id}-${index}`} className="shrink-0 [--flyer-height:260px] sm:[--flyer-height:306px]" style={{ width: "calc(var(--flyer-height) * var(--flyer-ratio))", "--flyer-ratio": item.imageFit === "contain" ? 1.76 : item.image.includes("/event/square_card/") ? 1 : 218 / 306 } as React.CSSProperties}>
         <div className="h-[260px] overflow-hidden rounded-[8px] bg-[#f1efec] sm:h-[306px]">
-          {item.href ? <a href={item.href} target="_blank" rel="noreferrer" className="block h-full w-full"><img draggable={false} src={item.image} alt={item.title} onLoad={(event) => {
+          {item.href ? <a href={item.href} target="_blank" rel="noreferrer" className="block h-full w-full"><img loading={index < 5 ? "eager" : "lazy"} decoding="async" draggable={false} src={item.image} alt={item.title} onLoad={(event) => {
             const image = event.currentTarget;
             if (image.naturalWidth && image.naturalHeight) image.closest("article")?.style.setProperty("--flyer-ratio", String(image.naturalWidth / image.naturalHeight));
-          }} className="h-full w-full object-contain" /></a> : <img draggable={false} src={item.image} alt={item.title} onLoad={(event) => {
+          }} className="h-full w-full object-contain" /></a> : <img loading={index < 5 ? "eager" : "lazy"} decoding="async" draggable={false} src={item.image} alt={item.title} onLoad={(event) => {
             const image = event.currentTarget;
             if (image.naturalWidth && image.naturalHeight) image.closest("article")?.style.setProperty("--flyer-ratio", String(image.naturalWidth / image.naturalHeight));
           }} className="h-full w-full object-contain" />}

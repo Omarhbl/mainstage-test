@@ -4,9 +4,9 @@ import { buildCollectionPageSchema } from "@/lib/seo";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata = buildPageMetadata({
-  title: "Cinema",
+  title: "Movies Showing in Morocco & Upcoming Releases",
   description:
-    "Discover Mainstage cinema coverage, upcoming releases, film culture, and the latest movie stories shaping the screen.",
+    "Explore movies now showing in Moroccan cinemas, upcoming film releases, and the latest cinema news, interviews, and festival coverage on Mainstage.",
   path: "/cinema",
   keywords: ["cinema", "movies", "upcoming releases", "film"],
 });
@@ -18,7 +18,7 @@ export default function CinemaLayout({ children }: { children: ReactNode }) {
         data={buildCollectionPageSchema({
           name: "Cinema",
           description:
-            "Discover Mainstage cinema coverage, upcoming releases, film culture, and the latest movie stories shaping the screen.",
+            "Explore movies now showing in Moroccan cinemas, upcoming film releases, and the latest cinema news, interviews, and festival coverage on Mainstage.",
           path: "/cinema",
         })}
       />

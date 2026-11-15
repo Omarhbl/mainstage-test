@@ -1,6 +1,9 @@
+import { buildPageMetadata } from "@/lib/seo";
 import FullSpotifyChart from "@/components/music/FullSpotifyChart";
 import SiteFooter from "@/components/layout/SiteFooter";
 import { getFeedSettings } from "@/lib/supabase/server";
+
+export const metadata = buildPageMetadata({ title: "Spotify Top 50 Morocco", description: "Explore the latest Spotify Top 50 Morocco chart and discover the songs and artists listeners are playing.", path: "/music/top-50" });
 
 export default async function Top50Page() {
   const feedSettings = await getFeedSettings();

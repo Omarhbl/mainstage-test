@@ -1,9 +1,11 @@
 import "server-only";
+import { cache } from "react";
 
 import {
   ArticleRecord,
   articlesBySlug as fallbackArticlesBySlug,
   getPublicationWeight,
+  hasArticleCategory,
   getSortedArticleCardsFromRecords,
   searchArticlesInRecords,
 } from "@/lib/articles";
@@ -60,6 +62,7 @@ function toArticleRecord(
     homepageImagePositionX: override?.homepageImagePositionX,
     homepageImagePositionY: override?.homepageImagePositionY,
     date: row.date_label,
+    updatedAt: row.updated_at,
     imageCaption: row.image_caption ?? undefined,
     intro: row.intro,
     body: row.body
@@ -95,7 +98,7 @@ function sortRecordsByPublication(records: ArticleRecord[]) {
   });
 }
 
-export async function getPublicArticles(): Promise<ArticleRecord[]> {
+export const getPublicArticles = cache(async (): Promise<ArticleRecord[]> => {
   const adminClient = createSupabaseAdminClient();
   const [imageOverrides, articleTags] = await Promise.all([
     getArticleImageOverrides(),
@@ -121,7 +124,7 @@ export async function getPublicArticles(): Promise<ArticleRecord[]> {
   return sortRecordsByPublication((data as BackofficePublicRow[]).map((row) =>
     toArticleRecord(row, imageOverrides, articleTags)
   ));
-}
+});
 
 export async function getPublicArticlesBySlug() {
   const articles = await getPublicArticles();
@@ -145,4 +148,10 @@ export async function getPublicArticleBySlug(slug: string) {
 export async function searchPublicArticles(query: string) {
   const articles = await getPublicArticles();
   return searchArticlesInRecords(articles, query);
+}
+
+// Listing pages need card metadata, not complete article bodies in their JS payload.
+export async function getPublicListingArticles(category?: string): Promise<ArticleRecord[]> {
+  const articles = await getPublicArticles();
+  return articles.filter(article => !category || hasArticleCategory(article, category)).map(article => ({ ...article, body: [], bodyHtml: undefined, intro: "", bottomMedia: undefined, similarSlugs: [] }));
 }

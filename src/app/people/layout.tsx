@@ -4,9 +4,9 @@ import { buildCollectionPageSchema } from "@/lib/seo";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata = buildPageMetadata({
-  title: "People",
+  title: "People, Interviews & Entertainment News",
   description:
-    "A closer look at the personalities, influence, and public figures shaping attention and culture on Mainstage.",
+    "Meet the artists, creators, and public figures shaping Morocco and global culture through Mainstage interviews, profiles, and entertainment news.",
   path: "/people",
   keywords: ["people", "celebrities", "influence", "public figures"],
 });
@@ -18,7 +18,7 @@ export default function PeopleLayout({ children }: { children: ReactNode }) {
         data={buildCollectionPageSchema({
           name: "People",
           description:
-            "A closer look at the personalities, influence, and public figures shaping attention and culture on Mainstage.",
+            "Meet the artists, creators, and public figures shaping Morocco and global culture through Mainstage interviews, profiles, and entertainment news.",
           path: "/people",
         })}
       />

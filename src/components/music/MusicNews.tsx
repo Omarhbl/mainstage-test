@@ -52,6 +52,8 @@ export default function MusicNews({ initialArticles }: { initialArticles?: Artic
           >
             <div className="overflow-hidden rounded-[10px] shadow-[0_0_0_1px_rgba(0,0,0,0.04)] transition-shadow duration-300 group-hover:shadow-[0_16px_32px_rgba(0,0,0,0.1)]">
               <img
+                      loading="lazy"
+                      decoding="async"
                 src={article.image}
                 alt={article.title}
                 className={`h-[250px] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] ${

@@ -4,9 +4,9 @@ import { buildCollectionPageSchema } from "@/lib/seo";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata = buildPageMetadata({
-  title: "Sport",
+  title: "Sport News, Athletes & Moroccan Sporting Culture",
   description:
-    "Read Mainstage sport coverage where performance, culture, visibility, and athlete influence meet.",
+    "Explore Moroccan sport, athlete stories, football, and the connections between sport and culture on Mainstage.",
   path: "/sport",
   keywords: ["sport", "athletes", "football", "culture"],
 });
@@ -18,7 +18,7 @@ export default function SportLayout({ children }: { children: ReactNode }) {
         data={buildCollectionPageSchema({
           name: "Sport",
           description:
-            "Read Mainstage sport coverage where performance, culture, visibility, and athlete influence meet.",
+            "Explore Moroccan sport, athlete stories, football, and the connections between sport and culture on Mainstage.",
           path: "/sport",
         })}
       />

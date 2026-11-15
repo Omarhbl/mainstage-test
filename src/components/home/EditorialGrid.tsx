@@ -137,7 +137,7 @@ export default function EditorialGrid({
     document.addEventListener("visibilitychange", onVisible);
     return () => { controller.abort(); window.clearInterval(timer); document.removeEventListener("visibilitychange", onVisible); };
   }, []);
-  const publicArticles = usePublicArticles();
+  const publicArticles = usePublicArticles(initialArticles);
   const articlesMap =
     initialArticles?.length && Object.keys(publicArticles.articlesMap).length === 0
       ? Object.fromEntries(initialArticles.map((article) => [article.slug, article])) as Record<
@@ -206,6 +206,8 @@ const trendingItems = (sortedCards.length ? sortedCards : [])
               >
                 <div className="h-[300px] w-full overflow-hidden rounded-[9px] bg-[#ece7e2] shadow-[0_0_0_1px_rgba(0,0,0,0.04)] transition-shadow duration-300 group-hover:shadow-[0_18px_40px_rgba(0,0,0,0.12)] sm:h-[340px] md:h-[397px] md:max-w-[321px]">
                   <img
+                      loading="lazy"
+                      decoding="async"
                     src={item.image}
                     alt={item.title}
                     className={`h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] ${item.imageClassName ?? ""}`}
@@ -260,6 +262,8 @@ const trendingItems = (sortedCards.length ? sortedCards : [])
             >
               <div className="h-[240px] w-full overflow-hidden rounded-[9px] bg-[#ece7e2] shadow-[0_0_0_1px_rgba(0,0,0,0.04)] transition-shadow duration-300 group-hover:shadow-[0_18px_40px_rgba(0,0,0,0.12)] sm:h-[300px] lg:h-[332px] lg:max-w-[561px]">
                 <img
+                      loading="lazy"
+                      decoding="async"
                   src={mustRead.image}
                   alt={mustRead.title}
                   className={`h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] ${mustRead.imageClassName ?? ""}`}
@@ -310,6 +314,8 @@ const trendingItems = (sortedCards.length ? sortedCards : [])
                 rel="noreferrer"
               >
                 <img
+                      loading="lazy"
+                      decoding="async"
                   src={homepageBannerImage}
                   alt="Mainstage banner ad"
                   className="block h-auto w-full"
@@ -317,6 +323,8 @@ const trendingItems = (sortedCards.length ? sortedCards : [])
               </a>
             ) : (
               <img
+                      loading="lazy"
+                      decoding="async"
                 src={homepageBannerImage}
                 alt="Mainstage banner ad"
                 className="block h-auto w-full"
@@ -361,6 +369,8 @@ const trendingItems = (sortedCards.length ? sortedCards : [])
                       className="block h-full w-full cursor-pointer"
                     >
                       <img
+                      loading="lazy"
+                      decoding="async"
                         src={item.image}
                         alt={"alt" in item && typeof item.alt === "string" ? item.alt : "Mainstage social highlight"}
                         className="h-full w-full object-cover"
@@ -368,6 +378,8 @@ const trendingItems = (sortedCards.length ? sortedCards : [])
                     </a>
                   ) : (
                     <img
+                      loading="lazy"
+                      decoding="async"
                       src={item.image}
                       alt={"alt" in item && typeof item.alt === "string" ? item.alt : "Mainstage social highlight"}
                       className="h-full w-full object-cover"
@@ -400,6 +412,8 @@ const trendingItems = (sortedCards.length ? sortedCards : [])
                     className="group relative block h-[200px] w-full cursor-pointer overflow-hidden rounded-[12px] bg-[#e8e2db] transition-transform duration-300 hover:-translate-y-1 sm:h-[145px] sm:w-[220px] lg:w-[268px]"
                   >
                     <img
+                      loading="lazy"
+                      decoding="async"
                       src={item.image}
                       alt={item.title}
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
@@ -476,6 +490,8 @@ const trendingItems = (sortedCards.length ? sortedCards : [])
                     <div className="flex min-w-0 items-center gap-3 sm:gap-4">
                       <div className="h-[34px] w-[34px] shrink-0 overflow-hidden rounded-[4px] bg-black/20 sm:h-[42px] sm:w-[42px]">
                         <img
+                      loading="lazy"
+                      decoding="async"
                           src={item.image}
                           alt={item.title}
                           className="h-full w-full object-cover"

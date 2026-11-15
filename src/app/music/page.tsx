@@ -5,8 +5,7 @@ import { getPublicArticles } from "@/lib/public-articles";
 import { getFeedSettings } from "@/lib/supabase/server";
 
 export default async function MusicPage() {
-  const publicArticles = await getPublicArticles();
-  const feedSettings = await getFeedSettings();
+  const [publicArticles, feedSettings] = await Promise.all([getPublicArticles(), getFeedSettings()]);
 
   return (
     <div className="flex min-h-screen flex-col bg-white">

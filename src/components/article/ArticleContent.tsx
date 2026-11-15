@@ -1,3 +1,5 @@
+import Link from "next/link";
+import { articleModifiedDate, parseSeoDate } from "@/lib/seo-data";
 import ArticleMedia from "@/components/article/ArticleMedia";
 import ArticleRichContent from "@/components/article/ArticleRichContent";
 import { formatArticleDate, normalizeYouTubeEmbedUrl, type ArticleRecord } from "@/lib/articles";
@@ -19,6 +21,8 @@ function getEmbeddedYouTubeVideoId(value?: string | null) {
 }
 
 export default function ArticleContent({ article }: { article: ArticleRecord }) {
+  const publishedDate = parseSeoDate(article.date);
+  const modifiedDate = articleModifiedDate(article);
   const bodyParagraphs = Array.isArray(article.body)
     ? article.body.filter(
         (paragraph) =>
@@ -43,7 +47,10 @@ export default function ArticleContent({ article }: { article: ArticleRecord }) 
           </h1>
 
           <p className="mx-auto mt-3 max-w-[760px] text-center text-[14px] font-body font-normal text-[rgba(0,0,0,0.62)]">
-            {formatArticleDate(article.date)}
+            <Link href="/about" rel="author" className="font-medium hover:text-[#CE2127]">By Mainstage Editorial</Link>
+            <span aria-hidden="true"> · </span>
+            <time dateTime={publishedDate}>{formatArticleDate(article.date)}</time>
+            {modifiedDate && modifiedDate.slice(0, 10) !== publishedDate?.slice(0, 10) ? <span className="mt-1 block text-xs">Updated <time dateTime={modifiedDate}>{new Intl.DateTimeFormat("en-GB", { timeZone: "Africa/Casablanca" }).format(new Date(modifiedDate))}</time></span> : null}
           </p>
 
           <div className="mx-auto mt-10 max-w-[860px] overflow-hidden rounded-[9px] bg-[#ddd7cf]">
@@ -64,6 +71,7 @@ export default function ArticleContent({ article }: { article: ArticleRecord }) 
                 alt={article.title}
                 className={article.imageClassName ?? ""}
                 heightClassName="h-[430px]"
+                priority
                 articleImage={{
                   imagePositionX: article.heroImagePositionX ?? article.imagePositionX,
                   imagePositionY: article.heroImagePositionY ?? (article.slug === "oddity-beyond-the-decks" ? 0 : article.imagePositionY),
@@ -120,6 +128,8 @@ export default function ArticleContent({ article }: { article: ArticleRecord }) 
                   >
                     {bottomMediaThumbnail ? (
                       <img
+                        loading="lazy"
+                        decoding="async"
                         src={bottomMediaThumbnail}
                         alt={article.bottomMedia.title ?? article.title}
                         className="aspect-video w-full object-cover"

@@ -3,14 +3,14 @@
 import { useEffect, useMemo, useState } from "react";
 import {
   ArticleRecord,
-  articlesBySlug as fallbackArticlesBySlug,
   getSortedArticleCardsFromRecords,
 } from "@/lib/articles";
 
-export function usePublicArticles() {
-  const [articles, setArticles] = useState<ArticleRecord[]>([]);
+export function usePublicArticles(initialArticles?: ArticleRecord[]) {
+  const [articles, setArticles] = useState<ArticleRecord[]>(initialArticles ?? []);
 
   useEffect(() => {
+    if (initialArticles) return;
     let isMounted = true;
 
     async function loadArticles() {
@@ -40,7 +40,7 @@ export function usePublicArticles() {
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [initialArticles]);
 
   const articlesMap = useMemo(
     () =>

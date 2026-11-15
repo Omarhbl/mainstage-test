@@ -1,3 +1,5 @@
+export const metadata = { robots: { index: false, follow: false } };
+
 import BackofficeShell from "@/components/backoffice/BackofficeShell";
 import FeedAutoRefreshHeartbeat from "@/components/layout/FeedAutoRefreshHeartbeat";
 import { requireBackofficeAccess } from "@/lib/supabase/backoffice";

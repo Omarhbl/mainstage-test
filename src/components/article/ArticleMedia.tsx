@@ -4,6 +4,7 @@ import { useState } from "react";
 import { getArticleImageStyle, type ArticleCard } from "@/lib/articles";
 
 type ArticleMediaProps = {
+  priority?: boolean;
   src: string;
   alt: string;
   className?: string;
@@ -12,6 +13,7 @@ type ArticleMediaProps = {
 };
 
 export default function ArticleMedia({
+  priority = false,
   src,
   alt,
   className = "",
@@ -32,6 +34,9 @@ export default function ArticleMedia({
 
   return (
     <img
+      loading={priority ? "eager" : "lazy"}
+      fetchPriority={priority ? "high" : "auto"}
+      decoding="async"
       src={src}
       alt={alt}
       className={`${heightClassName} w-full object-cover ${className}`.trim()}

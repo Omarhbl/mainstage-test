@@ -1,7 +1,10 @@
+import { buildPageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import SiteFooter from "@/components/layout/SiteFooter";
 import { formatArticleDate, getDisplayCategoryLabel } from "@/lib/articles";
 import { searchPublicArticles } from "@/lib/public-articles";
+
+export const metadata = { ...buildPageMetadata({ title: "Search Mainstage", description: "Search Mainstage articles, artists, and stories.", path: "/search" }), robots: { index: false, follow: true } };
 
 export const dynamic = "force-dynamic";
 

@@ -378,6 +378,7 @@ async function revalidateArticleSurfaces(slug?: string | null) {
   revalidatePath("/backoffice/articles");
   revalidatePath("/");
   revalidatePath("/trending");
+  revalidatePath("/sitemap.xml");
   revalidatePath("/music");
   revalidatePath("/sport");
   revalidatePath("/people");

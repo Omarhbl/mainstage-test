@@ -1,3 +1,4 @@
+import { articleModifiedDate } from "@/lib/seo-data";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
@@ -95,7 +96,7 @@ export async function generateMetadata({
         },
       ],
       publishedTime,
-      modifiedTime: publishedTime,
+      modifiedTime: articleModifiedDate(article),
       section: article.category,
       tags,
     },
@@ -151,7 +152,7 @@ export default async function ArticlePage({
     ? toAbsoluteUrl(article.image)
     : getDefaultOgImage();
   const publishedTime = parseArticleDateToIso(article.date);
-  const modifiedTime = parseArticleDateToIso(article.date);
+  const modifiedTime = articleModifiedDate(article);
   const articleDescription = buildSeoDescription(
     article.summary,
     article.intro,
@@ -186,6 +187,8 @@ export default async function ArticlePage({
       datePublished: publishedTime,
       dateModified: modifiedTime,
       url: canonicalUrl,
+      author: { "@type": "Organization", name: "Mainstage Editorial", url: toAbsoluteUrl("/about") },
+      inLanguage: "en",
       articleSection: article.category,
       keywords: keywordList.join(", "),
       isAccessibleForFree: true,

@@ -146,6 +146,8 @@ export default function HeroDrop({
             ) : (
               <img
                 draggable={false}
+                fetchPriority="high"
+                decoding="async"
                 src={activeSlide.media}
                 alt={activeSlide.title}
                 className="h-full w-full scale-[1.02] object-cover [object-position:var(--slide-mobile-position)] md:[object-position:var(--slide-desktop-position)]"
@@ -261,9 +263,9 @@ export default function HeroDrop({
                 <div className="absolute top-12 left-12">
                    <Link href="/" className="flex cursor-pointer flex-col items-start">
                      <span className="text-[8px] font-mono tracking-[0.3em] text-primary mb-[-2px]">THE</span>
-                     <h1 className="text-xl md:text-2xl font-display tracking-tighter text-text-primary leading-none">
+                     <span className="text-xl md:text-2xl font-display tracking-tighter text-text-primary leading-none">
                        MAINSTAGENT
-                     </h1>
+                     </span>
                    </Link>
                 </div>
                 <div className="absolute bottom-12 left-12 max-w-xl">

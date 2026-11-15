@@ -4,9 +4,9 @@ import { buildCollectionPageSchema } from "@/lib/seo";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata = buildPageMetadata({
-  title: "Trending Now",
+  title: "Latest Moroccan Culture & Entertainment News",
   description:
-    "Explore the latest stories published on Mainstage across music, cinema, culture, people, sport, and events.",
+    "Read the latest Mainstage stories on Moroccan music, cinema, events, people, sport, and culture, alongside the international stories that matter.",
   path: "/trending",
   keywords: ["trending", "latest stories", "Morocco"],
 });
@@ -18,7 +18,7 @@ export default function TrendingLayout({ children }: { children: ReactNode }) {
         data={buildCollectionPageSchema({
           name: "Trending Now",
           description:
-            "Explore the latest stories published on Mainstage across music, cinema, culture, people, sport, and events.",
+            "Read the latest Mainstage stories on Moroccan music, cinema, events, people, sport, and culture, alongside the international stories that matter.",
           path: "/trending",
         })}
       />

@@ -12,10 +12,9 @@ import { getFeedSettings, getHomepageSettings } from "@/lib/supabase/server";
 import { getPublicArticles } from "@/lib/public-articles";
 
 export default async function Home() {
-  const homepageSettings = await getHomepageSettings();
-  const feedSettings = await getFeedSettings();
-  const publicArticles = await getPublicArticles();
-  const instagram = await getInstagramFeed();
+  const [homepageSettings, feedSettings, publicArticles, instagram] = await Promise.all([
+    getHomepageSettings(), getFeedSettings(), getPublicArticles(), getInstagramFeed(),
+  ]);
   const latestArticleList = buildItemListSchema(
     publicArticles.slice(0, 10).map((article) => ({
       name: article.title,
@@ -29,7 +28,7 @@ export default async function Home() {
       name: "Mainstage",
       url: toAbsoluteUrl("/"),
       description: buildSeoDescription(
-        "A platform built for culture, entertainment, and the people shaping what's next."
+        "Discover Moroccan music, events, cinema, interviews, and culture stories on Mainstage."
       ),
     },
     latestArticleList,
@@ -37,6 +36,7 @@ export default async function Home() {
 
   return (
     <div className="flex min-h-screen flex-col">
+      <h1 className="sr-only">Mainstage: Moroccan Music, Events, Cinema &amp; Culture</h1>
       <JsonLd data={homepageStructuredData} />
       <HeroDrop
         slides={homepageSettings.heroSlides}

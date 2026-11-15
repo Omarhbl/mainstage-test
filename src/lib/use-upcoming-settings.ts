@@ -1,24 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import {
-  FALLBACK_ENTERTAINMENT_UPCOMING,
-  UPCOMING_RELEASES,
-  type UpcomingSettings,
-} from "@/lib/upcoming";
+import type { UpcomingSettings } from "@/lib/upcoming";
 
-const fallbackSettings: UpcomingSettings = {
-  cinema: UPCOMING_RELEASES.slice(0, 8),
-  entertainment: FALLBACK_ENTERTAINMENT_UPCOMING.slice(0, 8),
-};
-
-export function useUpcomingSettings() {
-  const [settings, setSettings] = useState<UpcomingSettings>({
+export function useUpcomingSettings(initialSettings?: UpcomingSettings) {
+  const [settings, setSettings] = useState<UpcomingSettings>(initialSettings ?? {
     cinema: [],
     entertainment: [],
   });
 
   useEffect(() => {
+    if (initialSettings) return;
     let isMounted = true;
 
     async function loadSettings() {
@@ -46,7 +38,7 @@ export function useUpcomingSettings() {
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [initialSettings]);
 
   return settings;
 }

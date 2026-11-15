@@ -21,6 +21,7 @@ export type ArticleRecord = ArticleCard & {
   bottomImagePositionX?: number;
   bottomImagePositionY?: number;
   date: string;
+  updatedAt?: string;
   heroMedia: {
     type: "video" | "image";
     src: string;

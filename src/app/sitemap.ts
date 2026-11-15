@@ -1,6 +1,9 @@
 import type { MetadataRoute } from "next";
 import { getPublicArticles } from "@/lib/public-articles";
-import { parseArticleDateToIso, toAbsoluteUrl } from "@/lib/seo";
+import { toAbsoluteUrl } from "@/lib/seo";
+import { articleModifiedDate } from "@/lib/seo-data";
+
+export const revalidate = 3600;
 
 type ChangeFrequency =
   | "always"
@@ -25,6 +28,7 @@ const STATIC_ROUTES: Array<{
   { path: "/events", changeFrequency: "daily", priority: 0.86 },
   { path: "/culture", changeFrequency: "daily", priority: 0.86 },
   { path: "/about", changeFrequency: "monthly", priority: 0.55 },
+  { path: "/guestlist", changeFrequency: "monthly", priority: 0.5 },
   { path: "/contact", changeFrequency: "monthly", priority: 0.6 },
   { path: "/music/top-50", changeFrequency: "hourly", priority: 0.78 },
   { path: "/cinema/articles", changeFrequency: "weekly", priority: 0.7 },
@@ -36,27 +40,11 @@ const STATIC_ROUTES: Array<{
   { path: "/cookies-privacy", changeFrequency: "yearly", priority: 0.25 },
 ];
 
-function getValidLastModified(dateValue: string | null | undefined, fallback: Date): Date {
-  if (!dateValue) {
-    return fallback;
-  }
-
-  const parsed = new Date(dateValue);
-
-  if (Number.isNaN(parsed.getTime())) {
-    return fallback;
-  }
-
-  return parsed;
-}
-
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const now = new Date();
   const articles = await getPublicArticles();
 
   const staticEntries: MetadataRoute.Sitemap = STATIC_ROUTES.map((route) => ({
     url: toAbsoluteUrl(route.path),
-    lastModified: now,
     changeFrequency: route.changeFrequency,
     priority: route.priority,
   }));
@@ -73,11 +61,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     seenArticleSlugs.add(slug);
 
-    const parsedDate = parseArticleDateToIso(article.date);
+    const modified = articleModifiedDate(article);
 
     articleEntries.push({
       url: toAbsoluteUrl(`/articles/${slug}`),
-      lastModified: getValidLastModified(parsedDate, now),
+      ...(modified ? { lastModified: modified } : {}),
       changeFrequency: "weekly",
       priority: 0.82,
     });

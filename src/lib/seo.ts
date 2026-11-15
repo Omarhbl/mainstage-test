@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { formatArticleDate } from "@/lib/articles";
+import { parseSeoDate } from "@/lib/seo-data";
 
 export const SITE_NAME = "Mainstage";
-export const SITE_TITLE = "Mainstage | For the Culture. For the Industry";
+export const SITE_TITLE = "Mainstage | Moroccan Music, Events, Cinema & Culture";
 export const SITE_DESCRIPTION =
-  "Mainstage is a platform built for culture, entertainment, and the people shaping what's next.";
+  "Discover Moroccan music, upcoming events, cinema releases, interviews, and culture stories on Mainstage. For the Culture. For the Industry.";
 export const SITE_LOCALE = "en_US";
 export const DEFAULT_OG_IMAGE_PATH = "/mainstage-logo.png";
 
@@ -30,7 +30,7 @@ export function getSiteUrl() {
   const rawValue =
     process.env.NEXT_PUBLIC_SITE_URL ||
     process.env.SITE_URL ||
-    "http://localhost:3000";
+    "https://themainstagent.com";
 
   return normalizeSiteUrl(rawValue);
 }
@@ -73,48 +73,7 @@ export function buildSeoDescription(...candidates: Array<string | null | undefin
   return `${normalized.slice(0, 157).trimEnd()}...`;
 }
 
-export function parseArticleDateToIso(dateLabel?: string) {
-  const normalized = formatArticleDate(dateLabel);
-  const displayMatch = normalized.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
-
-  if (displayMatch) {
-    const [, day, month, year] = displayMatch;
-    const parsed = new Date(
-      Number(year),
-      Number(month) - 1,
-      Number(day),
-      12,
-      0,
-      0,
-      0
-    );
-
-    if (!Number.isNaN(parsed.getTime())) {
-      return parsed.toISOString();
-    }
-  }
-
-  const isoMatch = normalized.match(/^(\d{4})-(\d{2})-(\d{2})$/);
-
-  if (isoMatch) {
-    const [, year, month, day] = isoMatch;
-    const parsed = new Date(
-      Number(year),
-      Number(month) - 1,
-      Number(day),
-      12,
-      0,
-      0,
-      0
-    );
-
-    if (!Number.isNaN(parsed.getTime())) {
-      return parsed.toISOString();
-    }
-  }
-
-  return undefined;
-}
+export const parseArticleDateToIso = parseSeoDate;
 
 export function buildKeywordList(extra: string[] = []) {
   return Array.from(

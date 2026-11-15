@@ -1,3 +1,4 @@
+import { buildPageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import SiteFooter from "@/components/layout/SiteFooter";
@@ -5,6 +6,8 @@ import { formatArticleDate, hasArticleCategory, getArticleImageStyle } from "@/l
 import { getPublicArticlesBySlug, getSortedPublicArticleCards } from "@/lib/public-articles";
 
 export const dynamic = "force-dynamic";
+
+export const metadata = buildPageMetadata({ title: "Cinema News & Film Stories", description: "Read all Mainstage cinema stories, film news, interviews, and Moroccan festival coverage.", path: "/cinema/articles" });
 
 export default async function CinemaArticlesPage() {
   const cinemaArticles = (await getSortedPublicArticleCards()).filter((article) =>
@@ -42,6 +45,8 @@ export default async function CinemaArticlesPage() {
                 <Link href={`/articles/${article.slug}`} className="block">
                   <div className="h-[191px] w-full overflow-hidden rounded-[8px] bg-[#e7e1db]">
                     <img
+                      loading="lazy"
+                      decoding="async"
                       src={article.image}
                       alt={article.title}
                       className={`h-full w-full object-cover ${article.imageClassName ?? ""}`}
