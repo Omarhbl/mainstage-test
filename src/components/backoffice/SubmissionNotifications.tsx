@@ -36,18 +36,20 @@ export default function SubmissionNotifications({ initial }: { initial: Notifica
     });
   }
   return (
-    <section aria-labelledby="submission-notifications-title" className="rounded-[20px] border border-black/8 bg-white p-6 shadow-[0_12px_30px_rgba(0,0,0,0.05)]">
-      <div className="flex flex-wrap items-center justify-between gap-4">
-        <h2 id="submission-notifications-title" className="text-[24px] font-body font-bold tracking-[-0.04em]">New submissions <span className="ml-2 rounded-full bg-[#CE2127] px-3 py-1 text-[15px] text-white" aria-live="polite">{data ? count : "—"}</span></h2>
-        <button type="button" onClick={markRead} disabled={!count || pending} className="rounded-full border border-black/15 px-4 py-2 text-sm font-semibold disabled:opacity-40">{pending ? "Saving…" : "Mark all as read"}</button>
-      </div>
-      <p className="mt-2 text-sm text-black/55">Guestlist signups and contact messages. Checks for updates every minute.</p>
-      <div className="mt-5 flex flex-wrap gap-3">
-        <Link href="/backoffice/settings/guestlist" className="rounded-xl bg-[#faf8f6] px-4 py-3 font-semibold">Guestlist · {data?.guestlistCount ?? "—"} new</Link>
-        <Link href="/backoffice/settings/contact-inbox" className="rounded-xl bg-[#faf8f6] px-4 py-3 font-semibold">Contact inbox · {data?.contactCount ?? "—"} new</Link>
-      </div>
-      {error ? <p role="status" className="mt-4 text-sm text-[#9f1b20]">{error}</p> : null}
-      {data?.items.length ? <ul className="mt-4 divide-y divide-black/8">{data.items.map(item => <li key={item.id}><Link href={item.href} className="flex flex-col gap-1 py-3 hover:text-[#CE2127]"><span className="text-sm font-semibold">{item.title}</span><span className="break-words text-sm text-black/60">{item.detail}</span><time dateTime={item.receivedAt} className="text-xs text-black/45">{new Date(item.receivedAt).toLocaleString("en-GB", { timeZone: "Africa/Casablanca", day: "2-digit", month: "short", hour: "2-digit", minute: "2-digit" })}</time></Link></li>)}</ul> : data ? <p className="mt-5 text-sm text-black/55">You’re all caught up. New submissions will appear here.</p> : null}
+    <section aria-labelledby="submission-notifications-title" className="flex flex-wrap items-center gap-x-4 gap-y-2 rounded-xl border border-black/8 bg-white px-4 py-3 text-sm">
+      <h2 id="submission-notifications-title" className="flex items-center gap-2 font-semibold">
+        <span aria-hidden="true" className={`h-2 w-2 rounded-full ${count ? "bg-[#CE2127]" : "bg-black/25"}`} />
+        Submissions
+        <span aria-live="polite" aria-atomic="true" className={count ? "rounded-full bg-[#CE2127] px-2 py-0.5 text-xs text-white" : "text-xs font-normal text-black/60"}>
+          {data ? count ? `${count} new` : "All caught up" : "Checking…"}
+        </span>
+      </h2>
+      <nav aria-label="Submission inboxes" className="flex flex-wrap items-center gap-3 text-xs">
+        <Link href="/backoffice/settings/guestlist" className="text-black/70 hover:text-[#CE2127] hover:underline">Guestlist{data?.guestlistCount ? ` (${data.guestlistCount})` : ""}</Link>
+        <Link href="/backoffice/settings/contact-inbox" className="text-black/70 hover:text-[#CE2127] hover:underline">Contact{data?.contactCount ? ` (${data.contactCount})` : ""}</Link>
+      </nav>
+      {count > 0 ? <button type="button" onClick={markRead} disabled={pending} className="ml-auto text-xs font-medium text-black/65 hover:text-[#CE2127] disabled:opacity-40">{pending ? "Saving…" : "Mark as read"}</button> : null}
+      {error ? <p role="status" className="w-full text-xs text-[#9f1b20]">{error}</p> : null}
     </section>
   );
 }
