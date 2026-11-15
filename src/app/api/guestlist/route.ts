@@ -164,10 +164,13 @@ export async function POST(request: Request) {
       );
     }
 
-    const savedInCloudflare = await saveGuestlistToCloudflare(email);
-
-    if (!savedInCloudflare) {
-      await saveGuestlistToSupabase(email);
+    // The backoffice inbox is the primary record for dashboard notifications.
+    await saveGuestlistToSupabase(email);
+    // Keep an optional external copy without rejecting an already-saved submission.
+    try {
+      await saveGuestlistToCloudflare(email);
+    } catch {
+      console.error("Optional guestlist copy failed; the backoffice submission was saved.");
     }
 
     return NextResponse.json({

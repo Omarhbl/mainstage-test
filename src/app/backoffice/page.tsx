@@ -1,3 +1,6 @@
+import SubmissionNotifications from "@/components/backoffice/SubmissionNotifications";
+import { getSubmissionNotificationsAction } from "./notification-actions";
+import { requireBackofficeAccess } from "@/lib/supabase/backoffice";
 import BackofficeHeader from "@/components/backoffice/BackofficeHeader";
 import SectionCard from "@/components/backoffice/SectionCard";
 import StatCard from "@/components/backoffice/StatCard";
@@ -11,6 +14,8 @@ import {
 } from "@/lib/supabase/server";
 
 export default async function BackofficeDashboardPage() {
+  const { role } = await requireBackofficeAccess();
+  const notifications = role === "admin" ? await getSubmissionNotificationsAction().catch(() => null) : null;
   const adminClient = createSupabaseAdminClient();
   const articleCountResponse = adminClient
     ? await adminClient
@@ -28,6 +33,8 @@ export default async function BackofficeDashboardPage() {
         title="Dashboard"
         subtitle="A newsroom view of what matters right now: publishing, homepage curation, asset management, and feed health."
       />
+
+      {role === "admin" ? <SubmissionNotifications initial={notifications} /> : null}
 
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
         <StatCard

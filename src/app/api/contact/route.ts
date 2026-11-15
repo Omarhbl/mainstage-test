@@ -176,10 +176,13 @@ export async function POST(request: Request) {
       );
     }
 
-    const savedInCloudflare = await saveContactToCloudflare(payload);
-
-    if (!savedInCloudflare) {
-      await saveContactToSupabase(payload);
+    // The backoffice inbox is the primary record for dashboard notifications.
+    await saveContactToSupabase(payload);
+    // Keep an optional external copy without rejecting an already-saved submission.
+    try {
+      await saveContactToCloudflare(payload);
+    } catch {
+      console.error("Optional contact copy failed; the backoffice submission was saved.");
     }
 
     return NextResponse.json({
