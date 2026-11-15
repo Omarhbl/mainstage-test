@@ -1,3 +1,6 @@
+import ArticleSeoAssistant from "@/components/backoffice/ArticleSeoAssistant";
+import { getArticleSeoSettings } from "@/lib/article-seo-settings";
+import { getPublicArticles } from "@/lib/public-articles";
 import ArticleImageFraming from "@/components/backoffice/ArticleImageFraming";
 import type { ArticleRecord } from "@/lib/articles";
 import {
@@ -23,7 +26,7 @@ type ArticleEditorFormProps = {
   homepageImagePositionY?: number;
 };
 
-export default function ArticleEditorForm({
+export default async function ArticleEditorForm({
   action,
   article,
   submitLabel,
@@ -34,6 +37,8 @@ export default function ArticleEditorForm({
   homepageImagePositionX,
   homepageImagePositionY,
 }: ArticleEditorFormProps) {
+  const [seo, published] = await Promise.all([getArticleSeoSettings(article?.slug ?? ""), getPublicArticles()]);
+  const relatedArticles = published.filter((entry) => entry.slug !== article?.slug).map(({ title, slug, category, tags }) => ({ title, slug, category, tags }));
   const secondaryCategories = article?.secondary_categories ?? [];
   const resolvedImagePositionX = typeof imagePositionX === "number" ? imagePositionX : 50;
   const resolvedImagePositionY = typeof imagePositionY === "number" ? imagePositionY : 50;
@@ -140,7 +145,7 @@ export default function ArticleEditorForm({
             placeholder="Kanye West, Los Angeles, SoFi Stadium"
           />
           <p className="mt-2 text-[12px] font-body leading-[1.6] text-black/45">
-            Separate tags with commas. They help search and SEO, but stay hidden on the article page for now.
+            Separate tags with commas. They help organise stories and site search. Use relevant topics; tags do not guarantee Google rankings.
           </p>
         </div>
 
@@ -179,6 +184,7 @@ export default function ArticleEditorForm({
       </div>
 
       <div className="space-y-6">
+        <ArticleSeoAssistant initial={seo} relatedArticles={relatedArticles} />
         <div className="rounded-[20px] border border-black/8 bg-white p-6 shadow-[0_12px_30px_rgba(0,0,0,0.05)]">
           <h2 className="text-[20px] font-body font-bold tracking-[-0.03em] text-[#181818]">
             Publishing

@@ -1,5 +1,7 @@
 "use server";
 
+import { saveArticleSeoSettings } from "@/lib/article-seo-settings";
+
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import {
@@ -462,6 +464,11 @@ export async function createArticleAction(formData: FormData) {
     homepageImagePositionY
   );
   await saveArticleTags(payload.slug, tags);
+  const seoError = await saveArticleSeoSettings(payload.slug, formData);
+  if (seoError) {
+    await revalidateArticleSurfaces(payload.slug);
+    buildArticlesRedirect("/backoffice/articles", `Article saved. ${seoError}`, "error");
+  }
   if (framingError) {
     await revalidateArticleSurfaces(payload.slug);
     buildArticlesRedirect(
@@ -554,6 +561,11 @@ export async function updateArticleAction(formData: FormData) {
     homepageImagePositionY
   );
   await saveArticleTags(payload.slug, tags);
+  const seoError = await saveArticleSeoSettings(payload.slug, formData);
+  if (seoError) {
+    await revalidateArticleSurfaces(payload.slug);
+    buildArticlesRedirect("/backoffice/articles", `Article saved. ${seoError}`, "error");
+  }
   if (framingError) {
     await revalidateArticleSurfaces(payload.slug);
     buildArticlesRedirect(

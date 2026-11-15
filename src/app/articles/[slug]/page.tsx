@@ -1,3 +1,4 @@
+import { getArticleSeoSettings } from "@/lib/article-seo-settings";
 import { articleModifiedDate } from "@/lib/seo-data";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -59,9 +60,12 @@ export async function generateMetadata({
     };
   }
 
+  const seo = await getArticleSeoSettings(article.slug);
+  const seoTitle = seo.title || article.title;
   const canonicalPath = `/articles/${article.slug}`;
   const canonicalUrl = toAbsoluteUrl(canonicalPath);
   const description = buildSeoDescription(
+    seo.description,
     article.summary,
     article.intro,
     article.body?.[0]
@@ -77,7 +81,7 @@ export async function generateMetadata({
   ]);
 
   return {
-    title: article.title,
+    title: seoTitle,
     description,
     alternates: {
       canonical: canonicalPath,
@@ -86,7 +90,7 @@ export async function generateMetadata({
     openGraph: {
       type: "article",
       url: canonicalUrl,
-      title: article.title,
+      title: seoTitle,
       description,
       siteName: SITE_NAME,
       images: [
@@ -102,7 +106,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: article.title,
+      title: seoTitle,
       description,
       images: [imageUrl],
     },
