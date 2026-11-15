@@ -16,7 +16,7 @@ export default function robots(): MetadataRoute.Robots {
         ],
       },
     ],
-    sitemap: [toAbsoluteUrl("/sitemap.xml")],
+    sitemap: [toAbsoluteUrl("/sitemap.xml"), toAbsoluteUrl("/news-sitemap.xml")],
     host: getSiteUrl(),
   };
 }
