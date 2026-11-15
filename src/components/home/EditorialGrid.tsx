@@ -4,7 +4,8 @@ import ResponsiveImage from "@/components/media/ResponsiveImage";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { INSTAGRAM_REFRESH_INTERVAL, parseInstagramHighlights, type InstagramHighlight } from "@/lib/instagram-feed-data";
-import { motion } from "framer-motion";
+import NearViewport from "@/components/media/NearViewport";
+import type { CSSProperties } from "react";
 import { ArrowRight, Play, ChevronDown, ChevronUp, Minus } from "lucide-react";
 import type { SpotifyChartEntry, YouTubeVideoEntry } from "@/lib/feed-data";
 import {
@@ -132,7 +133,6 @@ export default function EditorialGrid({
         if (items.length && !controller.signal.aborted) setLiveSocialItems(items);
       } catch { /* Keep the last successful highlights or editorial fallback. */ }
     };
-    void refresh();
     const timer = window.setInterval(() => void refresh(), INSTAGRAM_REFRESH_INTERVAL);
     const onVisible = () => { if (document.visibilityState === "visible") void refresh(); };
     document.addEventListener("visibilitychange", onVisible);
@@ -192,13 +192,9 @@ const trendingItems = (sortedCards.length ? sortedCards : [])
         </div>
 
         <div className="grid grid-cols-1 gap-x-[36px] gap-y-12 md:grid-cols-2 xl:grid-cols-3">
-          {trendingItems.map((item, index) => (
-            <motion.article
+          {trendingItems.map((item) => (
+            <article
               key={item.slug}
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ delay: index * 0.08, duration: 0.45, ease: "easeOut" }}
               className="group"
             >
               <Link
@@ -229,7 +225,7 @@ const trendingItems = (sortedCards.length ? sortedCards : [])
                   </h3>
                 </div>
               </Link>
-            </motion.article>
+            </article>
           ))}
         </div>
 
@@ -251,11 +247,7 @@ const trendingItems = (sortedCards.length ? sortedCards : [])
           </div>
 
           {mustRead ? (
-          <motion.article
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.45, ease: "easeOut" }}
+          <article
             className="grid grid-cols-1 gap-8 lg:grid-cols-[561px_minmax(0,1fr)] lg:items-start"
           >
             <Link
@@ -303,7 +295,7 @@ const trendingItems = (sortedCards.length ? sortedCards : [])
                 {mustRead.category}
               </p>
             </div>
-          </motion.article>
+          </article>
           ) : null}
         </div>
 
@@ -358,10 +350,10 @@ const trendingItems = (sortedCards.length ? sortedCards : [])
           </div>
 
           <div className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden py-1">
-            <motion.div
-              animate={{ x: [-118, -118 - SOCIAL_STEP * homepageSocialItems.length] }}
-              transition={{ duration: 22, ease: "linear", repeat: Infinity }}
-              className="flex gap-6 px-0"
+            <NearViewport>
+            <div
+              className="upcoming-marquee-track flex gap-6 px-0"
+              style={{ "--upcoming-offset": "-118px", "--upcoming-shift": `${SOCIAL_STEP * homepageSocialItems.length}px`, "--upcoming-duration": "22s" } as CSSProperties}
             >
               {[...homepageSocialItems, ...homepageSocialItems].map((item, index) => (
                 <article
@@ -396,7 +388,8 @@ const trendingItems = (sortedCards.length ? sortedCards : [])
                   )}
                 </article>
               ))}
-            </motion.div>
+            </div>
+            </NearViewport>
           </div>
         </div>
 
@@ -454,7 +447,7 @@ const trendingItems = (sortedCards.length ? sortedCards : [])
                       {item.title}
                     </h3>
                     <p
-                      className="mt-2 w-full overflow-hidden text-[14px] font-body font-normal leading-[1.45] text-[rgba(0,0,0,0.5)]"
+                      className="mt-2 w-full overflow-hidden text-[14px] font-body font-normal leading-[1.45] text-[rgba(0,0,0,0.65)]"
                       style={{
                         display: "-webkit-box",
                         WebkitLineClamp: 2,
@@ -489,7 +482,7 @@ const trendingItems = (sortedCards.length ? sortedCards : [])
                   <div
                     key={item.rank}
                     className={`grid grid-cols-[82px_minmax(0,1fr)_84px] items-center px-4 py-3 sm:grid-cols-[112px_minmax(0,1fr)_110px] sm:px-5 ${
-                      index % 2 === 0 ? "bg-[#727272]" : "bg-[#868686]"
+                      index % 2 === 0 ? "bg-[#444444]" : "bg-[#555555]"
                     } text-white`}
                   >
                     <div className="flex items-center gap-2 text-[13px] font-body font-medium sm:gap-3 sm:text-[15px]">
@@ -512,7 +505,7 @@ const trendingItems = (sortedCards.length ? sortedCards : [])
                         <p className="truncate text-[13px] font-body font-medium leading-none sm:text-[15px]">
                           {item.title}
                         </p>
-                        <p className="mt-1 truncate text-[10px] font-body font-normal text-white/55 sm:text-[12px]">
+                        <p className="mt-1 truncate text-[10px] font-body font-normal text-white/85 sm:text-[12px]">
                           {item.artist}
                         </p>
                       </div>

@@ -193,7 +193,7 @@ export default function Navbar() {
           >
             <Search size={18} strokeWidth={1.5} />
           </button>
-          <button className="hidden h-[40px] w-[40px] cursor-pointer items-center justify-center text-white/70 transition-colors hover:text-white sm:flex">
+          <button aria-label="Account" className="hidden h-[40px] w-[40px] cursor-pointer items-center justify-center text-white/70 transition-colors hover:text-white sm:flex">
             <User size={18} strokeWidth={1.5} />
           </button>
           <button 

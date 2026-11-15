@@ -27,6 +27,8 @@ export default function MobileNav() {
             <Link
               key={item.name}
               href={item.href}
+              aria-label={item.name}
+              aria-current={isActive ? "page" : undefined}
               className={cn(
                 "inline-flex flex-col items-center justify-center px-5 group transition-all duration-300",
                 isActive ? "text-primary" : "text-text-secondary hover:text-text-primary"
