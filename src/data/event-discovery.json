@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "syncedAt": "2026-11-15T14:56:08.840Z",
+  "syncedAt": "2026-11-16T17:21:38.160Z",
   "sources": [
     {
       "id": "iticket",
-      "checkedAt": "2026-11-15T14:56:08.840Z",
+      "checkedAt": "2026-11-16T17:21:38.160Z",
       "error": null,
       "items": [
         {
@@ -18,7 +18,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-15T14:56:08.840Z"
+          "observedAt": "2026-11-16T17:21:38.160Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/activities/gala-solidaire-fondation-tamayouz",
@@ -31,7 +31,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-15T14:56:08.840Z"
+          "observedAt": "2026-11-16T17:21:38.160Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/hajib-en-concert-a-rabat",
@@ -44,7 +44,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-15T14:56:08.840Z"
+          "observedAt": "2026-11-16T17:21:38.160Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/soiree-aissawa-avec-yassine-eljamai",
@@ -57,7 +57,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-15T14:56:08.840Z"
+          "observedAt": "2026-11-16T17:21:38.160Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/tiakola-en-concert-a-casablanca",
@@ -70,7 +70,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-15T14:56:08.840Z"
+          "observedAt": "2026-11-16T17:21:38.160Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/stormy-desperado-casablanca-11-12",
@@ -83,7 +83,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-15T14:56:08.840Z"
+          "observedAt": "2026-11-16T17:21:38.160Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/rnboi-and-elgrandetoto-en-concert-a-rabat",
@@ -96,7 +96,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-15T14:56:08.840Z"
+          "observedAt": "2026-11-16T17:21:38.160Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/sport/morocco-football-scouting-rabat-dec-2026",
@@ -109,21 +109,18 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-15T14:56:08.840Z"
+          "observedAt": "2026-11-16T17:21:38.160Z"
         }
       ],
       "drafts": [
         {
           "url": "https://iticket.ma/events/activities/visite-du-site-archeologique-de-chellah",
-          "title": "à partir de 15 MAD\n\n14 novembre 2026\n\n### Visite du Site Archéologique de Chellah\n\nLe Site Archéologique de Chellah – Rabat",
+          "title": "Visite du Site Archéologique de Chellah",
           "reasons": [
-            "Page content unavailable",
-            "Event heading needs verification",
             "Missing or conflicting event date",
-            "Moroccan location needs verification",
             "Poster needs verification"
           ],
-          "evidence": ""
+          "evidence": "Visite du Site Archéologique de Chellah\n\nà partir de 15 MAD\n\n# Visite du Site Archéologique de Chellah\n\n## Séances\n\nVisite du site archéologique de Chellah\n\nLe Site Archéologique de Chellah – Rabat\n\n15nov\n\n09:00 - 20:00\n\nà partir de 15 MAD0+\n\nVisite du site archéologique de Chellah (avec Audioguidee)\n\nLe Site Archéologique de Chellah – Rabat\n\n15nov\n\n09:00 - 20:00\n\nà partir de 25 MAD0+\n\nVisite du site archéologique de Chellah\n\nLe Site Archéologique de Chellah – Rabat\n\n16nov\n\n09:00 - 20:00\n\nà partir de 15 MAD0+\n\nVisite du site archéologique de Chellah (avec Audioguidee)\n\nLe Site Archéologique de Chellah – Rabat\n\n16nov\n\n09:00 - 20:00\n\nà partir de 25 MAD0+\n\nVisite du site archéologique de Chellah\n\nLe Site Archéologique de Chellah – Rabat\n\n17nov\n\n09:00 - 20:00\n\nà partir de 15 MAD0+\n\n## Description\n\n## Le Site Archéologique de Chellah – Rabat\n\nChellah Avenue Al Imam Malik Rabat 10000 Morocco"
         },
         {
           "url": "https://iticket.ma/events/activities/meydene-experience-le-parcours-immersif",
@@ -145,7 +142,7 @@
     },
     {
       "id": "ticket",
-      "checkedAt": "2026-11-15T14:56:08.840Z",
+      "checkedAt": "2026-11-16T17:21:38.160Z",
       "error": null,
       "items": [],
       "drafts": [
@@ -181,104 +178,22 @@
             "Poster needs verification"
           ],
           "evidence": "CONCERTS. STORMY - DESPERADO - CASABLANCA. calendar. Samedi 12 Décembre 2026. map. Complexe sportif Mohamed V - Casablanca. À partir de 250 MAD. RNBOI À RABAT."
-        },
-        {
-          "url": "https://www.ticket.ma/ticket/concerts/4394/concert-de-musique-classique-2026",
-          "title": "Concert de musique classique - Complexe culturel Zefzaf",
-          "reasons": [
-            "Page content unavailable",
-            "Event heading needs verification",
-            "Missing or conflicting event date",
-            "Moroccan location needs verification",
-            "Poster needs verification"
-          ],
-          "evidence": "CONCERTS. STORMY - DESPERADO - CASABLANCA. calendar. Samedi 12 Décembre 2026. map. Complexe sportif Mohamed V - Casablanca. À partir de 250 MAD."
         }
       ]
     },
     {
       "id": "webook",
-      "checkedAt": "2026-11-15T14:56:08.840Z",
+      "checkedAt": "2026-11-16T17:21:38.160Z",
       "error": null,
       "items": [],
-      "drafts": [
-        {
-          "url": "https://webook.com/ma/cas/sports-event/events/wafcon-26-m26",
-          "title": "WAFCON Morocco 2026 QF2 Official Tickets",
-          "reasons": [
-            "Page content unavailable",
-            "Event heading needs verification",
-            "Missing or conflicting event date",
-            "Moroccan location needs verification",
-            "Poster needs verification"
-          ],
-          "evidence": "Book official tickets for WAFCON Morocco 2026 Quarter-final 2 ... Event · 13 November - 08:00 PM. Morocco vs Niger. Casablanca, Morocco."
-        },
-        {
-          "url": "https://webook.com/ma/sal/sports-event/events/fifa-u17-4november",
-          "title": "FIFA U-17 Women's World Cup Semi-Finals Nov 4, 2026",
-          "reasons": [
-            "Page content unavailable",
-            "Event heading needs verification",
-            "Missing or conflicting event date",
-            "Moroccan location needs verification",
-            "Poster needs verification"
-          ],
-          "evidence": "Morocco 2026 semi-finals on Nov 4 at Complexe. Nov - 5:00 AM From $ 2.05. Venue: Mohammed VI Football Complex – Pitches 2 & 3"
-        },
-        {
-          "url": "https://webook.com/tr/ma/cas/sports-event/events/wafcon-26-m26",
-          "title": "WAFCON Morocco 2026 QF2 Official Tickets",
-          "reasons": [
-            "Page content unavailable",
-            "Event heading needs verification",
-            "Missing or conflicting event date",
-            "Moroccan location needs verification",
-            "Poster needs verification"
-          ],
-          "evidence": "Book official tickets for WAFCON Morocco 2026 Quarter-final 2: 1st Group B vs 2nd Group A on Aug 8, 2026 at Hay Moulay Rachid Stadium, Casablanca."
-        },
-        {
-          "url": "https://webook.com/en/ma/cas/sports-event/events/marocvsniger-caf27",
-          "title": "Morocco vs Niger - AFCON 2027 Qualifier",
-          "reasons": [
-            "Page content unavailable",
-            "Event heading needs verification",
-            "Missing or conflicting event date",
-            "Moroccan location needs verification",
-            "Poster needs verification"
-          ],
-          "evidence": "Morocco vs Niger tickets are available for the AFCON 2027 Qualifier in Casablanca on November 13 at Mohammed V Sports Complex."
-        },
-        {
-          "url": "https://webook.com/en/ma/tan/music-events/events/tanjazz26-festival",
-          "title": "TANJAZZ 2026 book tickets on webook.com",
-          "reasons": [
-            "Page content unavailable",
-            "Event heading needs verification",
-            "Missing or conflicting event date",
-            "Moroccan location needs verification",
-            "Poster needs verification"
-          ],
-          "evidence": "TANJAZZ 2026 Friday, September 18 to Sunday, September 20, 2026 • Tangier, Morocco For three days, Tanjazz brings Tangier to life to the rhythm of jazz."
-        }
-      ]
+      "drafts": []
     },
     {
       "id": "eventsma",
-      "checkedAt": "2026-11-15T14:56:08.840Z",
+      "checkedAt": "2026-11-16T17:21:38.160Z",
       "error": null,
       "items": [],
       "drafts": [
-        {
-          "url": "https://events.ma/en/concerts-festivals",
-          "title": "Concerts & Festivals",
-          "reasons": [
-            "Missing or conflicting event date",
-            "Poster needs verification"
-          ],
-          "evidence": "[![Events logo](/assets/imgs/logo/event-logo-black-100.png)](/en)\n\n[FR](/concerts-festivals \"Français\")[EN](/en/concerts-festivals \"English\")[AR](/ar/concerts-festivals \"العربية\")\n\n[Sign in](/en/mon-espace/connexion \"Sign in\")\n\n* ##### Your basket is empty\n\n  Explore our events and let yourself be inspired!   \n   Find tickets for concerts, festivals and sporting events in Morocco and Africa.\n\n\n\n# Concerts & Festivals\n\n791 event(s) found\n\n[![](https://s3.eu-north-1.amazonaws.com/events.ma/events/10-2026/1545/0902bcdb-ff96-4a04-a6ea-d91c145ead9f-1792509905-yryX.webp)**14**NovSold out\n\nConcerts & Festivals\n\n### Nacim Haddad à Casablanca\n\nMegarama, Casablanca\n\nSaturday 14 November 2026\n\n20:30\n\nfrom**250 MAD**](/en/concerts-festivals/nacim-haddad-14-11-26)[![](https://s3.eu-north-1.amazonaws.com/events.ma/events/08-2026/1431/d34cfcef-2ed8-4530-816f-572ce7406b70-1788183160-hfvn.webp)**14**Nov\n\nConcerts & Festivals\n\n### ABDELLAH DAOUDI à RABAT\n\nThétre Al Mansour, Rabat\n\nSaturday 14 November 2026\n\n20:00\n\nfrom**200 MAD**](/en/concerts-festivals/abdellah-daoudi-a-rabat)[![](https://s3.eu-north-1.amazonaws.com/events.ma/events/10-2026/1525/ba811897-81dd-4483-ae5a-51f424ae6dd5-1791810646-eQFf."
-        },
         {
           "url": "https://events.ma/concerts-festivals/nass-el-ghiwane-anas-lekhssasi",
           "title": "NASS EL GHIWANE ainsi & Maalam Anas Lekhssasi",
