@@ -12,6 +12,7 @@ const NAV_ITEMS = [
   { label: "Articles", href: "/backoffice/articles", roles: ["admin", "editor"] as BackofficeRole[] },
   { label: "Homepage", href: "/backoffice/homepage", roles: ["admin", "editor"] as BackofficeRole[] },
   { label: "Upcoming", href: "/backoffice/upcoming", roles: ["admin", "editor"] as BackofficeRole[] },
+  { label: "App", href: "/backoffice/app", roles: ["admin"] as BackofficeRole[] },
   { label: "Media", href: "/backoffice/media", roles: ["admin", "editor"] as BackofficeRole[] },
   { label: "Feeds", href: "/backoffice/feeds", roles: ["admin", "editor"] as BackofficeRole[] },
   { label: "Team", href: "/backoffice/team", roles: ["admin"] as BackofficeRole[] },
