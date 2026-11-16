@@ -6,7 +6,7 @@ export async function POST(request: Request) {
   try {
     const data = await request.formData(); const file = data.get("file"); const kind = String(data.get("kind")) as AppImageKind;
     if (!APP_IMAGE_KINDS.includes(kind) || !(file instanceof File) || !file.size) return Response.json({ error: "Choose an image and a valid placement." }, { status: 400 });
-    if (file.size > MAX_APP_IMAGE_BYTES) return Response.json({ error: "Images must be under 8 MB." }, { status: 400 });
+    if (file.size > MAX_APP_IMAGE_BYTES) return Response.json({ error: "Images must be under 4 MB." }, { status: 400 });
     const bytes = new Uint8Array(await file.arrayBuffer()); const info = await inspectAppImage(bytes, kind);
     const client = createSupabaseAdminClient(); if (!client) throw new Error("Media storage is unavailable.");
     const path = `app/${kind}/${crypto.randomUUID()}.${info.format === "jpeg" ? "jpg" : info.format}`;

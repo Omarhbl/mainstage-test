@@ -14,7 +14,7 @@ Ads are filtered to active campaigns within their date window and are omitted wh
 
 ## Media
 
-JPG, PNG and WebP uploads use the existing `media-assets` bucket under `app/<placement>/`. Images are inspected on the server, limited to 8 MB and 40 million pixels, and checked for the required size/ratio. Radio artwork is square and at least 1000 pixels wide; webradio covers are at least 800 pixels on both axes. Banners are at least 640×200 at 3.2:1; rectangles are at least 600×500 at 6:5. Larger matching-ratio images are accepted.
+JPG, PNG and WebP uploads use the existing `media-assets` bucket under `app/<placement>/`. Images are inspected on the server, limited to 4 MB and 40 million pixels, and checked for the required size/ratio. Radio artwork is square and at least 1000 pixels wide; webradio covers are at least 800 pixels on both axes. Banners are at least 640×200 at 3.2:1; rectangles are at least 600×500 at 6:5. Larger matching-ratio images are accepted.
 
 Existing image links are accepted from the configured public Supabase media bucket, Cloudinary uploads, or Mainstage image files. Server validation does not follow redirects or fetch arbitrary external hosts. Upload external images directly rather than pasting an unrelated host's URL.
 
