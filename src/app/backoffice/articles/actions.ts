@@ -1,5 +1,6 @@
 "use server";
 
+import { prepareEditorImage } from "@/lib/security/image";
 import { saveArticleSeoSettings } from "@/lib/article-seo-settings";
 
 import { revalidatePath } from "next/cache";
@@ -16,7 +17,6 @@ import {
   BACKOFFICE_ARTICLE_STATUSES,
   inputDateToDisplayValue,
   normalizeSecondaryCategories,
-  sanitizeStorageFileName,
   slugifyArticleTitle,
 } from "@/lib/backoffice-articles";
 import {
@@ -49,16 +49,12 @@ async function uploadBackofficeImage(
     return { error: "Missing service role key in .env.local." };
   }
 
-  const safeName = sanitizeStorageFileName(file.name || "image");
-  const path = `${folder}/${Date.now()}-${safeName}`;
-
-  const { error } = await adminClient.storage
-    .from(BACKOFFICE_MEDIA_BUCKET)
-    .upload(path, file, {
-      cacheControl: "3600",
-      upsert: false,
-      contentType: file.type || "image/jpeg",
-    });
+  let image;
+  try { image = await prepareEditorImage(file); }
+  catch (error) { return { error: error instanceof Error ? error.message : "Invalid image." }; }
+  const path = `${folder}/${crypto.randomUUID()}.${image.extension}`;
+  const { error } = await adminClient.storage.from(BACKOFFICE_MEDIA_BUCKET)
+    .upload(path, image.bytes, { cacheControl: "3600", upsert: false, contentType: image.contentType });
 
   if (error) {
     return {

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { sanitizeStorageFileName } from "@/lib/backoffice-articles";
+import { prepareEditorImage } from "@/lib/security/image";
 import { requireBackofficeAccess } from "@/lib/supabase/backoffice";
 import { createSupabaseAdminClient } from "@/lib/supabase/server";
 
@@ -26,15 +26,12 @@ export async function POST(request: Request) {
     );
   }
 
-  const safeName = sanitizeStorageFileName(file.name || "inline-image");
-  const storagePath = `article-body/${Date.now()}-${safeName}`;
-  const { error } = await adminClient.storage
-    .from(BACKOFFICE_MEDIA_BUCKET)
-    .upload(storagePath, file, {
-      cacheControl: "3600",
-      upsert: false,
-      contentType: file.type || "image/jpeg",
-    });
+  let image;
+  try { image = await prepareEditorImage(file); }
+  catch (error) { return NextResponse.json({ error: error instanceof Error ? error.message : "Invalid image." }, { status: 400 }); }
+  const storagePath = `article-body/${crypto.randomUUID()}.${image.extension}`;
+  const { error } = await adminClient.storage.from(BACKOFFICE_MEDIA_BUCKET)
+    .upload(storagePath, image.bytes, { cacheControl: "3600", upsert: false, contentType: image.contentType });
 
   if (error) {
     return NextResponse.json(

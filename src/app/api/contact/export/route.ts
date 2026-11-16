@@ -1,11 +1,7 @@
+import { escapeCsvValue } from "@/lib/security/csv";
 import { NextResponse } from "next/server";
 import { requireBackofficeAccess } from "@/lib/supabase/backoffice";
 import { getContactMessages } from "@/lib/supabase/server";
-
-function escapeCsvValue(value: string) {
-  const normalized = value.replace(/"/g, '""');
-  return `"${normalized}"`;
-}
 
 export async function GET() {
   await requireBackofficeAccess(["admin", "editor"]);
@@ -33,6 +29,7 @@ export async function GET() {
   return new NextResponse(csv, {
     headers: {
       "Content-Type": "text/csv; charset=utf-8",
+      "Cache-Control": "private, no-store",
       "Content-Disposition": `attachment; filename="mainstage-contact-messages.csv"`,
     },
   });

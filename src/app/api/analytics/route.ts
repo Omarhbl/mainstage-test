@@ -1,6 +1,8 @@
+import { requireBackofficeAccess } from "@/lib/supabase/backoffice";
 import { google } from "googleapis";
 
 export async function GET() {
+  await requireBackofficeAccess(["admin", "editor"]);
   try {
     const propertyId = process.env.GA_PROPERTY_ID;
     const clientEmail = process.env.GA_CLIENT_EMAIL;
@@ -11,16 +13,9 @@ export async function GET() {
     if (!propertyId || !clientEmail || !privateKey) {
       return Response.json(
         {
-          error: "Missing Google Analytics environment variables.",
-          debug: {
-            testEnv: process.env.TEST_ENV || null,
-            hasPropertyId: Boolean(propertyId),
-            hasClientEmail: Boolean(clientEmail),
-            hasPrivateKeyRaw: Boolean(privateKeyRaw),
-            hasPrivateKeyProcessed: Boolean(privateKey),
-          },
+          error: "Analytics is temporarily unavailable.",
         },
-        { status: 500 }
+        { status: 503, headers: { "Cache-Control": "private, no-store" } }
       );
     }
 
@@ -42,13 +37,13 @@ export async function GET() {
       },
     });
 
-    return Response.json(response.data);
-  } catch (error) {
-    console.error("GA realtime API error:", error);
+    return Response.json(response.data, { headers: { "Cache-Control": "private, no-store" } });
+  } catch {
+    console.error("GA realtime API request failed.");
 
     return Response.json(
       { error: "Failed to fetch Google Analytics realtime data." },
-      { status: 500 }
+      { status: 503, headers: { "Cache-Control": "private, no-store" } }
     );
   }
 }

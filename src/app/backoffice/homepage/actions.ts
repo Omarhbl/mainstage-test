@@ -3,7 +3,7 @@
 import { clampSlidePosition } from "@/lib/homepage-slides";
 import { normalizeArticleAd, safeAdUrl } from "@/lib/article-ad";
 
-import path from "node:path";
+import { prepareEditorImage } from "@/lib/security/image";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { isRedirectError } from "next/dist/client/components/redirect-error";
@@ -45,15 +45,6 @@ function buildBackofficeRedirect(
   redirect(`${getBackofficeRedirectTarget(target)}?${params.toString()}`);
 }
 
-function sanitizeStorageFileName(name: string) {
-  return name
-    .trim()
-    .toLowerCase()
-    .replace(/[^a-z0-9.-]+/g, "-")
-    .replace(/-+/g, "-")
-    .replace(/^-|-$/g, "");
-}
-
 async function uploadHomepageImage(file: File, folder: string) {
   const adminClient = createSupabaseAdminClient();
 
@@ -61,17 +52,10 @@ async function uploadHomepageImage(file: File, folder: string) {
     throw new Error("Missing service role key in .env.local.");
   }
 
-  const extension = path.extname(file.name) || ".png";
-  const baseName = sanitizeStorageFileName(path.basename(file.name, extension)) || "image";
-  const fileName = `${folder}/${Date.now()}-${baseName}${extension.toLowerCase()}`;
-  const arrayBuffer = await file.arrayBuffer();
-
-  const { error } = await adminClient.storage
-    .from(HOMEPAGE_MEDIA_BUCKET)
-    .upload(fileName, arrayBuffer, {
-      contentType: file.type || "application/octet-stream",
-      upsert: false,
-    });
+  const image = await prepareEditorImage(file);
+  const fileName = `${folder}/${crypto.randomUUID()}.${image.extension}`;
+  const { error } = await adminClient.storage.from(HOMEPAGE_MEDIA_BUCKET)
+    .upload(fileName, image.bytes, { contentType: image.contentType, upsert: false });
 
   if (error) {
     throw new Error(error.message);

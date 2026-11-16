@@ -17,7 +17,7 @@ export async function signInAction(formData: FormData) {
   }
 
   const email = String(formData.get("email") ?? "").trim();
-  const password = String(formData.get("password") ?? "").trim();
+  const password = String(formData.get("password") ?? "");
 
   if (!email || !password) {
     redirect("/login?error=missing");

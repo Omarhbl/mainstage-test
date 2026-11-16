@@ -1,3 +1,4 @@
+import { readSubmissionJson, boundedField, limitSubmission, submissionFailure } from "@/lib/security/submissions";
 import { NextResponse } from "next/server";
 import { createSupabaseAdminClient } from "@/lib/supabase/server";
 
@@ -80,6 +81,7 @@ async function saveContactToCloudflare(payload: ContactPayload) {
     },
     body: JSON.stringify(payload),
     cache: "no-store",
+    signal: AbortSignal.timeout(8000),
   });
 
   if (!response.ok) {
@@ -130,6 +132,8 @@ async function saveContactToSupabase(payload: ContactPayload) {
       : []
   );
 
+  if (existingEntries.length >= 1000) throw new Error("Submission inbox needs maintenance.");
+
   const nextEntries = [payload, ...existingEntries];
 
   const { error: fallbackSaveError } = await adminClient.from("site_settings").upsert(
@@ -148,15 +152,16 @@ async function saveContactToSupabase(payload: ContactPayload) {
 
 export async function POST(request: Request) {
   try {
-    const body = (await request.json()) as Record<string, unknown>;
+    const body = await readSubmissionJson(request);
+    await limitSubmission(request, "contact");
     const payload: ContactPayload = {
       firstName:
-        typeof body.firstName === "string" ? body.firstName.trim() : "",
-      lastName: typeof body.lastName === "string" ? body.lastName.trim() : "",
-      email: typeof body.email === "string" ? body.email.trim().toLowerCase() : "",
-      phone: typeof body.phone === "string" ? body.phone.trim() : "",
-      subject: typeof body.subject === "string" ? body.subject.trim() : "",
-      message: typeof body.message === "string" ? body.message.trim() : "",
+        boundedField(body, "firstName", 100),
+      lastName: boundedField(body, "lastName", 100),
+      email: boundedField(body, "email", 254).toLowerCase(),
+      phone: boundedField(body, "phone", 40),
+      subject: boundedField(body, "subject", 200),
+      message: boundedField(body, "message", 5000),
       source: "website_contact",
       status: "new",
       receivedAt: new Date().toISOString(),
@@ -190,15 +195,6 @@ export async function POST(request: Request) {
       message: "Message received. We’ll get back to you soon.",
     });
   } catch (error) {
-    return NextResponse.json(
-      {
-        success: false,
-        message:
-          error instanceof Error && error.message
-            ? error.message
-            : "We couldn’t send your message yet. Please try again.",
-      },
-      { status: 500 }
-    );
+    return submissionFailure(error);
   }
 }

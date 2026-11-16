@@ -1,7 +1,6 @@
 import { redirect } from "next/navigation";
 import {
   createSupabaseServerClient,
-  getBackstageClientBySlug,
   getBackstageClientByUserId,
   hasSupabaseEnv,
 } from "@/lib/supabase/server";
@@ -32,16 +31,8 @@ export async function requireClientPortalAccess(expectedSlug?: string) {
   }
 
   const metadata = (user.user_metadata ?? {}) as ClientMetadata;
-  const metadataRole = metadata.role;
-  const metadataSlug = metadata.client_slug;
-
-  if (metadataRole !== "client") {
-    redirect("/backstage/login?error=access");
-  }
-
-  const client =
-    (metadataSlug ? await getBackstageClientBySlug(metadataSlug) : null) ??
-    (await getBackstageClientByUserId(user.id));
+  // Authorization comes only from the server-managed account relationship.
+  const client = await getBackstageClientByUserId(user.id);
 
   if (!client) {
     redirect("/backstage/login?error=access");

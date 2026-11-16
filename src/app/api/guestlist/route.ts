@@ -1,3 +1,4 @@
+import { readSubmissionJson, boundedField, limitSubmission, submissionFailure } from "@/lib/security/submissions";
 import { NextResponse } from "next/server";
 import { createSupabaseAdminClient } from "@/lib/supabase/server";
 
@@ -69,6 +70,7 @@ async function saveGuestlistToCloudflare(email: string) {
       subscribedAt: new Date().toISOString(),
     }),
     cache: "no-store",
+    signal: AbortSignal.timeout(8000),
   });
 
   if (!response.ok) {
@@ -121,6 +123,8 @@ async function saveGuestlistToSupabase(email: string) {
       : []
   );
 
+  if (existingEntries.length >= 1000) throw new Error("Submission inbox needs maintenance.");
+
   const nextEntries = [
     {
       email,
@@ -150,9 +154,9 @@ async function saveGuestlistToSupabase(email: string) {
 
 export async function POST(request: Request) {
   try {
-    const body = (await request.json()) as { email?: unknown };
-    const email =
-      typeof body.email === "string" ? body.email.trim().toLowerCase() : "";
+    const body = await readSubmissionJson(request);
+    await limitSubmission(request, "guestlist");
+    const email = boundedField(body, "email", 254).toLowerCase();
 
     if (!email || !EMAIL_PATTERN.test(email)) {
       return NextResponse.json(
@@ -178,15 +182,6 @@ export async function POST(request: Request) {
       message: "Access granted. You’re on the guestlist.",
     });
   } catch (error) {
-    return NextResponse.json(
-      {
-        success: false,
-        message:
-          error instanceof Error && error.message
-            ? error.message
-            : "We couldn’t save the email yet. Please try again.",
-      },
-      { status: 500 }
-    );
+    return submissionFailure(error);
   }
 }

@@ -1,3 +1,4 @@
+import "server-only";
 import { clampSlidePosition, type HomepageHeroSlide } from "@/lib/homepage-slides";
 import { cookies } from "next/headers";
 import { EMPTY_ARTICLE_AD, normalizeArticleAd, type ArticleAdSettings } from "@/lib/article-ad";

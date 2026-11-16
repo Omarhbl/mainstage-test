@@ -3,15 +3,9 @@
 import { redirect } from "next/navigation";
 import {
   createSupabaseServerClient,
-  getBackstageClientBySlug,
   getBackstageClientByUserId,
   hasSupabaseEnv,
 } from "@/lib/supabase/server";
-
-type ClientMetadata = {
-  role?: string;
-  client_slug?: string;
-};
 
 export async function signInClientPortalAction(formData: FormData) {
   if (!hasSupabaseEnv()) {
@@ -19,7 +13,7 @@ export async function signInClientPortalAction(formData: FormData) {
   }
 
   const email = String(formData.get("email") ?? "").trim();
-  const password = String(formData.get("password") ?? "").trim();
+  const password = String(formData.get("password") ?? "");
 
   if (!email || !password) {
     redirect("/backstage/login?error=missing");
@@ -44,17 +38,7 @@ export async function signInClientPortalAction(formData: FormData) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  const metadata = (user?.user_metadata ?? {}) as ClientMetadata;
-
-  if (metadata.role !== "client") {
-    await supabase.auth.signOut();
-    redirect("/backstage/login?error=access");
-  }
-
-  const client =
-    (metadata.client_slug
-      ? await getBackstageClientBySlug(metadata.client_slug)
-      : null) ?? (user ? await getBackstageClientByUserId(user.id) : null);
+  const client = user ? await getBackstageClientByUserId(user.id) : null;
 
   if (!client) {
     await supabase.auth.signOut();
