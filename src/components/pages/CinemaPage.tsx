@@ -2,6 +2,7 @@
 import ResponsiveImage from "@/components/media/ResponsiveImage";
 import { useRef, useState } from "react";
 import type { CinemaFeed } from "@/lib/cinema-feed-data";
+import { isFootballScreening } from "@/lib/cinema-listing-rules";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import type { ArticleRecord } from "@/lib/articles";
@@ -26,7 +27,7 @@ export default function CinemaPage({ initialArticles, initialFeed, initialUpcomi
   const feed = initialFeed;
   const [tab, setTab] = useState<"now" | "upcoming">("now");
 
-  const releases = tab === "now" ? feed?.movies ?? [] : feed?.upcoming?.length ? feed.upcoming : upcomingSettings.cinema.filter((movie) => movie.releaseDate >= new Intl.DateTimeFormat("en-CA", { timeZone: "Africa/Casablanca", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date()));
+  const releases = (tab === "now" ? feed?.movies ?? [] : feed?.upcoming?.length ? feed.upcoming : upcomingSettings.cinema.filter((movie) => movie.releaseDate >= new Intl.DateTimeFormat("en-CA", { timeZone: "Africa/Casablanca", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date()))).filter((movie) => !isFootballScreening(movie.title));
   const releaseLoopWidth = (RELEASE_CARD_WIDTH + RELEASE_CARD_GAP) * releases.length;
   const animateReleases = releases.length > 5;
   const loopedReleases = animateReleases ? [...releases, ...releases, ...releases] : releases;

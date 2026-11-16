@@ -1,4 +1,5 @@
 import type { UpcomingItem } from "@/lib/upcoming";
+import { isFootballScreening } from "@/lib/cinema-listing-rules";
 
 export const CINEMA_SOURCES = [
   { id: "EMS0598", city: "Casablanca", name: "Megarama Casablanca", url: "https://casablanca.megarama.ma/" },
@@ -50,6 +51,9 @@ export function mergeCinemaMovies(groups: CinemaMovie[][]): CinemaMovie[] {
   // Keep all other words and numbers so sequels remain distinct.
   const titleKey = (title: string) => title.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/\bet\b/g, "").replace(/[^a-z0-9]/g, "");
   for (const movie of groups.flat()) {
+    // Applies to cached rows too, so a previously imported match disappears
+    // immediately and cannot return during a source outage.
+    if (isFootballScreening(movie.title)) continue;
     const aliases = movie.title.split("/").map(titleKey).filter(Boolean);
     const existing = movies.get(movie.id) ?? [...movies.values()].find((entry) => entry.title.split("/").map(titleKey).some((alias) => aliases.includes(alias)));
     if (!existing) { movies.set(movie.id, { ...movie, cinemas: [...movie.cinemas] }); continue; }
@@ -117,6 +121,10 @@ export function parseCinerjiMovies(mediaPayload: unknown, showsPayload: unknown,
   for (const media of mediaPayload) {
     if (!media || media.deleted || !media.active || media.excludefrominternet || media.ispack) continue;
     const title = String(media.displaytitle || media.title || "").trim();
+    const genres = Array.isArray(media.mediaMediagenreCollection)
+      ? media.mediaMediagenreCollection.map((entry: { idgenre?: { label?: string } }) => String(entry.idgenre?.label ?? ""))
+      : [];
+    if (isFootballScreening(title, genres)) continue;
     const releaseDate = String(media.releasedate ?? "").slice(0, 10);
     const image = String(media.posterpath ?? "");
     let validPoster = false;
