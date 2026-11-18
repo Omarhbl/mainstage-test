@@ -11,3 +11,6 @@
 .mobileStatus{display:none}@media(max-width:767px){.mobileStatus{display:block;line-height:1}.mobileStatus .status{font-size:8px;letter-spacing:1px}.mobileStatus .liveDot,.mobileStatus .dimDot{width:5px;height:5px}}
 
 .nextTrack{border-top:1px solid #ffffff26;margin-top:30px;padding-top:22px}.nextTrack h3{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:2px;color:#aaa;margin:0 0 12px}.nextTrackInfo{display:flex;align-items:center;gap:14px}.nextTrackInfo .art{width:52px;height:52px}.nextTrackInfo>div{min-width:0}.nextTrackInfo strong{font-size:16px;font-weight:600;line-height:1.4;display:block;overflow-wrap:anywhere}.nextTrackInfo p{font-size:13px;color:#bbb;margin-top:3px;overflow-wrap:anywhere}
+
+.mute{display:grid;place-items:center;width:40px;height:40px;border:0;background:transparent;color:inherit;border-radius:50%;flex-shrink:0}.mute:hover{background:#ffffff14}.mute:focus-visible{outline:2px solid white;outline-offset:2px}
+@media(max-width:767px){.heroControls{gap:18px}.heroControls .volume{gap:8px}.heroControls .volume input{width:100px}}

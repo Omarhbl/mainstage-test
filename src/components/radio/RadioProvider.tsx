@@ -3,12 +3,13 @@
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { RADIO_FALLBACK_ART, RADIO_STREAM, type RadioSnapshot } from "@/lib/website-radio";
+import { radioPollDelay, setRadioVolume, toggleRadioMute } from "@/lib/radio-playback";
 import { RadioBar } from "./RadioPlayer";
 
 type Playback = "idle" | "loading" | "playing" | "error";
 type RadioContextValue = {
-  snapshot: RadioSnapshot | null; stale: boolean; playback: Playback; volume: number;
-  toggle: () => void; changeVolume: (volume: number) => void;
+  snapshot: RadioSnapshot | null; stale: boolean; playback: Playback; volume: number; muted: boolean;
+  toggle: () => void; toggleMute: () => void; changeVolume: (volume: number) => void;
 };
 const RadioContext = createContext<RadioContextValue | null>(null);
 export function useRadio() {
@@ -22,10 +23,12 @@ export default function RadioProvider({ children }: { children: React.ReactNode 
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const intent = useRef(false);
   const attempt = useRef(0);
+  const lastAudibleVolume = useRef(0.8);
   const [snapshot, setSnapshot] = useState<RadioSnapshot | null>(null);
   const [stale, setStale] = useState(false);
   const [playback, setPlayback] = useState<Playback>("idle");
   const [volume, setVolume] = useState(0.8);
+  const [muted, setMuted] = useState(false);
   const stop = useCallback(() => {
     intent.current = false;
     attempt.current += 1;
@@ -46,17 +49,31 @@ export default function RadioProvider({ children }: { children: React.ReactNode 
     });
   }, [stop]);
   const changeVolume = useCallback((next: number) => {
-    const value = Math.min(1, Math.max(0, next));
+    const audio = audioRef.current;
+    if (!audio) return;
+    const value = setRadioVolume(audio, next);
     setVolume(value);
-    if (audioRef.current) audioRef.current.volume = value;
+    setMuted(audio.muted);
+    if (value > 0) lastAudibleVolume.current = value;
     try { localStorage.setItem("mainstage-radio-volume", String(value)); } catch { /* private browsing */ }
+  }, []);
+
+  const toggleMute = useCallback(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    setMuted(toggleRadioMute(audio, lastAudibleVolume.current));
+    setVolume(audio.volume);
   }, []);
 
   useEffect(() => {
     const audio = new Audio();
     audio.preload = "none";
     audioRef.current = audio;
-    audio.onvolumechange = () => setVolume(audio.volume);
+    audio.onvolumechange = () => {
+      setVolume(audio.volume);
+      setMuted(audio.muted || audio.volume === 0);
+      if (audio.volume > 0) lastAudibleVolume.current = audio.volume;
+    };
     try {
       const saved = localStorage.getItem("mainstage-radio-volume");
       const value = saved === null ? 0.8 : Number(saved);
@@ -84,25 +101,39 @@ export default function RadioProvider({ children }: { children: React.ReactNode 
     if (hidden) return;
     let active = true;
     let pending = false;
+    let timer: ReturnType<typeof setTimeout>;
     const controller = new AbortController();
     async function refresh() {
-      if (pending) return;
+      if (!active || pending) return;
+      clearTimeout(timer);
+      if (document.hidden && !intent.current) { timer = setTimeout(refresh, 5000); return; }
       pending = true;
+      let delay = 5000;
       try {
         const response = await fetch(`/api/radio/now-playing?t=${Date.now()}`, { cache: "no-store", signal: AbortSignal.any([controller.signal, AbortSignal.timeout(10000)]) });
         if (!response.ok) throw new Error("Unavailable");
         const data = await response.json() as RadioSnapshot;
+        delay = radioPollDelay(data.remainingSeconds);
         if (active) { setSnapshot(data); setStale(false); }
       } catch { if (active) setStale(true); }
-      finally { pending = false; }
+      finally {
+        pending = false;
+        if (active) timer = setTimeout(refresh, delay);
+      }
     }
     void refresh();
-    const timer = window.setInterval(() => { if (!document.hidden || intent.current) void refresh(); }, 10000);
     const wake = () => { if (!document.hidden) void refresh(); };
     document.addEventListener("visibilitychange", wake);
     window.addEventListener("online", wake);
-    return () => { active = false; controller.abort(); clearInterval(timer); document.removeEventListener("visibilitychange", wake); window.removeEventListener("online", wake); };
+    return () => { active = false; controller.abort(); clearTimeout(timer); document.removeEventListener("visibilitychange", wake); window.removeEventListener("online", wake); };
   }, [hidden]);
+
+  const nextArtwork = snapshot?.next?.art || RADIO_FALLBACK_ART;
+  useEffect(() => {
+    // Warm the upcoming cover in the browser cache before it becomes current.
+    const cover = new Image();
+    cover.src = nextArtwork;
+  }, [nextArtwork]);
 
   useEffect(() => {
     if (!("mediaSession" in navigator)) return;
@@ -118,7 +149,7 @@ export default function RadioProvider({ children }: { children: React.ReactNode 
     return () => { navigator.mediaSession.setActionHandler("play", null); navigator.mediaSession.setActionHandler("pause", null); };
   }, [playback, stop, toggle]);
 
-  return <RadioContext.Provider value={{ snapshot, stale, playback, volume, toggle, changeVolume }}>
+  return <RadioContext.Provider value={{ snapshot, stale, playback, volume, muted, toggle, toggleMute, changeVolume }}>
     {children}
     {!hidden && <RadioBar />}
   </RadioContext.Provider>;

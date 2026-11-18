@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowUpRight, LoaderCircle, Pause, Play, Volume2 } from "lucide-react";
+import { ArrowUpRight, LoaderCircle, Pause, Play, Volume2, VolumeX } from "lucide-react";
 import { useRadio } from "./RadioProvider";
 import { RADIO_FALLBACK_ART, type RadioSong } from "@/lib/website-radio";
 import styles from "./radio.module.css";
@@ -12,7 +12,7 @@ export function RadioArtwork({ song, large = false }: { song?: RadioSong; large?
   const art = song?.art && failed !== song.art ? song.art : RADIO_FALLBACK_ART;
   // Remote covers come from the station's allowlisted HTTPS origin; retain the full cover.
   // eslint-disable-next-line @next/next/no-img-element
-  return <img className={`${styles.art} ${large ? styles.largeArt : ""}`} src={art} alt={art === RADIO_FALLBACK_ART ? "Mainstage Radio" : `Artwork for ${song?.title}`} width={large ? 500 : 64} height={large ? 500 : 64} onError={() => { if (song?.art && art !== RADIO_FALLBACK_ART) setFailed(song.art); }} />;
+  return <img key={art} className={`${styles.art} ${large ? styles.largeArt : ""}`} src={art} alt={art === RADIO_FALLBACK_ART ? "Mainstage Radio" : `Artwork for ${song?.title}`} width={large ? 500 : 64} height={large ? 500 : 64} onError={() => { if (song?.art && art !== RADIO_FALLBACK_ART) setFailed(song.art); }} />;
 }
 function Status() {
   const { snapshot, playback, stale } = useRadio();
@@ -29,8 +29,13 @@ function PlayButton({ big = false }: { big?: boolean }) {
   </button>;
 }
 function Volume() {
-  const { volume, changeVolume } = useRadio();
-  return <label className={styles.volume}><Volume2 size={22} aria-hidden /><span className={styles.srOnly}>Radio volume</span><input type="range" min="0" max="1" step="0.01" value={volume} aria-label="Radio volume" onChange={event => changeVolume(Number(event.target.value))} /></label>;
+  const { volume, muted, toggleMute, changeVolume } = useRadio();
+  return <div className={styles.volume}>
+    <button type="button" className={styles.mute} onClick={toggleMute} aria-label={muted ? "Unmute radio" : "Mute radio"} aria-pressed={muted} title={muted ? "Unmute" : "Mute"}>
+      {muted ? <VolumeX size={22} aria-hidden /> : <Volume2 size={22} aria-hidden />}
+    </button>
+    <input type="range" min="0" max="1" step="0.01" value={muted ? 0 : volume} aria-label="Radio volume" onChange={event => changeVolume(Number(event.target.value))} />
+  </div>;
 }
 export function RadioBar() {
   const { snapshot, playback } = useRadio();

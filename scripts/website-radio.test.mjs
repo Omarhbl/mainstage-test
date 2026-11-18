@@ -46,3 +46,7 @@ test('exposes the queued track and hides missing or offline next-track data', ()
   for (const next of [undefined,null,{}, {song:null}, {song:{title:' '}}]) assert.equal(parseRadioSnapshot({is_online:true,playing_next:next}).next,null);
   assert.equal(parseRadioSnapshot({is_online:false,playing_next:{song:queued}}).next,null);
 });
+test('exposes remaining track time without inventing timing when unavailable',()=>{
+ assert.equal(parseRadioSnapshot({is_online:true,now_playing:{remaining:2}}).remainingSeconds,2);
+ for(const remaining of [undefined,-1,'2',Infinity]) assert.equal(parseRadioSnapshot({is_online:true,now_playing:{remaining}}).remainingSeconds,null);
+});
