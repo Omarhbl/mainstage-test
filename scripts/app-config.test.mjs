@@ -5,14 +5,15 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 import sharp from 'sharp';
 function load(path, dependencies={}) { const exports={};vm.runInNewContext(ts.transpileModule(fs.readFileSync(path,'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2017,esModuleInterop:true}}).outputText,{exports,require:name=>{if(name in dependencies)return dependencies[name];throw Error(name);},URL,Date,Set,structuredClone,Buffer,AbortSignal,process:{env:{}}});return exports; }
-const config=load('src/lib/app-config.ts');
+const radioConstants=load('src/lib/website-radio.ts');
+const config=load('src/lib/app-config.ts',{'@/lib/website-radio':radioConstants});
 const media=load('src/lib/app-media.ts',{'server-only':{},sharp,'@/lib/app-config':config});
 const station={id:'hits',name:'Hits',tagline:'',streamUrl:'',imageUrl:'https://example.com/cover.jpg',color:'#CE2127',order:1,active:true};
 const campaign={id:'one',slot:'home_banner',advertiser:'Brand',imageUrl:'https://example.com/ad.jpg',linkUrl:'',startsAt:null,endsAt:null,active:true};
 test('rejects insecure links, credentials and incomplete radio settings',()=>{
  for(const url of ['http://example.com/live','https://user:password@example.com/live','/live','javascript:alert(1)'])assert.equal(config.isHttpsUrl(url),false);
  assert.equal(config.isHttpsUrl('https://example.com/live.m3u8'),true);
- assert.throws(()=>config.validateAppSection('radio',config.APP_DEFAULTS.radio),/required/);
+ assert.throws(()=>config.validateAppSection('radio',{...config.APP_DEFAULTS.radio,streamUrl:''}),/required/);
  assert.throws(()=>config.validateAppSection('switches',{ads:'true',drop:false}),/on or off/);
 });
 test('validates schedule weekdays and times while supporting overnight shows',()=>{
@@ -53,7 +54,7 @@ test('each app section persists independently and storage failures are surfaced'
  const client={from(){return {select(){return {async in(){return {data:[...rows].map(([key,value])=>({key,value,updated_at:'2026-11-16T10:00:00Z'})),error:fail?{}:null};}};},async upsert(row){if(!fail)rows.set(row.key,row.value);return {error:fail?{}:null};}};}};
  const store=load('src/lib/app-config-store.ts',{'server-only':{},'@/lib/supabase/server':{createSupabaseAdminClient:()=>client},'@/lib/app-config':config});
  await store.saveAppSection('switches',{ads:false,drop:false});await store.saveAppSection('webradios',[station]);
- const saved=await store.getAppSettings();assert.equal(saved.sections.switches.ads,false);assert.equal(saved.sections.webradios[0].id,'hits');assert.equal(saved.sections.radio.name,'Mainstage Radio');
+ const saved=await store.getAppSettings();assert.equal(saved.sections.switches.ads,false);assert.equal(saved.sections.webradios[0].id,'hits');assert.equal(saved.sections.radio.name,'Mainstage — On Air');
  fail=true;await assert.rejects(store.saveAppSection('switches',{ads:true,drop:true}),/could not be saved/);await assert.rejects(store.getAppSettings(),/could not be loaded/);
 });
 test('save action checks admin access before storage and only saves validated values',async()=>{

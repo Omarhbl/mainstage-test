@@ -1,7 +1,7 @@
 "use client";
 import { useActionState, useId, useState, type ReactNode } from "react";
 import { saveAppSettingsAction } from "@/app/backoffice/app/actions";
-import { type AppSections, type AppSection, type AppWebradio, type AppAd, isHttpsUrl } from "@/lib/app-config";
+import { type AppSections, type AppSection, type AppWebradio, type AppAd, isHttpsUrl, APP_RADIO_NOW_PLAYING_URL } from "@/lib/app-config";
 import AppImageField from "./AppImageField";
 
 const inputClass = "mt-2 w-full rounded-xl border border-black/15 bg-[#faf8f6] px-3 py-2.5 text-sm outline-none focus:border-[#CE2127]";
@@ -28,12 +28,16 @@ export default function AppSettingsForm({ section, initial }: { section: AppSect
     <input type="hidden" name="originalIds" value={JSON.stringify(originalIds)} />
     <fieldset disabled={pending} className="space-y-6 disabled:opacity-70">
     {section === "radio" ? <>
+      <div className="rounded-xl border border-black/10 bg-white p-5 text-sm text-black/70">
+        <p>Station name, subtitle and artwork also provide the app’s phone and car display branding. Live song details stay separate inside the app.</p>
+        <a href={APP_RADIO_NOW_PLAYING_URL} target="_blank" rel="noopener noreferrer" className="mt-2 inline-block font-semibold text-[#a51b20] underline">View live radio metadata</a>
+      </div>
       <div className="grid gap-5 rounded-2xl border border-black/10 bg-white p-6 md:grid-cols-2">
         <Field label="Station name"><input required maxLength={40} value={settings.radio.name} onChange={event => radio({ name: event.target.value })} className={inputClass} /></Field>
         <Field label="Subtitle"><input maxLength={40} value={settings.radio.subtitle} onChange={event => radio({ subtitle: event.target.value })} className={inputClass} /></Field>
-        <div className="md:col-span-2"><Field label="Direct audio stream URL" help="Use the HTTPS listening URL from Caster.fm, not its player page or dashboard. MP3, AAC and HLS are supported by the app."><input type="url" required pattern="https://.*" value={settings.radio.streamUrl} onChange={event => radio({ streamUrl: event.target.value })} className={inputClass} placeholder="https://…" /></Field></div>
+        <div className="md:col-span-2"><Field label="Direct audio stream URL" help="The Mainstage AzuraCast stream is ready below. Use a direct HTTPS audio URL, not the player page or dashboard."><input type="url" required pattern="https://.*" value={settings.radio.streamUrl} onChange={event => radio({ streamUrl: event.target.value })} className={inputClass} placeholder="https://…" /></Field></div>
         <div className="md:col-span-2"><AppImageField label="Radio artwork (optional)" value={settings.radio.artworkUrl} kind="radio" onChange={artworkUrl => radio({ artworkUrl })} onBusy={busy} /></div>
-        <div className="md:col-span-2"><Field label="Now-playing JSON URL (optional)" help="Stored for a future app release; not displayed in the current player."><input type="url" pattern="https://.*" value={settings.radio.nowPlayingUrl ?? ""} onChange={event => radio({ nowPlayingUrl: event.target.value || null })} className={inputClass} /></Field></div>
+        <div className="md:col-span-2"><Field label="Now-playing JSON URL (optional)" help="Leave empty to use Mainstage’s live track, artwork, next-track and history feed. Set only if the app should use another public metadata source."><input type="url" pattern="https://.*" value={settings.radio.nowPlayingUrl ?? ""} onChange={event => radio({ nowPlayingUrl: event.target.value || null })} className={inputClass} /></Field></div>
         {isHttpsUrl(settings.radio.streamUrl) ? <div className="md:col-span-2 space-y-2"><a href={settings.radio.streamUrl} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-[#a51b20] underline">Open stream to test playback</a><audio controls preload="none" src={settings.radio.streamUrl} className="w-full" /><p className="text-xs text-black/60">The browser may not support HLS. Confirm playback on the app’s devices too.</p></div> : null}
       </div>
       <div className="space-y-4 rounded-2xl border border-black/10 bg-white p-6"><h2 className="text-lg font-bold">Schedule</h2><p className="text-sm text-black/65">Morocco time (Africa/Casablanca). Stored for the future off-air message. End times earlier than start times run overnight.</p>

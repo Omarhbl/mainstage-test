@@ -1,3 +1,5 @@
+import { RADIO_STREAM, RADIO_FALLBACK_ART } from "@/lib/website-radio";
+
 /** Public mobile-app contract. Only non-secret presentation and listening URLs belong here. */
 export type RadioSlot = { days: number[]; from: string; to: string; show: string };
 export type AppRadio = { name: string; subtitle: string; streamUrl: string; artworkUrl: string; nowPlayingUrl: string | null; schedule: RadioSlot[] };
@@ -6,10 +8,12 @@ export type AppAd = { id: string; slot: "home_banner" | "home_mrec"; advertiser:
 export type AppFeatures = { ads: boolean; drop: boolean };
 export type AppSections = { radio: AppRadio; webradios: AppWebradio[]; ads: AppAd[]; switches: AppFeatures };
 export type AppSection = keyof AppSections;
-export type AppConfig = { version: 1; updatedAt: string; features: AppFeatures; radio: AppRadio; webradios: AppWebradio[]; ads: AppAd[] };
+export type AppRadioMediaSession = { title: string; artist: string; artwork: { src: string }[] };
+export type PublicAppRadio = AppRadio & { metadataRefreshSeconds: number; mediaSession: AppRadioMediaSession };
+export type AppConfig = { version: 1; updatedAt: string; features: AppFeatures; radio: PublicAppRadio; webradios: AppWebradio[]; ads: AppAd[] };
 export const APP_SECTIONS = ["radio", "switches", "webradios", "ads"] as const;
 export const APP_DEFAULTS: AppSections = {
-  radio: { name: "Mainstage Radio", subtitle: "", streamUrl: "", artworkUrl: "", nowPlayingUrl: null, schedule: [] },
+  radio: { name: "Mainstage — On Air", subtitle: "Your soundtrack, around the clock.", streamUrl: RADIO_STREAM, artworkUrl: RADIO_FALLBACK_ART, nowPlayingUrl: null, schedule: [] },
   webradios: [], ads: [], switches: { ads: true, drop: false },
 };
 
@@ -43,6 +47,14 @@ export function validateAppSection(section: AppSection, value: unknown): AppSect
   for (let i = 0; i < ads.length; i++) for (let j = i + 1; j < ads.length; j++) { const a = ads[i], b = ads[j]; if (a.active && b.active && a.slot === b.slot && (a.startsAt ? Date.parse(a.startsAt) : -Infinity) < (b.endsAt ? Date.parse(b.endsAt) : Infinity) && (b.startsAt ? Date.parse(b.startsAt) : -Infinity) < (a.endsAt ? Date.parse(a.endsAt) : Infinity)) throw new Error("Active campaigns in the same slot cannot have overlapping dates. Disable one or adjust its dates."); }
   return ads;
 }
+export const APP_RADIO_NOW_PLAYING_URL = "https://www.themainstagent.com/api/app/radio/now-playing";
+export function appRadioMediaSession(radio: AppRadio): AppRadioMediaSession {
+  return { title: radio.name, artist: radio.subtitle, artwork: [{ src: radio.artworkUrl || RADIO_FALLBACK_ART }] };
+}
+export function publicAppRadio(radio: AppRadio): PublicAppRadio {
+  return { ...radio, artworkUrl: radio.artworkUrl || RADIO_FALLBACK_ART, nowPlayingUrl: radio.nowPlayingUrl || APP_RADIO_NOW_PLAYING_URL, metadataRefreshSeconds: 10, mediaSession: appRadioMediaSession(radio) };
+}
 export function publicAppConfig(sections: AppSections, updatedAt: string | null, now = Date.now()): AppConfig {
-  return { version: 1, updatedAt: updatedAt ?? new Date(0).toISOString(), features: sections.switches, radio: sections.radio, webradios: [...sections.webradios].sort((a,b) => a.order - b.order), ads: sections.switches.ads ? sections.ads.filter(ad => ad.active && (!ad.startsAt || Date.parse(ad.startsAt) <= now) && (!ad.endsAt || Date.parse(ad.endsAt) > now)) : [] };
+  const defaultsUpdatedAt = "2026-11-18T00:00:00.000Z";
+  return { version: 1, updatedAt: updatedAt && updatedAt > defaultsUpdatedAt ? updatedAt : defaultsUpdatedAt, features: sections.switches, radio: publicAppRadio(sections.radio), webradios: [...sections.webradios].sort((a,b) => a.order - b.order), ads: sections.switches.ads ? sections.ads.filter(ad => ad.active && (!ad.startsAt || Date.parse(ad.startsAt) <= now) && (!ad.endsAt || Date.parse(ad.endsAt) > now)) : [] };
 }
