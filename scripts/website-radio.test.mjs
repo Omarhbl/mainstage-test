@@ -39,3 +39,10 @@ test('live metadata route fetches each new track without data/CDN caching', asyn
   assert.equal(requests.length,2);
   for (const request of requests) assert.equal(request.options.cache,'no-store');
 });
+test('exposes the queued track and hides missing or offline next-track data', () => {
+  const queued = { title: 'Coming next', artist: 'Next artist', art: 'https://radio.themainstagent.com/api/station/mainstage/art/next.jpg' };
+  const data = parseRadioSnapshot({is_online:true,playing_next:{song:queued}});
+  assert.equal(data.next.title,'Coming next'); assert.equal(data.next.artist,'Next artist'); assert.equal(data.next.art,queued.art);
+  for (const next of [undefined,null,{}, {song:null}, {song:{title:' '}}]) assert.equal(parseRadioSnapshot({is_online:true,playing_next:next}).next,null);
+  assert.equal(parseRadioSnapshot({is_online:false,playing_next:{song:queued}}).next,null);
+});

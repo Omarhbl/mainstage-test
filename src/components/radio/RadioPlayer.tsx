@@ -56,7 +56,12 @@ export function RadioPagePlayer() {
     <div className={styles.pageIntro}><h1>On Air<span>.</span></h1><p>Your soundtrack, around the clock.</p></div>
     <section className={styles.hero} aria-label="Listen live">
       <div className={styles.coverWrap}><RadioArtwork song={song} large /></div>
-      <div className={styles.heroInfo}><Status /><p className={styles.nowLabel}>NOW ON MAINSTAGE</p><h2>{song?.title && song.title !== "Mainstage Radio" ? song.title : "On Air"}</h2><p className={styles.artist}>{song?.artist || "Your soundtrack, around the clock."}</p><div className={styles.heroControls}><PlayButton big /><Volume /></div></div>
+      <div className={styles.heroInfo}><Status /><p className={styles.nowLabel}>NOW ON MAINSTAGE</p><h2>{song?.title && song.title !== "Mainstage Radio" ? song.title : "On Air"}</h2><p className={styles.artist}>{song?.artist || "Your soundtrack, around the clock."}</p><div className={styles.heroControls}><PlayButton big /><Volume /></div>
+        {snapshot?.next && <section className={styles.nextTrack} aria-label="Playing next">
+          <h3>Playing next</h3>
+          <div className={styles.nextTrackInfo}><RadioArtwork song={snapshot.next} /><div><strong>{snapshot.next.title}</strong>{snapshot.next.artist && <p>{snapshot.next.artist}</p>}</div></div>
+        </section>}
+      </div>
     </section>
     <section className={styles.history}><div className={styles.historyHeading}><h2>Recently played</h2><span>The sounds you just missed.</span></div>
       {snapshot?.history.length ? <ol>{snapshot.history.map((track,index) => <li key={`${track.id}-${index}`}><span className={styles.number}>{String(index + 1).padStart(2,"0")}</span><RadioArtwork song={track} /><div><strong>{track.title}</strong><p>{track.artist || "Mainstage Radio"}</p></div></li>)}</ol> : <p className={styles.empty}>Recently played tracks will appear when the station shares its listening history.</p>}
