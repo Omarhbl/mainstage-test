@@ -106,13 +106,17 @@ export default function RadioProvider({ children }: { children: React.ReactNode 
 
   useEffect(() => {
     if (!("mediaSession" in navigator)) return;
-    const song = snapshot?.song;
-    navigator.mediaSession.metadata = new MediaMetadata({ title: song?.title || "Mainstage Radio", artist: song?.artist || "Mainstage Radio", artwork: [{ src: song?.art || RADIO_FALLBACK_ART }] });
+    // Device/lock-screen branding is separate from the website's live track display.
+    navigator.mediaSession.metadata = new MediaMetadata({
+      title: "Mainstage — On Air",
+      artist: "Your soundtrack, around the clock.",
+      artwork: [{ src: RADIO_FALLBACK_ART, sizes: "1254x1254", type: "image/png" }],
+    });
     navigator.mediaSession.playbackState = playback === "playing" ? "playing" : "paused";
     navigator.mediaSession.setActionHandler("play", () => { if (!intent.current) toggle(); });
     navigator.mediaSession.setActionHandler("pause", stop);
     return () => { navigator.mediaSession.setActionHandler("play", null); navigator.mediaSession.setActionHandler("pause", null); };
-  }, [snapshot, playback, stop, toggle]);
+  }, [playback, stop, toggle]);
 
   return <RadioContext.Provider value={{ snapshot, stale, playback, volume, toggle, changeVolume }}>
     {children}

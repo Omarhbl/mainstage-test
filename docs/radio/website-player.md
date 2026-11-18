@@ -9,7 +9,7 @@ Website radio implementation. Public page name: On Air.
 - /api/radio/now-playing normalizes the fixed public AzuraCast API, with no-store responses and an eight-second upstream timeout. Client refreshes every 10 seconds while visible or playing, and immediately on return/reconnection. Timestamped client requests also bypass previously cached releases. No admin credentials or API keys.
 - Song title/artist use text rendering. Only station-hosted HTTPS artwork is accepted. Missing, generic, or failed artwork uses the supplied Mainstage Glossy Red Noir Cloudinary artwork.
 - Offline metadata disables starting playback; transport errors show retry. Metadata outages retain last details and allow playback retries. Buffering times out after 20 seconds.
-- Volume remembered locally; Media Session play/pause and metadata support device media controls.
+- Volume remembered locally; Media Session play/pause supports device media controls. Lock screens and car media displays receive fixed station branding: “Mainstage — On Air”, “Your soundtrack, around the clock.”, and the Mainstage Glossy Red Noir artwork. The website continues to show live track details independently.
 - Mobile bar sits above the existing 72px navigation. Volume available on the larger page/device controls. Reduced-motion, labeled controls, keyboard volume, and focus rings supported.
 
 ## Verification
