@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Heebo } from "next/font/google";
 import "./globals.css";
 import AppChrome from "@/components/layout/AppChrome";
+import RadioProvider from "@/components/radio/RadioProvider";
 import JsonLd from "@/components/seo/JsonLd";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import {
@@ -88,7 +89,9 @@ export default async function RootLayout({
       <body className="bg-void text-text-primary font-body selection:bg-primary/30 flex flex-col min-h-screen">
         <JsonLd data={rootStructuredData} />
         <div className="noise-overlay" />
-        <AppChrome tickerItems={homepageSettings.tickerItems}>{children}</AppChrome>
+        <RadioProvider>
+          <AppChrome tickerItems={homepageSettings.tickerItems}>{children}</AppChrome>
+        </RadioProvider>
           <GoogleAnalytics gaId="G-5REKDL0CNK" />
       </body>
     </html>
