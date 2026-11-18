@@ -22,3 +22,20 @@ test('retains track details and rejects invalid API responses instead of reporti
   assert.equal(output.song.title,'Track'); assert.equal(output.song.artist,'Artist');
   for (const value of [null,{}, {is_online:'false'}]) assert.throws(() => parseRadioSnapshot(value));
 });
+test('live metadata route fetches each new track without data/CDN caching', async () => {
+  const routeExports = {};
+  const requests = [];
+  const payloads = ['First song','Next song'];
+  const source = ts.transpileModule(readFileSync(new URL('../src/app/api/radio/now-playing/route.ts', import.meta.url), 'utf8'), { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText;
+  runInNewContext(source, {
+    exports: routeExports, require: () => exports, Response, AbortSignal,
+    fetch: async (url, options) => { requests.push({url, options}); return Response.json({is_online:true,now_playing:{song:{title:payloads.shift(),artist:'Artist'}}}); },
+  });
+  const first = await routeExports.GET(); const second = await routeExports.GET();
+  assert.equal((await first.json()).song.title,'First song');
+  assert.equal((await second.json()).song.title,'Next song');
+  assert.match(second.headers.get('Cache-Control'),/no-store/);
+  assert.equal(routeExports.dynamic,'force-dynamic');
+  assert.equal(requests.length,2);
+  for (const request of requests) assert.equal(request.options.cache,'no-store');
+});

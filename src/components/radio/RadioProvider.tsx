@@ -89,7 +89,7 @@ export default function RadioProvider({ children }: { children: React.ReactNode 
       if (pending) return;
       pending = true;
       try {
-        const response = await fetch("/api/radio/now-playing", { signal: AbortSignal.any([controller.signal, AbortSignal.timeout(10000)]) });
+        const response = await fetch(`/api/radio/now-playing?t=${Date.now()}`, { cache: "no-store", signal: AbortSignal.any([controller.signal, AbortSignal.timeout(10000)]) });
         if (!response.ok) throw new Error("Unavailable");
         const data = await response.json() as RadioSnapshot;
         if (active) { setSnapshot(data); setStale(false); }
@@ -97,7 +97,7 @@ export default function RadioProvider({ children }: { children: React.ReactNode 
       finally { pending = false; }
     }
     void refresh();
-    const timer = window.setInterval(() => { if (!document.hidden) void refresh(); }, 15000);
+    const timer = window.setInterval(() => { if (!document.hidden || intent.current) void refresh(); }, 10000);
     const wake = () => { if (!document.hidden) void refresh(); };
     document.addEventListener("visibilitychange", wake);
     window.addEventListener("online", wake);

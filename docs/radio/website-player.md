@@ -6,7 +6,7 @@ Website radio implementation. Public page name: On Air.
 - Public sticky player; hidden on login, guestlist, backoffice and backstage routes.
 - /radio shares playback state and shows the current artwork and recent history.
 - Audio connects directly to https://radio.themainstagent.com/listen/mainstage/radio.mp3 after a user click. Every Play opens a fresh timestamped live connection. Pause unloads the stream. No autoplay or restored playback.
-- /api/radio/now-playing normalizes the fixed public AzuraCast API, with 15-second shared caching and an eight-second upstream timeout. Client refreshes every 15 seconds while visible, and on return/reconnection. No admin credentials or API keys.
+- /api/radio/now-playing normalizes the fixed public AzuraCast API, with no-store responses and an eight-second upstream timeout. Client refreshes every 10 seconds while visible or playing, and immediately on return/reconnection. Timestamped client requests also bypass previously cached releases. No admin credentials or API keys.
 - Song title/artist use text rendering. Only station-hosted HTTPS artwork is accepted. Missing, generic, or failed artwork uses the supplied Mainstage Glossy Red Noir Cloudinary artwork.
 - Offline metadata disables starting playback; transport errors show retry. Metadata outages retain last details and allow playback retries. Buffering times out after 20 seconds.
 - Volume remembered locally; Media Session play/pause and metadata support device media controls.
