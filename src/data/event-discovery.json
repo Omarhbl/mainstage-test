@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "syncedAt": "2026-11-18T16:41:03.128Z",
+  "syncedAt": "2026-11-19T16:44:32.627Z",
   "sources": [
     {
       "id": "iticket",
-      "checkedAt": "2026-11-18T16:41:03.128Z",
+      "checkedAt": "2026-11-19T16:44:32.627Z",
       "error": null,
       "items": [
         {
@@ -18,7 +18,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-18T16:41:03.128Z"
+          "observedAt": "2026-11-19T16:44:32.627Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/activities/gala-solidaire-fondation-tamayouz",
@@ -31,7 +31,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-18T16:41:03.128Z"
+          "observedAt": "2026-11-19T16:44:32.627Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/hajib-en-concert-a-rabat",
@@ -44,7 +44,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-18T16:41:03.128Z"
+          "observedAt": "2026-11-19T16:44:32.627Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/soiree-aissawa-avec-yassine-eljamai",
@@ -57,7 +57,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-18T16:41:03.128Z"
+          "observedAt": "2026-11-19T16:44:32.627Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/tiakola-en-concert-a-casablanca",
@@ -70,7 +70,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-18T16:41:03.128Z"
+          "observedAt": "2026-11-19T16:44:32.627Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/stormy-desperado-casablanca-11-12",
@@ -83,7 +83,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-18T16:41:03.128Z"
+          "observedAt": "2026-11-19T16:44:32.627Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/rnboi-and-elgrandetoto-en-concert-a-rabat",
@@ -96,7 +96,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-18T16:41:03.128Z"
+          "observedAt": "2026-11-19T16:44:32.627Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/sport/morocco-football-scouting-rabat-dec-2026",
@@ -109,7 +109,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-18T16:41:03.128Z"
+          "observedAt": "2026-11-19T16:44:32.627Z"
         }
       ],
       "drafts": [
@@ -142,74 +142,69 @@
     },
     {
       "id": "ticket",
-      "checkedAt": "2026-11-18T16:41:03.128Z",
+      "checkedAt": "2026-11-19T16:44:32.627Z",
       "error": null,
       "items": [],
       "drafts": [
         {
-          "url": "https://www.ticket.ma/ticket/concerts/4276/saad-lamjarred-juillet-2026",
-          "title": "SAAD LAMJARRED – DE RETOUR AU MAROC - Mazagan Beach & Golf ...",
+          "url": "https://www.ticket.ma/ticket/concerts/4324/festival-du-caftan-marocain-2026",
+          "title": "12ème Édition du Festival Ambassadeurs du Caftan Marocain - Hôtel Barceló Anfa,",
           "reasons": [
             "Event heading needs verification",
             "Missing or conflicting event date",
             "Moroccan location needs verification",
             "Poster needs verification"
           ],
-          "evidence": "![Ticket.ma logo](/ticket-logo.png)\n\nSAAD LAMJARRED – DE RETOUR AU MAROC - Mazagan Beach & Golf Resort | Ticket.ma"
+          "evidence": "![Ticket.ma logo](/ticket-logo.png)\n\n12ème Édition du Festival Ambassadeurs du Caftan Marocain - Hôtel Barceló Anfa, | Ticket.ma"
         },
         {
-          "url": "https://www.ticket.ma/ticket/concerts/4352/gaia-tif-aout-2026",
-          "title": "GAÏA - TIF - Gaïa Beach",
+          "url": "https://www.ticket.ma/ticket/concerts/3900/mayada-el-hennawy-salah-charkaoui-2026",
+          "title": "MAYADA EL HENNAWY — Sous la direction de Salah Charkaoui - Le Carré d'Or,Rte de l'Oasis, Casablanca 20000",
           "reasons": [
-            "Page content unavailable",
             "Event heading needs verification",
             "Missing or conflicting event date",
-            "Moroccan location needs verification",
             "Poster needs verification"
           ],
-          "evidence": "CONCERTS. HATIM IDAR À RABAT. calendar. Samedi 14 Novembre 2026. map. Salle Bahnini - Rabat. À partir de 100 MAD. CHEB AMROU AU 6ÈME CAFÉ."
+          "evidence": "![Ticket.ma logo](/ticket-logo.png)\n\nMAYADA EL HENNAWY — Sous la direction de Salah Charkaoui - Le Carré d'Or,Rte de l'Oasis, Casablanca 20000 | Ticket.ma"
         },
         {
-          "url": "https://www.ticket.ma/ticket/spectacles/4069/one-night-of-queen-13-novembre-2027",
-          "title": "ONE NIGHT OF QUEEN 13/11 - Casablanca",
+          "url": "https://www.ticket.ma/ticket/concerts/3999/gala-aid-al-fitr-2026",
+          "title": "Gala Aid Al Fitr – 100% Femmes - Salle Riad Asmar",
           "reasons": [
-            "Page content unavailable",
             "Event heading needs verification",
             "Missing or conflicting event date",
             "Moroccan location needs verification",
             "Poster needs verification"
           ],
-          "evidence": "ONE NIGHT OF QUEEN 13/11. Bohemian Rhapsody - We Will Rock You ・ 16 Novembre 2026. Dimanche 22 Novembre 2026. Hotlines: 06 62 76 71 33 | 06 62"
+          "evidence": "![Ticket.ma logo](/ticket-logo.png)\n\nGala Aid Al Fitr – 100% Femmes - Salle Riad Asmar | Ticket.ma"
         },
         {
-          "url": "https://www.ticket.ma/ticket/concerts/4376/hatim-idar-rabat-2026",
-          "title": "HATIM IDAR À RABAT - Salle Bahnini",
+          "url": "https://www.ticket.ma/ticket/concerts/4430/grande-soiree-du-melhoun-mohamed-briouel-nabyla-maan-driss-zaarouri-2026",
+          "title": "Grande Soirée du Melhoun – Maître Mohamed Briouel, Nabyla Maan & Driss Zaârouri - Cinéma Megarama",
           "reasons": [
-            "Page content unavailable",
             "Event heading needs verification",
             "Missing or conflicting event date",
             "Moroccan location needs verification",
             "Poster needs verification"
           ],
-          "evidence": "Salle Bahnini - Rabat · Samedi 14 Novembre 2026 · Ouverture des portes19h30 · Début de l'événement 20h00."
+          "evidence": "![Ticket.ma logo](/ticket-logo.png)\n\nGrande Soirée du Melhoun – Maître Mohamed Briouel, Nabyla Maan & Driss Zarouri - Cinéma Megarama | Ticket.ma"
         },
         {
-          "url": "https://www.ticket.ma/ticket/concerts/4084/nuit-des-voix-et-des-coeurs-mai-2026",
-          "title": "Nuit des Voix et des Cœurs – Gala Solidaire Anaïs 2026",
+          "url": "https://www.ticket.ma/ticket/loisirs/3957/can-watch-party-maroc-cameroun-casablanca-2026",
+          "title": "CAN WATCH PARTY (Pathé Californie) - MAROC vs CAMEROUN - Pathé Californie",
           "reasons": [
-            "Page content unavailable",
             "Event heading needs verification",
             "Missing or conflicting event date",
             "Moroccan location needs verification",
             "Poster needs verification"
           ],
-          "evidence": "Au programme : ; 20h00 : Cocktail de bienvenue ; 20h30 : Début du spectacle. Une performance inédite, chargée d'émotion, de musique, et de partage"
+          "evidence": "![Ticket.ma logo](/ticket-logo.png)\n\nCAN WATCH PARTY (Pathé Californie) - MAROC vs CAMEROUN - Pathé Californie | Ticket.ma"
         }
       ]
     },
     {
       "id": "webook",
-      "checkedAt": "2026-11-18T16:41:03.128Z",
+      "checkedAt": "2026-11-19T16:44:32.627Z",
       "error": null,
       "items": [],
       "drafts": [
@@ -223,7 +218,19 @@
             "Moroccan location needs verification",
             "Poster needs verification"
           ],
-          "evidence": "Book official tickets for the FIFA U-17 Women's World Cup Morocco 2026 semi-finals on Nov 4 at Complexe sportif féminin Maâmoura, Morocco."
+          "evidence": "Morocco 2026 semi-finals on Nov 4 at Complexe. Nov - 5:00 AM From $ 2.05. Venue: Mohammed VI Football Complex – Pitches 2 & 3"
+        },
+        {
+          "url": "https://webook.com/en/ma/cas/sports-event/events/marocvsniger-caf27",
+          "title": "Morocco vs Niger - AFCON 2027 Qualifier",
+          "reasons": [
+            "Page content unavailable",
+            "Event heading needs verification",
+            "Missing or conflicting event date",
+            "Moroccan location needs verification",
+            "Poster needs verification"
+          ],
+          "evidence": "Morocco vs Niger tickets. Casablanca on November 13 at Mohammed V Sports Complex. November - 08:00 PM From $ 10.04. Friday, November 13th, 2026"
         },
         {
           "url": "https://webook.com/tr/ma/cas/sports-event/events/wafcon-26-m26",
@@ -238,8 +245,8 @@
           "evidence": "Book official tickets for WAFCON Morocco 2026 Quarter-final 2: 1st Group B vs 2nd Group A on Aug 8, 2026 at Hay Moulay Rachid Stadium, Casablanca."
         },
         {
-          "url": "https://webook.com/en/ma/cas/sports-event/events/marocvsniger-caf27",
-          "title": "Morocco vs Niger - AFCON 2027 Qualifier",
+          "url": "https://webook.com/en/ma/cas/music-events/events/tiakola-casa-26",
+          "title": "Tiakola Casablanca Official Tickets | Book Now",
           "reasons": [
             "Page content unavailable",
             "Event heading needs verification",
@@ -247,19 +254,7 @@
             "Moroccan location needs verification",
             "Poster needs verification"
           ],
-          "evidence": "Morocco vs Niger tickets are available for the AFCON 2027 Qualifier in Casablanca on November 13 at Mohammed V Sports Complex."
-        },
-        {
-          "url": "https://webook.com/en/ma/tan/music-events/events/tanjazz26-festival",
-          "title": "TANJAZZ 2026 book tickets on webook.com",
-          "reasons": [
-            "Page content unavailable",
-            "Event heading needs verification",
-            "Missing or conflicting event date",
-            "Moroccan location needs verification",
-            "Poster needs verification"
-          ],
-          "evidence": "TANJAZZ 2026 Friday, September 18 to Sunday, September 20, 2026 • Tangier, Morocco For three days, Tanjazz brings Tangier to life to the rhythm of jazz."
+          "evidence": "Tiakola live in Casablanca. Sat 5 Dec - 8:00 PM From $ 35.15. Tiakola takes the stage in Casablanca for the first date of his African tour! Morocco From $35.15"
         },
         {
           "url": "https://webook.com/en/ma/cas/music-events/events/tbd-casa-26",
@@ -271,13 +266,13 @@
             "Moroccan location needs verification",
             "Poster needs verification"
           ],
-          "evidence": "Africa Tour 2026. ✨ For the first time ever, Triangle des Bermudes takes the stage in Casablanca! Tuesday, December 22, 2026. 6:00 PM: Doors Open."
+          "evidence": "Secure your tickets now for Triangle des Bermudes (Mauvais Djo, Mc Yoshi, Kokosvoice) performing in Casablanca for the first time, on Tuesday 22 December"
         }
       ]
     },
     {
       "id": "eventsma",
-      "checkedAt": "2026-11-18T16:41:03.128Z",
+      "checkedAt": "2026-11-19T16:44:32.627Z",
       "error": null,
       "items": [],
       "drafts": [
@@ -289,6 +284,14 @@
             "Poster needs verification"
           ],
           "evidence": "[![Events logo](/assets/imgs/logo/event-logo-black-100.png)](/en)\n\n[FR](/concerts-festivals \"Français\")[EN](/en/concerts-festivals \"English\")[AR](/ar/concerts-festivals \"العربية\")\n\n[Sign in](/en/mon-espace/connexion \"Sign in\")\n\n* ##### Your basket is empty\n\n  Explore our events and let yourself be inspired!   \n   Find tickets for concerts, festivals and sporting events in Morocco and Africa.\n\n\n\n# Concerts & Festivals\n\n792 event(s) found\n\n[![](https://s3.eu-north-1.amazonaws.com/events.ma/events/11-2026/1355/42e87e7b-3ad8-486c-aff5-b3fab5836dc3-1794761291-FOed.webp)**21**Nov\n\nConcerts & Festivals\n\n### La Grande Nuit Du Chaabi Présenté Par Rachid Allali à Casablanca !\n\nMegarama, Casablanca\n\nSaturday 21 November 2026\n\n20:00\n\nfrom**200 MAD**](/en/concerts-festivals/nuit-du-chaabi-21-11-26)[![](https://s3.eu-north-1.amazonaws.com/events.ma/events/09-2026/1494/3dab5c70-ba5b-4dac-bd77-c69405cc5f83-1790787429-9BJ1.webp)**21**Nov\n\nConcerts & Festivals\n\n### MANAL BENCHLIKHA — UNE EXPÉRIENCE UNIQUE À CASABLANCA\n\nSalle couverte - Complexe sportif Mohammed V, Casablanca\n\nSaturday 21 November 2026\n\n20:00\n\nfrom**150 MAD**](/en/concerts-festivals/manal-benchlikha-21-11-26)[![](https://s3.eu-north-"
+        },
+        {
+          "url": "https://events.ma/concerts-festivals/dunia-batma-29-11-26",
+          "title": "DUNIA BATMA à Casablanca",
+          "reasons": [
+            "Poster needs verification"
+          ],
+          "evidence": "[![Logo events](/assets/imgs/logo/event-logo-black-100.png)](/)\n\n[FR](/concerts-festivals/dunia-batma-29-11-26 \"Français\")[EN](/en/concerts-festivals/dunia-batma-29-11-26 \"English\")[AR](/ar/concerts-festivals/dunia-batma-29-11-26 \"العربية\")\n\n[S'identifier](/mon-espace/connexion \"S'identifier\")\n\n* ##### Votre panier est vide\n\n  Explorez nos événements et laissez-vous inspirer!   \n   Trouvez des billets pour des concerts, festivals, et événements sportifs au Maroc et en Afrique.\n\n\n\n![](/assets/imgs/headers/header-bg.jpg)\n\nConcerts & Festivals\n\n# Dunia BATMA à Casablanca\n\nDimanche 29 Novembre 2026 à 20h30\n\nOuverture des portes à 19h30\n\nMegarama, Boulevard de la Corniche, 20000, Casablanca\n\n Partager \n\n[Facebook](https://www.facebook.com/sharer/sharer.php?u=https://events.ma)  [Twitter](https://twitter.com/share?text=Dunia BATMA  à Casablanca&url=https://events.ma,dunia-batma-29-11-26)  [LinkedIn](https://www.linkedin.com/shareArticle?mini=true&url=https://events.ma)\n\n## À l'affiche\n\n[![](https://s3.eu-north-1.amazonaws.com/events.ma/artists/10-2026/54/b3bb01c3-181d-4f52-9436-1f1db28e0fce-1793382056-g6ht.webp) Dunia Batma](/artistes/dunia-batma)\n\n## À propos\n\nNe manquez pas Dunia Batma"
         },
         {
           "url": "https://events.ma/concerts-festivals/nass-el-ghiwane-anas-lekhssasi",
@@ -305,14 +308,6 @@
             "Poster needs verification"
           ],
           "evidence": "[![Events logo](/assets/imgs/logo/event-logo-black-100.png)](/en)\n\n[FR](/concerts-festivals/dunia-batma-18-12-26 \"Français\")[EN](/en/concerts-festivals/dunia-batma-18-12-26 \"English\")[AR](/ar/concerts-festivals/dunia-batma-18-12-26 \"العربية\")\n\n[Sign in](/en/mon-espace/connexion \"Sign in\")\n\n* ##### Your basket is empty\n\n  Explore our events and let yourself be inspired!   \n   Find tickets for concerts, festivals and sporting events in Morocco and Africa.\n\n\n\n![](/assets/imgs/headers/header-bg.jpg)\n\nConcerts & Festivals\n\n# Dunia BATMA à Marrakech\n\nFriday 18 December 2026 at 20:30\n\nDoors open at 19:30\n\nMegarama, Cinéma Marrakech, Av. du 7ème Art, 40000, Marrakech\n\n Share \n\n[Facebook](https://www.facebook.com/sharer/sharer.php?u=https://events.ma)  [Twitter](https://twitter.com/share?text=Dunia BATMA  à Marrakech&url=https://events.ma,dunia-batma-18-12-26)  [LinkedIn](https://www.linkedin.com/shareArticle?mini=true&url=https://events.ma)\n\n## Line-up\n\n[![](https://s3.eu-north-1.amazonaws.com/events.ma/artists/10-2026/54/b3bb01c3-181d-4f52-9436-1f1db28e0fce-1793382056-g6ht.webp) dunia-batma](/en/artistes/dunia-batma)\n\n## About\n\nNe manquez pas Dunia Batma en tournée ! L'icône de la chanson"
-        },
-        {
-          "url": "https://events.ma/concerts-festivals/issam-kamal-mazagan-04-12-26",
-          "title": "ISSAM KAMAL & MAZAGAN Live in Oujda",
-          "reasons": [
-            "Poster needs verification"
-          ],
-          "evidence": "[![Events logo](/assets/imgs/logo/event-logo-black-100.png)](/en)\n\n[FR](/concerts-festivals/issam-kamal-mazagan-04-12-26 \"Français\")[EN](/en/concerts-festivals/issam-kamal-mazagan-04-12-26 \"English\")[AR](/ar/concerts-festivals/issam-kamal-mazagan-04-12-26 \"العربية\")\n\n[Sign in](/en/mon-espace/connexion \"Sign in\")\n\n* ##### Your basket is empty\n\n  Explore our events and let yourself be inspired!   \n   Find tickets for concerts, festivals and sporting events in Morocco and Africa.\n\n\n\n![](/assets/imgs/headers/header-bg.jpg)\n\nConcerts & Festivals\n\n# ISSAM KAMAL & MAZAGAN Live in Oujda\n\nFriday 04 December 2026 at 20:30\n\nDoors open at 19:30\n\nThétre Mohammed VI, 3 Rue 8, Awlad-An-Nama, Oujda\n\n Share \n\n[Facebook](https://www.facebook.com/sharer/sharer.php?u=https://events.ma)  [Twitter](https://twitter.com/share?text=ISSAM KAMAL & MAZAGAN Live in Oujda&url=https://events.ma,issam-kamal-mazagan-04-12-26)  [LinkedIn](https://www.linkedin.com/shareArticle?mini=true&url=https://events.ma)\n\n## About\n\nPréparez-vous à vivre l'ultime fusion musicale ! Issam Kamal et Mazagan vous transportent dans l'univers incandescent du Chabi-Groove. Plus qu'un concert, ce show immersif revisite les standards lége"
         }
       ]
     }
