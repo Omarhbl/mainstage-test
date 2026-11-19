@@ -3,7 +3,7 @@
   "playlistName": "Top 50 - Morocco",
   "market": "MA",
   "source": "spotify-embed-scrape",
-  "scrapedAt": "2026-11-19T05:06:29.724Z",
+  "scrapedAt": "2026-11-19T14:56:03.679Z",
   "tracks": [
     {
       "rank": "#1",
@@ -18,7 +18,7 @@
       "rank": "#2",
       "title": "PILLAVE",
       "artist": "Shaw",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e029138c5ff45b368378d7590b2",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e029138c5ff45b368378d7590b2",
       "plays": 53681,
       "chartChange": "=",
       "totalStreams": "5,978,600"
@@ -54,7 +54,7 @@
       "rank": "#6",
       "title": "J'en ai marre",
       "artist": "Dada",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0225314bb68a647a88237e3e00",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0225314bb68a647a88237e3e00",
       "plays": null,
       "chartChange": "=",
       "totalStreams": null
@@ -99,7 +99,7 @@
       "rank": "#11",
       "title": "PRINCES DE LA VILLE",
       "artist": "Tchubi, Hoba Hoba Spirit",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02b994350f1706b4ae4bc2aa00",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02b994350f1706b4ae4bc2aa00",
       "plays": 27509,
       "chartChange": "+2",
       "totalStreams": "1,881,545"
@@ -126,7 +126,7 @@
       "rank": "#14",
       "title": "CAMEMBERT",
       "artist": "Stormy, TIF",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026699b6d2fbb3aa5f07b3e0d8",
       "plays": 25852,
       "chartChange": "=",
       "totalStreams": "5,520,343"
@@ -189,7 +189,7 @@
       "rank": "#21",
       "title": "TAF TAF",
       "artist": "OldyGotTheSound, Anys, Shaw",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e029006e6553b481d4b5dd91f9a",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e029006e6553b481d4b5dd91f9a",
       "plays": 19036,
       "chartChange": "+2",
       "totalStreams": "16,297,538"
@@ -207,7 +207,7 @@
       "rank": "#23",
       "title": "AKHI",
       "artist": "Shaw",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02af9f73acb5a281bb3b66ce4d",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02af9f73acb5a281bb3b66ce4d",
       "plays": 18595,
       "chartChange": "-1",
       "totalStreams": "6,820,684"
@@ -225,7 +225,7 @@
       "rank": "#25",
       "title": "Si tu savais",
       "artist": "Anys, Stormy",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0275928cc9b433bbad1e7fa92f",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0275928cc9b433bbad1e7fa92f",
       "plays": 17087,
       "chartChange": "=",
       "totalStreams": "18,139,789"
@@ -234,7 +234,7 @@
       "rank": "#26",
       "title": "WA3RA",
       "artist": "Mirv48",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e022a22a06f9fd788002a09ba28",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e022a22a06f9fd788002a09ba28",
       "plays": 16581,
       "chartChange": "+4",
       "totalStreams": "2,064,698"
@@ -243,7 +243,7 @@
       "rank": "#27",
       "title": "Khlini Nassi",
       "artist": "7ari",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02d3d0127cf78a4ad4b736b63e",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02d3d0127cf78a4ad4b736b63e",
       "plays": null,
       "chartChange": "=",
       "totalStreams": null
@@ -261,7 +261,7 @@
       "rank": "#29",
       "title": "ZOMBIE",
       "artist": "LAZARO",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e029da9c23bbffd4aef900390fd",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e029da9c23bbffd4aef900390fd",
       "plays": 15870,
       "chartChange": "=",
       "totalStreams": "5,085,860"
@@ -315,7 +315,7 @@
       "rank": "#35",
       "title": "BABOUR LOU7",
       "artist": "Shaw, Hassa1, NAYRA",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02faafc42915f7daa7597a706c",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02faafc42915f7daa7597a706c",
       "plays": 14735,
       "chartChange": "-3",
       "totalStreams": "8,344,287"
@@ -387,7 +387,7 @@
       "rank": "#43",
       "title": "RBI M3ANA",
       "artist": "Stormy",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02e040ca47b2f8046349ce4f49",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02e040ca47b2f8046349ce4f49",
       "plays": 13020,
       "chartChange": "+21",
       "totalStreams": "7,518,861"
@@ -405,7 +405,7 @@
       "rank": "#45",
       "title": "Zahri",
       "artist": "Marouane, Shaw",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02f3cbbbb5e28500e27a1c9dec",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02f3cbbbb5e28500e27a1c9dec",
       "plays": 12947,
       "chartChange": "-6",
       "totalStreams": "851,795"
@@ -432,7 +432,7 @@
       "rank": "#48",
       "title": "TWINS",
       "artist": "Stormy",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02e68af88ebf0338a8726b0175",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02e68af88ebf0338a8726b0175",
       "plays": 12873,
       "chartChange": "-6",
       "totalStreams": "7,502,164"
@@ -450,7 +450,7 @@
       "rank": "#50",
       "title": "DIPLOMATICO",
       "artist": "ElGrandeToto",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e028c4a05e02897ce7378b821d7",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e028c4a05e02897ce7378b821d7",
       "plays": 12159,
       "chartChange": "-4",
       "totalStreams": "17,657,237"
