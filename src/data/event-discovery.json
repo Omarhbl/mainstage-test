@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "syncedAt": "2026-11-20T16:19:31.930Z",
+  "syncedAt": "2026-11-21T15:33:07.658Z",
   "sources": [
     {
       "id": "iticket",
-      "checkedAt": "2026-11-20T16:19:31.930Z",
+      "checkedAt": "2026-11-21T15:33:07.658Z",
       "error": null,
       "items": [
         {
@@ -18,7 +18,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-20T16:19:31.930Z"
+          "observedAt": "2026-11-21T15:33:07.658Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/activities/gala-solidaire-fondation-tamayouz",
@@ -31,7 +31,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-20T16:19:31.930Z"
+          "observedAt": "2026-11-21T15:33:07.658Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/hajib-en-concert-a-rabat",
@@ -44,7 +44,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-20T16:19:31.930Z"
+          "observedAt": "2026-11-21T15:33:07.658Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/soiree-aissawa-avec-yassine-eljamai",
@@ -57,7 +57,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-20T16:19:31.930Z"
+          "observedAt": "2026-11-21T15:33:07.658Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/tiakola-en-concert-a-casablanca",
@@ -70,7 +70,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-20T16:19:31.930Z"
+          "observedAt": "2026-11-21T15:33:07.658Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/stormy-desperado-casablanca-11-12",
@@ -83,7 +83,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-20T16:19:31.930Z"
+          "observedAt": "2026-11-21T15:33:07.658Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/rnboi-and-elgrandetoto-en-concert-a-rabat",
@@ -96,7 +96,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-20T16:19:31.930Z"
+          "observedAt": "2026-11-21T15:33:07.658Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/sport/morocco-football-scouting-rabat-dec-2026",
@@ -109,7 +109,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-20T16:19:31.930Z"
+          "observedAt": "2026-11-21T15:33:07.658Z"
         }
       ],
       "drafts": [
@@ -142,10 +142,21 @@
     },
     {
       "id": "ticket",
-      "checkedAt": "2026-11-20T16:19:31.930Z",
+      "checkedAt": "2026-11-21T15:33:07.658Z",
       "error": null,
       "items": [],
       "drafts": [
+        {
+          "url": "https://www.ticket.ma/ticket/loisirs/4298/watch-party-maroc-pays-bas-2026-rabat",
+          "title": "Watch Party (Pathé Dar Essalam) – Maroc vs Pays-Bas | Coupe du Monde 2026 - Pathé Dar Essalam",
+          "reasons": [
+            "Event heading needs verification",
+            "Missing or conflicting event date",
+            "Moroccan location needs verification",
+            "Poster needs verification"
+          ],
+          "evidence": "&lt;iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-5TPCFFVX\"&gt;&lt;/iframe&gt; Watch Party (Pathé Dar Essalam) – Maroc vs Pays-Bas | Coupe du Monde 2026 - Pathé Dar Essalam | Ticket.ma"
+        },
         {
           "url": "https://www.ticket.ma/ticket/concerts/4475/valse-sans-frontieres-a-casa-2026",
           "title": "Valse sans frontières à Casablanca – Quand Vienne rencontre l’Orient - L’Eglise Notre Dame de Lourdes",
@@ -157,15 +168,25 @@
           "evidence": "![Ticket.ma logo](/ticket-logo.png)\n\nValse sans frontières à Casablanca – Quand Vienne rencontre l’Orient - L’Eglise Notre Dame de Lourdes | Ticket.ma"
         },
         {
-          "url": "https://www.ticket.ma/ticket/concerts/4430/grande-soiree-du-melhoun-mohamed-briouel-nabyla-maan-driss-zaarouri-2026",
-          "title": "Grande Soirée du Melhoun – Maître Mohamed Briouel, Nabyla Maan & Driss Zaârouri - Cinéma Megarama",
+          "url": "https://www.ticket.ma/ticket/concerts/4474/shine-in-black-chaimaa-rbatia-2026",
+          "title": "SHINE IN BLACK – COCKTAIL DÎNATOIRE - Rabat",
+          "reasons": [
+            "Event heading needs verification",
+            "Missing or conflicting event date",
+            "Poster needs verification"
+          ],
+          "evidence": "&lt;iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-5TPCFFVX\"&gt;&lt;/iframe&gt; SHINE IN BLACK – COCKTAIL DÎNATOIRE - Rabat | Ticket.ma"
+        },
+        {
+          "url": "https://www.ticket.ma/ticket/concerts/4029/soiree-ramadanesque-aissaouia-haj-said-berrada-marwan-hajji-2026",
+          "title": "Soirée Ramadanesque Aïssaouia - Haj Saïd Berrada & Marwan Hajji - Carré D'or",
           "reasons": [
             "Event heading needs verification",
             "Missing or conflicting event date",
             "Moroccan location needs verification",
             "Poster needs verification"
           ],
-          "evidence": "![Ticket.ma logo](/ticket-logo.png)\n\nGrande Soirée du Melhoun – Maître Mohamed Briouel, Nabyla Maan & Driss Zarouri - Cinéma Megarama | Ticket.ma"
+          "evidence": "&lt;iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-5TPCFFVX\"&gt;&lt;/iframe&gt; Soirée Ramadanesque Aïssaouia - Haj Saïd Berrada & Marwan Hajji - Carré D'or | Ticket.ma"
         },
         {
           "url": "https://www.ticket.ma/ticket/concerts/4376/hatim-idar-rabat-2026",
@@ -176,39 +197,18 @@
             "Poster needs verification"
           ],
           "evidence": "&lt;iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-5TPCFFVX\"&gt;&lt;/iframe&gt; HATIM IDAR À RABAT - Salle Bahnini | Ticket.ma"
-        },
-        {
-          "url": "https://www.ticket.ma/ticket/concerts/4393/manal-benchlikha-complexe-mohamed-5-2026",
-          "title": "MANAL BENCHLIKHA — UNE EXPÉRIENCE UNIQUE À CASABLANCA - Complexe Sportif Mohammed V",
-          "reasons": [
-            "Event heading needs verification",
-            "Missing or conflicting event date",
-            "Poster needs verification"
-          ],
-          "evidence": "&lt;iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-5TPCFFVX\"&gt;&lt;/iframe&gt; MANAL BENCHLIKHA — UNE EXPÉRIENCE UNIQUE À CASABLANCA - Complexe Sportif Mohammed V | Ticket.ma"
-        },
-        {
-          "url": "https://www.ticket.ma/ticket/concerts/4276/saad-lamjarred-juillet-2026",
-          "title": "SAAD LAMJARRED – DE RETOUR AU MAROC - Mazagan Beach & Golf Resort",
-          "reasons": [
-            "Event heading needs verification",
-            "Missing or conflicting event date",
-            "Moroccan location needs verification",
-            "Poster needs verification"
-          ],
-          "evidence": "&lt;iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-5TPCFFVX\"&gt;&lt;/iframe&gt; SAAD LAMJARRED – DE RETOUR AU MAROC - Mazagan Beach & Golf Resort | Ticket.ma"
         }
       ]
     },
     {
       "id": "webook",
-      "checkedAt": "2026-11-20T16:19:31.930Z",
+      "checkedAt": "2026-11-21T15:33:07.658Z",
       "error": null,
       "items": [],
       "drafts": [
         {
           "url": "https://webook.com/ma/sal/sports-event/events/fifa-u17-4november",
-          "title": "Official Tickets: FIFA U-17 Women's World Cup Semi-Finals Nov 4, 2026",
+          "title": "FIFA U-17 Women's World Cup Semi-Finals Nov 4, 2026",
           "reasons": [
             "Page content unavailable",
             "Event heading needs verification",
@@ -217,18 +217,6 @@
             "Poster needs verification"
           ],
           "evidence": "Morocco 2026 semi-finals on Nov 4 at Complexe. Nov - 5:00 AM From $ 2.05. Venue: Mohammed VI Football Complex – Pitches 2 & 3"
-        },
-        {
-          "url": "https://webook.com/tr/ma/cas/sports-event/events/wafcon-26-m26",
-          "title": "WAFCON Morocco 2026 QF2 Official Tickets",
-          "reasons": [
-            "Page content unavailable",
-            "Event heading needs verification",
-            "Missing or conflicting event date",
-            "Moroccan location needs verification",
-            "Poster needs verification"
-          ],
-          "evidence": "Book official tickets for WAFCON Morocco 2026 Quarter-final 2: 1st Group B vs 2nd Group A on Aug 8, 2026 at Hay Moulay Rachid Stadium, Casablanca."
         },
         {
           "url": "https://webook.com/en/ma/rab/sports-event/events/u17-m10-28may",
@@ -252,7 +240,19 @@
             "Moroccan location needs verification",
             "Poster needs verification"
           ],
-          "evidence": "Book official tickets for Tiakola live in Casablanca and be part of the first date of his African tour. Secure your spot now on webook.com today."
+          "evidence": "Tiakola live in Casablanca. CONCERT A CASABLANCA Sat 5 Dec - 8:00 PM From $ 35.1. Tiakola takes the stage in Casablanca for the first date of his African tour!"
+        },
+        {
+          "url": "https://webook.com/ma/sal/sports-event/events/u17-m9-24may",
+          "title": "U-17 AFCON 2026 Official Tickets | Mohammed VI",
+          "reasons": [
+            "Page content unavailable",
+            "Event heading needs verification",
+            "Missing or conflicting event date",
+            "Moroccan location needs verification",
+            "Poster needs verification"
+          ],
+          "evidence": "Buy official tickets for U-17 AFCON 2026 Quarter Finals on May 24 at Mohammed VI Football Complex, Morocco."
         },
         {
           "url": "https://webook.com/ma/knr/music-events/events/realshow-7liwa-2026",
@@ -270,7 +270,7 @@
     },
     {
       "id": "eventsma",
-      "checkedAt": "2026-11-20T16:19:31.930Z",
+      "checkedAt": "2026-11-21T15:33:07.658Z",
       "error": null,
       "items": [],
       "drafts": [
@@ -300,6 +300,15 @@
             "Poster needs verification"
           ],
           "evidence": "Concerts & Festivals\n\n# NASS EL GHIWANE ainsi & Maalam Anas Lekhssasi\n\n### Share\n\n## About\n\n🚨🚨Rendez-vous le 04 Décembre 2026 pour un spectacle Nostalgie avec le groupe mythique NASS EL GHIWANE ainsi que le Maalam Anas Lekhssasi\n\nسفر عبر الزمن مع الفرقة الأسطورية لناس الغيوان ونغمات كناوية مع المعلم الموهوب أنس لخصاصي.\n\nsoirée de rêve avec un duo au-delà de l’imagination.\n\nDans une ambiance festive et des chants vibrants, venez vivire en famille, entre amis des moment de rêves à Zenith Center à 20h00\n\n🍵Thé, eau et café inclus\n\n- Interface friendly\n- Payment secure\n- Wide variety of events\n- Customer support responsive"
+        },
+        {
+          "url": "https://events.ma/concerts-festivals/dunia-batma-18-12-26",
+          "title": "Dunia BATMA à Marrakech",
+          "reasons": [
+            "Missing or conflicting event date",
+            "Poster needs verification"
+          ],
+          "evidence": "Concerts & Festivals\n\n# Dunia BATMA à Marrakech\n\n### Share\n\n## Line-up\n\n## About\n\nNe manquez pas Dunia Batma en tournée ! L'icône de la chanson marocaine se produira le 18 decembre à 23h00 au Megarama Marrakech. Venez découvrir ou redécouvrir les plus grands succès de cette artiste exceptionnelle dans un spectacle live inoubliable. Une soirée musicale authentique produite par Work Event. Réservez vos billets dès maintenant sur events.ma ou appelez le 06 20 95 90 00 !\n\nDon't miss Dunia Batma on tour! The Moroccan music icon will perform on decembre 18th at 8:30 PM at Megarama Marrakech. Come discover or rediscover the greatest hits of this exceptional artist in an unforgettable live show. An authentic musical evening produced by Work Event. Book your tickets now at events.ma or call 06 20 95 90 00!\n\nلا تفوتوا دنيا بطمة في جولتها الفنية! ستقدم أيقونة الموسيقى المغربية عرضاً في 18-12-2026 في الساعة 20:30 . تعالوا لاكتشاف أو إعادة اكتشاف أعظم أغاني هذه الفنانة الاستثنائية في عرض حي لا يُنسى. أمسية موسيقية أصيلة تنتجه وورك إيفنت. احجزوا تذاكركم الآن على\n\nevents.ma\n\n- Interface friendly\n- Payment secure\n- Wide variety of events\n- Customer support responsive"
         }
       ]
     }
