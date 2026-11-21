@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { DRAFT_RESTORE_EVENT, type DraftFields } from "@/lib/article-drafts";
 
 type ArticleBodyEditorProps = {
   initialValue?: string;
@@ -10,7 +11,7 @@ type ToolbarButton = {
   label: string;
   command?: string;
   value?: string;
-  onClick?: () => void;
+  action?: "link" | "image";
   requireSelection?: boolean;
 };
 
@@ -83,6 +84,7 @@ export default function ArticleBodyEditor({
     : textToHtml(initialValue);
   const [bodyHtml, setBodyHtml] = useState(initialHtml);
   const [uploading, setUploading] = useState(false);
+  const [hasSelectedFigure, setHasSelectedFigure] = useState(false);
   const [selectedAlignment, setSelectedAlignment] =
     useState<FigureAlignment>("center");
 
@@ -94,8 +96,24 @@ export default function ArticleBodyEditor({
     editorRef.current.innerHTML = initialHtml;
     setBodyHtml(initialHtml);
     selectedFigureRef.current = null;
+    setHasSelectedFigure(false);
     setSelectedAlignment("center");
   }, [initialHtml]);
+
+  useEffect(() => {
+    const form = editorRef.current?.closest("form");
+    if (!form) return;
+    const restore = (event: Event) => {
+      const fields = (event as CustomEvent<DraftFields>).detail;
+      const html = fields.body?.[0] ?? "";
+      if (editorRef.current) editorRef.current.innerHTML = html;
+      setBodyHtml(html);
+      selectedFigureRef.current = null;
+    setHasSelectedFigure(false);
+    };
+    form.addEventListener(DRAFT_RESTORE_EVENT, restore);
+    return () => form.removeEventListener(DRAFT_RESTORE_EVENT, restore);
+  }, []);
 
   const syncHtml = () => {
     setBodyHtml(editorRef.current?.innerHTML ?? "");
@@ -107,6 +125,7 @@ export default function ArticleBodyEditor({
     }
 
     selectedFigureRef.current = null;
+    setHasSelectedFigure(false);
     setSelectedAlignment("center");
   };
 
@@ -116,6 +135,7 @@ export default function ArticleBodyEditor({
     }
 
     selectedFigureRef.current = figure;
+    setHasSelectedFigure(true);
     figure.classList.add("is-selected");
     setSelectedAlignment(getFigureAlignment(figure));
   };
@@ -253,8 +273,8 @@ export default function ArticleBodyEditor({
     { label: "Quote", command: "formatBlock", value: "blockquote" },
     { label: "Bullets", command: "insertUnorderedList" },
     { label: "Numbers", command: "insertOrderedList" },
-    { label: "Link", onClick: insertLink },
-    { label: "Image URL", onClick: insertImageByUrl },
+    { label: "Link", action: "link" },
+    { label: "Image URL", action: "image" },
   ];
 
   return (
@@ -266,8 +286,7 @@ export default function ArticleBodyEditor({
             type="button"
             onMouseDown={(event) => event.preventDefault()}
             onClick={() =>
-              button.onClick
-                ? button.onClick()
+              button.action === "link" ? insertLink() : button.action === "image" ? insertImageByUrl()
                 : applyCommand(button.command!, button.value, {
                     requireSelection: button.requireSelection,
                   })
@@ -304,7 +323,7 @@ export default function ArticleBodyEditor({
               onMouseDown={(event) => event.preventDefault()}
               onClick={() => applyFigureAlignment(alignment)}
               className={`inline-flex h-[32px] items-center justify-center rounded-[8px] px-3 text-[12px] font-body font-semibold transition-colors ${
-                selectedFigureRef.current && selectedAlignment === alignment
+                hasSelectedFigure && selectedAlignment === alignment
                   ? "bg-[#CE2127] text-white"
                   : "text-[#181818] hover:text-[#CE2127]"
               }`}

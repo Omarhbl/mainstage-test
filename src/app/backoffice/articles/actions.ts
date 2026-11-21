@@ -1,5 +1,6 @@
 "use server";
 
+import { validDraftToken } from "@/lib/article-drafts";
 import { prepareEditorImage } from "@/lib/security/image";
 import { saveArticleSeoSettings } from "@/lib/article-seo-settings";
 
@@ -29,13 +30,15 @@ const BACKOFFICE_MEDIA_BUCKET = "media-assets";
 function buildArticlesRedirect(
   path: string,
   message: string,
-  type: "success" | "error"
+  type: "success" | "error",
+  recoveryToken?: FormDataEntryValue | null
 ): never {
   const params = new URLSearchParams({
     notice: message,
     type,
   });
 
+  if (type === "success" && validDraftToken(recoveryToken)) params.set("savedDraft", recoveryToken);
   redirect(`${path}?${params.toString()}`);
 }
 
@@ -478,7 +481,8 @@ export async function createArticleAction(formData: FormData) {
   buildArticlesRedirect(
     `/backoffice/articles/${data.id}`,
     "Article created successfully.",
-    "success"
+    "success",
+    formData.get("recovery_token")
   );
 }
 
@@ -575,7 +579,8 @@ export async function updateArticleAction(formData: FormData) {
   buildArticlesRedirect(
     `/backoffice/articles/${id}`,
     "Article updated successfully.",
-    "success"
+    "success",
+    formData.get("recovery_token")
   );
 }
 

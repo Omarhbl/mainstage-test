@@ -1,3 +1,5 @@
+import ArticleDraftForm from "@/components/backoffice/ArticleDraftForm";
+import { requireBackofficeAccess } from "@/lib/supabase/backoffice";
 import ArticleSeoAssistant from "@/components/backoffice/ArticleSeoAssistant";
 import { getArticleSeoSettings } from "@/lib/article-seo-settings";
 import { getPublicArticles } from "@/lib/public-articles";
@@ -37,6 +39,7 @@ export default async function ArticleEditorForm({
   homepageImagePositionX,
   homepageImagePositionY,
 }: ArticleEditorFormProps) {
+  const { user } = await requireBackofficeAccess();
   const [seo, published] = await Promise.all([getArticleSeoSettings(article?.slug ?? ""), getPublicArticles()]);
   const relatedArticles = published.filter((entry) => entry.slug !== article?.slug).map(({ title, slug, category, tags }) => ({ title, slug, category, tags }));
   const secondaryCategories = article?.secondary_categories ?? [];
@@ -52,7 +55,7 @@ export default async function ArticleEditorForm({
       : resolvedImagePositionY;
 
   return (
-    <form action={action} className="grid grid-cols-1 gap-6 xl:grid-cols-[minmax(0,1.45fr)_340px]">
+    <ArticleDraftForm key={`${user.id}:${article?.id ?? "new"}:${article?.updated_at ?? ""}`} action={action} scope={`${user.id}:${article?.id ?? "new"}`} baseVersion={article?.updated_at ?? "new"}>
       {mode === "edit" && article ? (
         <input type="hidden" name="id" value={article.id} />
       ) : null}
@@ -341,6 +344,6 @@ export default async function ArticleEditorForm({
           </div>
         </div>
       </div>
-    </form>
+    </ArticleDraftForm>
   );
 }

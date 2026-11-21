@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
+import { DRAFT_RESTORE_EVENT, type DraftFields } from "@/lib/article-drafts";
 import CropFrame from "@/components/backoffice/ImageCropFrame";
 
 type Placement = "cover" | "homepage" | "hero" | "bottom";
@@ -54,7 +55,22 @@ export default function ArticleImageFraming({ initial }: { initial: Record<Place
     update();
     form.addEventListener("input", onChange);
     form.addEventListener("change", onChange);
-    return () => { form.removeEventListener("input", onChange); form.removeEventListener("change", onChange); uploads.forEach(({ url }) => URL.revokeObjectURL(url)); };
+    form.addEventListener(DRAFT_RESTORE_EVENT, update);
+    return () => { form.removeEventListener("input", onChange); form.removeEventListener("change", onChange); form.removeEventListener(DRAFT_RESTORE_EVENT, update); uploads.forEach(({ url }) => URL.revokeObjectURL(url)); };
+  }, []);
+
+  useEffect(() => {
+    const form = rootRef.current?.closest("form");
+    if (!form) return;
+    const restore = (event: Event) => {
+      const fields = (event as CustomEvent<DraftFields>).detail;
+      setPositions(current => Object.fromEntries(PLACEMENTS.map(({key,prefix}) => [key, ["x","y"].map((axis,index) => {
+        const value = Number(fields[`${prefix}_${axis}`]?.[0]);
+        return Number.isFinite(value) ? Math.max(0,Math.min(100,value)) : current[key][index];
+      })])) as Record<Placement,Position>);
+    };
+    form.addEventListener(DRAFT_RESTORE_EVENT,restore);
+    return () => form.removeEventListener(DRAFT_RESTORE_EVENT,restore);
   }, []);
 
   const selected = PLACEMENTS.find(({ key }) => key === active)!;
