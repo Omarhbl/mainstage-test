@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { articleModifiedDate, parseSeoDate } from "@/lib/seo-data";
 import ArticleMedia from "@/components/article/ArticleMedia";
 import ArticleRichContent from "@/components/article/ArticleRichContent";
@@ -47,8 +46,6 @@ export default function ArticleContent({ article }: { article: ArticleRecord }) 
           </h1>
 
           <p className="mx-auto mt-3 max-w-[760px] text-center text-[14px] font-body font-normal text-[rgba(0,0,0,0.62)]">
-            <Link href="/about" rel="author" className="font-medium hover:text-[#CE2127]">By Mainstage Editorial</Link>
-            <span aria-hidden="true"> · </span>
             <time dateTime={publishedDate}>{formatArticleDate(article.date)}</time>
             {modifiedDate && modifiedDate.slice(0, 10) !== publishedDate?.slice(0, 10) ? <span className="mt-1 block text-xs">Updated <time dateTime={modifiedDate}>{new Intl.DateTimeFormat("en-GB", { timeZone: "Africa/Casablanca" }).format(new Date(modifiedDate))}</time></span> : null}
           </p>
