@@ -8,11 +8,11 @@ const source = ts.transpileModule(fs.readFileSync('src/app/api/analytics/route.t
 function route({ configured=true, denied=false, failed=false, empty=false, offline=false }={}) {
   const calls=[];
   const exports={};
-  const google={auth:{JWT:class {}},analyticsdata:()=>({properties:{
+  const google={auth:{JWT:class { async authorize() {} }},analyticsdata:()=>({properties:{
     runReport:async request=>{ calls.push(request); if(failed)throw Error('private diagnostic'); return {data:empty?{}:{rows:[{metricValues:[{value:'12'}]}]}}; },
     runRealtimeReport:async()=>{if(offline)throw Error('offline');return {data:{rows:[{metricValues:[{value:'2'}]}]}};},
   }})};
-  vm.runInNewContext(source,{exports,Response,console:{error(){}},process:{env:configured?{GA_PROPERTY_ID:'565499788',GA_CLIENT_EMAIL:'test@example.test',GA_PRIVATE_KEY:'test'}:{}},require:name=>name==='googleapis'?{google}:{requireBackofficeAccess:async roles=>{assert.deepEqual(Array.from(roles),['admin','editor']);if(denied)throw Error('unauthorized');}}});
+  vm.runInNewContext(source,{exports,Response,console:{error(){}},process:{env:configured?{GA_PROPERTY_ID:'565499788',GA_CLIENT_EMAIL:'test@example.test',GA_PRIVATE_KEY:'test'}:{}},require:name=>name==='node:crypto'?{createPrivateKey(){}}:name==='googleapis'?{google}:{requireBackofficeAccess:async roles=>{assert.deepEqual(Array.from(roles),['admin','editor']);if(denied)throw Error('unauthorized');}}});
   return {get:exports.GET,calls};
 }
 test('returns daily sessions and realtime users, with private no-store headers',async()=>{const r=route();const response=await r.get();assert.equal(response.status,200);assert.deepEqual((await response.json()).traffic,{sessions:12,activeUsers:2});assert.equal(response.headers.get('cache-control'),'private, no-store');assert.equal(r.calls[0].property,'properties/565499788');assert.equal(r.calls[0].requestBody.metrics[0].name,'sessions');});
