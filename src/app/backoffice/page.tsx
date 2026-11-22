@@ -4,6 +4,7 @@ import { requireBackofficeAccess } from "@/lib/supabase/backoffice";
 import BackofficeHeader from "@/components/backoffice/BackofficeHeader";
 import SectionCard from "@/components/backoffice/SectionCard";
 import StatCard from "@/components/backoffice/StatCard";
+import WebsiteTrafficCard from "@/components/backoffice/WebsiteTrafficCard";
 import {
   getSpotifyFeedHealth,
   getYoutubeFeedHealth,
@@ -42,11 +43,7 @@ export default async function BackofficeDashboardPage() {
           value={String(totalArticles).padStart(2, "0")}
           hint="Stories currently available across the platform."
         />
-        <StatCard
-          label="Website visits"
-          value="--"
-          hint="Website traffic overview."
-        />
+        {role === "admin" || role === "editor" ? <WebsiteTrafficCard /> : <StatCard label="Website visits today" value="--" hint="Traffic reports are available to admins and editors." />}
         <StatCard
           label="Spotify Sync"
           value={spotifyHealth.value}

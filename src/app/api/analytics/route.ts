@@ -30,14 +30,26 @@ export async function GET() {
       auth,
     });
 
-    const response = await analyticsData.properties.runRealtimeReport({
+    const [daily, response] = await Promise.all([
+      analyticsData.properties.runReport({
+        property: `properties/${propertyId}`,
+        requestBody: {
+          dateRanges: [{ startDate: "today", endDate: "today" }],
+          metrics: [{ name: "sessions" }],
+        },
+      }, { timeout: 10000, retry: false }),
+      analyticsData.properties.runRealtimeReport({
       property: `properties/${propertyId}`,
       requestBody: {
         metrics: [{ name: "activeUsers" }],
       },
-    });
+      }, { timeout: 10000, retry: false }).catch(() => null),
+    ]);
+    const sessions = Number(daily.data.rows?.[0]?.metricValues?.[0]?.value ?? 0);
+    const activeUsers = response ? Number(response.data.rows?.[0]?.metricValues?.[0]?.value ?? 0) : null;
+    if (!Number.isFinite(sessions) || (activeUsers !== null && !Number.isFinite(activeUsers))) throw new Error("Invalid report");
 
-    return Response.json(response.data, { headers: { "Cache-Control": "private, no-store" } });
+    return Response.json({ ...response?.data, traffic: { sessions, activeUsers } }, { headers: { "Cache-Control": "private, no-store" } });
   } catch {
     console.error("GA realtime API request failed.");
 
