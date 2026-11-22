@@ -1,6 +1,7 @@
 import { requireBackofficeAccess } from "@/lib/supabase/backoffice";
 import { google } from "googleapis";
 import { createPrivateKey } from "node:crypto";
+import { normalizeAnalyticsKey } from "@/lib/analytics-key";
 
 export async function GET() {
   await requireBackofficeAccess(["admin", "editor"]);
@@ -9,7 +10,7 @@ export async function GET() {
     const propertyId = process.env.GA_PROPERTY_ID;
     const clientEmail = process.env.GA_CLIENT_EMAIL;
     const privateKeyRaw = process.env.GA_PRIVATE_KEY;
-    const privateKey = privateKeyRaw?.replace(/\\n/g, "\n");
+    const privateKey = privateKeyRaw ? normalizeAnalyticsKey(privateKeyRaw) : undefined;
     
 
     if (!propertyId || !clientEmail || !privateKey) {
