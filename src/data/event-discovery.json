@@ -1,25 +1,12 @@
 {
   "version": 1,
-  "syncedAt": "2026-11-21T15:33:07.658Z",
+  "syncedAt": "2026-11-22T15:36:24.917Z",
   "sources": [
     {
       "id": "iticket",
-      "checkedAt": "2026-11-21T15:33:07.658Z",
+      "checkedAt": "2026-11-22T15:36:24.917Z",
       "error": null,
       "items": [
-        {
-          "id": "iticket-https://iticket.ma/events/concerts/bo9al-show-marrakech",
-          "title": "BO9AL SHOW – Marrakech",
-          "releaseDate": "2026-11-21",
-          "image": "https://cdn.iticket.ma/cdn-cgi/image/width=700,height=700,quality=75,format=webp/event/square_card/4vNJvAeo1MgMV6CKJIDGlYk2QDc7n2MO.png",
-          "href": "https://iticket.ma/events/concerts/bo9al-show-marrakech",
-          "venue": "",
-          "city": "Marrakech",
-          "sources": [
-            "iticket"
-          ],
-          "observedAt": "2026-11-21T15:33:07.658Z"
-        },
         {
           "id": "iticket-https://iticket.ma/events/activities/gala-solidaire-fondation-tamayouz",
           "title": "Gala Solidaire Fondation Tamayouz",
@@ -31,7 +18,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-21T15:33:07.658Z"
+          "observedAt": "2026-11-22T15:36:24.917Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/hajib-en-concert-a-rabat",
@@ -44,7 +31,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-21T15:33:07.658Z"
+          "observedAt": "2026-11-22T15:36:24.917Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/soiree-aissawa-avec-yassine-eljamai",
@@ -57,7 +44,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-21T15:33:07.658Z"
+          "observedAt": "2026-11-22T15:36:24.917Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/tiakola-en-concert-a-casablanca",
@@ -70,7 +57,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-21T15:33:07.658Z"
+          "observedAt": "2026-11-22T15:36:24.917Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/stormy-desperado-casablanca-11-12",
@@ -83,7 +70,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-21T15:33:07.658Z"
+          "observedAt": "2026-11-22T15:36:24.917Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/rnboi-and-elgrandetoto-en-concert-a-rabat",
@@ -96,7 +83,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-21T15:33:07.658Z"
+          "observedAt": "2026-11-22T15:36:24.917Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/sport/morocco-football-scouting-rabat-dec-2026",
@@ -109,7 +96,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-21T15:33:07.658Z"
+          "observedAt": "2026-11-22T15:36:24.917Z"
         }
       ],
       "drafts": [
@@ -142,73 +129,62 @@
     },
     {
       "id": "ticket",
-      "checkedAt": "2026-11-21T15:33:07.658Z",
+      "checkedAt": "2026-11-22T15:36:24.917Z",
       "error": null,
       "items": [],
       "drafts": [
         {
-          "url": "https://www.ticket.ma/ticket/loisirs/4298/watch-party-maroc-pays-bas-2026-rabat",
-          "title": "Watch Party (Pathé Dar Essalam) – Maroc vs Pays-Bas | Coupe du Monde 2026 - Pathé Dar Essalam",
+          "url": "https://www.ticket.ma/ticket/concerts/3847/natacha-atlas-en-concert-rabat-2026",
+          "title": "Natacha Atlas en concert – Rabat - Théâtre National Mohammed V",
+          "reasons": [
+            "Event heading needs verification",
+            "Missing or conflicting event date",
+            "Poster needs verification"
+          ],
+          "evidence": "&lt;iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-5TPCFFVX\"&gt;&lt;/iframe&gt; Natacha Atlas en concert – Rabat - Théâtre National Mohammed V | Ticket.ma"
+        },
+        {
+          "url": "https://www.ticket.ma/ticket/concerts/4122/hatim-idar-en-concert-casablanca-2026",
+          "title": "HATIM IDAR en concert exclusif à Casablanca ! - Théâtre Mohamed VI",
+          "reasons": [
+            "Event heading needs verification",
+            "Missing or conflicting event date",
+            "Poster needs verification"
+          ],
+          "evidence": "&lt;iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-5TPCFFVX\"&gt;&lt;/iframe&gt; HATIM IDAR en concert exclusif à Casablanca ! - Théâtre Mohamed VI | Ticket.ma"
+        },
+        {
+          "url": "https://www.ticket.ma/ticket/underground/4135/abba-tribute-live-show-rabat-2026",
+          "title": "ABBA Tribute Live Show – Rabat - Théâtre National Mohammed V",
+          "reasons": [
+            "Event heading needs verification",
+            "Missing or conflicting event date",
+            "Poster needs verification"
+          ],
+          "evidence": "&lt;iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-5TPCFFVX\"&gt;&lt;/iframe&gt; ABBA Tribute Live Show – Rabat - Théâtre National Mohammed V | Ticket.ma"
+        },
+        {
+          "url": "https://www.ticket.ma/ticket/concerts/3999/gala-aid-al-fitr-2026",
+          "title": "Gala Aid Al Fitr – 100% Femmes - Salle Riad Asmar",
           "reasons": [
             "Event heading needs verification",
             "Missing or conflicting event date",
             "Moroccan location needs verification",
             "Poster needs verification"
           ],
-          "evidence": "&lt;iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-5TPCFFVX\"&gt;&lt;/iframe&gt; Watch Party (Pathé Dar Essalam) – Maroc vs Pays-Bas | Coupe du Monde 2026 - Pathé Dar Essalam | Ticket.ma"
-        },
-        {
-          "url": "https://www.ticket.ma/ticket/concerts/4475/valse-sans-frontieres-a-casa-2026",
-          "title": "Valse sans frontières à Casablanca – Quand Vienne rencontre l’Orient - L’Eglise Notre Dame de Lourdes",
-          "reasons": [
-            "Event heading needs verification",
-            "Missing or conflicting event date",
-            "Poster needs verification"
-          ],
-          "evidence": "![Ticket.ma logo](/ticket-logo.png)\n\nValse sans frontières à Casablanca – Quand Vienne rencontre l’Orient - L’Eglise Notre Dame de Lourdes | Ticket.ma"
-        },
-        {
-          "url": "https://www.ticket.ma/ticket/concerts/4474/shine-in-black-chaimaa-rbatia-2026",
-          "title": "SHINE IN BLACK – COCKTAIL DÎNATOIRE - Rabat",
-          "reasons": [
-            "Event heading needs verification",
-            "Missing or conflicting event date",
-            "Poster needs verification"
-          ],
-          "evidence": "&lt;iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-5TPCFFVX\"&gt;&lt;/iframe&gt; SHINE IN BLACK – COCKTAIL DÎNATOIRE - Rabat | Ticket.ma"
-        },
-        {
-          "url": "https://www.ticket.ma/ticket/concerts/4029/soiree-ramadanesque-aissaouia-haj-said-berrada-marwan-hajji-2026",
-          "title": "Soirée Ramadanesque Aïssaouia - Haj Saïd Berrada & Marwan Hajji - Carré D'or",
-          "reasons": [
-            "Event heading needs verification",
-            "Missing or conflicting event date",
-            "Moroccan location needs verification",
-            "Poster needs verification"
-          ],
-          "evidence": "&lt;iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-5TPCFFVX\"&gt;&lt;/iframe&gt; Soirée Ramadanesque Aïssaouia - Haj Saïd Berrada & Marwan Hajji - Carré D'or | Ticket.ma"
-        },
-        {
-          "url": "https://www.ticket.ma/ticket/concerts/4376/hatim-idar-rabat-2026",
-          "title": "HATIM IDAR À RABAT - Salle Bahnini",
-          "reasons": [
-            "Event heading needs verification",
-            "Missing or conflicting event date",
-            "Poster needs verification"
-          ],
-          "evidence": "&lt;iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-5TPCFFVX\"&gt;&lt;/iframe&gt; HATIM IDAR À RABAT - Salle Bahnini | Ticket.ma"
+          "evidence": "![Ticket.ma logo](/ticket-logo.png)\n\nGala Aid Al Fitr – 100% Femmes - Salle Riad Asmar | Ticket.ma"
         }
       ]
     },
     {
       "id": "webook",
-      "checkedAt": "2026-11-21T15:33:07.658Z",
+      "checkedAt": "2026-11-22T15:36:24.917Z",
       "error": null,
       "items": [],
       "drafts": [
         {
           "url": "https://webook.com/ma/sal/sports-event/events/fifa-u17-4november",
-          "title": "FIFA U-17 Women's World Cup Semi-Finals Nov 4, 2026",
+          "title": "Official Tickets: FIFA U-17 Women's World Cup Semi-Finals Nov 4, 2026",
           "reasons": [
             "Page content unavailable",
             "Event heading needs verification",
@@ -216,7 +192,7 @@
             "Moroccan location needs verification",
             "Poster needs verification"
           ],
-          "evidence": "Morocco 2026 semi-finals on Nov 4 at Complexe. Nov - 5:00 AM From $ 2.05. Venue: Mohammed VI Football Complex – Pitches 2 & 3"
+          "evidence": "Book official tickets for the FIFA U-17 Women's World Cup Morocco 2026 semi-finals on Nov 4 at Complexe sportif féminin Maâmoura, Morocco."
         },
         {
           "url": "https://webook.com/en/ma/rab/sports-event/events/u17-m10-28may",
@@ -240,19 +216,7 @@
             "Moroccan location needs verification",
             "Poster needs verification"
           ],
-          "evidence": "Tiakola live in Casablanca. CONCERT A CASABLANCA Sat 5 Dec - 8:00 PM From $ 35.1. Tiakola takes the stage in Casablanca for the first date of his African tour!"
-        },
-        {
-          "url": "https://webook.com/ma/sal/sports-event/events/u17-m9-24may",
-          "title": "U-17 AFCON 2026 Official Tickets | Mohammed VI",
-          "reasons": [
-            "Page content unavailable",
-            "Event heading needs verification",
-            "Missing or conflicting event date",
-            "Moroccan location needs verification",
-            "Poster needs verification"
-          ],
-          "evidence": "Buy official tickets for U-17 AFCON 2026 Quarter Finals on May 24 at Mohammed VI Football Complex, Morocco."
+          "evidence": "Tiakola live in Casablanca. CONCERT A CASABLANCA Sat 5 Dec - 8:00 PM From $ 35.05. Tiakola takes the stage in Casablanca for the first date of his African tour"
         },
         {
           "url": "https://webook.com/ma/knr/music-events/events/realshow-7liwa-2026",
@@ -270,7 +234,7 @@
     },
     {
       "id": "eventsma",
-      "checkedAt": "2026-11-21T15:33:07.658Z",
+      "checkedAt": "2026-11-22T15:36:24.917Z",
       "error": null,
       "items": [],
       "drafts": [
