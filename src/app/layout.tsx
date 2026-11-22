@@ -92,7 +92,7 @@ export default async function RootLayout({
         <RadioProvider>
           <AppChrome tickerItems={homepageSettings.tickerItems}>{children}</AppChrome>
         </RadioProvider>
-          <GoogleAnalytics gaId="G-5REKDL0CNK" />
+          <GoogleAnalytics gaId="G-YLESG7H0RZ" />
       </body>
     </html>
   );
