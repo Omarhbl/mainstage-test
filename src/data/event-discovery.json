@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "syncedAt": "2026-11-22T15:36:24.917Z",
+  "syncedAt": "2026-11-23T19:26:52.330Z",
   "sources": [
     {
       "id": "iticket",
-      "checkedAt": "2026-11-22T15:36:24.917Z",
+      "checkedAt": "2026-11-23T19:26:52.330Z",
       "error": null,
       "items": [
         {
@@ -18,7 +18,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-22T15:36:24.917Z"
+          "observedAt": "2026-11-23T19:26:52.330Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/hajib-en-concert-a-rabat",
@@ -31,7 +31,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-22T15:36:24.917Z"
+          "observedAt": "2026-11-23T19:26:52.330Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/soiree-aissawa-avec-yassine-eljamai",
@@ -44,7 +44,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-22T15:36:24.917Z"
+          "observedAt": "2026-11-23T19:26:52.330Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/tiakola-en-concert-a-casablanca",
@@ -57,7 +57,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-22T15:36:24.917Z"
+          "observedAt": "2026-11-23T19:26:52.330Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/stormy-desperado-casablanca-11-12",
@@ -70,7 +70,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-22T15:36:24.917Z"
+          "observedAt": "2026-11-23T19:26:52.330Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/rnboi-and-elgrandetoto-en-concert-a-rabat",
@@ -83,7 +83,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-22T15:36:24.917Z"
+          "observedAt": "2026-11-23T19:26:52.330Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/sport/morocco-football-scouting-rabat-dec-2026",
@@ -96,7 +96,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-22T15:36:24.917Z"
+          "observedAt": "2026-11-23T19:26:52.330Z"
         }
       ],
       "drafts": [
@@ -129,20 +129,10 @@
     },
     {
       "id": "ticket",
-      "checkedAt": "2026-11-22T15:36:24.917Z",
+      "checkedAt": "2026-11-23T19:26:52.330Z",
       "error": null,
       "items": [],
       "drafts": [
-        {
-          "url": "https://www.ticket.ma/ticket/concerts/3847/natacha-atlas-en-concert-rabat-2026",
-          "title": "Natacha Atlas en concert – Rabat - Théâtre National Mohammed V",
-          "reasons": [
-            "Event heading needs verification",
-            "Missing or conflicting event date",
-            "Poster needs verification"
-          ],
-          "evidence": "&lt;iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-5TPCFFVX\"&gt;&lt;/iframe&gt; Natacha Atlas en concert – Rabat - Théâtre National Mohammed V | Ticket.ma"
-        },
         {
           "url": "https://www.ticket.ma/ticket/concerts/4122/hatim-idar-en-concert-casablanca-2026",
           "title": "HATIM IDAR en concert exclusif à Casablanca ! - Théâtre Mohamed VI",
@@ -154,46 +144,53 @@
           "evidence": "&lt;iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-5TPCFFVX\"&gt;&lt;/iframe&gt; HATIM IDAR en concert exclusif à Casablanca ! - Théâtre Mohamed VI | Ticket.ma"
         },
         {
-          "url": "https://www.ticket.ma/ticket/underground/4135/abba-tribute-live-show-rabat-2026",
-          "title": "ABBA Tribute Live Show – Rabat - Théâtre National Mohammed V",
+          "url": "https://www.ticket.ma/ticket/concerts/4360/amal-mazzika-orchestra-rabat-2026",
+          "title": "Amal & Mazzika Orchestra - Rabat - Théâtre National Mohamed V",
           "reasons": [
             "Event heading needs verification",
             "Missing or conflicting event date",
             "Poster needs verification"
           ],
-          "evidence": "&lt;iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-5TPCFFVX\"&gt;&lt;/iframe&gt; ABBA Tribute Live Show – Rabat - Théâtre National Mohammed V | Ticket.ma"
+          "evidence": "&lt;iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-5TPCFFVX\"&gt;&lt;/iframe&gt; Amal & Mazzika Orchestra - Rabat - Théâtre National Mohamed V | Ticket.ma"
         },
         {
-          "url": "https://www.ticket.ma/ticket/concerts/3999/gala-aid-al-fitr-2026",
-          "title": "Gala Aid Al Fitr – 100% Femmes - Salle Riad Asmar",
+          "url": "https://www.ticket.ma/ticket/concerts/4441/valse-sans-frontieres-a-rabat-decembre-2026",
+          "title": "Valse sans frontières à Rabat – Quand Vienne rencontre l’Orient - Cathédrale Saint-Pierre",
           "reasons": [
             "Event heading needs verification",
             "Missing or conflicting event date",
-            "Moroccan location needs verification",
             "Poster needs verification"
           ],
-          "evidence": "![Ticket.ma logo](/ticket-logo.png)\n\nGala Aid Al Fitr – 100% Femmes - Salle Riad Asmar | Ticket.ma"
+          "evidence": "&lt;iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-5TPCFFVX\"&gt;&lt;/iframe&gt; Valse sans frontières à Rabat – Quand Vienne rencontre l’Orient - Cathédrale Saint-Pierre | Ticket.ma"
+        },
+        {
+          "url": "https://www.ticket.ma/ticket/concerts/4376/hatim-idar-rabat-2026",
+          "title": "HATIM IDAR À RABAT - Salle Bahnini",
+          "reasons": [
+            "Event heading needs verification",
+            "Missing or conflicting event date",
+            "Poster needs verification"
+          ],
+          "evidence": "&lt;iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-5TPCFFVX\"&gt;&lt;/iframe&gt; HATIM IDAR À RABAT - Salle Bahnini | Ticket.ma"
+        },
+        {
+          "url": "https://www.ticket.ma/ticket/concerts/4393/manal-benchlikha-complexe-mohamed-5-2026",
+          "title": "MANAL BENCHLIKHA — UNE EXPÉRIENCE UNIQUE À CASABLANCA - Complexe Sportif Mohammed V",
+          "reasons": [
+            "Event heading needs verification",
+            "Missing or conflicting event date",
+            "Poster needs verification"
+          ],
+          "evidence": "&lt;iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-5TPCFFVX\"&gt;&lt;/iframe&gt; MANAL BENCHLIKHA — UNE EXPÉRIENCE UNIQUE À CASABLANCA - Complexe Sportif Mohammed V | Ticket.ma"
         }
       ]
     },
     {
       "id": "webook",
-      "checkedAt": "2026-11-22T15:36:24.917Z",
+      "checkedAt": "2026-11-23T19:26:52.330Z",
       "error": null,
       "items": [],
       "drafts": [
-        {
-          "url": "https://webook.com/ma/sal/sports-event/events/fifa-u17-4november",
-          "title": "Official Tickets: FIFA U-17 Women's World Cup Semi-Finals Nov 4, 2026",
-          "reasons": [
-            "Page content unavailable",
-            "Event heading needs verification",
-            "Missing or conflicting event date",
-            "Moroccan location needs verification",
-            "Poster needs verification"
-          ],
-          "evidence": "Book official tickets for the FIFA U-17 Women's World Cup Morocco 2026 semi-finals on Nov 4 at Complexe sportif féminin Maâmoura, Morocco."
-        },
         {
           "url": "https://webook.com/en/ma/rab/sports-event/events/u17-m10-28may",
           "title": "U-17 AFCON Morocco 2026 Official Tickets",
@@ -234,28 +231,10 @@
     },
     {
       "id": "eventsma",
-      "checkedAt": "2026-11-22T15:36:24.917Z",
+      "checkedAt": "2026-11-23T19:26:52.330Z",
       "error": null,
       "items": [],
       "drafts": [
-        {
-          "url": "https://events.ma/en/concerts-festivals",
-          "title": "Concerts & Festivals",
-          "reasons": [
-            "Missing or conflicting event date",
-            "Poster needs verification"
-          ],
-          "evidence": "[![Events logo](/assets/imgs/logo/event-logo-black-100.png)](/en)\n\n[FR](/concerts-festivals \"Français\")[EN](/en/concerts-festivals \"English\")[AR](/ar/concerts-festivals \"العربية\")\n\n[Sign in](/en/mon-espace/connexion \"Sign in\")\n\n* ##### Your basket is empty\n\n  Explore our events and let yourself be inspired!   \n   Find tickets for concerts, festivals and sporting events in Morocco and Africa.\n\n\n\n# Concerts & Festivals\n\n792 event(s) found\n\n[![](https://s3.eu-north-1.amazonaws.com/events.ma/events/11-2026/1355/42e87e7b-3ad8-486c-aff5-b3fab5836dc3-1794761291-FOed.webp)**21**Nov\n\nConcerts & Festivals\n\n### La Grande Nuit Du Chaabi Présenté Par Rachid Allali à Casablanca !\n\nMegarama, Casablanca\n\nSaturday 21 November 2026\n\n20:00\n\nfrom**200 MAD**](/en/concerts-festivals/nuit-du-chaabi-21-11-26)[![](https://s3.eu-north-1.amazonaws.com/events.ma/events/09-2026/1494/3dab5c70-ba5b-4dac-bd77-c69405cc5f83-1790787429-9BJ1.webp)**21**Nov\n\nConcerts & Festivals\n\n### MANAL BENCHLIKHA — UNE EXPÉRIENCE UNIQUE À CASABLANCA\n\nSalle couverte - Complexe sportif Mohammed V, Casablanca\n\nSaturday 21 November 2026\n\n20:00\n\nfrom**150 MAD**](/en/concerts-festivals/manal-benchlikha-21-11-26)[![](https://s3.eu-north-"
-        },
-        {
-          "url": "https://events.ma/concerts-festivals/peter-pan-on-ice-28-11-26-15h",
-          "title": "PETER PAN ON ICE – THE ICE SHOW",
-          "reasons": [
-            "Missing or conflicting event date",
-            "Poster needs verification"
-          ],
-          "evidence": "Concerts & Festivals\n\n# PETER PAN ON ICE – THE ICE SHOW\n\n### Share\n\n## About\n\nFor the first time at the Rabat Ice Rink, the ice transforms into a live stage!\n\nThe International Ice Stars present Peter Pan on Ice, a spectacular international ice show for the whole family.\n\nFly away to Neverland alongside Peter Pan, Wendy, Tinker Bell, and their friends, and embark on a magical adventure filled with humor and emotion.\n\nSpectacular jumps, acrobatic lifts, mesmerizing choreography, and enchanting costumes: the world-renowned skaters of the International Ice Stars bring this classic tale to life like you have never seen before.\n\nA show designed to delight children, while enchanting parents and grandparents alike. Young and old, come share an unforgettable family moment!\n\nMultiple performances are scheduled throughout the weekend—choose the time that suits you best.\n\n### PRACTICAL INFORMATION\n\nDates: November 26 to 29, 2026\n\nVenue: Rabat Ice Rink (Patinoire de Rabat)\n\nShow: Peter Pan on Ice\n\nSeating: Open seating (free placement)\n\n### PERFORMANCE SCHEDULE\n\nThursday, November 26: 7:00 PM\n\nFriday, November 27: 3:00 PM and 8:00 PM\n\nSaturday, November 28: 12:00 PM and 5:00 PM\n\nSunday, Novemb"
-        },
         {
           "url": "https://events.ma/concerts-festivals/nass-el-ghiwane-anas-lekhssasi",
           "title": "NASS EL GHIWANE ainsi & Maalam Anas Lekhssasi",
