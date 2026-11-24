@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "syncedAt": "2026-11-23T19:26:52.330Z",
+  "syncedAt": "2026-11-24T19:02:13.519Z",
   "sources": [
     {
       "id": "iticket",
-      "checkedAt": "2026-11-23T19:26:52.330Z",
+      "checkedAt": "2026-11-24T19:02:13.519Z",
       "error": null,
       "items": [
         {
@@ -18,7 +18,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-23T19:26:52.330Z"
+          "observedAt": "2026-11-24T19:02:13.519Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/hajib-en-concert-a-rabat",
@@ -31,7 +31,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-23T19:26:52.330Z"
+          "observedAt": "2026-11-24T19:02:13.519Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/soiree-aissawa-avec-yassine-eljamai",
@@ -44,7 +44,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-23T19:26:52.330Z"
+          "observedAt": "2026-11-24T19:02:13.519Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/tiakola-en-concert-a-casablanca",
@@ -57,7 +57,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-23T19:26:52.330Z"
+          "observedAt": "2026-11-24T19:02:13.519Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/stormy-desperado-casablanca-11-12",
@@ -70,7 +70,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-23T19:26:52.330Z"
+          "observedAt": "2026-11-24T19:02:13.519Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/rnboi-and-elgrandetoto-en-concert-a-rabat",
@@ -83,7 +83,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-23T19:26:52.330Z"
+          "observedAt": "2026-11-24T19:02:13.519Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/sport/morocco-football-scouting-rabat-dec-2026",
@@ -96,7 +96,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-23T19:26:52.330Z"
+          "observedAt": "2026-11-24T19:02:13.519Z"
         }
       ],
       "drafts": [
@@ -129,7 +129,7 @@
     },
     {
       "id": "ticket",
-      "checkedAt": "2026-11-23T19:26:52.330Z",
+      "checkedAt": "2026-11-24T19:02:13.519Z",
       "error": null,
       "items": [],
       "drafts": [
@@ -187,7 +187,7 @@
     },
     {
       "id": "webook",
-      "checkedAt": "2026-11-23T19:26:52.330Z",
+      "checkedAt": "2026-11-24T19:02:13.519Z",
       "error": null,
       "items": [],
       "drafts": [
@@ -231,27 +231,40 @@
     },
     {
       "id": "eventsma",
-      "checkedAt": "2026-11-23T19:26:52.330Z",
+      "checkedAt": "2026-11-24T19:02:13.519Z",
       "error": null,
       "items": [],
       "drafts": [
         {
-          "url": "https://events.ma/concerts-festivals/nass-el-ghiwane-anas-lekhssasi",
-          "title": "NASS EL GHIWANE ainsi & Maalam Anas Lekhssasi",
+          "url": "https://events.ma/concerts-festivals/peter-pan-on-ice-28-11-26-20h",
+          "title": "PETER PAN ON ICE – THE ICE SHOW",
           "reasons": [
+            "Page content unavailable",
+            "Event heading needs verification",
+            "Missing or conflicting event date",
             "Moroccan location needs verification",
             "Poster needs verification"
           ],
-          "evidence": "Concerts & Festivals\n\n# NASS EL GHIWANE ainsi & Maalam Anas Lekhssasi\n\n### Share\n\n## About\n\n🚨🚨Rendez-vous le 04 Décembre 2026 pour un spectacle Nostalgie avec le groupe mythique NASS EL GHIWANE ainsi que le Maalam Anas Lekhssasi\n\nسفر عبر الزمن مع الفرقة الأسطورية لناس الغيوان ونغمات كناوية مع المعلم الموهوب أنس لخصاصي.\n\nsoirée de rêve avec un duo au-delà de l’imagination.\n\nDans une ambiance festive et des chants vibrants, venez vivire en famille, entre amis des moment de rêves à Zenith Center à 20h00\n\n🍵Thé, eau et café inclus\n\n- Interface friendly\n- Payment secure\n- Wide variety of events\n- Customer support responsive"
+          "evidence": "Title: PETER PAN ON ICE – THE ICE SHOW - Billetterie Maroc et Afrique\nTrouvez des billets pour des concerts, festivals, et événements sportifs au Maroc et en Afrique. # PETER PAN ON ICE – THE ICE SHOW. Samedi 28 Novembre 2026 à 20h00. ### Peter Pan on Ice à la Patinoire de Rabat : Le spectacle magique à ne pas manquer. Pour la première fois à la Patinoire de Rabat, la glace se transforme en scène de spectacle ! Les International Ice Stars présentent Peter Pan on Ice, un grand spectacle international sur glace destiné à toute la famille. Envolez-vous vers le Pays Imaginaire aux côtés de Peter Pan, Wendy, la Fée Clochette et leurs compagnons, et vivez une aventure pleine de magie, d’humour et d’émotion. Sauts spectaculaires, portés acrobatiques, chorégraphies envoûtantes et costumes féeriques : les patineurs des International Ice Stars, artistes de renommée internationale, donnent vie à ce célèbre conte comme vous ne l’avez jamais vu. Un spectacle imaginé pour les enfants, qui saura également émerveiller les parents et les grands-parents. Dates : Du 26 au 29 novembre 2026. Spectacle : Peter Pan on Ice. Vendredi 27 novembre : 15h00 et 20h00. Samedi 28 novembre : 15h00 et 20h00. Et la "
         },
         {
-          "url": "https://events.ma/concerts-festivals/dunia-batma-18-12-26",
-          "title": "Dunia BATMA à Marrakech",
+          "url": "https://events.ma/concerts-festivals/zouhair-bahaoui-18-07-26",
+          "title": "Zouhair Bahaoui a Tanger",
           "reasons": [
             "Missing or conflicting event date",
             "Poster needs verification"
           ],
-          "evidence": "Concerts & Festivals\n\n# Dunia BATMA à Marrakech\n\n### Share\n\n## Line-up\n\n## About\n\nNe manquez pas Dunia Batma en tournée ! L'icône de la chanson marocaine se produira le 18 decembre à 23h00 au Megarama Marrakech. Venez découvrir ou redécouvrir les plus grands succès de cette artiste exceptionnelle dans un spectacle live inoubliable. Une soirée musicale authentique produite par Work Event. Réservez vos billets dès maintenant sur events.ma ou appelez le 06 20 95 90 00 !\n\nDon't miss Dunia Batma on tour! The Moroccan music icon will perform on decembre 18th at 8:30 PM at Megarama Marrakech. Come discover or rediscover the greatest hits of this exceptional artist in an unforgettable live show. An authentic musical evening produced by Work Event. Book your tickets now at events.ma or call 06 20 95 90 00!\n\nلا تفوتوا دنيا بطمة في جولتها الفنية! ستقدم أيقونة الموسيقى المغربية عرضاً في 18-12-2026 في الساعة 20:30 . تعالوا لاكتشاف أو إعادة اكتشاف أعظم أغاني هذه الفنانة الاستثنائية في عرض حي لا يُنسى. أمسية موسيقية أصيلة تنتجه وورك إيفنت. احجزوا تذاكركم الآن على\n\nevents.ma\n\n- Interface friendly\n- Payment secure\n- Wide variety of events\n- Customer support responsive"
+          "evidence": "Concerts & Festivals\n\n# Zouhair Bahaoui a Tanger\n\n### Partager\n\n## À propos\n\n**Ne manquez pas le concert de Zouhair Bahaoui !**\n\nJoignez-vous à nous pour une soirée inoubliable au Palais des arts et de la culture de tanger le 18-07-2026, en compagnie de l'incroyable Zouhair Bahaoui ! Avec ses tubes incontournables et sa voix captivante, Zouhair Bahaoui vous promet une performance électrisante qui vous fera danser toute la nuit.\n\nRéservez vos billets dès maintenant pour garantir votre place à cet événement exceptionnel. Ne manquez pas cette occasion unique de vivre une expérience musicale inoubliable en compagnie d'une des stars les plus talentueuses du Maroc.\n\nRéservez vos billets dès aujourd'hui et rejoignez-nous pour une soirée de musique, de joie et de bonne humeur à Tanger avec Zouhair Bahaoui !\n\n## Vidéo\n\n- Interface conviviale\n- Paiement sécurisé\n- Grande variété d'événements\n- Support client réactif"
+        },
+        {
+          "url": "https://events.ma/en/thratre-royal-de-rabat",
+          "title": "THÉÂTRE ROYAL DE RABAT",
+          "reasons": [
+            "Event heading needs verification",
+            "Missing or conflicting event date",
+            "Poster needs verification"
+          ],
+          "evidence": "[![Events logo](/assets/imgs/logo/event-logo-black-100.png)](/en)\n\n[FR](/thratre-royal-de-rabat \"Français\")[EN](/en/thratre-royal-de-rabat \"English\")[AR](/ar/thratre-royal-de-rabat \"العربية\")\n\n[Sign in](/en/mon-espace/connexion \"Sign in\")\n\n* ##### Your basket is empty\n\n  Explore our events and let yourself be inspired!   \n   Find tickets for concerts, festivals and sporting events in Morocco and Africa.\n\n\n\n![](https://s3.eu-north-1.amazonaws.com/events.ma/categories/06-2026/27/6cd85657-c9a4-43fc-9242-a2d682410cce-1780538804-c7k7.webp)\n\n# THÉTRE ROYAL DE RABAT\n\n15 event(s) found\n\n[![](https://s3.eu-north-1.amazonaws.com/events.ma/events/10-2026/1541/7364d77d-a23f-40e1-a3f5-98c087389488-1792424727-Pn3D.webp)**05**Dec\n\nTHÉTRE ROYAL DE RABAT\n\n### L’immense « Noetic » de Sidi Larbi Cherkaoui s’empare de la capitale !\n\nThétre Royal de Rabat, Rabat\n\nSaturday 5 December 2026\n\n20:00\n\nfrom**500 MAD**](/en/thratre-royal-de-rabat/noetic-05-12-26)[![](https://s3.eu-north-1.amazonaws.com/events.ma/events/10-2026/1544/79dbc381-f2ac-46bb-865a-c871d0370fbf-1792425219-Dh8u.webp)**18**Dec\n\nTHÉTRE ROYAL DE RABAT\n\n### LONDON COMMUNITY GOSPEL CHOIR\n\nThétre Royal de Rabat, Rabat\n\nFriday 18 December 2026\n"
         }
       ]
     }
