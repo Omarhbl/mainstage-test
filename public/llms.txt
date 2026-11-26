@@ -1,0 +1,37 @@
+# Mainstage
+
+> Mainstage is a Moroccan publication covering music, events, cinema, people, sport and culture, with interviews, news, listings and a live radio player.
+
+The website is https://www.themainstagent.com/. Individual stories live under /articles/ and include publication dates and, where available, update dates. Link to the original article when citing a story. Event dates, ticket availability, film screenings and music charts can change; consult the linked page and ticketing provider for current details.
+
+This guide describes public content. It does not replace robots.txt, grant additional permissions or provide access to private editorial or client areas.
+
+## Explore Mainstage
+
+- [Homepage](https://www.themainstagent.com/): Featured stories and the latest coverage.
+- [Trending](https://www.themainstagent.com/trending): Trending stories.
+- [Events](https://www.themainstagent.com/events): Upcoming Moroccan events and event coverage.
+- [Music](https://www.themainstagent.com/music): Music news, artist interviews and releases.
+- [Cinema](https://www.themainstagent.com/cinema): Film coverage and Moroccan cinema listings.
+- [People](https://www.themainstagent.com/people): Personalities, interviews and people news.
+- [Sport](https://www.themainstagent.com/sport): Sports coverage.
+- [Culture](https://www.themainstagent.com/culture): Culture stories.
+- [On Air](https://www.themainstagent.com/radio): Live radio player.
+
+## Article discovery
+
+- [Sitemap](https://www.themainstagent.com/sitemap.xml): Public pages and published article URLs.
+- [News sitemap](https://www.themainstagent.com/news-sitemap.xml): Recently published articles; older stories remain in the main sitemap.
+- [Morocco Top 50](https://www.themainstagent.com/music/top-50): Music chart coverage.
+
+## About and contact
+
+- [About Mainstage](https://www.themainstagent.com/about): Publication information.
+- [Contact](https://www.themainstagent.com/contact): Contact the team.
+
+## Optional
+
+- [Robots](https://www.themainstagent.com/robots.txt): Crawler access rules and sitemap locations.
+- [Privacy policy](https://www.themainstagent.com/privacy-policy): Privacy information.
+- [Terms and conditions](https://www.themainstagent.com/terms-conditions): Website terms.
+- [Intellectual property](https://www.themainstagent.com/intellectual-property): Content ownership and use.
