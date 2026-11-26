@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "syncedAt": "2026-11-25T18:08:49.581Z",
+  "syncedAt": "2026-11-26T17:52:20.872Z",
   "sources": [
     {
       "id": "iticket",
-      "checkedAt": "2026-11-25T18:08:49.581Z",
+      "checkedAt": "2026-11-26T17:52:20.872Z",
       "error": null,
       "items": [
         {
@@ -18,7 +18,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-25T18:08:49.581Z"
+          "observedAt": "2026-11-26T17:52:20.872Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/hajib-en-concert-a-rabat",
@@ -31,7 +31,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-25T18:08:49.581Z"
+          "observedAt": "2026-11-26T17:52:20.872Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/soiree-aissawa-avec-yassine-eljamai",
@@ -44,7 +44,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-25T18:08:49.581Z"
+          "observedAt": "2026-11-26T17:52:20.872Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/tiakola-en-concert-a-casablanca",
@@ -57,7 +57,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-25T18:08:49.581Z"
+          "observedAt": "2026-11-26T17:52:20.872Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/stormy-desperado-casablanca-11-12",
@@ -70,7 +70,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-25T18:08:49.581Z"
+          "observedAt": "2026-11-26T17:52:20.872Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/rnboi-and-elgrandetoto-en-concert-a-rabat",
@@ -83,7 +83,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-25T18:08:49.581Z"
+          "observedAt": "2026-11-26T17:52:20.872Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/sport/morocco-football-scouting-rabat-dec-2026",
@@ -96,7 +96,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-25T18:08:49.581Z"
+          "observedAt": "2026-11-26T17:52:20.872Z"
         }
       ],
       "drafts": [
@@ -129,49 +129,30 @@
     },
     {
       "id": "ticket",
-      "checkedAt": "2026-11-25T18:08:49.581Z",
+      "checkedAt": "2026-11-26T17:52:20.872Z",
       "error": null,
       "items": [],
       "drafts": [
         {
-          "url": "https://www.ticket.ma/ticket/concerts/4122/hatim-idar-en-concert-casablanca-2026",
-          "title": "HATIM IDAR en concert exclusif à Casablanca ! - Théâtre Mohamed VI",
+          "url": "https://www.ticket.ma/ticket/concerts/4384/wael-jassar-concert-casablanca-2026",
+          "title": "Wael Jassar en Concert à Casablanca - Complexe Mohammed V",
           "reasons": [
             "Event heading needs verification",
             "Missing or conflicting event date",
             "Poster needs verification"
           ],
-          "evidence": "&lt;iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-5TPCFFVX\"&gt;&lt;/iframe&gt; HATIM IDAR en concert exclusif à Casablanca ! - Théâtre Mohamed VI | Ticket.ma"
+          "evidence": "&lt;iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-5TPCFFVX\"&gt;&lt;/iframe&gt; Wael Jassar en Concert à Casablanca - Complexe Mohammed V | Ticket.ma"
         },
         {
-          "url": "https://www.ticket.ma/ticket/concerts/4360/amal-mazzika-orchestra-rabat-2026",
-          "title": "Amal & Mazzika Orchestra - Rabat - Théâtre National Mohamed V",
+          "url": "https://www.ticket.ma/ticket/concerts/4084/nuit-des-voix-et-des-coeurs-mai-2026",
+          "title": "Nuit des Voix et des Cœurs – Gala Solidaire Anaïs 2026 - Route d'Azemmour",
           "reasons": [
             "Event heading needs verification",
             "Missing or conflicting event date",
+            "Moroccan location needs verification",
             "Poster needs verification"
           ],
-          "evidence": "&lt;iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-5TPCFFVX\"&gt;&lt;/iframe&gt; Amal & Mazzika Orchestra - Rabat - Théâtre National Mohamed V | Ticket.ma"
-        },
-        {
-          "url": "https://www.ticket.ma/ticket/concerts/4441/valse-sans-frontieres-a-rabat-decembre-2026",
-          "title": "Valse sans frontières à Rabat – Quand Vienne rencontre l’Orient - Cathédrale Saint-Pierre",
-          "reasons": [
-            "Event heading needs verification",
-            "Missing or conflicting event date",
-            "Poster needs verification"
-          ],
-          "evidence": "&lt;iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-5TPCFFVX\"&gt;&lt;/iframe&gt; Valse sans frontières à Rabat – Quand Vienne rencontre l’Orient - Cathédrale Saint-Pierre | Ticket.ma"
-        },
-        {
-          "url": "https://www.ticket.ma/ticket/concerts/4376/hatim-idar-rabat-2026",
-          "title": "HATIM IDAR À RABAT - Salle Bahnini",
-          "reasons": [
-            "Event heading needs verification",
-            "Missing or conflicting event date",
-            "Poster needs verification"
-          ],
-          "evidence": "&lt;iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-5TPCFFVX\"&gt;&lt;/iframe&gt; HATIM IDAR À RABAT - Salle Bahnini | Ticket.ma"
+          "evidence": "&lt;iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-5TPCFFVX\"&gt;&lt;/iframe&gt; Nuit des Voix et des Cœurs – Gala Solidaire Anaïs 2026 - Route d'Azemmour | Ticket.ma"
         },
         {
           "url": "https://www.ticket.ma/ticket/concerts/4393/manal-benchlikha-complexe-mohamed-5-2026",
@@ -182,12 +163,23 @@
             "Poster needs verification"
           ],
           "evidence": "&lt;iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-5TPCFFVX\"&gt;&lt;/iframe&gt; MANAL BENCHLIKHA — UNE EXPÉRIENCE UNIQUE À CASABLANCA - Complexe Sportif Mohammed V | Ticket.ma"
+        },
+        {
+          "url": "https://www.ticket.ma/ticket/opm/4106/opm-invite-hoba-hoba-spirit-casa-23-mai-2026",
+          "title": "OPM INVITE HOBA HOBA SPIRIT - CASA 23/05 - Espace Sacré-Cœur",
+          "reasons": [
+            "Event heading needs verification",
+            "Missing or conflicting event date",
+            "Moroccan location needs verification",
+            "Poster needs verification"
+          ],
+          "evidence": "&lt;iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-5TPCFFVX\"&gt;&lt;/iframe&gt; OPM INVITE HOBA HOBA SPIRIT - CASA 23/05 - Espace Sacré-Cœur | Ticket.ma"
         }
       ]
     },
     {
       "id": "webook",
-      "checkedAt": "2026-11-25T18:08:49.581Z",
+      "checkedAt": "2026-11-26T17:52:20.872Z",
       "error": null,
       "items": [],
       "drafts": [
@@ -203,16 +195,15 @@
           "evidence": "&lt;iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-KHVBC25L\"&gt;&lt;/iframe&gt; &lt;iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-NTRB2V4R\"&gt;&lt;/iframe&gt;"
         },
         {
-          "url": "https://webook.com/ma/rab/music-events/events/tiesto-24jun",
-          "title": "TIESTO",
+          "url": "https://webook.com/ma/sal/sports-event/events/fifa-u17-1november",
+          "title": "Nov 1 FIFA U-17 Women's WC QF Official Tickets",
           "reasons": [
-            "Page content unavailable",
             "Event heading needs verification",
             "Missing or conflicting event date",
             "Moroccan location needs verification",
             "Poster needs verification"
           ],
-          "evidence": "Tiësto is a visionary producer and DJ. Venue OLM Souissi Rabat, Morocco. Kings Slam 2026 – Riyadh Season 2026/2027 Event · Dec 27 - Dec 30 6"
+          "evidence": "&lt;iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-KHVBC25L\"&gt;&lt;/iframe&gt; &lt;iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-NTRB2V4R\"&gt;&lt;/iframe&gt;"
         },
         {
           "url": "https://webook.com/en/ma/rab/sports-event/events/u17-m10-28may",
@@ -227,8 +218,8 @@
           "evidence": "If you are looking for U-17 AFCON Morocco 2026 tickets, semi-final football in Rabat, or a North African football showdown, this is a must-see"
         },
         {
-          "url": "https://webook.com/ma/sal/sports-event/events/u17-m9-24may",
-          "title": "U-17 AFCON 2026 Official Tickets | Mohammed VI",
+          "url": "https://webook.com/ma/rab/music-events/events/tiesto-24jun",
+          "title": "TIESTO",
           "reasons": [
             "Page content unavailable",
             "Event heading needs verification",
@@ -236,37 +227,27 @@
             "Moroccan location needs verification",
             "Poster needs verification"
           ],
-          "evidence": "Buy official tickets for U-17 AFCON 2026 Quarter Finals on May 24 at Mohammed VI Football Complex, Morocco."
+          "evidence": "TIESTO 25 June 2026 - 22:30 PM From $ 119.79. Venue OLM Souissi Rabat, Morocco. Dec 27 - Dec 30 6 Kings Slam Riyadh, Saudi Arabia From $53.33"
         },
         {
-          "url": "https://webook.com/ma/knr/music-events/events/realshow-7liwa-2026",
-          "title": "The Real Show Kenitra Official Tickets | April 11 2026 | Salle Couverte",
+          "url": "https://webook.com/en/ma/rab/music-events/events/black20-mw-2026",
+          "title": "Black Quotidienne 20/06/2026",
           "reasons": [
-            "Page content unavailable",
             "Event heading needs verification",
             "Missing or conflicting event date",
             "Moroccan location needs verification",
             "Poster needs verification"
           ],
-          "evidence": "Get your official tickets for The Real Show in Kenitra on April 11, 2026 at Salle Couverte La Ville Haute. 7liwa & Abduh live – Limited seats, book now!"
+          "evidence": "&lt;iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-KHVBC25L\"&gt;&lt;/iframe&gt; &lt;iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-NTRB2V4R\"&gt;&lt;/iframe&gt;"
         }
       ]
     },
     {
       "id": "eventsma",
-      "checkedAt": "2026-11-25T18:08:49.581Z",
+      "checkedAt": "2026-11-26T17:52:20.872Z",
       "error": null,
       "items": [],
       "drafts": [
-        {
-          "url": "https://events.ma/concerts-festivals/dunia-batma-29-11-26",
-          "title": "DUNIA BATMA à Casablanca",
-          "reasons": [
-            "Missing or conflicting event date",
-            "Poster needs verification"
-          ],
-          "evidence": "![](https://events.ma/assets/imgs/headers/header-bg.jpg)\n\nConcerts & Festivals\n\n# Dunia BATMA à Casablanca\n\n### Partager\n\n## À l'affiche\n\n[Dunia Batma](https://events.ma/artistes/dunia-batma)\n\n![](https://s3.eu-north-1.amazonaws.com/events.ma/artists/10-2026/54/b3bb01c3-181d-4f52-9436-1f1db28e0fce-1793382056-g6ht.webp)\n\n## À propos\n\nNe manquez pas Dunia Batma en tournée ! L'icône de la chanson marocaine se produira le 29 NOVEMBRE à 20h30 au megarama Casablanca. Venez découvrir ou redécouvrir les plus grands succès de cette artiste exceptionnelle dans un spectacle live inoubliable. Une soirée musicale authentique produite par Work Event. Réservez vos billets dès maintenant sur events.ma ou appelez le 06 20 95 90 00 !\n\nDon't miss Dunia Batma on tour! The Moroccan music icon will perform on NOVEMBRE 29th at 8:30 PM at megarama in Casablanca. Come discover or rediscover the greatest hits of this exceptional artist in an unforgettable live show. An authentic musical evening produced by Work Event. Book your tickets now at events.ma or call 06 20 95 90 00!\n\nلا تفوتوا دنيا بطمة في جولتها الفنية! ستقدم أيقونة الموسيقى المغربية عرضاً في 29-11-2026 في الساعة 20:30 بميغاراما الدار البيضاء. تع"
-        },
         {
           "url": "https://events.ma/concerts-festivals/dunia-batma-18-12-26",
           "title": "Dunia BATMA à Marrakech",
@@ -274,7 +255,7 @@
             "Missing or conflicting event date",
             "Poster needs verification"
           ],
-          "evidence": "Concerts & Festivals\n\n# Dunia BATMA à Marrakech\n\n### Share\n\n## Line-up\n\n## About\n\nNe manquez pas Dunia Batma en tournée ! L'icône de la chanson marocaine se produira le 18 decembre à 23h00 au Megarama Marrakech. Venez découvrir ou redécouvrir les plus grands succès de cette artiste exceptionnelle dans un spectacle live inoubliable. Une soirée musicale authentique produite par Work Event. Réservez vos billets dès maintenant sur events.ma ou appelez le 06 20 95 90 00 !\n\nDon't miss Dunia Batma on tour! The Moroccan music icon will perform on decembre 18th at 8:30 PM at Megarama Marrakech. Come discover or rediscover the greatest hits of this exceptional artist in an unforgettable live show. An authentic musical evening produced by Work Event. Book your tickets now at events.ma or call 06 20 95 90 00!\n\nلا تفوتوا دنيا بطمة في جولتها الفنية! ستقدم أيقونة الموسيقى المغربية عرضاً في 18-12-2026 في الساعة 20:30 . تعالوا لاكتشاف أو إعادة اكتشاف أعظم أغاني هذه الفنانة الاستثنائية في عرض حي لا يُنسى. أمسية موسيقية أصيلة تنتجه وورك إيفنت. احجزوا تذاكركم الآن على\n\nevents.ma\n\n- Interface friendly\n- Payment secure\n- Wide variety of events\n- Customer support responsive"
+          "evidence": "![](https://events.ma/assets/imgs/headers/header-bg.jpg)\n\nConcerts & Festivals\n\n# Dunia BATMA à Marrakech\n\n### Partager\n\n## À l'affiche\n\n[Dunia Batma](https://events.ma/artistes/dunia-batma)\n\n![](https://s3.eu-north-1.amazonaws.com/events.ma/artists/10-2026/54/b3bb01c3-181d-4f52-9436-1f1db28e0fce-1793382056-g6ht.webp)\n\n## À propos\n\nNe manquez pas Dunia Batma en tournée ! L'icône de la chanson marocaine se produira le 18 decembre à 23h00 au Megarama Marrakech. Venez découvrir ou redécouvrir les plus grands succès de cette artiste exceptionnelle dans un spectacle live inoubliable. Une soirée musicale authentique produite par Work Event. Réservez vos billets dès maintenant sur events.ma ou appelez le 06 20 95 90 00 !\n\nDon't miss Dunia Batma on tour! The Moroccan music icon will perform on decembre 18th at 8:30 PM at Megarama Marrakech. Come discover or rediscover the greatest hits of this exceptional artist in an unforgettable live show. An authentic musical evening produced by Work Event. Book your tickets now at events.ma or call 06 20 95 90 00!\n\nلا تفوتوا دنيا بطمة في جولتها الفنية! ستقدم أيقونة الموسيقى المغربية عرضاً في 18-12-2026 في الساعة 20:30 . تعالوا لاكتشاف أو إعادة اكتشاف "
         }
       ]
     }
