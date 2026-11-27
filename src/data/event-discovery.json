@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "syncedAt": "2026-11-26T17:52:20.872Z",
+  "syncedAt": "2026-11-27T17:37:10.129Z",
   "sources": [
     {
       "id": "iticket",
-      "checkedAt": "2026-11-26T17:52:20.872Z",
+      "checkedAt": "2026-11-27T17:37:10.129Z",
       "error": null,
       "items": [
         {
@@ -18,7 +18,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-26T17:52:20.872Z"
+          "observedAt": "2026-11-27T17:37:10.129Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/hajib-en-concert-a-rabat",
@@ -31,7 +31,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-26T17:52:20.872Z"
+          "observedAt": "2026-11-27T17:37:10.129Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/soiree-aissawa-avec-yassine-eljamai",
@@ -44,7 +44,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-26T17:52:20.872Z"
+          "observedAt": "2026-11-27T17:37:10.129Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/tiakola-en-concert-a-casablanca",
@@ -57,7 +57,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-26T17:52:20.872Z"
+          "observedAt": "2026-11-27T17:37:10.129Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/stormy-desperado-casablanca-11-12",
@@ -70,7 +70,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-26T17:52:20.872Z"
+          "observedAt": "2026-11-27T17:37:10.129Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/concerts/rnboi-and-elgrandetoto-en-concert-a-rabat",
@@ -83,7 +83,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-26T17:52:20.872Z"
+          "observedAt": "2026-11-27T17:37:10.129Z"
         },
         {
           "id": "iticket-https://iticket.ma/events/sport/morocco-football-scouting-rabat-dec-2026",
@@ -96,7 +96,7 @@
           "sources": [
             "iticket"
           ],
-          "observedAt": "2026-11-26T17:52:20.872Z"
+          "observedAt": "2026-11-27T17:37:10.129Z"
         }
       ],
       "drafts": [
@@ -129,63 +129,61 @@
     },
     {
       "id": "ticket",
-      "checkedAt": "2026-11-26T17:52:20.872Z",
+      "checkedAt": "2026-11-27T17:37:10.129Z",
       "error": null,
       "items": [],
       "drafts": [
         {
-          "url": "https://www.ticket.ma/ticket/concerts/4384/wael-jassar-concert-casablanca-2026",
-          "title": "Wael Jassar en Concert à Casablanca - Complexe Mohammed V",
+          "url": "https://www.ticket.ma/ticket/spectacles/4069/one-night-of-queen-13-novembre-2027",
+          "title": "ONE NIGHT OF QUEEN 13/11 - Boulevard de la Corniche,",
           "reasons": [
             "Event heading needs verification",
             "Missing or conflicting event date",
             "Poster needs verification"
           ],
-          "evidence": "&lt;iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-5TPCFFVX\"&gt;&lt;/iframe&gt; Wael Jassar en Concert à Casablanca - Complexe Mohammed V | Ticket.ma"
+          "evidence": "\" Le meilleur show de Queen depuis Queen \" Les 12 & 13 Novembre 2027 au Mégarama Casablanca.\n\nPréparez-vous à vivre une soirée exceptionnelle !Pendant 2 heures de live, revivez toute la puissance et la magie de Queen dans un spectacle spectaculaire qui fait vibrer les salles du monde entier.Avec Gary Mullen & The Works, plongez dans l’univers de Freddie Mercury et laissez-vous emporter par une ambiance unique où toute la salle chante, vibre et se lève à l’unisson.\n\n\\- Bohemian Rhapsody - We Will Rock You - We Are The Champions - Somebody To Love - Don’t Stop Me Now\n\nUn show explosif, fédérateur et 100% live. Une expérience unique à vivre en famille ou entre amis. Le concert où vous allez chanter du début à la fin. ​ Le plus proche de Queen que vous puissiez vivre sur scène aujourd’hui.\n\nSamedi 5 Décembre 2026\n\nLe Square By Onomo Collection- Casablanca\n\nÀ partir de 150 MAD\n\nMercredi 9 Décembre 2026\n\nJune café restaurant- Casablanca\n\nÀ partir de 250 MAD\n\nDimanche 20 Décembre 2026\n\nThéâtre abdessamad kenfaoui- Casablanca\n\nÀ partir de 180 MAD\n\nJeudi 24 Décembre 2026\n\nThéâtre Diwane Arts- Casablanca\n\nÀ partir de 130 MAD\n\nSamedi 26 Décembre 2026\n\nPetit Théâtre - Rôtisserie de la Paix- Ma"
         },
         {
-          "url": "https://www.ticket.ma/ticket/concerts/4084/nuit-des-voix-et-des-coeurs-mai-2026",
-          "title": "Nuit des Voix et des Cœurs – Gala Solidaire Anaïs 2026 - Route d'Azemmour",
+          "url": "https://www.ticket.ma/ticket/concerts/4359/amal-mazzika-orchrstra-casablanca-2026",
+          "title": "Amal & Mazzika Orchestra - Casablanca - Route d'Azemmour",
           "reasons": [
             "Event heading needs verification",
             "Missing or conflicting event date",
-            "Moroccan location needs verification",
             "Poster needs verification"
           ],
-          "evidence": "&lt;iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-5TPCFFVX\"&gt;&lt;/iframe&gt; Nuit des Voix et des Cœurs – Gala Solidaire Anaïs 2026 - Route d'Azemmour | Ticket.ma"
+          "evidence": "Les chansons de nos vies. Les émotions de toujours.\n\nIl y a des chansons qu’on écoute. Et puis il y a celles qui font partie de notre vie.\n\nQuelques notes d’Oum Kalthoum, Fairouz, Warda ou Abdel Halim Hafez… et soudain, un souvenir revient. Une voix, un visage, une soirée en famille, un amour, une époque.\n\nC’est cette émotion que MAZZIKA fait renaître sur scène.\n\nEnta Omri, Alf Leila w Leila, Fakkarouni, Batwaness Bik, Kalimat… Ces mélodies mythiques qui ont traversé les générations prennent une nouvelle dimension avec MAZZIKA Orchestra.\n\nSous la direction de Dr Amal Guermazi, cheffe d’orchestre, violoniste et musicologue, les grands classiques de la musique arabe sont magnifiés par des orchestrations contemporaines, puissantes et élégantes, sans jamais perdre leur âme.\n\nMais MAZZIKA est bien plus qu’un concert. C’est une soirée où l’on reconnaît, se souvient, ressent, fredonne et chante. Une même mélodie peut rappeler aux parents leur jeunesse et permettre à leurs enfants de découvrir à leur tour ces chansons éternelles. Les générations se retrouvent. Les souvenirs reviennent. Les émotions se partagent.\n\nAprès les scènes de Paris, Londres, Boston, Los Angeles, New York, Bruxelles,"
         },
         {
-          "url": "https://www.ticket.ma/ticket/concerts/4393/manal-benchlikha-complexe-mohamed-5-2026",
-          "title": "MANAL BENCHLIKHA — UNE EXPÉRIENCE UNIQUE À CASABLANCA - Complexe Sportif Mohammed V",
+          "url": "https://www.ticket.ma/ticket/concerts/4394/concert-de-musique-classique-2026",
+          "title": "Concert de musique classique - Complexe culturel Zefzaf",
           "reasons": [
             "Event heading needs verification",
             "Missing or conflicting event date",
             "Poster needs verification"
           ],
-          "evidence": "&lt;iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-5TPCFFVX\"&gt;&lt;/iframe&gt; MANAL BENCHLIKHA — UNE EXPÉRIENCE UNIQUE À CASABLANCA - Complexe Sportif Mohammed V | Ticket.ma"
+          "evidence": "**UN GRAND CONCERT DE MUSIQUE CLASSIQUE AVEC : LE CARDELLINO STREICHQUARTETT D’ALLEMANGE ET KIMBALL GALLAGHER AU PIANO**\n\n**A l’occasion du 70ème Anniversaire des relations diplomatiques entre l’Allemagne et le Royaume du Maroc, L'Association\"AnouArts\" en partenariat avec l’Association \"88 INTERNATIONAL\", l’Institut Marocain des Relations Internationales \"IMRI\" et le Complexe Culturel Zefzaf du Maârif organisent , le Mecredi 07 Octobre 2026 à 19h00, un grand concert de Musique Classique avec: Le Cardellino Streichquartett d’Allemange Et KIMBALL GALLAGHER au PIANO**\n\n**CARDELLINO STREICHQUARTETT**\n\nFondé par quatre musiciens des plus grandes formations orchestrales allemandes, le « Cardellino Streichquartett » reunit les violonistes Johannes Krause et Clemens Ratajczak, l'altiste Juan Urena Hevia et le violoncelliste Emanuel Matz. Le concert inclut aussi deux clubs de musique de Morocco 88 ainsi que la chorale de Morocco88 et le clarinettiste Adil Loissame, toute en collaboration avec le quatuor à cordes.\n\n**KIMBALL GALLAGHER - PIANO**\n\nKimball Gallagher est pianiste de concert, compositeur et fondateur de 88 International, une ONG américaine qui utilise la musique comme outil d'aut"
         },
         {
-          "url": "https://www.ticket.ma/ticket/opm/4106/opm-invite-hoba-hoba-spirit-casa-23-mai-2026",
-          "title": "OPM INVITE HOBA HOBA SPIRIT - CASA 23/05 - Espace Sacré-Cœur",
+          "url": "https://www.ticket.ma/ticket/concerts/4258/tif-noah-juillet-2026",
+          "title": "Noah x No party - noah",
           "reasons": [
             "Event heading needs verification",
             "Missing or conflicting event date",
-            "Moroccan location needs verification",
             "Poster needs verification"
           ],
-          "evidence": "&lt;iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-5TPCFFVX\"&gt;&lt;/iframe&gt; OPM INVITE HOBA HOBA SPIRIT - CASA 23/05 - Espace Sacré-Cœur | Ticket.ma"
+          "evidence": "HSH presents *No Party at Noah Casablanca* featuring TIF, Daweee, Naghib, Louis, Nazim, and very special guests.\n\nJeudi 3 Décembre 2026\n\nÉglise Notre-Dame-de-Lourdes- Casablanca\n\nÀ partir de 100 MAD\n\nComplexe Mohamed V- Casablanca\n\nÀ partir de 400 MAD\n\nVendredi 4 Décembre 2026\n\nSalle Bahnini- Rabat\n\nCathédrale Saint Pierre- Rabat\n\nSamedi 5 Décembre 2026\n\nMaison de La Culture Fkih Lamnnouni- Meknes\n\nÀ partir de 200 MAD\n\nVendredi 11 Décembre 2026\n\nComplexe sportif Mohamed V- Casablanca\n\nÀ partir de 250 MAD\n\nSamedi 12 Décembre 2026\n\nDimanche 13 Décembre 2026\n\nSofitel Rabat- Rabat\n\nÀ partir de 300 MAD\n\nSamedi 19 Décembre 2026\n\nThéâtre abdessamad kenfaoui- Casablanca\n\nDimanche 20 Décembre 2026\n\nSalle de Fête Riad El Asmar- Casablanca\n\nÀ partir de 350 MAD\n\nSamedi 26 Décembre 2026\n\nMarriott- Rabat\n\nÀ partir de 370 MAD\n\nPalais des Festivals et des Congrès- Marrakech\n\nÀ partir de 150 MAD\n\nSamedi 2 Janvier 2027\n\nÀ partir de 220 MAD\n\nSamedi 23 Janvier 2027\n\nInscrivez-vous à la newsletter Ticket.ma pour que vous soyez alertés en amont des meilleurs plans, spectacles, concerts, festivals, etc.\n\nUn problème technique a interrompu l'affichage de cette page. Vos informations sont en sécurité."
         }
       ]
     },
     {
       "id": "webook",
-      "checkedAt": "2026-11-26T17:52:20.872Z",
+      "checkedAt": "2026-11-27T17:37:10.129Z",
       "error": null,
       "items": [],
       "drafts": [
         {
-          "url": "https://webook.com/ma/cas/sports-event/events/wafcon-26-m26",
-          "title": "WAFCON Morocco 2026 QF2 Official Tickets",
+          "url": "https://webook.com/ma/sal/sports-event/events/fifa-u17-1november",
+          "title": "NOVEMBER 1st – FIFA U-17 Women's World Cup Morocco 2026",
           "reasons": [
             "Event heading needs verification",
             "Missing or conflicting event date",
@@ -195,8 +193,8 @@
           "evidence": "&lt;iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-KHVBC25L\"&gt;&lt;/iframe&gt; &lt;iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-NTRB2V4R\"&gt;&lt;/iframe&gt;"
         },
         {
-          "url": "https://webook.com/ma/sal/sports-event/events/fifa-u17-1november",
-          "title": "Nov 1 FIFA U-17 Women's WC QF Official Tickets",
+          "url": "https://webook.com/ma/cas/sports-event/events/wafcon-26-m26",
+          "title": "WAFCON Morocco 2026 QF2 Official Tickets",
           "reasons": [
             "Event heading needs verification",
             "Missing or conflicting event date",
@@ -215,11 +213,11 @@
             "Moroccan location needs verification",
             "Poster needs verification"
           ],
-          "evidence": "If you are looking for U-17 AFCON Morocco 2026 tickets, semi-final football in Rabat, or a North African football showdown, this is a must-see"
+          "evidence": "U-17 Africa Cup of Nations Morocco 2026. Dec 27 - Dec 30 6 Kings Slam Riyadh, Saudi Arabia From $53.33. Fun things are happening! Stay tuned!"
         },
         {
-          "url": "https://webook.com/ma/rab/music-events/events/tiesto-24jun",
-          "title": "TIESTO",
+          "url": "https://webook.com/en/ma/rab/sports-event/events/u17-m12-2jun",
+          "title": "U-17 AFCON Morocco 2026 Semi-Final Official Tickets",
           "reasons": [
             "Page content unavailable",
             "Event heading needs verification",
@@ -227,35 +225,61 @@
             "Moroccan location needs verification",
             "Poster needs verification"
           ],
-          "evidence": "TIESTO 25 June 2026 - 22:30 PM From $ 119.79. Venue OLM Souissi Rabat, Morocco. Dec 27 - Dec 30 6 Kings Slam Riyadh, Saudi Arabia From $53.33"
+          "evidence": "AFCON Morocco 2026. U-17 Africa Cup of Nations Morocco. Venue: Stade Moulay Hassan, Rabat, Morocco🎟️. Dec 27 - Dec 30 6 Kings Slam Riyadh, Saudi"
         },
         {
-          "url": "https://webook.com/en/ma/rab/music-events/events/black20-mw-2026",
-          "title": "Black Quotidienne 20/06/2026",
+          "url": "https://webook.com/en/ma/rab/sports-event/events/u17-m1-moroccovstunisia",
+          "title": "GS- U-17 - M1 MOROCCO vs TUNISIA",
           "reasons": [
+            "Page content unavailable",
             "Event heading needs verification",
             "Missing or conflicting event date",
             "Moroccan location needs verification",
             "Poster needs verification"
           ],
-          "evidence": "&lt;iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-KHVBC25L\"&gt;&lt;/iframe&gt; &lt;iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-NTRB2V4R\"&gt;&lt;/iframe&gt;"
+          "evidence": "Morocco vs Tunisia at Stade Moulay Hassan, Rabat, on Wednesday, May 13, 2026. December at 7:00 PM to 9:00 PM"
         }
       ]
     },
     {
       "id": "eventsma",
-      "checkedAt": "2026-11-26T17:52:20.872Z",
+      "checkedAt": "2026-11-27T17:37:10.129Z",
       "error": null,
       "items": [],
       "drafts": [
         {
-          "url": "https://events.ma/concerts-festivals/dunia-batma-18-12-26",
-          "title": "Dunia BATMA à Marrakech",
+          "url": "https://events.ma/concerts-festivals/peter-pan-on-ice-28-11-26-20h",
+          "title": "PETER PAN ON ICE – THE ICE SHOW",
+          "reasons": [
+            "Poster needs verification"
+          ],
+          "evidence": "![](https://s3.eu-north-1.amazonaws.com/events.ma/events/05-2026/1262/266cadb3-61d1-4761-a1ca-4de02235f9ce-1779509971-Gs6Q.webp)\n\nConcerts & Festivals\n\n# PETER PAN ON ICE – THE ICE SHOW\n\n### Partager\n\n## À propos\n\n### Peter Pan on Ice à la Patinoire de Rabat : Le spectacle magique à ne pas manquer\n\nPour la première fois à la Patinoire de Rabat, la glace se transforme en scène de spectacle !\n\nLes International Ice Stars présentent Peter Pan on Ice, un grand spectacle international sur glace destiné à toute la famille.\n\nEnvolez-vous vers le Pays Imaginaire aux côtés de Peter Pan, Wendy, la Fée Clochette et leurs compagnons, et vivez une aventure pleine de magie, d’humour et d’émotion.\n\nSauts spectaculaires, portés acrobatiques, chorégraphies envoûtantes et costumes féeriques : les patineurs des International Ice Stars, artistes de renommée internationale, donnent vie à ce célèbre conte comme vous ne l’avez jamais vu.\n\nUn spectacle imaginé pour les enfants, qui saura également émerveiller les parents et les grands-parents. Petits et grands, venez partager un moment magique en famille !\n\nPlusieurs représentations sont programmées tout au long du week-end : choisissez celle qui vous con"
+        },
+        {
+          "url": "https://www.events.ma/concerts-festivals/hatim-ammor-18-11-25",
+          "title": "Hatim Ammor A CASABLANCA",
           "reasons": [
             "Missing or conflicting event date",
             "Poster needs verification"
           ],
-          "evidence": "![](https://events.ma/assets/imgs/headers/header-bg.jpg)\n\nConcerts & Festivals\n\n# Dunia BATMA à Marrakech\n\n### Partager\n\n## À l'affiche\n\n[Dunia Batma](https://events.ma/artistes/dunia-batma)\n\n![](https://s3.eu-north-1.amazonaws.com/events.ma/artists/10-2026/54/b3bb01c3-181d-4f52-9436-1f1db28e0fce-1793382056-g6ht.webp)\n\n## À propos\n\nNe manquez pas Dunia Batma en tournée ! L'icône de la chanson marocaine se produira le 18 decembre à 23h00 au Megarama Marrakech. Venez découvrir ou redécouvrir les plus grands succès de cette artiste exceptionnelle dans un spectacle live inoubliable. Une soirée musicale authentique produite par Work Event. Réservez vos billets dès maintenant sur events.ma ou appelez le 06 20 95 90 00 !\n\nDon't miss Dunia Batma on tour! The Moroccan music icon will perform on decembre 18th at 8:30 PM at Megarama Marrakech. Come discover or rediscover the greatest hits of this exceptional artist in an unforgettable live show. An authentic musical evening produced by Work Event. Book your tickets now at events.ma or call 06 20 95 90 00!\n\nلا تفوتوا دنيا بطمة في جولتها الفنية! ستقدم أيقونة الموسيقى المغربية عرضاً في 18-12-2026 في الساعة 20:30 . تعالوا لاكتشاف أو إعادة اكتشاف "
+          "evidence": "![](https://www.events.ma/assets/imgs/headers/header-bg.jpg)\n\nConcerts & Festivals\n\n# Hatim Ammor à CASABLANCA\n\n### Share\n\n## About\n\nGet ready for an unforgettable night with Hatim Ammor!\n\nJoin us on November 18 at Le Carré d’Or – Casablanca for a Mega Show with a special guest surprise.\n\nExperience his greatest hits live in an electrifying atmosphere.\n\nLimited seats available — book your tickets now!\n\n🎟 Don’t miss the musical event of the year!\n\nPréparez-vous pour une soirée inoubliable avec Hatim Ammor !\n\nRendez-vous le 18 novembre au Carré d’Or – Casablanca pour un Mega Show avec invité surprise.\n\nVivez ses plus grands succès en live dans une ambiance exceptionnelle.\n\nPlaces limitées — réservez vos billets dès maintenant !\n\n🎟 Ne manquez pas l’événement musical de l’année !\n\nاستعدوا لليلة لا تُنسى مع حاتم عمور!\n\nنلتقي يوم 18 نونبر في لو كاريه دور – الدار البيضاء في عرض ضخم مع ضيف مفاجأة.\n\nاستمتعوا بأجمل أغانيه مباشرة في أجواء استثنائية.\n\n🎟 المقاعد محدودة — احجزوا تذاكركم الآن!\n\nلا تفوّتوا الحدث الموسيقي الأكبر لهذا العام!\n\n## Video\n\n- Interface friendly\n- Payment secure\n- Wide variety of events\n- Customer support responsive"
+        },
+        {
+          "url": "https://events.ma/concerts-festivals/nass-el-ghiwane-anas-lekhssasi",
+          "title": "NASS EL GHIWANE ainsi & Maalam Anas Lekhssasi",
+          "reasons": [
+            "Moroccan location needs verification",
+            "Poster needs verification"
+          ],
+          "evidence": "![](https://events.ma/assets/imgs/headers/header-bg.jpg)\n\nConcerts & Festivals\n\n# NASS EL GHIWANE ainsi & Maalam Anas Lekhssasi\n\n### Share\n\n## About\n\n🚨🚨Rendez-vous le 04 Décembre 2026 pour un spectacle Nostalgie avec le groupe mythique NASS EL GHIWANE ainsi que le Maalam Anas Lekhssasi\n\nسفر عبر الزمن مع الفرقة الأسطورية لناس الغيوان ونغمات كناوية مع المعلم الموهوب أنس لخصاصي.\n\nsoirée de rêve avec un duo au-delà de l’imagination.\n\nDans une ambiance festive et des chants vibrants, venez vivire en famille, entre amis des moment de rêves à Zenith Center à 20h00\n\n🍵Thé, eau et café inclus\n\n- Interface friendly\n- Payment secure\n- Wide variety of events\n- Customer support responsive"
+        },
+        {
+          "url": "https://events.ma/concerts-festivals/jason-derulo-04-12-26",
+          "title": "Jason Derulo · The Last Dance Tour",
+          "reasons": [
+            "Poster needs verification"
+          ],
+          "evidence": "![](https://events.ma/assets/imgs/headers/header-bg.jpg)\n\nConcerts & Festivals\n\n# Jason Derulo · The Last Dance Tour\n\n### Partager\n\n## À propos\n\n### Jason Derulo · The Last Dance Tour : un rendez-vous exceptionnel avec le public marocain à Rabat\n\nLe vendredi 4 décembre 2026, la star internationale Jason Derulo pose ses valises au Maroc avec The Last Dance Tour, pour une soirée unique sur la scène du Théâtre Royal de Rabat, l'un des emblèmes culturels et architecturaux les plus prestigieux du Royaume.\n\nCe concert s'annonce comme l'un des événements musicaux les plus attendus de la fin d'année : un show à l'américaine, porté par l'énergie, la danse et la performance scénique qui ont fait la réputation de l'artiste sur toutes les grandes scènes du monde.\n\nAuteur de tubes planétaires comme « Whatcha Say », « Talk Dirty », « Want to Want Me », « Wiggle » ou « Savage Love », Jason Derulo cumule des milliards d'écoutes et compte parmi les artistes les plus suivis au monde sur les réseaux sociaux.\n\nChanteur, danseur et showman hors pair, il promet au public marocain une expérience intense, festive et spectaculaire, dans un lieu d'exception à la hauteur de l'événement.\n\n### Informations imp"
         }
       ]
     }
